@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="BinaryNotesDistribution" default="all" basedir=".">
+  <property file="build.properties"/>
+  <target name="init">
+    <tstamp/>
+    <mkdir dir="${output.dir}"/>
+  </target>
+  <target name="all" description="Build the project" depends="build-dist"/>
+  <target name="build-dist" description="Building jar file" depends="init">
+        <zip destfile="${output.dir}/BinaryNotes${version}-all.zip" compress="yes">
+            <fileset dir="${package.path}">
+		<exclude name="**/.svn"/>
+		<exclude name="**/*.class"/>
+		<exclude name="**/classes/**"/>
+		<exclude name="**/obj/**"/>
+		<exclude name="**/*.suo"/>
+	    </fileset>
+        </zip>  
+        <zip destfile="${output.dir}/BinaryNotes${version}-only-bin.zip" compress="yes" >
+            <fileset dir="${package.path}" defaultexcludes="yes">
+		<exclude name="**/.svn"/>
+		<include name="Dist/**"/>
+		<include name="ChangeLog.txt"/>
+	    </fileset>
+        </zip>  
+  </target>
+</project>

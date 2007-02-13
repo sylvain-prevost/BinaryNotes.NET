@@ -1,0 +1,215 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0EEB930C-D643-4258-9912-7D546F6AC031}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BinaryNotesMQ</RootNamespace>
+    <AssemblyName>BinaryNotesMQ</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Dist\lib\.net\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Dist\lib\.net\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\org\bn\mq\impl\PTPSession.cs" />
+    <Compile Include="src\org\bn\mq\IPTPSessionListener.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\org\bn\mq\ICallAsyncListener.cs" />
+    <Compile Include="src\org\bn\mq\IConsumer.cs" />
+    <Compile Include="src\org\bn\mq\IMessage.cs" />
+    <Compile Include="src\org\bn\mq\IMessageQueue.cs" />
+    <Compile Include="src\org\bn\mq\IMessagingBus.cs" />
+    <Compile Include="src\org\bn\mq\impl\InMemoryQueueStorage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\InMemoryStorage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\Message.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\MessageQueue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\MessagingBus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\MQConnection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\MQServerConnection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\NullQueueStorage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\NullStorage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\ProxyCallAsyncListener.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\Queue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\RemoteConsumer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\RemoteMessageQueue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\RemoteSupplier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\SQLQueueStorage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\SQLStorage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\impl\Supplier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\IMQConnection.cs" />
+    <Compile Include="src\org\bn\mq\IMQConnectionListener.cs" />
+    <Compile Include="src\org\bn\mq\IPersistenceQueueStorage.cs" />
+    <Compile Include="src\org\bn\mq\IPersistenceStorage.cs" />
+    <Compile Include="src\org\bn\mq\IPTPSession.cs" />
+    <Compile Include="src\org\bn\mq\IQueue.cs" />
+    <Compile Include="src\org\bn\mq\IRemoteConsumer.cs" />
+    <Compile Include="src\org\bn\mq\IRemoteMessageQueue.cs" />
+    <Compile Include="src\org\bn\mq\IRemoteSupplier.cs" />
+    <Compile Include="src\org\bn\mq\ISupplier.cs" />
+    <Compile Include="src\org\bn\mq\MQFactory.cs" />
+    <Compile Include="src\org\bn\mq\net\ASN1TransportMessageCoder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\ASN1TransportMessageCoderFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\ByteBuffer.cs" />
+    <Compile Include="src\org\bn\mq\net\ITransport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\ITransportCallListener.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\ITransportConnectionListener.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\ITransportFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\ITransportMessageCoder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\ITransportMessageCoderFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\ITransportReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\MessagingBusNet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\AcceptorFactory.cs" />
+    <Compile Include="src\org\bn\mq\net\tcp\AsyncCallItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\AsyncCallManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\Connector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\ConnectorFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\ConnectorStorage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\ConnectorTransport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\ServerClientTransport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\ServerTransport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\SocketFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\Transport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\TransportFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\TransportPacket.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\Writer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\net\tcp\WriterStorage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\org\bn\mq\protocol\AliveRequest.cs" />
+    <Compile Include="src\org\bn\mq\protocol\BinaryNotesMQ.cs" />
+    <Compile Include="src\org\bn\mq\protocol\DeliveredStatus.cs" />
+    <Compile Include="src\org\bn\mq\protocol\DeliveryReport.cs" />
+    <Compile Include="src\org\bn\mq\protocol\LookupRequest.cs" />
+    <Compile Include="src\org\bn\mq\protocol\LookupResult.cs" />
+    <Compile Include="src\org\bn\mq\protocol\LookupResultCode.cs" />
+    <Compile Include="src\org\bn\mq\protocol\main.cs" />
+    <Compile Include="src\org\bn\mq\protocol\MessageBody.cs" />
+    <Compile Include="src\org\bn\mq\protocol\MessageEnvelope.cs" />
+    <Compile Include="src\org\bn\mq\protocol\MessageUserBody.cs" />
+    <Compile Include="src\org\bn\mq\protocol\SubscribeRequest.cs" />
+    <Compile Include="src\org\bn\mq\protocol\SubscribeResult.cs" />
+    <Compile Include="src\org\bn\mq\protocol\SubscribeResultCode.cs" />
+    <Compile Include="src\org\bn\mq\protocol\UnsubscribeRequest.cs" />
+    <Compile Include="src\org\bn\mq\protocol\UnsubscribeResult.cs" />
+    <Compile Include="src\org\bn\mq\protocol\UnsubscribeResultCode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BinaryNotes.NET\BinaryNotes.csproj">
+      <Project>{7BB91554-CA9A-4F6E-91CB-E34410F215A7}</Project>
+      <Name>BinaryNotes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>..\..\..\bin\bncompiler.cmd -mp ..\..\..\bin\modules -o ..\..\..\..\BinaryNotesMQ\.net\BinaryNotesMQ\src\org\bn\mq\protocol -ns org.bn.mq.protocol -f ..\..\..\..\BinaryNotesMQ\asn\BinaryNotesMQ.asn -m cs</PreBuildEvent>
+  </PropertyGroup>
+</Project>

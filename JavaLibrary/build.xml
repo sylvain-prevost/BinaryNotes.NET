@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="BinaryNotesLibrary" default="all" basedir=".">
+  <property file="build.properties"/>
+  <path id="library.JUnit">
+    <pathelement location="${depends.libs.path}/junit.jar"/>
+  </path>
+  <path id="classpath">
+    <path refid="library.JUnit"/>
+  </path>
+  <target name="init">
+    <tstamp/>
+    <mkdir dir="${output.dir}"/>
+  </target>
+  <target name="all" description="Build the project" depends="compile,copy-docs,buildjar,debug"/>
+  <target name="debug" description="Build the debug project" depends="compile-debug,buildjar-debug"/>
+  <target name="clean" description="Clean the project">
+    <delete includeemptydirs="true" quiet="true">
+      <fileset dir="${output.dir}" includes="**/*"/>
+    </delete>
+  </target>
+  <target name="compile" description="Compile Java source files" depends="init">
+    <antcall target="clean"/>
+    <javac destdir="${output.dir}" classpathref="classpath"
+           debug="${javac.debug}" nowarn="${javac.nowarn}"
+           deprecation="${javac.deprecation}">
+      <src path="src"/>
+      <compilerarg line="${javac.compilerargs}"/>
+    </javac>
+  </target>
+  <target name="compile-debug" description="Compile Java source files" depends="init">
+    <antcall target="clean"/>
+    <javac destdir="${output.dir}" classpathref="classpath"
+           debug="on" nowarn="${javac.nowarn}"
+           deprecation="${javac.deprecation}">
+      <src path="src"/>
+      <compilerarg line="${javac.compilerargs}"/>
+    </javac>
+  </target>
+  <target name="buildjar" description="Building jar file" depends="init">
+        <jar destfile="${dist.path.lib}/binarynotes.jar" compress="yes">
+            <fileset dir="${output.dir}">
+		<exclude name="test/**"/>
+	    </fileset>
+	    <manifest>
+		<attribute name="Implementation-Vendor" value="Abdulla G. Abdurakhmanov"/>
+		<attribute name="Implementation-URL" value="http://bnotes.sourceforge.net"/>
+		<attribute name="Implementation-Mail" value="abdulla.abdurakhmanov@gmail.com"/>
+		<attribute name="Implementation-Title" value="BinaryNotes Library"/>
+		<attribute name="Version" value="${version}"/>
+	    </manifest>
+        </jar>
+        <jar destfile="${dist.path.lib}/unit-tests/binarynotes-ut.jar" compress="yes">
+            <fileset dir="${output.dir}">
+		<exclude name="org/**"/>
+	    </fileset>
+	    <manifest>
+		<attribute name="Implementation-Vendor" value="Abdulla G. Abdurakhmanov"/>
+		<attribute name="Implementation-URL" value="http://bnotes.sourceforge.net"/>
+		<attribute name="Implementation-Mail" value="abdulla.abdurakhmanov@gmail.com"/>
+		<attribute name="Implementation-Title" value="BinaryNotes UnitTests"/>
+		<attribute name="Version" value="${version}"/>
+	    </manifest>
+        </jar>
+  </target>
+  <target name="buildjar-debug" description="Building debug jar file" depends="init">
+        <jar destfile="${dist.path.lib}/binarynotesd.jar" compress="yes">
+            <fileset dir="${output.dir}">
+		<exclude name="test/**"/>
+	    </fileset>
+	    <manifest>
+		<attribute name="Implementation-Vendor" value="Abdulla G. Abdurakhmanov"/>
+		<attribute name="Implementation-URL" value="http://bnotes.sourceforge.net"/>
+		<attribute name="Implementation-Mail" value="abdulla.abdurakhmanov@gmail.com"/>
+		<attribute name="Implementation-Title" value="BinaryNotes Library (Debug)"/>
+		<attribute name="Version" value="${version}"/>
+	    </manifest>
+        </jar>  
+        <jar destfile="${dist.path.lib}/unit-tests/binarynotes-utd.jar" compress="yes">
+            <fileset dir="${output.dir}">
+		<exclude name="org/**"/>
+	    </fileset>
+	    <manifest>
+		<attribute name="Implementation-Vendor" value="Abdulla G. Abdurakhmanov"/>
+		<attribute name="Implementation-URL" value="http://bnotes.sourceforge.net"/>
+		<attribute name="Implementation-Mail" value="abdulla.abdurakhmanov@gmail.com"/>
+		<attribute name="Implementation-Title" value="BinaryNotes UnitTests (Debug)"/>
+		<attribute name="Version" value="${version}"/>
+	    </manifest>
+        </jar>
+  </target>
+  <target name="copy-docs" description="Copy docs to Dist"
+          depends="init">
+    <copy todir="${dist.path.doc}/html">
+      <fileset dir="doc/html"/>
+    </copy>
+  </target>
+</project>

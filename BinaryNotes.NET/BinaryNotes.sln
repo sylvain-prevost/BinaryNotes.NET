@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryNotes", "BinaryNotes.csproj", "{7BB91554-CA9A-4F6E-91CB-E34410F215A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{8D701C15-B34F-4F9D-B70A-8188BCF13232}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryNotesMQ", "..\BinaryNotesMQ\.net\BinaryNotesMQ\BinaryNotesMQ.csproj", "{0EEB930C-D643-4258-9912-7D546F6AC031}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BNMQTests", "..\BinaryNotesMQ\.net\BNMQTests\BNMQTests.csproj", "{940A43F5-F22A-4C5E-9271-F381B159BDD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BNMQExample", "..\BinaryNotesMQ\examples\.net\BNMQExample\BNMQExample.csproj", "{4801C926-5F21-484E-83C3-E28626C8BB09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryNotesCF", "CF\BinaryNotesCF\BinaryNotesCF.csproj", "{72AB1AFF-9ECD-4730-93B5-BF9E3B497241}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryNotesMQCF", "..\BinaryNotesMQ\.net\BinaryNotesMQCF\BinaryNotesMQCF.csproj", "{FBE152BF-B843-448F-9D5C-92F27181CCB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BB91554-CA9A-4F6E-91CB-E34410F215A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BB91554-CA9A-4F6E-91CB-E34410F215A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BB91554-CA9A-4F6E-91CB-E34410F215A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BB91554-CA9A-4F6E-91CB-E34410F215A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D701C15-B34F-4F9D-B70A-8188BCF13232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D701C15-B34F-4F9D-B70A-8188BCF13232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D701C15-B34F-4F9D-B70A-8188BCF13232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D701C15-B34F-4F9D-B70A-8188BCF13232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EEB930C-D643-4258-9912-7D546F6AC031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EEB930C-D643-4258-9912-7D546F6AC031}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EEB930C-D643-4258-9912-7D546F6AC031}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EEB930C-D643-4258-9912-7D546F6AC031}.Release|Any CPU.Build.0 = Release|Any CPU
+		{940A43F5-F22A-4C5E-9271-F381B159BDD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{940A43F5-F22A-4C5E-9271-F381B159BDD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{940A43F5-F22A-4C5E-9271-F381B159BDD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{940A43F5-F22A-4C5E-9271-F381B159BDD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4801C926-5F21-484E-83C3-E28626C8BB09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4801C926-5F21-484E-83C3-E28626C8BB09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4801C926-5F21-484E-83C3-E28626C8BB09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4801C926-5F21-484E-83C3-E28626C8BB09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72AB1AFF-9ECD-4730-93B5-BF9E3B497241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72AB1AFF-9ECD-4730-93B5-BF9E3B497241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72AB1AFF-9ECD-4730-93B5-BF9E3B497241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72AB1AFF-9ECD-4730-93B5-BF9E3B497241}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBE152BF-B843-448F-9D5C-92F27181CCB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBE152BF-B843-448F-9D5C-92F27181CCB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBE152BF-B843-448F-9D5C-92F27181CCB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBE152BF-B843-448F-9D5C-92F27181CCB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

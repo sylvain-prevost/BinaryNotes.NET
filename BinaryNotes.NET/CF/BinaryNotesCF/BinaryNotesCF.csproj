@@ -1,0 +1,293 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{72AB1AFF-9ECD-4730-93B5-BF9E3B497241}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BinaryNotesCF</RootNamespace>
+    <AssemblyName>BinaryNotesCF</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>PocketPC</PlatformFamilyName>
+    <PlatformID>3C41C503-53EF-4c2a-8DD4-A8217CAD115E</PlatformID>
+    <OSVersion>4.20</OSVersion>
+    <DeployDirSuffix>BinaryNotesCF</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FormFactorID>
+    </FormFactorID>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Dist\lib\.net\CF\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Dist\lib\.net\CF\Release\</OutputPath>
+    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\org\bn\attributes\ASN1Any.cs">
+      <Link>src\ASN1Any.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1BitString.cs">
+      <Link>src\ASN1BitString.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1Boolean.cs">
+      <Link>src\ASN1Boolean.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1BoxedType.cs">
+      <Link>src\ASN1BoxedType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1Choice.cs">
+      <Link>src\ASN1Choice.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1Element.cs">
+      <Link>src\ASN1Element.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1Enum.cs">
+      <Link>src\ASN1Enum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1EnumItem.cs">
+      <Link>src\ASN1EnumItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1Integer.cs">
+      <Link>src\ASN1Integer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1Module.cs">
+      <Link>src\ASN1Module.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1Null.cs">
+      <Link>src\ASN1Null.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1OctetString.cs">
+      <Link>src\ASN1OctetString.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1PreparedElement.cs">
+      <Link>src\ASN1PreparedElement.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1Real.cs">
+      <Link>src\ASN1Real.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1Sequence.cs">
+      <Link>src\ASN1Sequence.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1SequenceOf.cs">
+      <Link>src\ASN1SequenceOf.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1String.cs">
+      <Link>src\ASN1String.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\constraints\ASN1PatternConstraint.cs">
+      <Link>src\ASN1PatternConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\constraints\ASN1SignedNumberConstraint.cs">
+      <Link>src\ASN1SignedNumberConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\constraints\ASN1SizeConstraint.cs">
+      <Link>src\ASN1SizeConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\attributes\constraints\ASN1ValueRangeConstraint.cs">
+      <Link>src\ASN1ValueRangeConstraint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\CoderFactory.cs">
+      <Link>src\CoderFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\ASN1PreparedElementData.cs">
+      <Link>src\ASN1PreparedElementData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\ber\BERCoderUtils.cs">
+      <Link>src\BERCoderUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\ber\BERDecoder.cs">
+      <Link>src\BERDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\ber\BEREncoder.cs">
+      <Link>src\BEREncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\CoderUtils.cs">
+      <Link>src\CoderUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\DecodedObject.cs">
+      <Link>src\DecodedObject.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\Decoder.cs">
+      <Link>src\Decoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\der\DERDecoder.cs">
+      <Link>src\DERDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\der\DEREncoder.cs">
+      <Link>src\DEREncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\ElementInfo.cs">
+      <Link>src\ElementInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\ElementType.cs">
+      <Link>src\ElementType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\Encoder.cs">
+      <Link>src\Encoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\IASN1PreparedElement.cs">
+      <Link>src\IASN1PreparedElement.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\IASN1PreparedElementData.cs">
+      <Link>src\IASN1PreparedElementData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\IASN1TypesDecoder.cs">
+      <Link>src\IASN1TypesDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\IASN1TypesEncoder.cs">
+      <Link>src\IASN1TypesEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\per\PERAlignedDecoder.cs">
+      <Link>src\PERAlignedDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\per\PERAlignedEncoder.cs">
+      <Link>src\PERAlignedEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\per\PERCoderUtils.cs">
+      <Link>src\PERCoderUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\per\PERUnalignedDecoder.cs">
+      <Link>src\PERUnalignedDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\per\PERUnalignedEncoder.cs">
+      <Link>src\PERUnalignedEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\TagClass.cs">
+      <Link>src\TagClass.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\coders\UniversalTags.cs">
+      <Link>src\UniversalTags.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\IDecoder.cs">
+      <Link>src\IDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\IEncoder.cs">
+      <Link>src\IEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1AnyMetadata.cs">
+      <Link>src\ASN1AnyMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1BitStringMetadata.cs">
+      <Link>src\ASN1BitStringMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1BooleanMetadata.cs">
+      <Link>src\ASN1BooleanMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1BoxedTypeMetadata.cs">
+      <Link>src\ASN1BoxedTypeMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1ChoiceMetadata.cs">
+      <Link>src\ASN1ChoiceMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1ElementMetadata.cs">
+      <Link>src\ASN1ElementMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1EnumItemMetadata.cs">
+      <Link>src\ASN1EnumItemMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1EnumMetadata.cs">
+      <Link>src\ASN1EnumMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1FieldMetadata.cs">
+      <Link>src\ASN1FieldMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1IntegerMetadata.cs">
+      <Link>src\ASN1IntegerMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1Metadata.cs">
+      <Link>src\ASN1Metadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1NullMetadata.cs">
+      <Link>src\ASN1NullMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1OctetStringMetadata.cs">
+      <Link>src\ASN1OctetStringMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1RealMetadata.cs">
+      <Link>src\ASN1RealMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1SequenceMetadata.cs">
+      <Link>src\ASN1SequenceMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1SequenceOfMetadata.cs">
+      <Link>src\ASN1SequenceOfMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1StringMetadata.cs">
+      <Link>src\ASN1StringMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1TypeMetadata.cs">
+      <Link>src\ASN1TypeMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\constraints\ASN1SizeConstraintMetadata.cs">
+      <Link>src\ASN1SizeConstraintMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\constraints\ASN1ValueRangeConstraintMetadata.cs">
+      <Link>src\ASN1ValueRangeConstraintMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\constraints\IASN1ConstraintMetadata.cs">
+      <Link>src\IASN1ConstraintMetadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\metadata\IASN1Metadata.cs">
+      <Link>src\IASN1Metadata.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\types\BitString.cs">
+      <Link>src\BitString.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\types\NullObject.cs">
+      <Link>src\NullObject.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\utils\BitArrayInputStream.cs">
+      <Link>src\BitArrayInputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\utils\BitArrayOutputStream.cs">
+      <Link>src\BitArrayOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\utils\ReverseByteArrayOutputStream.cs">
+      <Link>src\ReverseByteArrayOutputStream.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

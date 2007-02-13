@@ -1,0 +1,12 @@
+.\BinaryNotes.dll
+.\BinaryNotes.pdb
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\BinaryNotes.dll
+obj\Release\BinaryNotes.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\BinaryNotes.dll
+obj\Debug\BinaryNotes.pdb
+..\Dist\lib\.net\release\BinaryNotes.dll
+..\Dist\lib\.net\release\BinaryNotes.pdb
+..\Dist\lib\.net\debug\BinaryNotes.dll
+..\Dist\lib\.net\debug\BinaryNotes.pdb

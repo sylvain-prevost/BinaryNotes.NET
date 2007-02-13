@@ -1,0 +1,311 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FBE152BF-B843-448F-9D5C-92F27181CCB8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BinaryNotesMQCF</RootNamespace>
+    <AssemblyName>BinaryNotesMQCF</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>PocketPC</PlatformFamilyName>
+    <PlatformID>3C41C503-53EF-4c2a-8DD4-A8217CAD115E</PlatformID>
+    <OSVersion>4.20</OSVersion>
+    <DeployDirSuffix>BinaryNotesMQCF</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FormFactorID>
+    </FormFactorID>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Dist\lib\.net\cf\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Dist\lib\.net\cf\release\</OutputPath>
+    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\ICallAsyncListener.cs">
+      <Link>src\ICallAsyncListener.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IConsumer.cs">
+      <Link>src\IConsumer.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IMessage.cs">
+      <Link>src\IMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IMessageQueue.cs">
+      <Link>src\IMessageQueue.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IMessagingBus.cs">
+      <Link>src\IMessagingBus.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\InMemoryQueueStorage.cs">
+      <Link>src\InMemoryQueueStorage.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\InMemoryStorage.cs">
+      <Link>src\InMemoryStorage.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\Message.cs">
+      <Link>src\Message.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\MessageQueue.cs">
+      <Link>src\MessageQueue.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\MessagingBus.cs">
+      <Link>src\MessagingBus.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\MQConnection.cs">
+      <Link>src\MQConnection.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\MQServerConnection.cs">
+      <Link>src\MQServerConnection.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\NullQueueStorage.cs">
+      <Link>src\NullQueueStorage.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\NullStorage.cs">
+      <Link>src\NullStorage.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\ProxyCallAsyncListener.cs">
+      <Link>src\ProxyCallAsyncListener.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\PTPSession.cs">
+      <Link>src\PTPSession.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\Queue.cs">
+      <Link>src\Queue.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\RemoteConsumer.cs">
+      <Link>src\RemoteConsumer.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\RemoteMessageQueue.cs">
+      <Link>src\RemoteMessageQueue.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\RemoteSupplier.cs">
+      <Link>src\RemoteSupplier.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\SQLQueueStorage.cs">
+      <Link>src\SQLQueueStorage.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\SQLStorage.cs">
+      <Link>src\SQLStorage.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\impl\Supplier.cs">
+      <Link>src\Supplier.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IMQConnection.cs">
+      <Link>src\IMQConnection.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IMQConnectionListener.cs">
+      <Link>src\IMQConnectionListener.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IPersistenceQueueStorage.cs">
+      <Link>src\IPersistenceQueueStorage.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IPersistenceStorage.cs">
+      <Link>src\IPersistenceStorage.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IPTPSession.cs">
+      <Link>src\IPTPSession.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IPTPSessionListener.cs">
+      <Link>src\IPTPSessionListener.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IQueue.cs">
+      <Link>src\IQueue.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IRemoteConsumer.cs">
+      <Link>src\IRemoteConsumer.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IRemoteMessageQueue.cs">
+      <Link>src\IRemoteMessageQueue.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\IRemoteSupplier.cs">
+      <Link>src\IRemoteSupplier.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\ISupplier.cs">
+      <Link>src\ISupplier.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\MQFactory.cs">
+      <Link>src\MQFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\ASN1TransportMessageCoder.cs">
+      <Link>src\ASN1TransportMessageCoder.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\ASN1TransportMessageCoderFactory.cs">
+      <Link>src\ASN1TransportMessageCoderFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\ByteBuffer.cs">
+      <Link>src\ByteBuffer.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\ITransport.cs">
+      <Link>src\ITransport.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\ITransportCallListener.cs">
+      <Link>src\ITransportCallListener.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\ITransportConnectionListener.cs">
+      <Link>src\ITransportConnectionListener.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\ITransportFactory.cs">
+      <Link>src\ITransportFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\ITransportMessageCoder.cs">
+      <Link>src\ITransportMessageCoder.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\ITransportMessageCoderFactory.cs">
+      <Link>src\ITransportMessageCoderFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\ITransportReader.cs">
+      <Link>src\ITransportReader.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\MessagingBusNet.cs">
+      <Link>src\MessagingBusNet.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\AcceptorFactory.cs">
+      <Link>src\AcceptorFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\AsyncCallItem.cs">
+      <Link>src\AsyncCallItem.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\AsyncCallManager.cs">
+      <Link>src\AsyncCallManager.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\Connector.cs">
+      <Link>src\Connector.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\ConnectorFactory.cs">
+      <Link>src\ConnectorFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\ConnectorStorage.cs">
+      <Link>src\ConnectorStorage.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\ConnectorTransport.cs">
+      <Link>src\ConnectorTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\ServerClientTransport.cs">
+      <Link>src\ServerClientTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\ServerTransport.cs">
+      <Link>src\ServerTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\SocketFactory.cs">
+      <Link>src\SocketFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\Transport.cs">
+      <Link>src\Transport.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\TransportFactory.cs">
+      <Link>src\TransportFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\TransportPacket.cs">
+      <Link>src\TransportPacket.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\Writer.cs">
+      <Link>src\Writer.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\net\tcp\WriterStorage.cs">
+      <Link>src\WriterStorage.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\AliveRequest.cs">
+      <Link>src\AliveRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\BinaryNotesMQ.cs">
+      <Link>src\BinaryNotesMQ.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\DeliveredStatus.cs">
+      <Link>src\DeliveredStatus.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\DeliveryReport.cs">
+      <Link>src\DeliveryReport.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\LookupRequest.cs">
+      <Link>src\LookupRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\LookupResult.cs">
+      <Link>src\LookupResult.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\LookupResultCode.cs">
+      <Link>src\LookupResultCode.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\main.cs">
+      <Link>src\main.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\MessageBody.cs">
+      <Link>src\MessageBody.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\MessageEnvelope.cs">
+      <Link>src\MessageEnvelope.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\MessageUserBody.cs">
+      <Link>src\MessageUserBody.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\SubscribeRequest.cs">
+      <Link>src\SubscribeRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\SubscribeResult.cs">
+      <Link>src\SubscribeResult.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\SubscribeResultCode.cs">
+      <Link>src\SubscribeResultCode.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\UnsubscribeRequest.cs">
+      <Link>src\UnsubscribeRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\UnsubscribeResult.cs">
+      <Link>src\UnsubscribeResult.cs</Link>
+    </Compile>
+    <Compile Include="..\BinaryNotesMQ\src\org\bn\mq\protocol\UnsubscribeResultCode.cs">
+      <Link>src\UnsubscribeResultCode.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BinaryNotes.NET\CF\BinaryNotesCF\BinaryNotesCF.csproj">
+      <Project>{72AB1AFF-9ECD-4730-93B5-BF9E3B497241}</Project>
+      <Name>BinaryNotesCF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

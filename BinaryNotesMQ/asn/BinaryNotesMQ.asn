@@ -1,0 +1,110 @@
+-- test.asn --
+
+BinaryNotesMQ
+
+DEFINITIONS IMPLICIT TAGS ::= BEGIN
+	
+	MessageEnvelope ::= SEQUENCE {
+		id			PrintableString (SIZE(0 .. 255)),
+		deliveryReportReq	BOOLEAN DEFAULT false,
+		body			MessageBody
+	}
+
+	MessageBody ::= CHOICE {
+		messageUserBody		[0] MessageUserBody,
+		deliveryReport		[1] DeliveryReport,
+		subscribeRequest	[2] SubscribeRequest,
+		subscribeResult		[3] SubscribeResult,
+		unsubscribeRequest	[4] UnsubscribeRequest,		
+		unsubscribeResult	[5] UnsubscribeResult,
+		lookupRequest		[6] LookupRequest,
+		lookupResult		[7] LookupResult,
+		aliveRequest		[8] AliveRequest
+	}
+
+	MessageUserBody ::= SEQUENCE {
+		userBody		[0] OCTET STRING,
+		consumerId		[1] UTF8String,
+		queuePath		[2] UTF8String,
+		senderId		[3] UTF8String OPTIONAL
+	}
+	
+	SubscribeRequest ::= SEQUENCE {
+		consumerId		UTF8String,
+		queuePath		UTF8String,
+		persistence		BOOLEAN DEFAULT false,
+		filter			UTF8String OPTIONAL		
+	}
+
+	SubscribeResult ::= SEQUENCE {
+		code	SubscribeResultCode,
+		details	UTF8String OPTIONAL
+	}
+
+	SubscribeResultCode ::= ENUMERATED {
+		success			(0),
+		alreadySubscription     (1),
+		unknownQueue		(2),
+		persistenceNotAvailable (3),
+		invalidConsumerId	(4),
+		accessDenied		(5),
+		unknown			(255)
+	}
+
+	UnsubscribeRequest ::= SEQUENCE {
+		consumerId		UTF8String,
+		queuePath		UTF8String OPTIONAL
+	}
+
+	UnsubscribeResult ::= SEQUENCE {
+		code		UnsubscribeResultCode,
+		details		UTF8String OPTIONAL
+	}
+
+	UnsubscribeResultCode ::= ENUMERATED {
+		success			(0),
+		subscriptionNotExists   (1),
+		unknownQueue		(2),
+		invalidConsumerId	(4),
+		accessDenied		(5),
+		unknown			(255)
+	}
+
+
+	DeliveryReport ::= SEQUENCE {
+		messageId	[0] PrintableString(SIZE(0 .. 255)),
+		status		[1] DeliveredStatus,
+		consumerId	[2] UTF8String,
+		queuePath	[3] UTF8String
+	}
+
+	DeliveredStatus ::= ENUMERATED {
+		unknown			(0),
+		delivered		(1),
+		expired			(2),
+		partialDelivered	(3),
+		noneConsumers		(4)
+	}
+
+	LookupRequest ::= SEQUENCE {
+		supplierName	PrintableString (SIZE(0 .. 255))
+	}
+
+	LookupResult ::= SEQUENCE {
+		code		LookupResultCode,
+		details		UTF8String OPTIONAL
+	}
+
+	LookupResultCode ::= ENUMERATED {
+		success			(0),
+		notFound		(1),
+		accessDenied		(2),
+		unknown			(255)
+	}
+
+	AliveRequest ::= SEQUENCE {
+		timestamp	INTEGER
+	}
+
+
+END

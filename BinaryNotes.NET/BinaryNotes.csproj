@@ -1,0 +1,238 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <SchemaVersion>2.0</SchemaVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>BinaryNotes</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BinaryNotes</RootNamespace>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <ProjectGuid>{7BB91554-CA9A-4F6E-91CB-E34410F215A7}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\Dist\lib\.net\debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\Dist\lib\.net\release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <Name>mscorlib</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Management">
+      <Name>System.Management</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="org\bn\attributes\ASN1Any.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1BitString.cs" />
+    <Compile Include="org\bn\attributes\ASN1Boolean.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1BoxedType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1Choice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1Element.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1Enum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1EnumItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1Integer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1Module.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1Null.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1OctetString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1PreparedElement.cs" />
+    <Compile Include="org\bn\attributes\ASN1Real.cs" />
+    <Compile Include="org\bn\attributes\ASN1Sequence.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1SequenceOf.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\ASN1String.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\constraints\ASN1PatternConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\constraints\ASN1SignedNumberConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\constraints\ASN1SizeConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\attributes\constraints\ASN1ValueRangeConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\CoderFactory.cs" />
+    <Compile Include="org\bn\coders\ASN1PreparedElementData.cs" />
+    <Compile Include="org\bn\coders\ber\BERCoderUtils.cs" />
+    <Compile Include="org\bn\coders\ber\BERDecoder.cs" />
+    <Compile Include="org\bn\coders\ber\BEREncoder.cs" />
+    <Compile Include="org\bn\coders\CoderUtils.cs" />
+    <Compile Include="org\bn\coders\DecodedObject.cs" />
+    <Compile Include="org\bn\coders\Decoder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\coders\der\DERDecoder.cs" />
+    <Compile Include="org\bn\coders\der\DEREncoder.cs" />
+    <Compile Include="org\bn\coders\ElementInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\coders\ElementType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\coders\Encoder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\coders\IASN1PreparedElement.cs" />
+    <Compile Include="org\bn\coders\IASN1PreparedElementData.cs" />
+    <Compile Include="org\bn\coders\IASN1TypesDecoder.cs" />
+    <Compile Include="org\bn\coders\IASN1TypesEncoder.cs" />
+    <Compile Include="org\bn\coders\per\PERAlignedDecoder.cs" />
+    <Compile Include="org\bn\coders\per\PERAlignedEncoder.cs" />
+    <Compile Include="org\bn\coders\per\PERCoderUtils.cs" />
+    <Compile Include="org\bn\coders\per\PERUnalignedDecoder.cs" />
+    <Compile Include="org\bn\coders\per\PERUnalignedEncoder.cs" />
+    <Compile Include="org\bn\coders\TagClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\coders\UniversalTags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\IDecoder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\IEncoder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="org\bn\metadata\ASN1AnyMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1BitStringMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1BooleanMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1BoxedTypeMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1ChoiceMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1ElementMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1EnumItemMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1EnumMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1FieldMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1IntegerMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1Metadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1NullMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1OctetStringMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1RealMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1SequenceMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1SequenceOfMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1StringMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1TypeMetadata.cs" />
+    <Compile Include="org\bn\metadata\constraints\ASN1SizeConstraintMetadata.cs" />
+    <Compile Include="org\bn\metadata\constraints\ASN1ValueRangeConstraintMetadata.cs" />
+    <Compile Include="org\bn\metadata\constraints\IASN1ConstraintMetadata.cs" />
+    <Compile Include="org\bn\metadata\IASN1Metadata.cs" />
+    <Compile Include="org\bn\types\BitString.cs" />
+    <Compile Include="org\bn\types\NullObject.cs" />
+    <Compile Include="org\bn\utils\BitArrayInputStream.cs" />
+    <Compile Include="org\bn\utils\BitArrayOutputStream.cs" />
+    <Compile Include="org\bn\utils\ReverseByteArrayOutputStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

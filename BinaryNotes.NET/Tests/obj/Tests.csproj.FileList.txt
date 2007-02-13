@@ -1,0 +1,14 @@
+bin\Release\Tests.exe
+bin\Release\Tests.pdb
+bin\Release\BinaryNotes.dll
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\Tests.exe
+obj\Release\Tests.pdb
+bin\Debug\Tests.exe
+bin\Debug\Tests.pdb
+bin\Debug\BinaryNotes.dll
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Tests.exe
+obj\Debug\Tests.pdb
+bin\Release\BinaryNotes.pdb
+bin\Debug\BinaryNotes.pdb

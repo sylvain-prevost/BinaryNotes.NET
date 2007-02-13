@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="BinaryNotesMessageQueues" default="all" basedir=".">
+  <property file="build.properties"/>
+  <path id="library.JUnit">
+    <pathelement location="${depends.libs.path}/junit.jar"/>
+  </path>
+  <path id="library.BN">
+    <pathelement location="${dist.path.lib}/binarynotes.jar"/>
+  </path>
+  <path id="library.BN-UT">
+    <pathelement location="${dist.path.lib}/unit-tests/binarynotes-ut.jar"/>
+  </path>
+  <path id="classpath">
+    <path refid="library.JUnit"/>
+    <path refid="library.BN"/>
+    <path refid="library.BN-UT"/>
+  </path>
+  <path id="bndepends.path">
+    <pathelement path="classes"/>
+    <pathelement path="${depends.libs.path}/lineargs.jar"/>
+    <pathelement path="${depends.libs.path}/antlr.jar"/>
+    <pathelement path="${depends.libs.path}/activation.jar"/>
+    <!--<pathelement path="${depends.libs.path}/jaxb-api.jar"/>
+    <pathelement path="${depends.libs.path}/jaxb-impl.jar"/>
+    <pathelement path="${depends.libs.path}/jaxb1-impl.jar"/>
+    <pathelement path="${depends.libs.path}/jsr173_1.0_api.jar"/> Java5 depends is removed-->
+    <pathelement path="${dist.path.lib}/java/binarynotes.jar"/>
+    <pathelement path="${dist.path.bin}/bncompiler.jar"/>
+  </path>
+  <target name="init">
+    <tstamp/>
+    <mkdir dir="${output.dir}"/>
+  </target>
+  <target name="bncompile" depends="init">
+    <java classname="org.bn.compiler.Main" fork="true">
+      <classpath refid="bndepends.path"/>
+      <arg value="-mp"/>
+      <arg value="${dist.path.bin}/modules"/>
+      <arg value="-m"/>
+      <arg value="java"/>
+      <arg value="-o"/>
+      <arg value="src/org/bn/mq/protocol"/>
+      <arg value="-ns"/>
+      <arg value="org.bn.mq.protocol"/>
+      <arg value="-f"/>
+      <arg value="../asn/BinaryNotesMQ.asn"/>
+    </java>
+  </target>
+  <target name="all" description="Build the project" depends="bncompile,compile,copy,copy-docs,buildjar"/>
+  <target name="clean" description="Clean the project">
+    <delete includeemptydirs="true" quiet="true">
+      <fileset dir="${output.dir}" includes="**/*"/>
+    </delete>
+  </target>
+  <target name="compile" description="Compile Java source files" depends="init">
+    <javac destdir="${output.dir}" classpathref="classpath"
+           debug="${javac.debug}" nowarn="${javac.nowarn}"
+           deprecation="${javac.deprecation}" encoding="Cp1251" source="1.5"
+           target="1.5">
+      <src path="src"/>
+      <compilerarg line="${javac.compilerargs}"/>
+    </javac>
+  </target>
+  <target name="copy" description="Copy files to output directory"
+          depends="init">
+    <patternset id="copy.patterns">
+      <include name="**/*.xml"/>
+      <include name="**/*.wsdl"/>
+      <include name="**/*.ini"/>
+    </patternset>
+    <copy todir="${output.dir}">
+      <fileset dir="src">
+        <patternset refid="copy.patterns"/>
+      </fileset>
+    </copy>
+  </target>
+  <target name="buildjar" description="Building jar file" depends="init">
+        <jar destfile="${dist.path.lib}/binarynotes-mq.jar" compress="yes">
+            <fileset dir="${output.dir}">
+		<exclude name="test/**"/>
+	    </fileset>
+	    <manifest>
+		<attribute name="Implementation-Vendor" value="Abdulla G. Abdurakhmanov"/>
+		<attribute name="Implementation-URL" value="http://bnotes.sourceforge.net"/>
+		<attribute name="Implementation-Mail" value="abdulla.abdurakhmanov@gmail.com"/>
+		<attribute name="Implementation-Title" value="BinaryNotes Message Queues"/>
+		<attribute name="Version" value="${version}"/>
+	    </manifest>
+        </jar>  
+        <jar destfile="${dist.path.lib}/unit-tests/binarynotes-mq-ut.jar" compress="yes">
+            <fileset dir="${output.dir}">
+		<exclude name="org/**"/>
+	    </fileset>
+	    <manifest>
+		<attribute name="Implementation-Vendor" value="Abdulla G. Abdurakhmanov"/>
+		<attribute name="Implementation-URL" value="http://bnotes.sourceforge.net"/>
+		<attribute name="Implementation-Mail" value="abdulla.abdurakhmanov@gmail.com"/>
+		<attribute name="Implementation-Title" value="BinaryNotes Message Queues UnitTests"/>
+		<attribute name="Version" value="${version}"/>
+	    </manifest>
+        </jar>  
+  </target>
+  <target name="copy-docs" description="Copy docs to Dist"
+          depends="init">
+    <copy todir="${dist.path.mqdoc}/html">
+      <fileset dir="doc/html"/>
+    </copy>
+  </target>
+
+</project>

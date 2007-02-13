@@ -1,0 +1,96 @@
+ChangeLog
+							Labels:
+							[*] 		- Bug fixed
+							[+] 		- Feature/Enhancement
+							[!] 		- Important warning or note
+							{<component>}	- Component/Group that changed
+
+1.4.2	{doc}		[*] Small documentation fixes
+1.4.2	{comp}		[*] Fixed a isPresent function generating for Java
+1.4.2	{all}		[+] Added for inner (member) java classes static modifier
+1.4.2	{comp}		[*] Fixed some incorrect code generations for inner choice/sequence and sequence of elements
+1.4.2	{comp}		[*] Fixed incorrect generating choice functions for mangled words.
+1.4.2	{all}		[*] Fixed incorrect coding of ASN.1 NULL in CHOICE (BER). Thanks to John Finley
+-
+1.4.1	{comp}		[+] Added the mangling procedure for decorate incompatible (or reserved) words for Java/.NET (class, private and etc)
+1.4.1	{lib}		[+] Added support for .NET Enum type mapping. Thanks to Chris Peterson.
+1.4.1	{dist}		[+] Added Java5 depend packages in distribution package 
+			    for developers which do not migrate to Java6 (MacOS, etc).
+1.4.1	{lib}		[*] Fixed decoding ANY for BER. Thanks to John Finley.
+1.4.1	{comp}		[*] Fixed generated imported packages for .NET
+1.4.1	{lib}		[*] Fixed incorrect encoding TAG between in range: 31..255. Thanks to Jussi Vainionpaa. 
+			    Also added UnitTest for encoding tag in this range for avoiding problems in future releases.
+1.4.1	{lib}		[*] Fixed incorrect decoding (in some cases) sequence of choice. Thanks to John Finley.
+-
+1.4.0	{lib}		[+] Simple & lightweight Point-to-point messaging/RPC model for BNMQ 
+1.4.0	{lib}		[+] BNMQ now supported the guaranteed message delivering (for mandatory messages)
+1.4.0	{lib}		[*] BNMQ big packet incorrect reading from socket fixed
+1.4.0	{lib}		[+] BNMQ API changes: added start() method for IMQConnection
+1.4.0	{lib}		[+] Added supports for .NET CF 2 for BNMQ (without support for SQLStorage)
+1.4.0	{lib}		[+] Added library supports for .NET Compact Framework 2.0
+1.4.0	{all}		[!] Added prepared metadata feature for generated classes 
+			    by BNComplier and highly improved performance (Reflection API is minimized).
+			    A coding/encoding performance is increased up to 80-100 times.
+			    Older style only with metadata is supported too.
+			    Big thanks to John Finley for ideas and cool performance test.
+1.4.0	{lib}		[*] Fixed incorrect constraint checks when BER SequenceOf decoding
+1.4.0	{lib]		[*] Fixed incorrect long tag decode for BER
+1.4.0	{lib}		[*] Fixed incorrect BER decoding BoxedTypes 
+			    with specified tag definitions (Thanks to Chris Peterson)
+1.4.0	{lib}		[*] Fixed decoding octet string without specified attribute. (Thanks to Chris Peterson).
+1.4.0	{comp}		[+] Removed JAXB reference implementation from distrib (already in Java6)
+1.4.0	{all}		[+] Migrated to Java 6 
+-
+1.3.0	{doc}		[+] Add new documentation for BinaryNotes (Dist\doc)
+1.3.0	{lib}		[*] Fixed BER encoding for long tags
+1.3.0	{all}		[!] Started the new project - BinaryNotes Message Queues (BNMQ). The more details will be available later at bnotes.sf.net.
+1.3.0 	{comp}		[*] Fixed incorrect default value generation for BOOLEAN
+1.3.0	{all}		[+] Updated version info & distribution package
+-
+1.2.3	{lib}		[*] Fixed BER sequence decoder problem
+1.2.3	{lib}		[*] Fixed NullPointerException when decoding choice in choice
+1.2.3   {dist}		[+] Added BinaryNotes debug library for Java (dist)
+1.2.3   {lib}		[*] PER/Unaligned encoding 7bit string has been fixed
+1.2.3   {comp}		[*] Long integer range is incorrect defined
+1.2.3   {comp}		[*] Fixed Boolean boxed type declaration
+-
+1.2.2   {all}		[+] Added support for long data type (range)
+1.2.2   {all}		[+] Added simple support (based on String mapping) for UTCTime/GeneralizedTime
+1.2.2   {all}		[+] Added support for Real datatype
+-
+1.2.1 	{all}		[*] Fixed encoding the anonymous BoxedTypes
+1.2.1 	{comp}		[+] Added constructor definition when generating some BoxedTypes
+1.2.1   {lib}		[*] Fixed choice in choice encoding
+-
+1.2.0b  {comp}		[*] Unable to generate source files for some ASN.1 defines (Thanks for report to Turgay Zengin)
+1.2.0b	{all}		[+] Added support for UTF8String
+1.2.0b  {all}		[+] Added support for SizeConstraint
+1.2.0b  {all}		[+] Added support for BitString
+1.2.0b  {lib}		[*] Fixed bug in BitStream when decoding buffer (only for .NET)
+1.2.0b  {lib}		[+] Added support for DER encoding (experimental)
+1.2.0b  {all}		[+] Added support for Set/SetOf element types
+1.2.0b	{lib}		[*] Fixed encoding for uncostraint integer (only for Java)
+1.2.0b  {all}		[+] Added support for default definition (has some restriction: don't supported choice/and over boxed definitions)
+1.2.0b  {comp}		[+] Added support for noname choice generation
+1.2.0b  {comp}		[+] Added support for noname sequence generation
+1.2.0b  {comp}		[+] Added support for noname sequence of sequence generation
+1.2.0b  {lib}		[*] Incorrect encoding/decoding with constraints is not allowed now
+-
+1.1.0b2 {lib}		[*] Fixed incorrect BER SequenceOf tag generation 
+1.1.0b2 {lib}		[*] Fixed incorrect BER/PER encoding/decoding for a negative integer
+1.1.0b2 {comp}		[*] Fixed generation bug for the value range constraint with negative integer
+1.1.0b2 {lib}		[*] Fixed memory corruption bug for packets > 1Kb (Thanks to John Finley)
+-
+1.1.0b 	{lib}		[*] Fixed the bug for optional field encoding for unset variables (only for C#/.NET)
+1.1.0b 	{comp}		[*] Removed unnecessary variable (_ispresent) for C#
+1.1.0b 	{doc}		[+] Added a small API documentation
+1.1.0b 	{comp} 		[*] Fixed the sequence of element type annotation generating
+1.1.0b 	{lib} 		[*] Fixed the bug when decoding length (thanks to John Finley)
+1.1.0b 	{lib} 		[!] Fixed the bug when encoding/decoding for SequenceOf element
+1.1.0b 	{comp} 		[*] Fixed incorrect the ASN1String type that generates by BNCompiler for boxed types
+1.1.0b 	{comp} 		[*] Fixed incorrect URL location to BinaryNotes site for all generating files
+1.1.0b 	{comp/lib}	[+] The PER encoding is supported now
+1.1.0b 	{lib} 		[*] Unit tests is refactored for use with another encodings
+1.1.0b 	{all} 		[*] Fixed the version information & distribution package
+-
+1.0.0b {all} 		[+] The first public release.

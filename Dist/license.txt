@@ -1,0 +1,35 @@
+-- License --
+
+* The BinaryNotes library & Messages Queues licensed under LGPL (Lesser GPL) v2 
+	(see to licenses\lgpl.txt for details).
+
+* The BinaryNotes compiler  licensed under GPL v2 
+		(see to licenses\gpl.txt for details).
+
+(á) 2006 Abdulla G. Abdurakhmanov (abdulla.abdurakhmanov@gmail.com)
+http://bnotes.sourceforge.net
+
+
+-- 3rd-party licenses --
+
+* The BinaryNotes compiler uses JAXB Reference implementation (http://jaxb.dev.java.net) 
+licensed under COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
+(see to licenses\3rdyparty\cddl.txt for details)
+
+* The BinaryNotesMQ uses HSQLDB implementation as default, but it's optionally, and maybe changed by another 
+developer to another SQL DB. 
+Web site: http://www.hsqldb.org
+Licensed under own license terms:
+See to licenses\3rdparty\hsqldb_lic.txt and licenses\3rdparty\hypersonic_lic.txt.
+
+* BinaryNotes uses JUnit for Java (only for Unit-tests, doesn't used in runtime).
+Licensed under Common Public License Version 1.0 (http://www.opensource.org/licenses/cpl.php)
+
+* BinaryNotes uses CSUnit for .NET (only for Unit-tests, doesn't used in runtime)
+Licensed under own license
+See to licenses\3rdparty\csunit_license.txt
+
+* The BinaryNotesMQ uses ADO.NET 2.0 Provider for SQLite implementation as default, 
+but it's optionally, and maybe changed by to another SQL DB. 
+Web site: http://sqlite.phxsoftware.com/
+There are zero licensing restrictions for private or commercial use.

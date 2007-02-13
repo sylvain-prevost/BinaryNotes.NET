@@ -1,0 +1,14 @@
+-- test.asn --
+
+Example
+
+DEFINITIONS IMPLICIT TAGS ::= BEGIN
+	
+	ExampleMessage ::= SEQUENCE {
+		field1	PrintableString,
+		field2	INTEGER,
+		field3	OCTET STRING OPTIONAL,
+		field4	UTF8String DEFAULT "Hello"
+	}	
+
+END

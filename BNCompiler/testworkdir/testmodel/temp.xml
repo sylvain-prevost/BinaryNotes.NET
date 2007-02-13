@@ -1,0 +1,3838 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<asn1Model>
+    <moduleDirectory>modules\java</moduleDirectory>
+    <outputDirectory>output</outputDirectory>
+    <runtimeArguments>-inputFileName</runtimeArguments>
+    <runtimeArguments>test.asn</runtimeArguments>
+    <moduleNS>test_asn</moduleNS>
+    <module>
+        <asnTypes>
+            <bitStrings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnBitString">
+                <BUILTINTYPE>BIT STRING</BUILTINTYPE>
+                <name>TestBitStr</name>
+            </bitStrings>
+            <bitStrings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnBitString">
+                <BUILTINTYPE>BIT STRING</BUILTINTYPE>
+                <constraint>
+                    <elemSetSpec>
+                        <intersectionList xsi:type="intersection">
+                            <cnsElemList xsi:type="constraintElements">
+<constraint>
+    <elemSetSpec>
+        <intersectionList xsi:type="intersection">
+            <cnsElemList xsi:type="constraintElements">
+                <isAlphabetConstraint>false</isAlphabetConstraint>
+                <isElementSetSpec>false</isElementSetSpec>
+                <isIncludeType>false</isIncludeType>
+                <isLEndLess>false</isLEndLess>
+                <isMaxKw>false</isMaxKw>
+                <isMinKw>false</isMinKw>
+                <isPatternValue>false</isPatternValue>
+                <isSizeConstraint>false</isSizeConstraint>
+                <isTypeConstraint>false</isTypeConstraint>
+                <isUEndLess>false</isUEndLess>
+                <isValue>false</isValue>
+                <isValueRange>true</isValueRange>
+                <isWithComponent>false</isWithComponent>
+                <isWithComponents>false</isWithComponents>
+                <lEndValue>
+                    <isAsnOIDValue>false</isAsnOIDValue>
+                    <isCStrValue>false</isCStrValue>
+                    <isCString>false</isCString>
+                    <isChoiceValue>false</isChoiceValue>
+                    <isDefinedValue>false</isDefinedValue>
+                    <isFalseKW>false</isFalseKW>
+                    <isMinusInfinity>false</isMinusInfinity>
+                    <isNullKW>false</isNullKW>
+                    <isPlusInfinity>false</isPlusInfinity>
+                    <isSequenceOfValue>false</isSequenceOfValue>
+                    <isSequenceValue>false</isSequenceValue>
+                    <isSignedNumber>true</isSignedNumber>
+                    <isTrueKW>false</isTrueKW>
+                    <signedNumber>
+                        <num>1</num>
+                        <positive>true</positive>
+                    </signedNumber>
+                </lEndValue>
+                <uEndValue>
+                    <isAsnOIDValue>false</isAsnOIDValue>
+                    <isCStrValue>false</isCStrValue>
+                    <isCString>false</isCString>
+                    <isChoiceValue>false</isChoiceValue>
+                    <isDefinedValue>false</isDefinedValue>
+                    <isFalseKW>false</isFalseKW>
+                    <isMinusInfinity>false</isMinusInfinity>
+                    <isNullKW>false</isNullKW>
+                    <isPlusInfinity>false</isPlusInfinity>
+                    <isSequenceOfValue>false</isSequenceOfValue>
+                    <isSequenceValue>false</isSequenceValue>
+                    <isSignedNumber>true</isSignedNumber>
+                    <isTrueKW>false</isTrueKW>
+                    <signedNumber>
+                        <num>16</num>
+                        <positive>true</positive>
+                    </signedNumber>
+                </uEndValue>
+            </cnsElemList>
+            <isExcept>false</isExcept>
+            <isInterSection>false</isInterSection>
+        </intersectionList>
+        <isAllExcept>false</isAllExcept>
+    </elemSetSpec>
+    <isAdditionalElementSpec>false</isAdditionalElementSpec>
+    <isColonValue>false</isColonValue>
+    <isCommaDotDot>false</isCommaDotDot>
+    <isDefinedValue>false</isDefinedValue>
+    <isElementSetSpecs>true</isElementSetSpecs>
+    <isExceptionSpec>false</isExceptionSpec>
+    <isSignedNumber>false</isSignedNumber>
+</constraint>
+<isAlphabetConstraint>false</isAlphabetConstraint>
+<isElementSetSpec>false</isElementSetSpec>
+<isIncludeType>false</isIncludeType>
+<isLEndLess>false</isLEndLess>
+<isMaxKw>false</isMaxKw>
+<isMinKw>false</isMinKw>
+<isPatternValue>false</isPatternValue>
+<isSizeConstraint>true</isSizeConstraint>
+<isTypeConstraint>false</isTypeConstraint>
+<isUEndLess>false</isUEndLess>
+<isValue>false</isValue>
+<isValueRange>false</isValueRange>
+<isWithComponent>false</isWithComponent>
+<isWithComponents>false</isWithComponents>
+                            </cnsElemList>
+                            <isExcept>false</isExcept>
+                            <isInterSection>false</isInterSection>
+                        </intersectionList>
+                        <isAllExcept>false</isAllExcept>
+                    </elemSetSpec>
+                    <isAdditionalElementSpec>false</isAdditionalElementSpec>
+                    <isColonValue>false</isColonValue>
+                    <isCommaDotDot>false</isCommaDotDot>
+                    <isDefinedValue>false</isDefinedValue>
+                    <isElementSetSpecs>true</isElementSetSpecs>
+                    <isExceptionSpec>false</isExceptionSpec>
+                    <isSignedNumber>false</isSignedNumber>
+                </constraint>
+                <name>TestBitStrBnd</name>
+            </bitStrings>
+            <characterStrings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnCharacterString">
+                <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                <isUCSType>false</isUCSType>
+                <name>TestPRN</name>
+                <stringtype>PrintableString</stringtype>
+            </characterStrings>
+            <characterStrings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnCharacterString">
+                <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                <isUCSType>false</isUCSType>
+                <name>ITUType1</name>
+                <stringtype>VisibleString</stringtype>
+            </characterStrings>
+            <characterStrings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnCharacterString">
+                <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                <isUCSType>false</isUCSType>
+                <name>TestUnicodeStr</name>
+                <stringtype>UTF8String</stringtype>
+            </characterStrings>
+            <characterStrings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnCharacterString">
+                <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                <constraint>
+                    <elemSetSpec>
+                        <intersectionList xsi:type="intersection">
+                            <cnsElemList xsi:type="constraintElements">
+<constraint>
+    <elemSetSpec>
+        <intersectionList xsi:type="intersection">
+            <cnsElemList xsi:type="constraintElements">
+                <isAlphabetConstraint>false</isAlphabetConstraint>
+                <isElementSetSpec>false</isElementSetSpec>
+                <isIncludeType>false</isIncludeType>
+                <isLEndLess>false</isLEndLess>
+                <isMaxKw>false</isMaxKw>
+                <isMinKw>false</isMinKw>
+                <isPatternValue>false</isPatternValue>
+                <isSizeConstraint>false</isSizeConstraint>
+                <isTypeConstraint>false</isTypeConstraint>
+                <isUEndLess>false</isUEndLess>
+                <isValue>true</isValue>
+                <isValueRange>false</isValueRange>
+                <isWithComponent>false</isWithComponent>
+                <isWithComponents>false</isWithComponents>
+                <value>
+                    <isAsnOIDValue>false</isAsnOIDValue>
+                    <isCStrValue>false</isCStrValue>
+                    <isCString>false</isCString>
+                    <isChoiceValue>false</isChoiceValue>
+                    <isDefinedValue>false</isDefinedValue>
+                    <isFalseKW>false</isFalseKW>
+                    <isMinusInfinity>false</isMinusInfinity>
+                    <isNullKW>false</isNullKW>
+                    <isPlusInfinity>false</isPlusInfinity>
+                    <isSequenceOfValue>false</isSequenceOfValue>
+                    <isSequenceValue>false</isSequenceValue>
+                    <isSignedNumber>true</isSignedNumber>
+                    <isTrueKW>false</isTrueKW>
+                    <signedNumber>
+                        <num>12</num>
+                        <positive>true</positive>
+                    </signedNumber>
+                </value>
+            </cnsElemList>
+            <isExcept>false</isExcept>
+            <isInterSection>false</isInterSection>
+        </intersectionList>
+        <isAllExcept>false</isAllExcept>
+    </elemSetSpec>
+    <isAdditionalElementSpec>false</isAdditionalElementSpec>
+    <isColonValue>false</isColonValue>
+    <isCommaDotDot>false</isCommaDotDot>
+    <isDefinedValue>false</isDefinedValue>
+    <isElementSetSpecs>true</isElementSetSpecs>
+    <isExceptionSpec>false</isExceptionSpec>
+    <isSignedNumber>false</isSignedNumber>
+</constraint>
+<isAlphabetConstraint>false</isAlphabetConstraint>
+<isElementSetSpec>false</isElementSetSpec>
+<isIncludeType>false</isIncludeType>
+<isLEndLess>false</isLEndLess>
+<isMaxKw>false</isMaxKw>
+<isMinKw>false</isMinKw>
+<isPatternValue>false</isPatternValue>
+<isSizeConstraint>true</isSizeConstraint>
+<isTypeConstraint>false</isTypeConstraint>
+<isUEndLess>false</isUEndLess>
+<isValue>false</isValue>
+<isValueRange>false</isValueRange>
+<isWithComponent>false</isWithComponent>
+<isWithComponents>false</isWithComponents>
+                            </cnsElemList>
+                            <isExcept>false</isExcept>
+                            <isInterSection>false</isInterSection>
+                        </intersectionList>
+                        <isAllExcept>false</isAllExcept>
+                    </elemSetSpec>
+                    <isAdditionalElementSpec>false</isAdditionalElementSpec>
+                    <isColonValue>false</isColonValue>
+                    <isCommaDotDot>false</isCommaDotDot>
+                    <isDefinedValue>false</isDefinedValue>
+                    <isElementSetSpecs>true</isElementSetSpecs>
+                    <isExceptionSpec>false</isExceptionSpec>
+                    <isSignedNumber>false</isSignedNumber>
+                </constraint>
+                <isUCSType>false</isUCSType>
+                <name>TestUnicodeStrBnd</name>
+                <stringtype>UTF8String</stringtype>
+            </characterStrings>
+            <choices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnChoice">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>plain</name>
+                        <tag>
+                            <classNumber>
+<num>0</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestPRN</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>unicode</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestOCT</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>binary</name>
+                        <tag>
+                            <classNumber>
+<num>2</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestOCT</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>simpleType</name>
+                        <tag>
+                            <classNumber>
+<num>3</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>simpleOctType</name>
+                        <tag>
+                            <classNumber>
+<num>4</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnOctetString">
+                            <BUILTINTYPE>OCTET STRING</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>booleanType</name>
+                        <tag>
+                            <classNumber>
+<num>5</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnBoolean">
+                            <BUILTINTYPE>BOOLEAN</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>intType</name>
+                        <tag>
+                            <classNumber>
+<num>6</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnInteger">
+                            <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>intBndType</name>
+                        <tag>
+                            <classNumber>
+<num>7</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnInteger">
+                            <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                            <constraint>
+<elemSetSpec>
+    <intersectionList xsi:type="intersection">
+        <cnsElemList xsi:type="constraintElements">
+            <isAlphabetConstraint>false</isAlphabetConstraint>
+            <isElementSetSpec>false</isElementSetSpec>
+            <isIncludeType>false</isIncludeType>
+            <isLEndLess>false</isLEndLess>
+            <isMaxKw>false</isMaxKw>
+            <isMinKw>false</isMinKw>
+            <isPatternValue>false</isPatternValue>
+            <isSizeConstraint>false</isSizeConstraint>
+            <isTypeConstraint>false</isTypeConstraint>
+            <isUEndLess>false</isUEndLess>
+            <isValue>false</isValue>
+            <isValueRange>true</isValueRange>
+            <isWithComponent>false</isWithComponent>
+            <isWithComponents>false</isWithComponents>
+            <lEndValue>
+                <isAsnOIDValue>false</isAsnOIDValue>
+                <isCStrValue>false</isCStrValue>
+                <isCString>false</isCString>
+                <isChoiceValue>false</isChoiceValue>
+                <isDefinedValue>false</isDefinedValue>
+                <isFalseKW>false</isFalseKW>
+                <isMinusInfinity>false</isMinusInfinity>
+                <isNullKW>false</isNullKW>
+                <isPlusInfinity>false</isPlusInfinity>
+                <isSequenceOfValue>false</isSequenceOfValue>
+                <isSequenceValue>false</isSequenceValue>
+                <isSignedNumber>true</isSignedNumber>
+                <isTrueKW>false</isTrueKW>
+                <signedNumber>
+                    <num>0</num>
+                    <positive>true</positive>
+                </signedNumber>
+            </lEndValue>
+            <uEndValue>
+                <isAsnOIDValue>false</isAsnOIDValue>
+                <isCStrValue>false</isCStrValue>
+                <isCString>false</isCString>
+                <isChoiceValue>false</isChoiceValue>
+                <isDefinedValue>false</isDefinedValue>
+                <isFalseKW>false</isFalseKW>
+                <isMinusInfinity>false</isMinusInfinity>
+                <isNullKW>false</isNullKW>
+                <isPlusInfinity>false</isPlusInfinity>
+                <isSequenceOfValue>false</isSequenceOfValue>
+                <isSequenceValue>false</isSequenceValue>
+                <isSignedNumber>true</isSignedNumber>
+                <isTrueKW>false</isTrueKW>
+                <signedNumber>
+                    <num>255</num>
+                    <positive>true</positive>
+                </signedNumber>
+            </uEndValue>
+        </cnsElemList>
+        <isExcept>false</isExcept>
+        <isInterSection>false</isInterSection>
+    </intersectionList>
+    <isAllExcept>false</isAllExcept>
+</elemSetSpec>
+<isAdditionalElementSpec>false</isAdditionalElementSpec>
+<isColonValue>false</isColonValue>
+<isCommaDotDot>false</isCommaDotDot>
+<isDefinedValue>false</isDefinedValue>
+<isElementSetSpecs>true</isElementSetSpecs>
+<isExceptionSpec>false</isExceptionSpec>
+<isSignedNumber>false</isSignedNumber>
+                            </constraint>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                </elementTypeList>
+                <name>Data</name>
+                <isChoice>true</isChoice>
+            </choices>
+            <enums xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnEnum">
+                <name>ContentType</name>
+                <namedNumberList>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>text_any</name>
+                        <signedNumber>
+                            <num>100</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>text_html</name>
+                        <signedNumber>
+                            <num>101</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>text_plain</name>
+                        <signedNumber>
+                            <num>102</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>audio_x_midi</name>
+                        <signedNumber>
+                            <num>306</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>video_any</name>
+                        <signedNumber>
+                            <num>400</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>video_mpeg</name>
+                        <signedNumber>
+                            <num>401</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>video_avi</name>
+                        <signedNumber>
+                            <num>402</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>video_quicktime</name>
+                        <signedNumber>
+                            <num>403</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>video_x_msvideo</name>
+                        <signedNumber>
+                            <num>404</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>application_smil</name>
+                        <signedNumber>
+                            <num>500</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                </namedNumberList>
+                <snaccName></snaccName>
+            </enums>
+            <enums xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnEnum">
+                <name>ContentSchema</name>
+                <namedNumberList>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>multipart_any</name>
+                        <signedNumber>
+                            <num>110</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>multipart_mixed</name>
+                        <signedNumber>
+                            <num>111</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>multipart_form_data</name>
+                        <signedNumber>
+                            <num>112</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>multipart_byteranges</name>
+                        <signedNumber>
+                            <num>113</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>multipart_alternative</name>
+                        <signedNumber>
+                            <num>114</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                    <namedNumbers xsi:type="asnNamedNumber">
+                        <isSignedNumber>true</isSignedNumber>
+                        <name>multipart_related</name>
+                        <signedNumber>
+                            <num>175</num>
+                            <positive>true</positive>
+                        </signedNumber>
+                    </namedNumbers>
+                </namedNumberList>
+                <snaccName></snaccName>
+            </enums>
+            <integers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnInteger">
+                <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                <constraint>
+                    <elemSetSpec>
+                        <intersectionList xsi:type="intersection">
+                            <cnsElemList xsi:type="constraintElements">
+<isAlphabetConstraint>false</isAlphabetConstraint>
+<isElementSetSpec>false</isElementSetSpec>
+<isIncludeType>false</isIncludeType>
+<isLEndLess>false</isLEndLess>
+<isMaxKw>false</isMaxKw>
+<isMinKw>false</isMinKw>
+<isPatternValue>false</isPatternValue>
+<isSizeConstraint>false</isSizeConstraint>
+<isTypeConstraint>false</isTypeConstraint>
+<isUEndLess>false</isUEndLess>
+<isValue>false</isValue>
+<isValueRange>true</isValueRange>
+<isWithComponent>false</isWithComponent>
+<isWithComponents>false</isWithComponents>
+<lEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>1</num>
+        <positive>true</positive>
+    </signedNumber>
+</lEndValue>
+<uEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>5</num>
+        <positive>true</positive>
+    </signedNumber>
+</uEndValue>
+                            </cnsElemList>
+                            <isExcept>false</isExcept>
+                            <isInterSection>false</isInterSection>
+                        </intersectionList>
+                        <isAllExcept>false</isAllExcept>
+                    </elemSetSpec>
+                    <isAdditionalElementSpec>false</isAdditionalElementSpec>
+                    <isColonValue>false</isColonValue>
+                    <isCommaDotDot>false</isCommaDotDot>
+                    <isDefinedValue>false</isDefinedValue>
+                    <isElementSetSpecs>true</isElementSetSpecs>
+                    <isExceptionSpec>false</isExceptionSpec>
+                    <isSignedNumber>false</isSignedNumber>
+                </constraint>
+                <name>TestIR</name>
+            </integers>
+            <integers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnInteger">
+                <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                <constraint>
+                    <elemSetSpec>
+                        <intersectionList xsi:type="intersection">
+                            <cnsElemList xsi:type="constraintElements">
+<isAlphabetConstraint>false</isAlphabetConstraint>
+<isElementSetSpec>false</isElementSetSpec>
+<isIncludeType>false</isIncludeType>
+<isLEndLess>false</isLEndLess>
+<isMaxKw>false</isMaxKw>
+<isMinKw>false</isMinKw>
+<isPatternValue>false</isPatternValue>
+<isSizeConstraint>false</isSizeConstraint>
+<isTypeConstraint>false</isTypeConstraint>
+<isUEndLess>false</isUEndLess>
+<isValue>false</isValue>
+<isValueRange>true</isValueRange>
+<isWithComponent>false</isWithComponent>
+<isWithComponents>false</isWithComponents>
+<lEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>0</num>
+        <positive>true</positive>
+    </signedNumber>
+</lEndValue>
+<uEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>255</num>
+        <positive>true</positive>
+    </signedNumber>
+</uEndValue>
+                            </cnsElemList>
+                            <isExcept>false</isExcept>
+                            <isInterSection>false</isInterSection>
+                        </intersectionList>
+                        <isAllExcept>false</isAllExcept>
+                    </elemSetSpec>
+                    <isAdditionalElementSpec>false</isAdditionalElementSpec>
+                    <isColonValue>false</isColonValue>
+                    <isCommaDotDot>false</isCommaDotDot>
+                    <isDefinedValue>false</isDefinedValue>
+                    <isElementSetSpecs>true</isElementSetSpecs>
+                    <isExceptionSpec>false</isExceptionSpec>
+                    <isSignedNumber>false</isSignedNumber>
+                </constraint>
+                <name>TestI8</name>
+            </integers>
+            <integers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnInteger">
+                <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                <constraint>
+                    <elemSetSpec>
+                        <intersectionList xsi:type="intersection">
+                            <cnsElemList xsi:type="constraintElements">
+<isAlphabetConstraint>false</isAlphabetConstraint>
+<isElementSetSpec>false</isElementSetSpec>
+<isIncludeType>false</isIncludeType>
+<isLEndLess>false</isLEndLess>
+<isMaxKw>false</isMaxKw>
+<isMinKw>false</isMinKw>
+<isPatternValue>false</isPatternValue>
+<isSizeConstraint>false</isSizeConstraint>
+<isTypeConstraint>false</isTypeConstraint>
+<isUEndLess>false</isUEndLess>
+<isValue>false</isValue>
+<isValueRange>true</isValueRange>
+<isWithComponent>false</isWithComponent>
+<isWithComponents>false</isWithComponents>
+<lEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>0</num>
+        <positive>true</positive>
+    </signedNumber>
+</lEndValue>
+<uEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>16384</num>
+        <positive>true</positive>
+    </signedNumber>
+</uEndValue>
+                            </cnsElemList>
+                            <isExcept>false</isExcept>
+                            <isInterSection>false</isInterSection>
+                        </intersectionList>
+                        <isAllExcept>false</isAllExcept>
+                    </elemSetSpec>
+                    <isAdditionalElementSpec>false</isAdditionalElementSpec>
+                    <isColonValue>false</isColonValue>
+                    <isCommaDotDot>false</isCommaDotDot>
+                    <isDefinedValue>false</isDefinedValue>
+                    <isElementSetSpecs>true</isElementSetSpecs>
+                    <isExceptionSpec>false</isExceptionSpec>
+                    <isSignedNumber>false</isSignedNumber>
+                </constraint>
+                <name>TestI14</name>
+            </integers>
+            <integers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnInteger">
+                <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                <constraint>
+                    <elemSetSpec>
+                        <intersectionList xsi:type="intersection">
+                            <cnsElemList xsi:type="constraintElements">
+<isAlphabetConstraint>false</isAlphabetConstraint>
+<isElementSetSpec>false</isElementSetSpec>
+<isIncludeType>false</isIncludeType>
+<isLEndLess>false</isLEndLess>
+<isMaxKw>false</isMaxKw>
+<isMinKw>false</isMinKw>
+<isPatternValue>false</isPatternValue>
+<isSizeConstraint>false</isSizeConstraint>
+<isTypeConstraint>false</isTypeConstraint>
+<isUEndLess>false</isUEndLess>
+<isValue>false</isValue>
+<isValueRange>true</isValueRange>
+<isWithComponent>false</isWithComponent>
+<isWithComponents>false</isWithComponents>
+<lEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>0</num>
+        <positive>true</positive>
+    </signedNumber>
+</lEndValue>
+<uEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>65535</num>
+        <positive>true</positive>
+    </signedNumber>
+</uEndValue>
+                            </cnsElemList>
+                            <isExcept>false</isExcept>
+                            <isInterSection>false</isInterSection>
+                        </intersectionList>
+                        <isAllExcept>false</isAllExcept>
+                    </elemSetSpec>
+                    <isAdditionalElementSpec>false</isAdditionalElementSpec>
+                    <isColonValue>false</isColonValue>
+                    <isCommaDotDot>false</isCommaDotDot>
+                    <isDefinedValue>false</isDefinedValue>
+                    <isElementSetSpecs>true</isElementSetSpecs>
+                    <isExceptionSpec>false</isExceptionSpec>
+                    <isSignedNumber>false</isSignedNumber>
+                </constraint>
+                <name>TestI16</name>
+            </integers>
+            <integers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnInteger">
+                <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                <constraint>
+                    <elemSetSpec>
+                        <intersectionList xsi:type="intersection">
+                            <cnsElemList xsi:type="constraintElements">
+<isAlphabetConstraint>false</isAlphabetConstraint>
+<isElementSetSpec>false</isElementSetSpec>
+<isIncludeType>false</isIncludeType>
+<isLEndLess>false</isLEndLess>
+<isMaxKw>false</isMaxKw>
+<isMinKw>false</isMinKw>
+<isPatternValue>false</isPatternValue>
+<isSizeConstraint>false</isSizeConstraint>
+<isTypeConstraint>false</isTypeConstraint>
+<isUEndLess>false</isUEndLess>
+<isValue>false</isValue>
+<isValueRange>true</isValueRange>
+<isWithComponent>false</isWithComponent>
+<isWithComponents>false</isWithComponents>
+<lEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>0</num>
+        <positive>true</positive>
+    </signedNumber>
+</lEndValue>
+<uEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>4294967295</num>
+        <positive>true</positive>
+    </signedNumber>
+</uEndValue>
+                            </cnsElemList>
+                            <isExcept>false</isExcept>
+                            <isInterSection>false</isInterSection>
+                        </intersectionList>
+                        <isAllExcept>false</isAllExcept>
+                    </elemSetSpec>
+                    <isAdditionalElementSpec>false</isAdditionalElementSpec>
+                    <isColonValue>false</isColonValue>
+                    <isCommaDotDot>false</isCommaDotDot>
+                    <isDefinedValue>false</isDefinedValue>
+                    <isElementSetSpecs>true</isElementSetSpecs>
+                    <isExceptionSpec>false</isExceptionSpec>
+                    <isSignedNumber>false</isSignedNumber>
+                </constraint>
+                <name>TestI32</name>
+            </integers>
+            <integers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnInteger">
+                <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                <name>TestI</name>
+            </integers>
+            <integers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnInteger">
+                <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                <constraint>
+                    <elemSetSpec>
+                        <intersectionList xsi:type="intersection">
+                            <cnsElemList xsi:type="constraintElements">
+<isAlphabetConstraint>false</isAlphabetConstraint>
+<isElementSetSpec>false</isElementSetSpec>
+<isIncludeType>false</isIncludeType>
+<isLEndLess>false</isLEndLess>
+<isMaxKw>false</isMaxKw>
+<isMinKw>false</isMinKw>
+<isPatternValue>false</isPatternValue>
+<isSizeConstraint>false</isSizeConstraint>
+<isTypeConstraint>false</isTypeConstraint>
+<isUEndLess>false</isUEndLess>
+<isValue>false</isValue>
+<isValueRange>true</isValueRange>
+<isWithComponent>false</isWithComponent>
+<isWithComponents>false</isWithComponents>
+<lEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>128</num>
+        <positive>false</positive>
+    </signedNumber>
+</lEndValue>
+<uEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>128</num>
+        <positive>true</positive>
+    </signedNumber>
+</uEndValue>
+                            </cnsElemList>
+                            <isExcept>false</isExcept>
+                            <isInterSection>false</isInterSection>
+                        </intersectionList>
+                        <isAllExcept>false</isAllExcept>
+                    </elemSetSpec>
+                    <isAdditionalElementSpec>false</isAdditionalElementSpec>
+                    <isColonValue>false</isColonValue>
+                    <isCommaDotDot>false</isCommaDotDot>
+                    <isDefinedValue>false</isDefinedValue>
+                    <isElementSetSpecs>true</isElementSetSpecs>
+                    <isExceptionSpec>false</isExceptionSpec>
+                    <isSignedNumber>false</isSignedNumber>
+                </constraint>
+                <name>TestNI</name>
+            </integers>
+            <integers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnInteger">
+                <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                <constraint>
+                    <elemSetSpec>
+                        <intersectionList xsi:type="intersection">
+                            <cnsElemList xsi:type="constraintElements">
+<isAlphabetConstraint>false</isAlphabetConstraint>
+<isElementSetSpec>false</isElementSetSpec>
+<isIncludeType>false</isIncludeType>
+<isLEndLess>false</isLEndLess>
+<isMaxKw>false</isMaxKw>
+<isMinKw>false</isMinKw>
+<isPatternValue>false</isPatternValue>
+<isSizeConstraint>false</isSizeConstraint>
+<isTypeConstraint>false</isTypeConstraint>
+<isUEndLess>false</isUEndLess>
+<isValue>false</isValue>
+<isValueRange>true</isValueRange>
+<isWithComponent>false</isWithComponent>
+<isWithComponents>false</isWithComponents>
+<lEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>2048</num>
+        <positive>false</positive>
+    </signedNumber>
+</lEndValue>
+<uEndValue>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>false</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>true</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+    <signedNumber>
+        <num>2048</num>
+        <positive>true</positive>
+    </signedNumber>
+</uEndValue>
+                            </cnsElemList>
+                            <isExcept>false</isExcept>
+                            <isInterSection>false</isInterSection>
+                        </intersectionList>
+                        <isAllExcept>false</isAllExcept>
+                    </elemSetSpec>
+                    <isAdditionalElementSpec>false</isAdditionalElementSpec>
+                    <isColonValue>false</isColonValue>
+                    <isCommaDotDot>false</isCommaDotDot>
+                    <isDefinedValue>false</isDefinedValue>
+                    <isElementSetSpecs>true</isElementSetSpecs>
+                    <isExceptionSpec>false</isExceptionSpec>
+                    <isSignedNumber>false</isSignedNumber>
+                </constraint>
+                <name>TestNI2</name>
+            </integers>
+            <nulls xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnNull">
+                <name>NullSequence</name>
+                <isNull>true</isNull>
+            </nulls>
+            <octetStrings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnOctetString">
+                <BUILTINTYPE>OCTET STRING</BUILTINTYPE>
+                <name>TestOCT</name>
+            </octetStrings>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>plain</name>
+                        <tag>
+                            <classNumber>
+<num>0</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestPRN</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>unicode</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestOCT</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>binary</name>
+                        <tag>
+                            <classNumber>
+<num>2</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestOCT</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>simpleType</name>
+                        <tag>
+                            <classNumber>
+<num>3</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>false</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>simpleOctType</name>
+                        <typeReference xsi:type="asnOctetString">
+                            <BUILTINTYPE>OCTET STRING</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>booleanType</name>
+                        <tag>
+                            <classNumber>
+<num>5</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnBoolean">
+                            <BUILTINTYPE>BOOLEAN</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>intType</name>
+                        <tag>
+                            <classNumber>
+<num>6</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnInteger">
+                            <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>intBndType</name>
+                        <tag>
+                            <classNumber>
+<num>7</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnInteger">
+                            <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                            <constraint>
+<elemSetSpec>
+    <intersectionList xsi:type="intersection">
+        <cnsElemList xsi:type="constraintElements">
+            <isAlphabetConstraint>false</isAlphabetConstraint>
+            <isElementSetSpec>false</isElementSetSpec>
+            <isIncludeType>false</isIncludeType>
+            <isLEndLess>false</isLEndLess>
+            <isMaxKw>false</isMaxKw>
+            <isMinKw>false</isMinKw>
+            <isPatternValue>false</isPatternValue>
+            <isSizeConstraint>false</isSizeConstraint>
+            <isTypeConstraint>false</isTypeConstraint>
+            <isUEndLess>false</isUEndLess>
+            <isValue>false</isValue>
+            <isValueRange>true</isValueRange>
+            <isWithComponent>false</isWithComponent>
+            <isWithComponents>false</isWithComponents>
+            <lEndValue>
+                <isAsnOIDValue>false</isAsnOIDValue>
+                <isCStrValue>false</isCStrValue>
+                <isCString>false</isCString>
+                <isChoiceValue>false</isChoiceValue>
+                <isDefinedValue>false</isDefinedValue>
+                <isFalseKW>false</isFalseKW>
+                <isMinusInfinity>false</isMinusInfinity>
+                <isNullKW>false</isNullKW>
+                <isPlusInfinity>false</isPlusInfinity>
+                <isSequenceOfValue>false</isSequenceOfValue>
+                <isSequenceValue>false</isSequenceValue>
+                <isSignedNumber>true</isSignedNumber>
+                <isTrueKW>false</isTrueKW>
+                <signedNumber>
+                    <num>0</num>
+                    <positive>true</positive>
+                </signedNumber>
+            </lEndValue>
+            <uEndValue>
+                <isAsnOIDValue>false</isAsnOIDValue>
+                <isCStrValue>false</isCStrValue>
+                <isCString>false</isCString>
+                <isChoiceValue>false</isChoiceValue>
+                <isDefinedValue>false</isDefinedValue>
+                <isFalseKW>false</isFalseKW>
+                <isMinusInfinity>false</isMinusInfinity>
+                <isNullKW>false</isNullKW>
+                <isPlusInfinity>false</isPlusInfinity>
+                <isSequenceOfValue>false</isSequenceOfValue>
+                <isSequenceValue>false</isSequenceValue>
+                <isSignedNumber>true</isSignedNumber>
+                <isTrueKW>false</isTrueKW>
+                <signedNumber>
+                    <num>255</num>
+                    <positive>true</positive>
+                </signedNumber>
+            </uEndValue>
+        </cnsElemList>
+        <isExcept>false</isExcept>
+        <isInterSection>false</isInterSection>
+    </intersectionList>
+    <isAllExcept>false</isAllExcept>
+</elemSetSpec>
+<isAdditionalElementSpec>false</isAdditionalElementSpec>
+<isColonValue>false</isColonValue>
+<isCommaDotDot>false</isCommaDotDot>
+<isDefinedValue>false</isDefinedValue>
+<isElementSetSpecs>true</isElementSetSpecs>
+<isExceptionSpec>false</isExceptionSpec>
+<isSignedNumber>false</isSignedNumber>
+                            </constraint>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>stringArray</name>
+                        <tag>
+                            <classNumber>
+<num>8</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceOf">
+                            <isDefinedType>false</isDefinedType>
+                            <isSequenceOf>true</isSequenceOf>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <name></name>
+                            <typeName></typeName>
+                            <typeReference xsi:type="asnCharacterString">
+<BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+<isUCSType>false</isUCSType>
+<name></name>
+<stringtype>PrintableString</stringtype>
+                            </typeReference>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>dataArray</name>
+                        <tag>
+                            <classNumber>
+<num>9</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceOf">
+                            <isDefinedType>true</isDefinedType>
+                            <isSequenceOf>true</isSequenceOf>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <name></name>
+                            <typeName>Data</typeName>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>false</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>extension</name>
+                        <typeReference xsi:type="asnAny">
+                            <definedByType></definedByType>
+                            <isDefinedBy>false</isDefinedBy>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                </elementTypeList>
+                <isSequence>true</isSequence>
+                <name>DataSeq</name>
+            </sequenceSets>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>plain</name>
+                        <tag>
+                            <classNumber>
+<num>0</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestPRN</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>unicode</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestOCT</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>binary</name>
+                        <tag>
+                            <classNumber>
+<num>2</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestOCT</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>simpleType</name>
+                        <tag>
+                            <classNumber>
+<num>3</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>false</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>simpleOctType</name>
+                        <typeReference xsi:type="asnOctetString">
+                            <BUILTINTYPE>OCTET STRING</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>booleanType</name>
+                        <tag>
+                            <classNumber>
+<num>5</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnBoolean">
+                            <BUILTINTYPE>BOOLEAN</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>intType</name>
+                        <tag>
+                            <classNumber>
+<num>6</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnInteger">
+                            <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>intBndType</name>
+                        <tag>
+                            <classNumber>
+<num>7</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnInteger">
+                            <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                            <constraint>
+<elemSetSpec>
+    <intersectionList xsi:type="intersection">
+        <cnsElemList xsi:type="constraintElements">
+            <isAlphabetConstraint>false</isAlphabetConstraint>
+            <isElementSetSpec>false</isElementSetSpec>
+            <isIncludeType>false</isIncludeType>
+            <isLEndLess>false</isLEndLess>
+            <isMaxKw>false</isMaxKw>
+            <isMinKw>false</isMinKw>
+            <isPatternValue>false</isPatternValue>
+            <isSizeConstraint>false</isSizeConstraint>
+            <isTypeConstraint>false</isTypeConstraint>
+            <isUEndLess>false</isUEndLess>
+            <isValue>false</isValue>
+            <isValueRange>true</isValueRange>
+            <isWithComponent>false</isWithComponent>
+            <isWithComponents>false</isWithComponents>
+            <lEndValue>
+                <isAsnOIDValue>false</isAsnOIDValue>
+                <isCStrValue>false</isCStrValue>
+                <isCString>false</isCString>
+                <isChoiceValue>false</isChoiceValue>
+                <isDefinedValue>false</isDefinedValue>
+                <isFalseKW>false</isFalseKW>
+                <isMinusInfinity>false</isMinusInfinity>
+                <isNullKW>false</isNullKW>
+                <isPlusInfinity>false</isPlusInfinity>
+                <isSequenceOfValue>false</isSequenceOfValue>
+                <isSequenceValue>false</isSequenceValue>
+                <isSignedNumber>true</isSignedNumber>
+                <isTrueKW>false</isTrueKW>
+                <signedNumber>
+                    <num>0</num>
+                    <positive>true</positive>
+                </signedNumber>
+            </lEndValue>
+            <uEndValue>
+                <isAsnOIDValue>false</isAsnOIDValue>
+                <isCStrValue>false</isCStrValue>
+                <isCString>false</isCString>
+                <isChoiceValue>false</isChoiceValue>
+                <isDefinedValue>false</isDefinedValue>
+                <isFalseKW>false</isFalseKW>
+                <isMinusInfinity>false</isMinusInfinity>
+                <isNullKW>false</isNullKW>
+                <isPlusInfinity>false</isPlusInfinity>
+                <isSequenceOfValue>false</isSequenceOfValue>
+                <isSequenceValue>false</isSequenceValue>
+                <isSignedNumber>true</isSignedNumber>
+                <isTrueKW>false</isTrueKW>
+                <signedNumber>
+                    <num>255</num>
+                    <positive>true</positive>
+                </signedNumber>
+            </uEndValue>
+        </cnsElemList>
+        <isExcept>false</isExcept>
+        <isInterSection>false</isInterSection>
+    </intersectionList>
+    <isAllExcept>false</isAllExcept>
+</elemSetSpec>
+<isAdditionalElementSpec>false</isAdditionalElementSpec>
+<isColonValue>false</isColonValue>
+<isCommaDotDot>false</isCommaDotDot>
+<isDefinedValue>false</isDefinedValue>
+<isElementSetSpecs>true</isElementSetSpecs>
+<isExceptionSpec>false</isExceptionSpec>
+<isSignedNumber>false</isSignedNumber>
+                            </constraint>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>stringArray</name>
+                        <tag>
+                            <classNumber>
+<num>8</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceOf">
+                            <isDefinedType>false</isDefinedType>
+                            <isSequenceOf>true</isSequenceOf>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <name></name>
+                            <typeName></typeName>
+                            <typeReference xsi:type="asnCharacterString">
+<BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+<isUCSType>false</isUCSType>
+<name></name>
+<stringtype>PrintableString</stringtype>
+                            </typeReference>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>dataArray</name>
+                        <tag>
+                            <classNumber>
+<num>9</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceOf">
+                            <isDefinedType>true</isDefinedType>
+                            <isSequenceOf>true</isSequenceOf>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <name></name>
+                            <typeName>Data</typeName>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>plain2</name>
+                        <tag>
+                            <classNumber>
+<num>10</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestPRN</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>unicode2</name>
+                        <tag>
+                            <classNumber>
+<num>18</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestOCT</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>binary2</name>
+                        <tag>
+                            <classNumber>
+<num>11</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestOCT</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>simpleType2</name>
+                        <tag>
+                            <classNumber>
+<num>12</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>false</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>simpleOctType2</name>
+                        <typeReference xsi:type="asnOctetString">
+                            <BUILTINTYPE>OCTET STRING</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>booleanType2</name>
+                        <tag>
+                            <classNumber>
+<num>13</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnBoolean">
+                            <BUILTINTYPE>BOOLEAN</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>intType2</name>
+                        <tag>
+                            <classNumber>
+<num>19</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnInteger">
+                            <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>intBndType2</name>
+                        <tag>
+                            <classNumber>
+<num>14</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnInteger">
+                            <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                            <constraint>
+<elemSetSpec>
+    <intersectionList xsi:type="intersection">
+        <cnsElemList xsi:type="constraintElements">
+            <isAlphabetConstraint>false</isAlphabetConstraint>
+            <isElementSetSpec>false</isElementSetSpec>
+            <isIncludeType>false</isIncludeType>
+            <isLEndLess>false</isLEndLess>
+            <isMaxKw>false</isMaxKw>
+            <isMinKw>false</isMinKw>
+            <isPatternValue>false</isPatternValue>
+            <isSizeConstraint>false</isSizeConstraint>
+            <isTypeConstraint>false</isTypeConstraint>
+            <isUEndLess>false</isUEndLess>
+            <isValue>false</isValue>
+            <isValueRange>true</isValueRange>
+            <isWithComponent>false</isWithComponent>
+            <isWithComponents>false</isWithComponents>
+            <lEndValue>
+                <isAsnOIDValue>false</isAsnOIDValue>
+                <isCStrValue>false</isCStrValue>
+                <isCString>false</isCString>
+                <isChoiceValue>false</isChoiceValue>
+                <isDefinedValue>false</isDefinedValue>
+                <isFalseKW>false</isFalseKW>
+                <isMinusInfinity>false</isMinusInfinity>
+                <isNullKW>false</isNullKW>
+                <isPlusInfinity>false</isPlusInfinity>
+                <isSequenceOfValue>false</isSequenceOfValue>
+                <isSequenceValue>false</isSequenceValue>
+                <isSignedNumber>true</isSignedNumber>
+                <isTrueKW>false</isTrueKW>
+                <signedNumber>
+                    <num>0</num>
+                    <positive>true</positive>
+                </signedNumber>
+            </lEndValue>
+            <uEndValue>
+                <isAsnOIDValue>false</isAsnOIDValue>
+                <isCStrValue>false</isCStrValue>
+                <isCString>false</isCString>
+                <isChoiceValue>false</isChoiceValue>
+                <isDefinedValue>false</isDefinedValue>
+                <isFalseKW>false</isFalseKW>
+                <isMinusInfinity>false</isMinusInfinity>
+                <isNullKW>false</isNullKW>
+                <isPlusInfinity>false</isPlusInfinity>
+                <isSequenceOfValue>false</isSequenceOfValue>
+                <isSequenceValue>false</isSequenceValue>
+                <isSignedNumber>true</isSignedNumber>
+                <isTrueKW>false</isTrueKW>
+                <signedNumber>
+                    <num>255</num>
+                    <positive>true</positive>
+                </signedNumber>
+            </uEndValue>
+        </cnsElemList>
+        <isExcept>false</isExcept>
+        <isInterSection>false</isInterSection>
+    </intersectionList>
+    <isAllExcept>false</isAllExcept>
+</elemSetSpec>
+<isAdditionalElementSpec>false</isAdditionalElementSpec>
+<isColonValue>false</isColonValue>
+<isCommaDotDot>false</isCommaDotDot>
+<isDefinedValue>false</isDefinedValue>
+<isElementSetSpecs>true</isElementSetSpecs>
+<isExceptionSpec>false</isExceptionSpec>
+<isSignedNumber>false</isSignedNumber>
+                            </constraint>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>stringArray2</name>
+                        <tag>
+                            <classNumber>
+<num>15</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceOf">
+                            <isDefinedType>false</isDefinedType>
+                            <isSequenceOf>true</isSequenceOf>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <name></name>
+                            <typeName></typeName>
+                            <typeReference xsi:type="asnCharacterString">
+<BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+<isUCSType>false</isUCSType>
+<name></name>
+<stringtype>PrintableString</stringtype>
+                            </typeReference>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>dataArray2</name>
+                        <tag>
+                            <classNumber>
+<num>16</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceOf">
+                            <isDefinedType>true</isDefinedType>
+                            <isSequenceOf>true</isSequenceOf>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <name></name>
+                            <typeName>Data</typeName>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>plain3</name>
+                        <tag>
+                            <classNumber>
+<num>17</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestPRN</typeName>
+                    </elements>
+                </elementTypeList>
+                <isSequence>true</isSequence>
+                <name>DataSeqMO</name>
+            </sequenceSets>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>false</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>type1</name>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>VisibleString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>true</isTagDefault>
+                        <name>type2</name>
+                        <tag>
+                            <classNumber>
+<num>3</num>
+                            </classNumber>
+                            <clazz>APPLICATION</clazz>
+                        </tag>
+                        <typeName>ITUType1</typeName>
+                        <typeTagDefault>IMPLICIT</typeTagDefault>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>type3</name>
+                        <tag>
+                            <classNumber>
+<num>2</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>ITUType2</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>true</isTagDefault>
+                        <name>type4</name>
+                        <tag>
+                            <classNumber>
+<num>7</num>
+                            </classNumber>
+                            <clazz>APPLICATION</clazz>
+                        </tag>
+                        <typeName>ITUType3</typeName>
+                        <typeTagDefault>IMPLICIT</typeTagDefault>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>true</isTagDefault>
+                        <name>type5</name>
+                        <tag>
+                            <classNumber>
+<num>2</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>ITUType2</typeName>
+                        <typeTagDefault>IMPLICIT</typeTagDefault>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>type6</name>
+                        <tag>
+                            <classNumber>
+<num>7</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>VisibleString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>type7</name>
+                        <tag>
+                            <classNumber>
+<num>8</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>ITUType6</typeName>
+                    </elements>
+                </elementTypeList>
+                <isSequence>true</isSequence>
+                <name>ITUSequence</name>
+            </sequenceSets>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>false</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>test</name>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>false</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>nullVal</name>
+                        <typeReference xsi:type="asnNull">
+                            <name></name>
+                            <isNull>true</isNull>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>test2</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                </elementTypeList>
+                <isSequence>true</isSequence>
+                <name>SequenceWithNull</name>
+            </sequenceSets>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>value</name>
+                        <tag>
+                            <classNumber>
+<num>0</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>params</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceOf">
+                            <isDefinedType>true</isDefinedType>
+                            <isSequenceOf>true</isSequenceOf>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <name></name>
+                            <typeName>PlainParamsMap</typeName>
+                        </typeReference>
+                    </elements>
+                </elementTypeList>
+                <isSequence>true</isSequence>
+                <name>ValueWithParams</name>
+            </sequenceSets>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>param_name</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>param_value</name>
+                        <tag>
+                            <classNumber>
+<num>2</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                </elementTypeList>
+                <isSequence>true</isSequence>
+                <name>PlainParamsMap</name>
+            </sequenceSets>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>name</name>
+                        <tag>
+                            <classNumber>
+<num>0</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>values</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceOf">
+                            <isDefinedType>true</isDefinedType>
+                            <isSequenceOf>true</isSequenceOf>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <name></name>
+                            <typeName>ValueWithParams</typeName>
+                        </typeReference>
+                    </elements>
+                </elementTypeList>
+                <isSequence>true</isSequence>
+                <name>ContentPartHeader</name>
+            </sequenceSets>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>false</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>item</name>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>false</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>enval</name>
+                        <typeName>ContentSchema</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>taggedEnval</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>ContentSchema</typeName>
+                    </elements>
+                </elementTypeList>
+                <isSequence>true</isSequence>
+                <name>SequenceWithEnum</name>
+            </sequenceSets>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>name</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>value</name>
+                        <tag>
+                            <classNumber>
+<num>2</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestRecursiveDefinetion</typeName>
+                    </elements>
+                </elementTypeList>
+                <isSequence>true</isSequence>
+                <name>TestRecursiveDefinetion</name>
+            </sequenceSets>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>nodefault</name>
+                        <tag>
+                            <classNumber>
+<num>0</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnInteger">
+                            <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>true</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>withDefault</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                        <value>
+                            <cStr>&quot;dd&quot;</cStr>
+                            <isAsnOIDValue>false</isAsnOIDValue>
+                            <isCStrValue>false</isCStrValue>
+                            <isCString>true</isCString>
+                            <isChoiceValue>false</isChoiceValue>
+                            <isDefinedValue>false</isDefinedValue>
+                            <isFalseKW>false</isFalseKW>
+                            <isMinusInfinity>false</isMinusInfinity>
+                            <isNullKW>false</isNullKW>
+                            <isPlusInfinity>false</isPlusInfinity>
+                            <isSequenceOfValue>false</isSequenceOfValue>
+                            <isSequenceValue>false</isSequenceValue>
+                            <isSignedNumber>false</isSignedNumber>
+                            <isTrueKW>false</isTrueKW>
+                        </value>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>true</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>withIntDef</name>
+                        <tag>
+                            <classNumber>
+<num>2</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnInteger">
+                            <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                        <value>
+                            <isAsnOIDValue>false</isAsnOIDValue>
+                            <isCStrValue>false</isCStrValue>
+                            <isCString>false</isCString>
+                            <isChoiceValue>false</isChoiceValue>
+                            <isDefinedValue>false</isDefinedValue>
+                            <isFalseKW>false</isFalseKW>
+                            <isMinusInfinity>false</isMinusInfinity>
+                            <isNullKW>false</isNullKW>
+                            <isPlusInfinity>false</isPlusInfinity>
+                            <isSequenceOfValue>false</isSequenceOfValue>
+                            <isSequenceValue>false</isSequenceValue>
+                            <isSignedNumber>true</isSignedNumber>
+                            <isTrueKW>false</isTrueKW>
+                            <signedNumber>
+<num>120</num>
+<positive>true</positive>
+                            </signedNumber>
+                        </value>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>true</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>withSeqDef</name>
+                        <tag>
+                            <classNumber>
+<num>3</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceSet">
+                            <elementTypeList>
+<elements xsi:type="asnElementType">
+    <isComponentsOf>false</isComponentsOf>
+    <isDefault>false</isDefault>
+    <isDefinedType>false</isDefinedType>
+    <isOptional>false</isOptional>
+    <isTag>false</isTag>
+    <isTagDefault>false</isTagDefault>
+    <name>name</name>
+    <typeReference xsi:type="asnCharacterString">
+        <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+        <isUCSType>false</isUCSType>
+        <name></name>
+        <stringtype>PrintableString</stringtype>
+    </typeReference>
+</elements>
+<elements xsi:type="asnElementType">
+    <isComponentsOf>false</isComponentsOf>
+    <isDefault>false</isDefault>
+    <isDefinedType>false</isDefinedType>
+    <isOptional>false</isOptional>
+    <isTag>false</isTag>
+    <isTagDefault>false</isTagDefault>
+    <name>email</name>
+    <typeReference xsi:type="asnCharacterString">
+        <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+        <isUCSType>false</isUCSType>
+        <name></name>
+        <stringtype>PrintableString</stringtype>
+    </typeReference>
+</elements>
+                            </elementTypeList>
+                            <isSequence>true</isSequence>
+                            <name></name>
+                        </typeReference>
+                        <value>
+                            <isAsnOIDValue>false</isAsnOIDValue>
+                            <isCStrValue>false</isCStrValue>
+                            <isCString>false</isCString>
+                            <isChoiceValue>false</isChoiceValue>
+                            <isDefinedValue>false</isDefinedValue>
+                            <isFalseKW>false</isFalseKW>
+                            <isMinusInfinity>false</isMinusInfinity>
+                            <isNullKW>false</isNullKW>
+                            <isPlusInfinity>false</isPlusInfinity>
+                            <isSequenceOfValue>false</isSequenceOfValue>
+                            <isSequenceValue>true</isSequenceValue>
+                            <isSignedNumber>false</isSignedNumber>
+                            <isTrueKW>false</isTrueKW>
+                            <seqval>
+<isValPresent>true</isValPresent>
+<namedValueList xsi:type="asnNamedValue">
+    <name>name</name>
+    <value>
+        <cStr>&quot;Name&quot;</cStr>
+        <isAsnOIDValue>false</isAsnOIDValue>
+        <isCStrValue>false</isCStrValue>
+        <isCString>true</isCString>
+        <isChoiceValue>false</isChoiceValue>
+        <isDefinedValue>false</isDefinedValue>
+        <isFalseKW>false</isFalseKW>
+        <isMinusInfinity>false</isMinusInfinity>
+        <isNullKW>false</isNullKW>
+        <isPlusInfinity>false</isPlusInfinity>
+        <isSequenceOfValue>false</isSequenceOfValue>
+        <isSequenceValue>false</isSequenceValue>
+        <isSignedNumber>false</isSignedNumber>
+        <isTrueKW>false</isTrueKW>
+    </value>
+</namedValueList>
+<namedValueList xsi:type="asnNamedValue">
+    <name>email</name>
+    <value>
+        <cStr>&quot;Email&quot;</cStr>
+        <isAsnOIDValue>false</isAsnOIDValue>
+        <isCStrValue>false</isCStrValue>
+        <isCString>true</isCString>
+        <isChoiceValue>false</isChoiceValue>
+        <isDefinedValue>false</isDefinedValue>
+        <isFalseKW>false</isFalseKW>
+        <isMinusInfinity>false</isMinusInfinity>
+        <isNullKW>false</isNullKW>
+        <isPlusInfinity>false</isPlusInfinity>
+        <isSequenceOfValue>false</isSequenceOfValue>
+        <isSequenceValue>false</isSequenceValue>
+        <isSignedNumber>false</isSignedNumber>
+        <isTrueKW>false</isTrueKW>
+    </value>
+</namedValueList>
+                            </seqval>
+                        </value>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>true</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>withOctDef</name>
+                        <tag>
+                            <classNumber>
+<num>4</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestOCT</typeName>
+                        <value>
+                            <bStrValue>
+<bhStr>'01101100'B</bhStr>
+<isBString>true</isBString>
+<isHString>false</isHString>
+                            </bStrValue>
+                            <cStrValue>
+<isCharDefList>false</isCharDefList>
+<isTuple>false</isTuple>
+                            </cStrValue>
+                            <isAsnOIDValue>false</isAsnOIDValue>
+                            <isCStrValue>true</isCStrValue>
+                            <isCString>false</isCString>
+                            <isChoiceValue>false</isChoiceValue>
+                            <isDefinedValue>false</isDefinedValue>
+                            <isFalseKW>false</isFalseKW>
+                            <isMinusInfinity>false</isMinusInfinity>
+                            <isNullKW>false</isNullKW>
+                            <isPlusInfinity>false</isPlusInfinity>
+                            <isSequenceOfValue>false</isSequenceOfValue>
+                            <isSequenceValue>false</isSequenceValue>
+                            <isSignedNumber>false</isSignedNumber>
+                            <isTrueKW>false</isTrueKW>
+                        </value>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>true</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>withOctDef2</name>
+                        <tag>
+                            <classNumber>
+<num>5</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnOctetString">
+                            <BUILTINTYPE>OCTET STRING</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                        <value>
+                            <bStrValue>
+<bhStr>'FFEEAA'H</bhStr>
+<isBString>false</isBString>
+<isHString>true</isHString>
+                            </bStrValue>
+                            <cStrValue>
+<isCharDefList>false</isCharDefList>
+<isTuple>false</isTuple>
+                            </cStrValue>
+                            <isAsnOIDValue>false</isAsnOIDValue>
+                            <isCStrValue>true</isCStrValue>
+                            <isCString>false</isCString>
+                            <isChoiceValue>false</isChoiceValue>
+                            <isDefinedValue>false</isDefinedValue>
+                            <isFalseKW>false</isFalseKW>
+                            <isMinusInfinity>false</isMinusInfinity>
+                            <isNullKW>false</isNullKW>
+                            <isPlusInfinity>false</isPlusInfinity>
+                            <isSequenceOfValue>false</isSequenceOfValue>
+                            <isSequenceValue>false</isSequenceValue>
+                            <isSignedNumber>false</isSignedNumber>
+                            <isTrueKW>false</isTrueKW>
+                        </value>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>true</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>withSeqOf</name>
+                        <tag>
+                            <classNumber>
+<num>6</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceOf">
+                            <isDefinedType>false</isDefinedType>
+                            <isSequenceOf>true</isSequenceOf>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <name></name>
+                            <typeName></typeName>
+                            <typeReference xsi:type="asnCharacterString">
+<BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+<isUCSType>false</isUCSType>
+<name></name>
+<stringtype>PrintableString</stringtype>
+                            </typeReference>
+                        </typeReference>
+                        <value>
+                            <isAsnOIDValue>false</isAsnOIDValue>
+                            <isCStrValue>false</isCStrValue>
+                            <isCString>false</isCString>
+                            <isChoiceValue>false</isChoiceValue>
+                            <isDefinedValue>false</isDefinedValue>
+                            <isFalseKW>false</isFalseKW>
+                            <isMinusInfinity>false</isMinusInfinity>
+                            <isNullKW>false</isNullKW>
+                            <isPlusInfinity>false</isPlusInfinity>
+                            <isSequenceOfValue>true</isSequenceOfValue>
+                            <isSequenceValue>false</isSequenceValue>
+                            <isSignedNumber>false</isSignedNumber>
+                            <isTrueKW>false</isTrueKW>
+                            <seqOfVal>
+<value xsi:type="asnValue">
+    <cStr>&quot;aa&quot;</cStr>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>true</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>false</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+</value>
+<value xsi:type="asnValue">
+    <cStr>&quot;dd&quot;</cStr>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>true</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>false</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+</value>
+                            </seqOfVal>
+                        </value>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>true</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>withSeqOf2</name>
+                        <tag>
+                            <classNumber>
+<num>7</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceOf">
+                            <isDefinedType>true</isDefinedType>
+                            <isSequenceOf>true</isSequenceOf>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <name></name>
+                            <typeName>TestPRN</typeName>
+                        </typeReference>
+                        <value>
+                            <isAsnOIDValue>false</isAsnOIDValue>
+                            <isCStrValue>false</isCStrValue>
+                            <isCString>false</isCString>
+                            <isChoiceValue>false</isChoiceValue>
+                            <isDefinedValue>false</isDefinedValue>
+                            <isFalseKW>false</isFalseKW>
+                            <isMinusInfinity>false</isMinusInfinity>
+                            <isNullKW>false</isNullKW>
+                            <isPlusInfinity>false</isPlusInfinity>
+                            <isSequenceOfValue>true</isSequenceOfValue>
+                            <isSequenceValue>false</isSequenceValue>
+                            <isSignedNumber>false</isSignedNumber>
+                            <isTrueKW>false</isTrueKW>
+                            <seqOfVal>
+<value xsi:type="asnValue">
+    <cStr>&quot;cc&quot;</cStr>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>true</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>false</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+</value>
+<value xsi:type="asnValue">
+    <cStr>&quot;ee&quot;</cStr>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>true</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>false</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+</value>
+                            </seqOfVal>
+                        </value>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>true</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>withSeqOf3</name>
+                        <tag>
+                            <classNumber>
+<num>8</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>StringArray</typeName>
+                        <value>
+                            <isAsnOIDValue>false</isAsnOIDValue>
+                            <isCStrValue>false</isCStrValue>
+                            <isCString>false</isCString>
+                            <isChoiceValue>false</isChoiceValue>
+                            <isDefinedValue>false</isDefinedValue>
+                            <isFalseKW>false</isFalseKW>
+                            <isMinusInfinity>false</isMinusInfinity>
+                            <isNullKW>false</isNullKW>
+                            <isPlusInfinity>false</isPlusInfinity>
+                            <isSequenceOfValue>true</isSequenceOfValue>
+                            <isSequenceValue>false</isSequenceValue>
+                            <isSignedNumber>false</isSignedNumber>
+                            <isTrueKW>false</isTrueKW>
+                            <seqOfVal>
+<value xsi:type="asnValue">
+    <cStr>&quot;fff&quot;</cStr>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>true</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>false</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+</value>
+<value xsi:type="asnValue">
+    <cStr>&quot;ggg&quot;</cStr>
+    <isAsnOIDValue>false</isAsnOIDValue>
+    <isCStrValue>false</isCStrValue>
+    <isCString>true</isCString>
+    <isChoiceValue>false</isChoiceValue>
+    <isDefinedValue>false</isDefinedValue>
+    <isFalseKW>false</isFalseKW>
+    <isMinusInfinity>false</isMinusInfinity>
+    <isNullKW>false</isNullKW>
+    <isPlusInfinity>false</isPlusInfinity>
+    <isSequenceOfValue>false</isSequenceOfValue>
+    <isSequenceValue>false</isSequenceValue>
+    <isSignedNumber>false</isSignedNumber>
+    <isTrueKW>false</isTrueKW>
+</value>
+                            </seqOfVal>
+                        </value>
+                    </elements>
+                </elementTypeList>
+                <isSequence>true</isSequence>
+                <name>SequenceWithDefault</name>
+            </sequenceSets>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>nodefault</name>
+                        <tag>
+                            <classNumber>
+<num>2</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnInteger">
+                            <BUILTINTYPE>INTEGER</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>nodefault2</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestPRN</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>true</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>default3</name>
+                        <tag>
+                            <classNumber>
+<num>3</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                        <value>
+                            <cStr>&quot;DDDdd&quot;</cStr>
+                            <isAsnOIDValue>false</isAsnOIDValue>
+                            <isCStrValue>false</isCStrValue>
+                            <isCString>true</isCString>
+                            <isChoiceValue>false</isChoiceValue>
+                            <isDefinedValue>false</isDefinedValue>
+                            <isFalseKW>false</isFalseKW>
+                            <isMinusInfinity>false</isMinusInfinity>
+                            <isNullKW>false</isNullKW>
+                            <isPlusInfinity>false</isPlusInfinity>
+                            <isSequenceOfValue>false</isSequenceOfValue>
+                            <isSequenceValue>false</isSequenceValue>
+                            <isSignedNumber>false</isSignedNumber>
+                            <isTrueKW>false</isTrueKW>
+                        </value>
+                    </elements>
+                </elementTypeList>
+                <isSequence>false</isSequence>
+                <name>SetWithDefault</name>
+            </sequenceSets>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>seq</name>
+                        <tag>
+                            <classNumber>
+<num>0</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceSet">
+                            <elementTypeList>
+<elements xsi:type="asnElementType">
+    <isComponentsOf>false</isComponentsOf>
+    <isDefault>false</isDefault>
+    <isDefinedType>false</isDefinedType>
+    <isOptional>true</isOptional>
+    <isTag>false</isTag>
+    <isTagDefault>false</isTagDefault>
+    <name>it1</name>
+    <typeReference xsi:type="asnInteger">
+        <BUILTINTYPE>INTEGER</BUILTINTYPE>
+        <name></name>
+    </typeReference>
+</elements>
+                            </elementTypeList>
+                            <isSequence>true</isSequence>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>ch</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnChoice">
+                            <elementTypeList>
+<elements xsi:type="asnElementType">
+    <isComponentsOf>false</isComponentsOf>
+    <isDefault>false</isDefault>
+    <isDefinedType>false</isDefinedType>
+    <isOptional>false</isOptional>
+    <isTag>true</isTag>
+    <isTagDefault>false</isTagDefault>
+    <name>it1</name>
+    <tag>
+        <classNumber>
+            <num>0</num>
+        </classNumber>
+        <clazz></clazz>
+    </tag>
+    <typeReference xsi:type="asnInteger">
+        <BUILTINTYPE>INTEGER</BUILTINTYPE>
+        <name></name>
+    </typeReference>
+</elements>
+<elements xsi:type="asnElementType">
+    <isComponentsOf>false</isComponentsOf>
+    <isDefault>false</isDefault>
+    <isDefinedType>false</isDefinedType>
+    <isOptional>false</isOptional>
+    <isTag>true</isTag>
+    <isTagDefault>false</isTagDefault>
+    <name>it2</name>
+    <tag>
+        <classNumber>
+            <num>1</num>
+        </classNumber>
+        <clazz></clazz>
+    </tag>
+    <typeReference xsi:type="asnOctetString">
+        <BUILTINTYPE>OCTET STRING</BUILTINTYPE>
+        <name></name>
+    </typeReference>
+</elements>
+                            </elementTypeList>
+                            <name></name>
+                            <isChoice>true</isChoice>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>seqf</name>
+                        <tag>
+                            <classNumber>
+<num>2</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceOf">
+                            <isDefinedType>false</isDefinedType>
+                            <isSequenceOf>true</isSequenceOf>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <name></name>
+                            <typeName></typeName>
+                            <typeReference xsi:type="asnSequenceSet">
+<elementTypeList>
+    <elements xsi:type="asnElementType">
+        <isComponentsOf>false</isComponentsOf>
+        <isDefault>false</isDefault>
+        <isDefinedType>false</isDefinedType>
+        <isOptional>true</isOptional>
+        <isTag>false</isTag>
+        <isTagDefault>false</isTagDefault>
+        <name>it1</name>
+        <typeReference xsi:type="asnInteger">
+            <BUILTINTYPE>INTEGER</BUILTINTYPE>
+            <name></name>
+        </typeReference>
+    </elements>
+</elementTypeList>
+<isSequence>true</isSequence>
+<name></name>
+                            </typeReference>
+                        </typeReference>
+                    </elements>
+                </elementTypeList>
+                <isSequence>true</isSequence>
+                <name>TestSequenceWithNonames</name>
+            </sequenceSets>
+            <sequenceSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceSet">
+                <elementTypeList>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>attrSimple</name>
+                        <tag>
+                            <classNumber>
+<num>0</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>attrStr</name>
+                        <tag>
+                            <classNumber>
+<num>1</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnCharacterString">
+                            <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                            <constraint>
+<elemSetSpec>
+    <intersectionList xsi:type="intersection">
+        <cnsElemList xsi:type="constraintElements">
+            <constraint>
+                <elemSetSpec>
+                    <intersectionList xsi:type="intersection">
+                        <cnsElemList xsi:type="constraintElements">
+                            <isAlphabetConstraint>false</isAlphabetConstraint>
+                            <isElementSetSpec>false</isElementSetSpec>
+                            <isIncludeType>false</isIncludeType>
+                            <isLEndLess>false</isLEndLess>
+                            <isMaxKw>false</isMaxKw>
+                            <isMinKw>false</isMinKw>
+                            <isPatternValue>false</isPatternValue>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <isTypeConstraint>false</isTypeConstraint>
+                            <isUEndLess>false</isUEndLess>
+                            <isValue>false</isValue>
+                            <isValueRange>true</isValueRange>
+                            <isWithComponent>false</isWithComponent>
+                            <isWithComponents>false</isWithComponents>
+                            <lEndValue>
+<isAsnOIDValue>false</isAsnOIDValue>
+<isCStrValue>false</isCStrValue>
+<isCString>false</isCString>
+<isChoiceValue>false</isChoiceValue>
+<isDefinedValue>false</isDefinedValue>
+<isFalseKW>false</isFalseKW>
+<isMinusInfinity>false</isMinusInfinity>
+<isNullKW>false</isNullKW>
+<isPlusInfinity>false</isPlusInfinity>
+<isSequenceOfValue>false</isSequenceOfValue>
+<isSequenceValue>false</isSequenceValue>
+<isSignedNumber>true</isSignedNumber>
+<isTrueKW>false</isTrueKW>
+<signedNumber>
+    <num>1</num>
+    <positive>true</positive>
+</signedNumber>
+                            </lEndValue>
+                            <uEndValue>
+<isAsnOIDValue>false</isAsnOIDValue>
+<isCStrValue>false</isCStrValue>
+<isCString>false</isCString>
+<isChoiceValue>false</isChoiceValue>
+<isDefinedValue>false</isDefinedValue>
+<isFalseKW>false</isFalseKW>
+<isMinusInfinity>false</isMinusInfinity>
+<isNullKW>false</isNullKW>
+<isPlusInfinity>false</isPlusInfinity>
+<isSequenceOfValue>false</isSequenceOfValue>
+<isSequenceValue>false</isSequenceValue>
+<isSignedNumber>true</isSignedNumber>
+<isTrueKW>false</isTrueKW>
+<signedNumber>
+    <num>4</num>
+    <positive>true</positive>
+</signedNumber>
+                            </uEndValue>
+                        </cnsElemList>
+                        <isExcept>false</isExcept>
+                        <isInterSection>false</isInterSection>
+                    </intersectionList>
+                    <isAllExcept>false</isAllExcept>
+                </elemSetSpec>
+                <isAdditionalElementSpec>false</isAdditionalElementSpec>
+                <isColonValue>false</isColonValue>
+                <isCommaDotDot>false</isCommaDotDot>
+                <isDefinedValue>false</isDefinedValue>
+                <isElementSetSpecs>true</isElementSetSpecs>
+                <isExceptionSpec>false</isExceptionSpec>
+                <isSignedNumber>false</isSignedNumber>
+            </constraint>
+            <isAlphabetConstraint>false</isAlphabetConstraint>
+            <isElementSetSpec>false</isElementSetSpec>
+            <isIncludeType>false</isIncludeType>
+            <isLEndLess>false</isLEndLess>
+            <isMaxKw>false</isMaxKw>
+            <isMinKw>false</isMinKw>
+            <isPatternValue>false</isPatternValue>
+            <isSizeConstraint>true</isSizeConstraint>
+            <isTypeConstraint>false</isTypeConstraint>
+            <isUEndLess>false</isUEndLess>
+            <isValue>false</isValue>
+            <isValueRange>false</isValueRange>
+            <isWithComponent>false</isWithComponent>
+            <isWithComponents>false</isWithComponents>
+        </cnsElemList>
+        <isExcept>false</isExcept>
+        <isInterSection>false</isInterSection>
+    </intersectionList>
+    <isAllExcept>false</isAllExcept>
+</elemSetSpec>
+<isAdditionalElementSpec>false</isAdditionalElementSpec>
+<isColonValue>false</isColonValue>
+<isCommaDotDot>false</isCommaDotDot>
+<isDefinedValue>false</isDefinedValue>
+<isElementSetSpecs>true</isElementSetSpecs>
+<isExceptionSpec>false</isExceptionSpec>
+<isSignedNumber>false</isSignedNumber>
+                            </constraint>
+                            <isUCSType>false</isUCSType>
+                            <name></name>
+                            <stringtype>PrintableString</stringtype>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>attrStr2</name>
+                        <tag>
+                            <classNumber>
+<num>2</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestPRN</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>attrArr</name>
+                        <tag>
+                            <classNumber>
+<num>3</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnSequenceOf">
+                            <constraint>
+<elemSetSpec>
+    <intersectionList xsi:type="intersection">
+        <cnsElemList xsi:type="constraintElements">
+            <isAlphabetConstraint>false</isAlphabetConstraint>
+            <isElementSetSpec>false</isElementSetSpec>
+            <isIncludeType>false</isIncludeType>
+            <isLEndLess>false</isLEndLess>
+            <isMaxKw>false</isMaxKw>
+            <isMinKw>false</isMinKw>
+            <isPatternValue>false</isPatternValue>
+            <isSizeConstraint>false</isSizeConstraint>
+            <isTypeConstraint>false</isTypeConstraint>
+            <isUEndLess>false</isUEndLess>
+            <isValue>false</isValue>
+            <isValueRange>true</isValueRange>
+            <isWithComponent>false</isWithComponent>
+            <isWithComponents>false</isWithComponents>
+            <lEndValue>
+                <isAsnOIDValue>false</isAsnOIDValue>
+                <isCStrValue>false</isCStrValue>
+                <isCString>false</isCString>
+                <isChoiceValue>false</isChoiceValue>
+                <isDefinedValue>false</isDefinedValue>
+                <isFalseKW>false</isFalseKW>
+                <isMinusInfinity>false</isMinusInfinity>
+                <isNullKW>false</isNullKW>
+                <isPlusInfinity>false</isPlusInfinity>
+                <isSequenceOfValue>false</isSequenceOfValue>
+                <isSequenceValue>false</isSequenceValue>
+                <isSignedNumber>true</isSignedNumber>
+                <isTrueKW>false</isTrueKW>
+                <signedNumber>
+                    <num>1</num>
+                    <positive>true</positive>
+                </signedNumber>
+            </lEndValue>
+            <uEndValue>
+                <isAsnOIDValue>false</isAsnOIDValue>
+                <isCStrValue>false</isCStrValue>
+                <isCString>false</isCString>
+                <isChoiceValue>false</isChoiceValue>
+                <isDefinedValue>false</isDefinedValue>
+                <isFalseKW>false</isFalseKW>
+                <isMinusInfinity>false</isMinusInfinity>
+                <isNullKW>false</isNullKW>
+                <isPlusInfinity>false</isPlusInfinity>
+                <isSequenceOfValue>false</isSequenceOfValue>
+                <isSequenceValue>false</isSequenceValue>
+                <isSignedNumber>true</isSignedNumber>
+                <isTrueKW>false</isTrueKW>
+                <signedNumber>
+                    <num>5</num>
+                    <positive>true</positive>
+                </signedNumber>
+            </uEndValue>
+        </cnsElemList>
+        <isExcept>false</isExcept>
+        <isInterSection>false</isInterSection>
+    </intersectionList>
+    <isAllExcept>false</isAllExcept>
+</elemSetSpec>
+<isAdditionalElementSpec>false</isAdditionalElementSpec>
+<isColonValue>false</isColonValue>
+<isCommaDotDot>false</isCommaDotDot>
+<isDefinedValue>false</isDefinedValue>
+<isElementSetSpecs>true</isElementSetSpecs>
+<isExceptionSpec>false</isExceptionSpec>
+<isSignedNumber>false</isSignedNumber>
+                            </constraint>
+                            <isDefinedType>false</isDefinedType>
+                            <isSequenceOf>true</isSequenceOf>
+                            <isSizeConstraint>true</isSizeConstraint>
+                            <name></name>
+                            <typeName></typeName>
+                            <typeReference xsi:type="asnCharacterString">
+<BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+<isUCSType>false</isUCSType>
+<name></name>
+<stringtype>PrintableString</stringtype>
+                            </typeReference>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>attrBitStr</name>
+                        <tag>
+                            <classNumber>
+<num>4</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnBitString">
+                            <BUILTINTYPE>BIT STRING</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>true</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>attrBitStrDef</name>
+                        <tag>
+                            <classNumber>
+<num>4</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnBitString">
+                            <BUILTINTYPE>BIT STRING</BUILTINTYPE>
+                            <name></name>
+                        </typeReference>
+                        <value>
+                            <bStrValue>
+<bhStr>'011'B</bhStr>
+<isBString>true</isBString>
+<isHString>false</isHString>
+                            </bStrValue>
+                            <cStrValue>
+<isCharDefList>false</isCharDefList>
+<isTuple>false</isTuple>
+                            </cStrValue>
+                            <isAsnOIDValue>false</isAsnOIDValue>
+                            <isCStrValue>true</isCStrValue>
+                            <isCString>false</isCString>
+                            <isChoiceValue>false</isChoiceValue>
+                            <isDefinedValue>false</isDefinedValue>
+                            <isFalseKW>false</isFalseKW>
+                            <isMinusInfinity>false</isMinusInfinity>
+                            <isNullKW>false</isNullKW>
+                            <isPlusInfinity>false</isPlusInfinity>
+                            <isSequenceOfValue>false</isSequenceOfValue>
+                            <isSequenceValue>false</isSequenceValue>
+                            <isSignedNumber>false</isSignedNumber>
+                            <isTrueKW>false</isTrueKW>
+                        </value>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>attrBitStrBnd</name>
+                        <tag>
+                            <classNumber>
+<num>5</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnBitString">
+                            <BUILTINTYPE>BIT STRING</BUILTINTYPE>
+                            <constraint>
+<elemSetSpec>
+    <intersectionList xsi:type="intersection">
+        <cnsElemList xsi:type="constraintElements">
+            <constraint>
+                <elemSetSpec>
+                    <intersectionList xsi:type="intersection">
+                        <cnsElemList xsi:type="constraintElements">
+                            <isAlphabetConstraint>false</isAlphabetConstraint>
+                            <isElementSetSpec>false</isElementSetSpec>
+                            <isIncludeType>false</isIncludeType>
+                            <isLEndLess>false</isLEndLess>
+                            <isMaxKw>false</isMaxKw>
+                            <isMinKw>false</isMinKw>
+                            <isPatternValue>false</isPatternValue>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <isTypeConstraint>false</isTypeConstraint>
+                            <isUEndLess>false</isUEndLess>
+                            <isValue>false</isValue>
+                            <isValueRange>true</isValueRange>
+                            <isWithComponent>false</isWithComponent>
+                            <isWithComponents>false</isWithComponents>
+                            <lEndValue>
+<isAsnOIDValue>false</isAsnOIDValue>
+<isCStrValue>false</isCStrValue>
+<isCString>false</isCString>
+<isChoiceValue>false</isChoiceValue>
+<isDefinedValue>false</isDefinedValue>
+<isFalseKW>false</isFalseKW>
+<isMinusInfinity>false</isMinusInfinity>
+<isNullKW>false</isNullKW>
+<isPlusInfinity>false</isPlusInfinity>
+<isSequenceOfValue>false</isSequenceOfValue>
+<isSequenceValue>false</isSequenceValue>
+<isSignedNumber>true</isSignedNumber>
+<isTrueKW>false</isTrueKW>
+<signedNumber>
+    <num>1</num>
+    <positive>true</positive>
+</signedNumber>
+                            </lEndValue>
+                            <uEndValue>
+<isAsnOIDValue>false</isAsnOIDValue>
+<isCStrValue>false</isCStrValue>
+<isCString>false</isCString>
+<isChoiceValue>false</isChoiceValue>
+<isDefinedValue>false</isDefinedValue>
+<isFalseKW>false</isFalseKW>
+<isMinusInfinity>false</isMinusInfinity>
+<isNullKW>false</isNullKW>
+<isPlusInfinity>false</isPlusInfinity>
+<isSequenceOfValue>false</isSequenceOfValue>
+<isSequenceValue>false</isSequenceValue>
+<isSignedNumber>true</isSignedNumber>
+<isTrueKW>false</isTrueKW>
+<signedNumber>
+    <num>36</num>
+    <positive>true</positive>
+</signedNumber>
+                            </uEndValue>
+                        </cnsElemList>
+                        <isExcept>false</isExcept>
+                        <isInterSection>false</isInterSection>
+                    </intersectionList>
+                    <isAllExcept>false</isAllExcept>
+                </elemSetSpec>
+                <isAdditionalElementSpec>false</isAdditionalElementSpec>
+                <isColonValue>false</isColonValue>
+                <isCommaDotDot>false</isCommaDotDot>
+                <isDefinedValue>false</isDefinedValue>
+                <isElementSetSpecs>true</isElementSetSpecs>
+                <isExceptionSpec>false</isExceptionSpec>
+                <isSignedNumber>false</isSignedNumber>
+            </constraint>
+            <isAlphabetConstraint>false</isAlphabetConstraint>
+            <isElementSetSpec>false</isElementSetSpec>
+            <isIncludeType>false</isIncludeType>
+            <isLEndLess>false</isLEndLess>
+            <isMaxKw>false</isMaxKw>
+            <isMinKw>false</isMinKw>
+            <isPatternValue>false</isPatternValue>
+            <isSizeConstraint>true</isSizeConstraint>
+            <isTypeConstraint>false</isTypeConstraint>
+            <isUEndLess>false</isUEndLess>
+            <isValue>false</isValue>
+            <isValueRange>false</isValueRange>
+            <isWithComponent>false</isWithComponent>
+            <isWithComponents>false</isWithComponents>
+        </cnsElemList>
+        <isExcept>false</isExcept>
+        <isInterSection>false</isInterSection>
+    </intersectionList>
+    <isAllExcept>false</isAllExcept>
+</elemSetSpec>
+<isAdditionalElementSpec>false</isAdditionalElementSpec>
+<isColonValue>false</isColonValue>
+<isCommaDotDot>false</isCommaDotDot>
+<isDefinedValue>false</isDefinedValue>
+<isElementSetSpecs>true</isElementSetSpecs>
+<isExceptionSpec>false</isExceptionSpec>
+<isSignedNumber>false</isSignedNumber>
+                            </constraint>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>true</isDefinedType>
+                        <isOptional>true</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>attrBoxBitStr</name>
+                        <tag>
+                            <classNumber>
+<num>6</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeName>TestBitStrBnd</typeName>
+                    </elements>
+                    <elements xsi:type="asnElementType">
+                        <isComponentsOf>false</isComponentsOf>
+                        <isDefault>false</isDefault>
+                        <isDefinedType>false</isDefinedType>
+                        <isOptional>false</isOptional>
+                        <isTag>true</isTag>
+                        <isTagDefault>false</isTagDefault>
+                        <name>attrStrict</name>
+                        <tag>
+                            <classNumber>
+<num>7</num>
+                            </classNumber>
+                            <clazz></clazz>
+                        </tag>
+                        <typeReference xsi:type="asnOctetString">
+                            <BUILTINTYPE>OCTET STRING</BUILTINTYPE>
+                            <constraint>
+<elemSetSpec>
+    <intersectionList xsi:type="intersection">
+        <cnsElemList xsi:type="constraintElements">
+            <constraint>
+                <elemSetSpec>
+                    <intersectionList xsi:type="intersection">
+                        <cnsElemList xsi:type="constraintElements">
+                            <isAlphabetConstraint>false</isAlphabetConstraint>
+                            <isElementSetSpec>false</isElementSetSpec>
+                            <isIncludeType>false</isIncludeType>
+                            <isLEndLess>false</isLEndLess>
+                            <isMaxKw>false</isMaxKw>
+                            <isMinKw>false</isMinKw>
+                            <isPatternValue>false</isPatternValue>
+                            <isSizeConstraint>false</isSizeConstraint>
+                            <isTypeConstraint>false</isTypeConstraint>
+                            <isUEndLess>false</isUEndLess>
+                            <isValue>true</isValue>
+                            <isValueRange>false</isValueRange>
+                            <isWithComponent>false</isWithComponent>
+                            <isWithComponents>false</isWithComponents>
+                            <value>
+<isAsnOIDValue>false</isAsnOIDValue>
+<isCStrValue>false</isCStrValue>
+<isCString>false</isCString>
+<isChoiceValue>false</isChoiceValue>
+<isDefinedValue>false</isDefinedValue>
+<isFalseKW>false</isFalseKW>
+<isMinusInfinity>false</isMinusInfinity>
+<isNullKW>false</isNullKW>
+<isPlusInfinity>false</isPlusInfinity>
+<isSequenceOfValue>false</isSequenceOfValue>
+<isSequenceValue>false</isSequenceValue>
+<isSignedNumber>true</isSignedNumber>
+<isTrueKW>false</isTrueKW>
+<signedNumber>
+    <num>4</num>
+    <positive>true</positive>
+</signedNumber>
+                            </value>
+                        </cnsElemList>
+                        <isExcept>false</isExcept>
+                        <isInterSection>false</isInterSection>
+                    </intersectionList>
+                    <isAllExcept>false</isAllExcept>
+                </elemSetSpec>
+                <isAdditionalElementSpec>false</isAdditionalElementSpec>
+                <isColonValue>false</isColonValue>
+                <isCommaDotDot>false</isCommaDotDot>
+                <isDefinedValue>false</isDefinedValue>
+                <isElementSetSpecs>true</isElementSetSpecs>
+                <isExceptionSpec>false</isExceptionSpec>
+                <isSignedNumber>false</isSignedNumber>
+            </constraint>
+            <isAlphabetConstraint>false</isAlphabetConstraint>
+            <isElementSetSpec>false</isElementSetSpec>
+            <isIncludeType>false</isIncludeType>
+            <isLEndLess>false</isLEndLess>
+            <isMaxKw>false</isMaxKw>
+            <isMinKw>false</isMinKw>
+            <isPatternValue>false</isPatternValue>
+            <isSizeConstraint>true</isSizeConstraint>
+            <isTypeConstraint>false</isTypeConstraint>
+            <isUEndLess>false</isUEndLess>
+            <isValue>false</isValue>
+            <isValueRange>false</isValueRange>
+            <isWithComponent>false</isWithComponent>
+            <isWithComponents>false</isWithComponents>
+        </cnsElemList>
+        <isExcept>false</isExcept>
+        <isInterSection>false</isInterSection>
+    </intersectionList>
+    <isAllExcept>false</isAllExcept>
+</elemSetSpec>
+<isAdditionalElementSpec>false</isAdditionalElementSpec>
+<isColonValue>false</isColonValue>
+<isCommaDotDot>false</isCommaDotDot>
+<isDefinedValue>false</isDefinedValue>
+<isElementSetSpecs>true</isElementSetSpecs>
+<isExceptionSpec>false</isExceptionSpec>
+<isSignedNumber>false</isSignedNumber>
+                            </constraint>
+                            <name></name>
+                        </typeReference>
+                    </elements>
+                </elementTypeList>
+                <isSequence>true</isSequence>
+                <name>TestSequenceV12</name>
+            </sequenceSets>
+            <sequenceSetsOf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceOf">
+                <isDefinedType>true</isDefinedType>
+                <isSequenceOf>true</isSequenceOf>
+                <isSizeConstraint>false</isSizeConstraint>
+                <name>DataArray</name>
+                <typeName>Data</typeName>
+            </sequenceSetsOf>
+            <sequenceSetsOf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceOf">
+                <isDefinedType>true</isDefinedType>
+                <isSequenceOf>true</isSequenceOf>
+                <isSizeConstraint>false</isSizeConstraint>
+                <name>DataSeqArray</name>
+                <typeName>DataSeq</typeName>
+            </sequenceSetsOf>
+            <sequenceSetsOf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceOf">
+                <isDefinedType>false</isDefinedType>
+                <isSequenceOf>true</isSequenceOf>
+                <isSizeConstraint>false</isSizeConstraint>
+                <name>StringArray</name>
+                <typeName></typeName>
+                <typeReference xsi:type="asnCharacterString">
+                    <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                    <isUCSType>false</isUCSType>
+                    <name></name>
+                    <stringtype>PrintableString</stringtype>
+                </typeReference>
+            </sequenceSetsOf>
+            <sequenceSetsOf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceOf">
+                <isDefinedType>false</isDefinedType>
+                <isSequenceOf>true</isSequenceOf>
+                <isSizeConstraint>false</isSizeConstraint>
+                <name>OctetStringArray</name>
+                <typeName></typeName>
+                <typeReference xsi:type="asnOctetString">
+                    <BUILTINTYPE>OCTET STRING</BUILTINTYPE>
+                    <name></name>
+                </typeReference>
+            </sequenceSetsOf>
+            <sequenceSetsOf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceOf">
+                <isDefinedType>true</isDefinedType>
+                <isSequenceOf>true</isSequenceOf>
+                <isSizeConstraint>false</isSizeConstraint>
+                <name>ContentPartHeaders</name>
+                <typeName>ContentPartHeader</typeName>
+            </sequenceSetsOf>
+            <sequenceSetsOf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnSequenceOf">
+                <isDefinedType>true</isDefinedType>
+                <isSequenceOf>false</isSequenceOf>
+                <isSizeConstraint>false</isSizeConstraint>
+                <name>SetOfTest</name>
+                <typeName>Data</typeName>
+            </sequenceSetsOf>
+            <taggeds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnTaggedType">
+                <isDefinedType>true</isDefinedType>
+                <name>ITUType2</name>
+                <tag>
+                    <classNumber>
+                        <num>3</num>
+                    </classNumber>
+                    <clazz>APPLICATION</clazz>
+                </tag>
+                <tagDefault>IMPLICIT</tagDefault>
+                <typeName>ITUType1</typeName>
+            </taggeds>
+            <taggeds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnTaggedType">
+                <isDefinedType>true</isDefinedType>
+                <name>ITUType3</name>
+                <tag>
+                    <classNumber>
+                        <num>2</num>
+                    </classNumber>
+                    <clazz></clazz>
+                </tag>
+                <tagDefault></tagDefault>
+                <typeName>ITUType2</typeName>
+            </taggeds>
+            <taggeds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnTaggedType">
+                <isDefinedType>true</isDefinedType>
+                <name>ITUType4</name>
+                <tag>
+                    <classNumber>
+                        <num>7</num>
+                    </classNumber>
+                    <clazz>APPLICATION</clazz>
+                </tag>
+                <tagDefault>IMPLICIT</tagDefault>
+                <typeName>ITUType3</typeName>
+            </taggeds>
+            <taggeds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnTaggedType">
+                <isDefinedType>true</isDefinedType>
+                <name>ITUType5</name>
+                <tag>
+                    <classNumber>
+                        <num>2</num>
+                    </classNumber>
+                    <clazz></clazz>
+                </tag>
+                <tagDefault>IMPLICIT</tagDefault>
+                <typeName>ITUType2</typeName>
+            </taggeds>
+            <taggeds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnTaggedType">
+                <isDefinedType>false</isDefinedType>
+                <name>ITUType6</name>
+                <tag>
+                    <classNumber>
+                        <num>9</num>
+                    </classNumber>
+                    <clazz></clazz>
+                </tag>
+                <tagDefault></tagDefault>
+                <typeName></typeName>
+                <typeReference xsi:type="asnCharacterString">
+                    <BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+                    <isUCSType>false</isUCSType>
+                    <name></name>
+                    <stringtype>VisibleString</stringtype>
+                </typeReference>
+            </taggeds>
+            <taggeds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnTaggedType">
+                <isDefinedType>false</isDefinedType>
+                <name>TaggedNullSequence</name>
+                <tag>
+                    <classNumber>
+                        <num>1</num>
+                    </classNumber>
+                    <clazz></clazz>
+                </tag>
+                <tagDefault></tagDefault>
+                <typeName></typeName>
+                <typeReference xsi:type="asnNull">
+                    <name></name>
+                    <isNull>true</isNull>
+                </typeReference>
+            </taggeds>
+            <taggeds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="asnTaggedType">
+                <isDefinedType>false</isDefinedType>
+                <name>TaggedSequence</name>
+                <tag>
+                    <classNumber>
+                        <num>8</num>
+                    </classNumber>
+                    <clazz>APPLICATION</clazz>
+                </tag>
+                <tagDefault></tagDefault>
+                <typeName></typeName>
+                <typeReference xsi:type="asnSequenceSet">
+                    <elementTypeList>
+                        <elements xsi:type="asnElementType">
+                            <isComponentsOf>false</isComponentsOf>
+                            <isDefault>false</isDefault>
+                            <isDefinedType>false</isDefinedType>
+                            <isOptional>true</isOptional>
+                            <isTag>true</isTag>
+                            <isTagDefault>false</isTagDefault>
+                            <name>type1</name>
+                            <tag>
+<classNumber>
+    <num>7</num>
+</classNumber>
+<clazz></clazz>
+                            </tag>
+                            <typeReference xsi:type="asnCharacterString">
+<BUILTINTYPE>CHARACTER STRING</BUILTINTYPE>
+<isUCSType>false</isUCSType>
+<name></name>
+<stringtype>VisibleString</stringtype>
+                            </typeReference>
+                        </elements>
+                    </elementTypeList>
+                    <isSequence>true</isSequence>
+                    <name></name>
+                </typeReference>
+            </taggeds>
+        </asnTypes>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">TestOCT</exportSymbolList>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">TestPRN</exportSymbolList>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">TestI32</exportSymbolList>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">TestI16</exportSymbolList>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">TestI8</exportSymbolList>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">ContentType</exportSymbolList>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">ValueWithParams</exportSymbolList>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">ParamsMap</exportSymbolList>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">ContentPartHeaders</exportSymbolList>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">ContentPartHeader</exportSymbolList>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">ContentSchema</exportSymbolList>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">Data</exportSymbolList>
+        <exportSymbolList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">DataArray</exportSymbolList>
+        <exported>true</exported>
+        <extensible>false</extensible>
+        <imported>false</imported>
+        <moduleIdentifier>
+            <componentList>
+                <isDefinitive>false</isDefinitive>
+            </componentList>
+            <name>TEST_ASN</name>
+        </moduleIdentifier>
+        <tag>true</tag>
+        <tagDefault>IMPLICIT</tagDefault>
+    </module>
+</asn1Model>
