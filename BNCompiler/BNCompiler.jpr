@@ -168,26 +168,12 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Classes"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <url n="id" path="../../../../../../JDeveloper/jdev/system/oracle.jdeveloper.10.1.3.39.84/LineArgs.library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
       <hash n="internalDefinitions">
-         <list n="libraryDefinitions">
-            <hash>
-               <list n="classPath">
-                  <url path="../../../LineArgs/1.0.0b2/JavaLibrary/classes/"/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Classes"/>
-               <value n="id" v="Classes"/>
-               <value n="locked" v="true"/>
-            </hash>
-         </list>
+         <list n="libraryDefinitions"/>
       </hash>
       <list n="libraryReferences">
          <hash>
@@ -196,10 +182,6 @@
          </hash>
          <hash>
             <url n="id" path="../../../../../../JDeveloper/jdev/system/oracle.jdeveloper.10.1.3.39.84/ANTLR.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Classes"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
