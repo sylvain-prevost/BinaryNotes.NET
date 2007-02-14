@@ -212,20 +212,19 @@ public abstract class Decoder implements IDecoder, IASN1TypesDecoder {
         catch(NoSuchMethodException ex){};
     }
     
-    protected Object createInstanceForElement(Class objectClass, ElementInfo elementInfo) throws InstantiationException, 
-                                                                              IllegalAccessException, 
-                                                                              NoSuchMethodException, 
-                                                                              InvocationTargetException {
+    protected Object createInstanceForElement(Class objectClass, ElementInfo elementInfo) throws Exception {
         Object result = null;
         if(elementInfo.hasPreparedInstance()) {
             result= elementInfo.getPreparedInstance();
         }
         else {
-            if(elementInfo.hasPreparedInfo()) {
+            if(elementInfo.hasPreparedInfo()) {                
                 if(elementInfo.getPreparedInfo().isMemberClass() && elementInfo.getParentObject()!=null) {
                     Constructor decl = objectClass.getDeclaredConstructor(elementInfo.getParentObject().getClass());
                     result = decl.newInstance(elementInfo.getParentObject());
                 }
+                else
+                    result = elementInfo.getPreparedInfo().newInstance();
             }
             else
             if(objectClass.isMemberClass() && elementInfo.getParentObject()!=null && !Modifier.isStatic(objectClass.getModifiers())) {
@@ -233,8 +232,12 @@ public abstract class Decoder implements IDecoder, IASN1TypesDecoder {
                 result = decl.newInstance(elementInfo.getParentObject());
             }
         }
-        if(result==null)
+        if(result==null) {
             result = objectClass.newInstance();
+            /*Constructor decl = objectClass.getDeclaredConstructor();
+            decl.setAccessible(true);
+            result = decl.newInstance();*/
+        }
         return result;
     }
         

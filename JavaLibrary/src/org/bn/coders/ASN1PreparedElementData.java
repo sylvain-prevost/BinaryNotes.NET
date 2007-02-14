@@ -19,8 +19,10 @@
 package org.bn.coders;
 
 import java.lang.reflect.AnnotatedElement;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import java.lang.reflect.Modifier;
@@ -48,11 +50,14 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
     private Method doSelectedMethod = null;
     private Method isSelectedMethod = null;
     private boolean memberClassFlag = false;
+    private Constructor newInstanceConstructor = null;
+    private Class newInstanceClass = null;
     
     public ASN1PreparedElementData(Class objectClass) {
         setupMetadata(objectClass, objectClass);
         setupConstructed(objectClass);
         setupMemberFlag(objectClass);
+        newInstanceClass = objectClass;
         //memberClassFlag = objectClass.isMemberClass();
     }
     
@@ -269,6 +274,14 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
         }
         catch (NoSuchMethodException e) { e = null; }
         
+        try {            
+            newInstanceConstructor = field.getType().getDeclaredConstructor();
+            newInstanceConstructor.setAccessible(true);            
+        }
+        catch (NoSuchMethodException e) { 
+            e = null; 
+            newInstanceClass = field.getType();
+        }
     }
 
     public Object invokeSetterMethod(Object object, Object param) throws Exception {
@@ -293,5 +306,12 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
 
     protected void setupMemberFlag(Class cls) {
         memberClassFlag = cls.isMemberClass() && !Modifier.isStatic(cls.getModifiers());
+    }
+    
+    public Object newInstance() throws Exception {
+        if(newInstanceConstructor!=null)
+            return newInstanceConstructor.newInstance();        
+        else
+            return newInstanceClass.newInstance();
     }
 }

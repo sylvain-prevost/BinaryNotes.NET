@@ -48,4 +48,5 @@ public interface IASN1PreparedElementData {
     Object invokeIsSelectedMethod(Object object, Object param) throws Exception;
     
     boolean isMemberClass();
+    Object newInstance() throws Exception;
 }
