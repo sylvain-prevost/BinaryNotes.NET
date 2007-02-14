@@ -247,21 +247,25 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
     private void setupAccessors(Class objectClass, Field field) {
         try {
             doSelectedMethod = CoderUtils.findDoSelectMethodForField(field, objectClass, field.getType());
+            doSelectedMethod.setAccessible(true);
         }
         catch (NoSuchMethodException e) {  e = null; }
         
         try {
             isSelectedMethod = CoderUtils.findIsSelectedMethodForField(field, objectClass);
+            isSelectedMethod.setAccessible(true);
         }
         catch (NoSuchMethodException e) {  e = null; }
 
         try {
             getterMethod = CoderUtils.findGetterMethodForField(field, objectClass);
+            getterMethod.setAccessible(true);
         }
         catch (NoSuchMethodException e) { e = null; }
 
         try {
             setterMethod = CoderUtils.findSetterMethodForField(field, objectClass, field.getType());
+            setterMethod.setAccessible(true);
         }
         catch (NoSuchMethodException e) { e = null; }
         
