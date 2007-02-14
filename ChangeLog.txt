@@ -7,7 +7,7 @@ ChangeLog
 
 -
 1.4.2	{doc}		[*] Small documentation fixes
-1.4.2	{comp}		[*] Fixed a isPresent function generating for Java
+1.4.2	{comp}		[*] Fixed an isPresent function generating for Java
 1.4.2	{all}		[+] Added for inner (member) java classes static modifier
 1.4.2	{comp}		[*] Fixed some incorrect code generations for inner choice/sequence and sequence of elements
 1.4.2	{comp}		[*] Fixed incorrect generating choice functions for mangled words.
