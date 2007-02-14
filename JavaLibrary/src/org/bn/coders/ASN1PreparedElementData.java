@@ -255,33 +255,36 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
             doSelectedMethod.setAccessible(true);
         }
         catch (NoSuchMethodException e) {  e = null; }
+        catch (SecurityException ex) { ex = null; }
         
         try {
             isSelectedMethod = CoderUtils.findIsSelectedMethodForField(field, objectClass);
             isSelectedMethod.setAccessible(true);
         }
         catch (NoSuchMethodException e) {  e = null; }
+        catch (SecurityException ex) { ex = null; }
 
         try {
             getterMethod = CoderUtils.findGetterMethodForField(field, objectClass);
             getterMethod.setAccessible(true);
         }
         catch (NoSuchMethodException e) { e = null; }
+        catch (SecurityException ex) { ex = null; }
 
         try {
             setterMethod = CoderUtils.findSetterMethodForField(field, objectClass, field.getType());
             setterMethod.setAccessible(true);
         }
         catch (NoSuchMethodException e) { e = null; }
+        catch (SecurityException ex) { ex = null; }
         
         try {            
+            newInstanceClass = field.getType();
             newInstanceConstructor = field.getType().getDeclaredConstructor();
             newInstanceConstructor.setAccessible(true);            
         }
-        catch (NoSuchMethodException e) { 
-            e = null; 
-            newInstanceClass = field.getType();
-        }
+        catch (NoSuchMethodException e) { e = null; }
+        catch (SecurityException ex) { ex = null; }
     }
 
     public Object invokeSetterMethod(Object object, Object param) throws Exception {
