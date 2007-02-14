@@ -57,7 +57,7 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
         setupMetadata(objectClass, objectClass);
         setupConstructed(objectClass);
         setupMemberFlag(objectClass);
-        newInstanceClass = objectClass;
+        setInstanceFactoryInfo(objectClass);
         //memberClassFlag = objectClass.isMemberClass();
     }
     
@@ -277,14 +277,17 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
         }
         catch (NoSuchMethodException e) { e = null; }
         catch (SecurityException ex) { ex = null; }
-        
-        try {            
-            newInstanceClass = field.getType();
-            newInstanceConstructor = field.getType().getDeclaredConstructor();
+        setInstanceFactoryInfo(field.getType());
+    }
+    
+    public void setInstanceFactoryInfo(Class objClass) {
+        try {
+            newInstanceClass = objClass;
+            newInstanceConstructor = objClass.getDeclaredConstructor();
             newInstanceConstructor.setAccessible(true);            
         }
         catch (NoSuchMethodException e) { e = null; }
-        catch (SecurityException ex) { ex = null; }
+        catch (SecurityException ex) { ex = null; }        
     }
 
     public Object invokeSetterMethod(Object object, Object param) throws Exception {
