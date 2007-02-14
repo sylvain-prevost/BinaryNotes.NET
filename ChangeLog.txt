@@ -5,6 +5,7 @@ ChangeLog
 							[!] 		- Important warning or note
 							{<component>}	- Component/Group that changed
 
+-
 1.4.2	{doc}		[*] Small documentation fixes
 1.4.2	{comp}		[*] Fixed a isPresent function generating for Java
 1.4.2	{all}		[+] Added for inner (member) java classes static modifier
