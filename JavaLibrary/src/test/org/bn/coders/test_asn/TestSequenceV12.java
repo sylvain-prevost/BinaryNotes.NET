@@ -213,7 +213,6 @@ import org.bn.types.*;
   
                     
         
-        
         public void initWithDefaults() {
             BitString param_AttrBitStrDef =         
             new BitString (org.bn.coders.CoderUtils.defStringToOctetString("'011'B"));

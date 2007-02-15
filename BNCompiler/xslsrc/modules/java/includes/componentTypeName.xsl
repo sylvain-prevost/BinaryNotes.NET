@@ -26,6 +26,30 @@
 >
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
 
-    <xsl:template name="noname">
+    <xsl:template name="componentTypeName">
+	<xsl:param name="typeName"/>
+	<xsl:variable name="found">
+    		<xsl:for-each select="//module/asnTypes/sequenceSets">
+			<xsl:variable name="dName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>
+			<xsl:if test="$dName = $typeName">
+            			<xsl:call-template name="elements"/>            
+            			<xsl:call-template name="sequenceFunctions"/>
+			</xsl:if>
+	    	</xsl:for-each>
+	</xsl:variable>	
+
+	<xsl:value-of select="$found"/>
+
+	<xsl:if test="string-length($found)&lt;1">
+		<!-- Trying to find redefined sequence -->
+    		<xsl:for-each select="//module/asnTypes/defineds">
+			<xsl:variable name="dName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>
+			<xsl:if test="$dName = $typeName">
+				<xsl:call-template name="componentTypeName"><xsl:with-param name="typeName" select="typeName"/></xsl:call-template>
+			</xsl:if>		
+    		</xsl:for-each>
+	</xsl:if>
+
     </xsl:template>
+
 </xsl:stylesheet>

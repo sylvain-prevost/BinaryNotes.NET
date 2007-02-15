@@ -287,4 +287,22 @@ EXPORTS TestOCT,TestPRN,TestI32,TestI16,TestI8,ContentType,ValueWithParams,Param
 		testb [0] INTEGER
 	}
 
+	TestParent ::= SEQUENCE {
+		field1	[0] INTEGER,
+		field2	[1] OCTET STRING OPTIONAL,
+		field3	[2] UTF8String DEFAULT "Sssdsd",
+		field4	[3] INTEGER
+	}
+
+	TestTParent ::= TestParent
+
+	TestChild3 ::= SEQUENCE {
+		COMPONENTS OF TestTParent,
+		field5	[4] UTF8String,
+		COMPONENTS OF SEQUENCE {
+			field6 [5] INTEGER DEFAULT 0
+		}
+	}
+
+
 END

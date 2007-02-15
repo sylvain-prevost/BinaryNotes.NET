@@ -26,6 +26,12 @@
 >
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
 
-    <xsl:template name="noname">
+    <xsl:template name="componentTypeReference">
+                <xsl:for-each select="typeReference">
+                	<xsl:call-template name="elements"/>
+                	<xsl:call-template name="sequenceFunctions"/>
+		</xsl:for-each>
+
     </xsl:template>
+
 </xsl:stylesheet>

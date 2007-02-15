@@ -76,7 +76,6 @@ import org.bn.types.*;
   
                     
         
-        
         public void initWithDefaults() {
             String param_Default3 =         
             new String ("DDDdd");

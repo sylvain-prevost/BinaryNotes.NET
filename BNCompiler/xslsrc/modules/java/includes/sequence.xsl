@@ -49,9 +49,10 @@
             <xsl:call-template name="sequenceFunctions"/>
                     
         <!-- defaults for elements -->
-        <!-- public <xsl:value-of select="$sequenceName"/>() {            -->
         public void initWithDefaults() {
-            <xsl:call-template name="elementDefaults"/>
+            <xsl:call-template name="elementDefaults">
+		<xsl:with-param name="typeName" select="$sequenceName"/>
+            </xsl:call-template>
         }
 
         private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(<xsl:value-of select='$sequenceName'/>.class);

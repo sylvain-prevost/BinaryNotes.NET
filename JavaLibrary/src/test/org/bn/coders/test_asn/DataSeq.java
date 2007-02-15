@@ -236,7 +236,6 @@ import org.bn.types.*;
   
                     
         
-        
         public void initWithDefaults() {
             
         }

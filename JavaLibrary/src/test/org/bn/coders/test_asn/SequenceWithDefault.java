@@ -250,7 +250,6 @@ import org.bn.types.*;
   
                     
         
-        
         public void initWithDefaults() {
             String param_WithDefault =         
             new String ("dd");

@@ -16,29 +16,33 @@ import org.bn.types.*;
 
 
     @ASN1PreparedElement
-    @ASN1Sequence ( name = "TestSimpleSequence", isSet = false )
-    public class TestSimpleSequence implements IASN1PreparedElement {
+    @ASN1Sequence ( name = "TestParent", isSet = false )
+    public class TestParent implements IASN1PreparedElement {
             @ASN1Integer( name = "" )
     
         @ASN1Element ( name = "field1", isOptional =  false , hasTag =  true, tag = 0 , hasDefaultValue =  false  )
     
 	private Long field1 = null;
                 
-  
-    @ASN1String( name = "", 
-        stringType = UniversalTag.UTF8String , isUCS = false )
+  @ASN1OctetString( name = "" )
     
-        @ASN1Element ( name = "field2", isOptional =  false , hasTag =  true, tag = 1 , hasDefaultValue =  false  )
+        @ASN1Element ( name = "field2", isOptional =  true , hasTag =  true, tag = 1 , hasDefaultValue =  false  )
     
-	private String field2 = null;
+	private byte[] field2 = null;
                 
   
     @ASN1String( name = "", 
         stringType = UniversalTag.UTF8String , isUCS = false )
     
-        @ASN1Element ( name = "field3", isOptional =  false , hasTag =  true, tag = 2 , hasDefaultValue =  false  )
+        @ASN1Element ( name = "field3", isOptional =  false , hasTag =  true, tag = 2 , hasDefaultValue =  true  )
     
 	private String field3 = null;
+                
+  @ASN1Integer( name = "" )
+    
+        @ASN1Element ( name = "field4", isOptional =  false , hasTag =  true, tag = 3 , hasDefaultValue =  false  )
+    
+	private Long field4 = null;
                 
   
         
@@ -54,13 +58,17 @@ import org.bn.types.*;
         
   
         
-        public String getField2 () {
+        public byte[] getField2 () {
             return this.field2;
         }
 
         
+        public boolean isField2Present () {
+            return this.field2 != null;
+        }
+        
 
-        public void setField2 (String value) {
+        public void setField2 (byte[] value) {
             this.field2 = value;
         }
         
@@ -77,13 +85,28 @@ import org.bn.types.*;
         }
         
   
+        
+        public Long getField4 () {
+            return this.field4;
+        }
+
+        
+
+        public void setField4 (Long value) {
+            this.field4 = value;
+        }
+        
+  
                     
         
         public void initWithDefaults() {
-            
+            String param_Field3 =         
+            new String ("Sssdsd");
+        setField3(param_Field3);
+    
         }
 
-        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(TestSimpleSequence.class);
+        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(TestParent.class);
         public IASN1PreparedElementData getPreparedData() {
             return preparedData;
         }
