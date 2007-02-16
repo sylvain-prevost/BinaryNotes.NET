@@ -59,7 +59,7 @@ namespace test.org.bn.coders.test_asn {
   
 
             public void initWithDefaults() {
-                string param_Default3 =         
+            	string param_Default3 =         
             "DDDdd";
         Default3 = param_Default3;
     

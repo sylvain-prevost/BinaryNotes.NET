@@ -79,7 +79,7 @@ namespace org.bn.mq.protocol {
         
 
             public void initWithDefaults() {
-                bool param_Persistence =         
+            	bool param_Persistence =         
             false;
         Persistence = param_Persistence;
     

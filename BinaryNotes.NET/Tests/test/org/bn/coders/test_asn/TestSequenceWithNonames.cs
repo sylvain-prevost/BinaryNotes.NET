@@ -46,7 +46,7 @@ namespace test.org.bn.coders.test_asn {
         
                 
                 public void initWithDefaults() {
-                    
+            		
                 }
 
             private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(SeqSequenceType));
@@ -191,7 +191,7 @@ namespace test.org.bn.coders.test_asn {
         
                 
                 public void initWithDefaults() {
-                    
+            		
                 }
 
             private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(SequenceType));
@@ -217,7 +217,7 @@ namespace test.org.bn.coders.test_asn {
   
 
             public void initWithDefaults() {
-                
+            	
             }
 
 

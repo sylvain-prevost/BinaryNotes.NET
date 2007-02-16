@@ -79,7 +79,7 @@ namespace org.bn.mq.examples.protocol {
         
 
             public void initWithDefaults() {
-                string param_Field4 =         
+            	string param_Field4 =         
             "Hello";
         Field4 = param_Field4;
     

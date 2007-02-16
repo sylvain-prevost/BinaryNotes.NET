@@ -62,7 +62,7 @@ namespace org.bn.mq.protocol {
   
 
             public void initWithDefaults() {
-                bool param_DeliveryReportReq =         
+            	bool param_DeliveryReportReq =         
             false;
         DeliveryReportReq = param_DeliveryReportReq;
     

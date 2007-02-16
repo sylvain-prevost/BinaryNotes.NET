@@ -48,7 +48,9 @@
             <xsl:call-template name="sequenceFunctions"/>
 
             public void initWithDefaults() {
-                <xsl:call-template name="elementDefaults"/>
+            	<xsl:call-template name="elementDefaults">
+			<xsl:with-param name="typeName" select="$sequenceName"/>
+            	</xsl:call-template>
             }
 
 

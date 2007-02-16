@@ -53,7 +53,7 @@ namespace org.bn.mq.protocol {
         
 
             public void initWithDefaults() {
-                
+            	
             }
 
 

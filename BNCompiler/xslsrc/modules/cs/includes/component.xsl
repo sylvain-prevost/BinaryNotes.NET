@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!--
 /*
- * Copyright 2006 Abdulla G. Abdurakhmanov (abdulla.abdurakhmanov@gmail.com).
+ * Copyright 2007 Abdulla G. Abdurakhmanov (abdulla.abdurakhmanov@gmail.com).
  * 
  * Licensed under the GPL, Version 2 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,16 +24,15 @@
     xmlns:redirect="http://xml.apache.org/xalan/redirect"
     extension-element-prefixes="xsltc redirect"
 >
-    <xsl:import href="element.xsl"/>
-    <xsl:import href="component.xsl"/>
+    <xsl:import href="componentTypeReference.xsl"/>
+    <xsl:import href="componentTypeName.xsl"/>
 
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
-    <xsl:template name="elements">
-        <xsl:for-each select="elementTypeList/elements">
-	    <xsl:choose>
-		<xsl:when test="isComponentsOf = 'true'"><xsl:call-template name="component"/></xsl:when>
-            	<xsl:otherwise><xsl:call-template name="element"/></xsl:otherwise>
-	    </xsl:choose>
-        </xsl:for-each>        
+
+    <xsl:template name="component">
+	<xsl:choose>
+		<xsl:when test="typeReference"><xsl:call-template name="componentTypeReference"/></xsl:when>
+		<xsl:otherwise><xsl:call-template name="componentTypeName"><xsl:with-param name="typeName" select="typeName"/></xsl:call-template></xsl:otherwise>
+	</xsl:choose>
     </xsl:template>
 </xsl:stylesheet>

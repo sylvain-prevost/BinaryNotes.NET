@@ -168,7 +168,7 @@ namespace test.org.bn.coders.test_asn {
         
 
             public void initWithDefaults() {
-                BitString param_AttrBitStrDef =         
+            	BitString param_AttrBitStrDef =         
             new BitString (CoderUtils.defStringToOctetString("'011'B"));
         AttrBitStrDef = param_AttrBitStrDef;
     
