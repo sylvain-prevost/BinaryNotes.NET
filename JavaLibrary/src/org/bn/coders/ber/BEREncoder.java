@@ -349,5 +349,10 @@ public class BEREncoder<T> extends Encoder<T> {
         );
         return resultSize;
     }
-    
+
+    public int encodeObjectIdentifier(Object object, OutputStream steam, 
+                                      ElementInfo elementInfo) {
+        // TODO
+        return 0;
+    }
 }

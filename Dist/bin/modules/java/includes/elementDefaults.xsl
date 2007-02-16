@@ -25,14 +25,21 @@
     extension-element-prefixes="xsltc redirect"
 >
     <xsl:import href="elementDefault.xsl"/>
+    <xsl:import href="componentDefaults.xsl"/>
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
     
 
     <xsl:template name="elementDefaults">
+	<xsl:param name="typeName"/>
         <xsl:for-each select="elementTypeList/elements">
-            <xsl:if test="value">
-                <xsl:call-template name="elementDefault"/>
-            </xsl:if>
+	    <xsl:choose>
+		<xsl:when test="isComponentsOf = 'true'"><xsl:call-template name="componentDefaults"><xsl:with-param name="typeName" select="typeName"/></xsl:call-template></xsl:when>
+            	<xsl:otherwise>
+            		<xsl:if test="value">
+                		<xsl:call-template name="elementDefault"/>
+            		</xsl:if>
+		</xsl:otherwise>
+	    </xsl:choose>
         </xsl:for-each>    
     </xsl:template>
 </xsl:stylesheet>

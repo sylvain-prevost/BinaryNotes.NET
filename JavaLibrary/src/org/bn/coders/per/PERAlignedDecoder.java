@@ -47,6 +47,9 @@ public class PERAlignedDecoder extends Decoder {
         return super.decode(new BitArrayInputStream(stream),objectClass);
     }
     
+    public DecodedObject decodeTag(InputStream stream) throws Exception {
+        return null;
+    }
     
     protected void skipAlignedBits(InputStream stream) {
         ((BitArrayInputStream)stream).skipUnreadedBits();
@@ -629,10 +632,14 @@ public class PERAlignedDecoder extends Decoder {
         }
         return new DecodedObject(result);
     }    
-    
-    public DecodedObject decodeTag(InputStream stream) throws Exception {
+
+
+    public DecodedObject decodeObjectIdentifier(DecodedObject decodedTag, 
+                                                Class objectClass, 
+                                                ElementInfo elementInfo, 
+                                                InputStream stream) {
+        // TODO
         return null;
     }
-    
 }
 

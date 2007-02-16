@@ -35,6 +35,7 @@
     <xsl:import href="includes/boxedOctetStringType.xsl"/>
     <xsl:import href="includes/boxedBooleanType.xsl"/>
     <xsl:import href="includes/boxedBitStringType.xsl"/>    
+    <xsl:import href="includes/boxedObjectIdentifierType.xsl"/>
     <xsl:import href="includes/boxedIntegerType.xsl"/>    
     <xsl:import href="includes/boxedRealType.xsl"/>
     <xsl:import href="includes/boxedType.xsl"/>
@@ -99,6 +100,11 @@
 
     <xsl:template match="//module/asnTypes/bitStrings">
         <xsl:call-template name="boxedBitStringType"/>
+        <xsl:apply-templates/>
+    </xsl:template>
+
+    <xsl:template match="//module/asnTypes/objectIdentifiers">
+        <xsl:call-template name="boxedObjectIdentifierType"/>
         <xsl:apply-templates/>
     </xsl:template>
 

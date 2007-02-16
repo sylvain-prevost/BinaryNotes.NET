@@ -28,7 +28,6 @@
     <xsl:import href="componentTypeName.xsl"/>
 
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
-
     <xsl:template name="component">
 	<xsl:choose>
 		<xsl:when test="typeReference"><xsl:call-template name="componentTypeReference"/></xsl:when>

@@ -30,6 +30,66 @@ import org.bn.types.*;
 
 public class BERDecoder extends Decoder {
     
+    protected DecodedObject<Integer> decodeLength(InputStream stream) throws Exception {
+        int result = 0 ;        
+        int bt = stream.read() ;
+        if(bt == -1)
+            throw new IllegalArgumentException("Unexpected EOF when decoding!");
+        
+        int len =1 ;
+        if (bt < 128 ) {
+            result = bt ;
+        }
+        else {
+            //for (int i = 256 - bt ; i > 0 ; i--) {
+            // Decode length bug fix. Thanks to John 
+            for (int i = bt - 128; i > 0 ; i--) {
+                int fBt = stream.read() ;
+                if(fBt == -1)
+                    throw new IllegalArgumentException("Unexpected EOF when decoding!");
+                result = result << 8 ;
+                result = result | fBt ;
+                len ++;
+            }
+        }
+        return new DecodedObject<Integer>(result,len);
+    }
+
+    public DecodedObject decodeTag(InputStream stream) throws Exception {
+        int result = 0 ;
+        int bt = stream.read();
+        if(bt == - 1)
+            return null;
+        result = bt ;
+        int len = 1;
+        int tagValue = bt & 31;
+        if (tagValue == UniversalTag.LastUniversal) 
+        {
+                bt = 0x80;
+                while ((bt&0x80) != 0 && len < 4) {
+                    result <<= 8;
+                    bt = stream.read();
+                     if (bt != -1)
+                     {
+                         result |= bt;
+                         len++;
+                     }
+                     else {
+                        result >>= 8;
+                        break;
+                     }                     
+                }
+        }
+        
+        return new DecodedObject(result,len);
+    }
+
+    protected boolean checkTagForObject(DecodedObject decodedTag, int tagClass, int elementType, int universalTag, 
+                                        ElementInfo elementInfo) {
+        int definedTag = BERCoderUtils.getTagValueForElement(elementInfo,tagClass,elementType,universalTag).getValue();
+        return definedTag == (Integer)decodedTag.getValue();
+    }
+    
     public DecodedObject decodeSequence(DecodedObject decodedTag,Class objectClass, 
                                            ElementInfo elementInfo, InputStream stream) throws Exception {
         boolean isSet = false;
@@ -368,63 +428,11 @@ public class BERDecoder extends Decoder {
     }    
     
     
-    protected DecodedObject<Integer> decodeLength(InputStream stream) throws Exception {
-        int result = 0 ;        
-        int bt = stream.read() ;
-        if(bt == -1)
-            throw new IllegalArgumentException("Unexpected EOF when decoding!");
-        
-        int len =1 ;
-        if (bt < 128 ) {
-            result = bt ;
-        }
-        else {
-            //for (int i = 256 - bt ; i > 0 ; i--) {
-            // Decode length bug fix. Thanks to John 
-            for (int i = bt - 128; i > 0 ; i--) {
-                int fBt = stream.read() ;
-                if(fBt == -1)
-                    throw new IllegalArgumentException("Unexpected EOF when decoding!");
-                result = result << 8 ;
-                result = result | fBt ;
-                len ++;
-            }
-        }
-        return new DecodedObject<Integer>(result,len);
-    }
-
-    public DecodedObject decodeTag(InputStream stream) throws Exception {
-        int result = 0 ;
-        int bt = stream.read();
-        if(bt == - 1)
-            return null;
-        result = bt ;
-        int len = 1;
-        int tagValue = bt & 31;
-        if (tagValue == UniversalTag.LastUniversal) 
-        {
-                bt = 0x80;
-                while ((bt&0x80) != 0 && len < 4) {
-                    result <<= 8;
-                    bt = stream.read();
-                     if (bt != -1)
-                     {
-                         result |= bt;
-                         len++;
-                     }
-                     else {
-                        result >>= 8;
-                        break;
-                     }                     
-                }
-        }
-        
-        return new DecodedObject(result,len);
-    }
-
-    protected boolean checkTagForObject(DecodedObject decodedTag, int tagClass, int elementType, int universalTag, 
-                                        ElementInfo elementInfo) {
-        int definedTag = BERCoderUtils.getTagValueForElement(elementInfo,tagClass,elementType,universalTag).getValue();
-        return definedTag == (Integer)decodedTag.getValue();
+    public DecodedObject decodeObjectIdentifier(DecodedObject decodedTag, 
+                                                Class objectClass, 
+                                                ElementInfo elementInfo, 
+                                                InputStream stream) {
+        // TODO
+        return null;
     }
 }

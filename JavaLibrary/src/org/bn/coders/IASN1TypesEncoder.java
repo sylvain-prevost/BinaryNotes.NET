@@ -35,6 +35,7 @@ public interface IASN1TypesEncoder {
     int encodeReal(Object object, OutputStream steam, ElementInfo elementInfo) throws Exception ;
     int encodeOctetString(Object object, OutputStream steam, ElementInfo elementInfo) throws Exception ;
     int encodeBitString(Object object, OutputStream steam, ElementInfo elementInfo) throws Exception ;
+    int encodeObjectIdentifier(Object object, OutputStream steam, ElementInfo elementInfo) throws Exception ;
     int encodeString(Object object, OutputStream steam, ElementInfo elementInfo) throws Exception ;
     int encodeSequenceOf(Object object, OutputStream steam, ElementInfo elementInfo) throws Exception ;   
     int encodeElement(Object object, OutputStream stream, ElementInfo elementInfo) throws Exception;

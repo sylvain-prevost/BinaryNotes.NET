@@ -1,7 +1,7 @@
 package org.bn.compiler.parser.model;
 
 public class AsnObjectIdentifier {
-    final String  BUILTINTYPE = "OBJECT IDENTIFIER";
+    public final String  BUILTINTYPE = "OBJECT IDENTIFIER";
     public String name;
 
     //~--- constructors -------------------------------------------------------

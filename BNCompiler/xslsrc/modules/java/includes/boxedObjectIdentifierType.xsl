@@ -19,50 +19,56 @@
  * or blog at http://abdulla-a.blogspot.com.
  */
 -->
-
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xsltc="http://xml.apache.org/xalan/xsltc"
     xmlns:redirect="http://xml.apache.org/xalan/redirect"
     extension-element-prefixes="xsltc redirect"
 >
-
     <xsl:import href="header.xsl"/>
     <xsl:import href="footer.xsl"/>
-    <xsl:import href="elements.xsl"/>
-    <xsl:import href="sequenceFunctions.xsl"/>
-    <xsl:import href="elementDefaults.xsl"/>
 
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
-    
-    <xsl:variable name="outputDirectory"><xsl:value-of select="//outputDirectory"/></xsl:variable>
-    
-    <xsl:template name="sequence">
-	<xsl:variable name="sequenceName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>
 
-        <xsltc:output file="{$outputDirectory}/{$sequenceName}.java">
+    <xsl:template name="boxedObjectIdentifierType">
+        <xsl:variable name="boxedName"><xsl:call-template name="doMangleIdent"> <xsl:with-param name='input'><xsl:value-of select="name"/></xsl:with-param> </xsl:call-template></xsl:variable>
+        <xsltc:output file="{$outputDirectory}/{$boxedName}.java">
             <xsl:call-template name="header"/>
 
     @ASN1PreparedElement
-    @ASN1Sequence ( name = "<xsl:value-of select='$sequenceName'/>", isSet = <xsl:choose><xsl:when test="isSequence = 'false'">true</xsl:when><xsl:otherwise>false</xsl:otherwise></xsl:choose> )
-    public class <xsl:value-of select="$sequenceName"/> implements IASN1PreparedElement {
-            <xsl:call-template name="elements"/>            
-            <xsl:call-template name="sequenceFunctions"/>
-                    
-        <!-- defaults for elements -->
-        public void initWithDefaults() {
-            <xsl:call-template name="elementDefaults">
-		<xsl:with-param name="typeName" select="$sequenceName"/>
-            </xsl:call-template>
-        }
+    @ASN1BoxedType ( name = "<xsl:value-of select='$boxedName'/>" )
+    public class <xsl:value-of select="$boxedName"/> implements IASN1PreparedElement {
+    
+            @ASN1ObjectIdentifier ( name = "<xsl:value-of select='name'/>" )
+            <xsl:for-each select="constraint">
+                <xsl:call-template name="constraint"/>
+            </xsl:for-each>
+            private ObjectIdentifier value = null;
+            
+            public <xsl:value-of select="$boxedName"/>() {
+            }
 
-        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(<xsl:value-of select='$sequenceName'/>.class);
+            public <xsl:value-of select="$boxedName"/>(ObjectIdentifier value) {
+                this.value = value;
+            }
+            
+            public void setValue(ObjectIdentifier value) {
+                this.value = value;
+            }
+            
+            public ObjectIdentifier getValue() {
+                return this.value;
+            }
+
+	    public void initWithDefaults() {
+	    }
+
+        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(<xsl:value-of select='$boxedName'/>.class);
         public IASN1PreparedElementData getPreparedData() {
             return preparedData;
         }
 
-            
     }
             <xsl:call-template name="footer"/>
         </xsltc:output>        
-    </xsl:template>    
+    </xsl:template>
 </xsl:stylesheet>

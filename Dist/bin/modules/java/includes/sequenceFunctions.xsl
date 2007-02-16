@@ -32,6 +32,7 @@
         <xsl:for-each select="elementTypeList/elements">
             <xsl:choose>
                 <xsl:when test="typeReference/isNull = 'true'"></xsl:when>
+		<xsl:when test="isComponentsOf = 'true'"/>
                 <xsl:otherwise><xsl:call-template name="sequenceElementFunctions"/></xsl:otherwise>
             </xsl:choose>
         </xsl:for-each>

@@ -109,6 +109,10 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
             typeMeta = new ASN1BitStringMetadata( annotated.getAnnotation( ASN1BitString.class) ) ;
         }
         else
+        if( annotated.isAnnotationPresent(ASN1ObjectIdentifier.class) ) {
+            typeMeta = new ASN1ObjectIdentifierMetadata ( annotated.getAnnotation( ASN1ObjectIdentifier.class) ) ;
+        }
+        else
         if( annotated.isAnnotationPresent(ASN1String.class) ) {
             typeMeta = new ASN1StringMetadata( annotated.getAnnotation( ASN1String.class) ) ;
         }

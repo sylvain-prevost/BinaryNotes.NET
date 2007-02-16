@@ -47,6 +47,11 @@ public class PERAlignedEncoder<T> extends Encoder<T> {
         bitStream.writeTo(stream);
     }    
     
+    protected void doAlign(OutputStream stream) {
+        ((BitArrayOutputStream) stream).align();
+    }
+    
+    
     protected int encodeIntegerValueAsBytes(long value, OutputStream stream) throws Exception {
         int integerSize = CoderUtils.getIntegerLength(value);
         for (int i = integerSize-1 ; i >= 0  ; i--) {
@@ -592,9 +597,7 @@ public class PERAlignedEncoder<T> extends Encoder<T> {
         return 0;
     }
 
-    protected void doAlign(OutputStream stream) {
-        ((BitArrayOutputStream) stream).align();
-    }
+
 
     protected int encodeSet(Object object, OutputStream stream, 
                             ElementInfo elementInfo) throws Exception {
@@ -615,5 +618,11 @@ public class PERAlignedEncoder<T> extends Encoder<T> {
             resultSize+= encodeSequenceField(object, fieldIdx++, fields[i], stream, elementInfo);
         }
         return resultSize;
+    }
+
+    public int encodeObjectIdentifier(Object object, OutputStream steam, 
+                                      ElementInfo elementInfo) {
+        // TODO
+        return 0;
     }
 }

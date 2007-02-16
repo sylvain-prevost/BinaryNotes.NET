@@ -34,6 +34,7 @@ public interface IASN1TypesDecoder {
     DecodedObject decodeReal(DecodedObject decodedTag, Class objectClass, ElementInfo elementInfo, InputStream stream) throws Exception ;
     DecodedObject decodeOctetString(DecodedObject decodedTag, Class objectClass, ElementInfo elementInfo, InputStream stream) throws Exception ;
     DecodedObject decodeBitString(DecodedObject decodedTag, Class objectClass, ElementInfo elementInfo, InputStream stream) throws Exception ;
+    DecodedObject decodeObjectIdentifier(DecodedObject decodedTag, Class objectClass, ElementInfo elementInfo, InputStream stream) throws Exception ;
     DecodedObject decodeString(DecodedObject decodedTag, Class objectClass, ElementInfo elementInfo, InputStream stream) throws Exception ;
     DecodedObject decodeSequenceOf(DecodedObject decodedTag, Class objectClass, ElementInfo elementInfo, InputStream stream) throws Exception ;    
     DecodedObject decodeEnum(DecodedObject decodedTag,Class objectClass, ElementInfo elementInfo, InputStream stream) throws Exception;

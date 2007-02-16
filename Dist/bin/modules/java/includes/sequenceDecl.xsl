@@ -42,7 +42,9 @@
                 
         <!-- public <xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>SequenceType() {            -->        
         public void initWithDefaults() {
-            <xsl:call-template name="elementDefaults"/>
+            <xsl:call-template name="elementDefaults">
+		<xsl:with-param name="typeName" select="$sequenceName"/>
+            </xsl:call-template>
         }
 
         public IASN1PreparedElementData getPreparedData() {
