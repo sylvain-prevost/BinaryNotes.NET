@@ -36,6 +36,7 @@ namespace org.bn.coders
         int encodeReal(object obj, Stream steam, ElementInfo elementInfo)  ;
         int encodeOctetString(object obj, Stream steam, ElementInfo elementInfo)  ;
         int encodeBitString(object obj, Stream steam, ElementInfo elementInfo)  ;
+        int encodeObjectIdentifier(object obj, Stream steam, ElementInfo elementInfo);
         int encodeString(object obj, Stream steam, ElementInfo elementInfo)  ;
         int encodeSequenceOf(object obj, Stream steam, ElementInfo elementInfo)  ;   
         int encodeElement(object obj, Stream stream, ElementInfo elementInfo) ;

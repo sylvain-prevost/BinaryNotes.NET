@@ -36,6 +36,7 @@
             <xsl:when test="typeReference/BUILTINTYPE = 'CHARACTER STRING'">string</xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'OCTET STRING'">byte[]</xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'BIT STRING'">BitString</xsl:when>
+	    <xsl:when test="typeReference/BUILTINTYPE = 'OBJECT IDENTIFIER'">ObjectIdentifier</xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'BOOLEAN'">bool</xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'REAL'">double</xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'INTEGER'"><xsl:for-each select="typeReference"><xsl:call-template name="integerTypeDecl"/></xsl:for-each></xsl:when>

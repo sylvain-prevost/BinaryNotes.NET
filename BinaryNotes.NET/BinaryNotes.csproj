@@ -130,6 +130,7 @@
     <Compile Include="org\bn\attributes\ASN1Null.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="org\bn\attributes\ASN1ObjectIdentifier.cs" />
     <Compile Include="org\bn\attributes\ASN1OctetString.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -210,6 +211,7 @@
     <Compile Include="org\bn\metadata\ASN1IntegerMetadata.cs" />
     <Compile Include="org\bn\metadata\ASN1Metadata.cs" />
     <Compile Include="org\bn\metadata\ASN1NullMetadata.cs" />
+    <Compile Include="org\bn\metadata\ASN1ObjectIdentifierMetadata.cs" />
     <Compile Include="org\bn\metadata\ASN1OctetStringMetadata.cs" />
     <Compile Include="org\bn\metadata\ASN1RealMetadata.cs" />
     <Compile Include="org\bn\metadata\ASN1SequenceMetadata.cs" />
@@ -222,6 +224,7 @@
     <Compile Include="org\bn\metadata\IASN1Metadata.cs" />
     <Compile Include="org\bn\types\BitString.cs" />
     <Compile Include="org\bn\types\NullObject.cs" />
+    <Compile Include="org\bn\types\ObjectIdentifier.cs" />
     <Compile Include="org\bn\utils\BitArrayInputStream.cs" />
     <Compile Include="org\bn\utils\BitArrayOutputStream.cs" />
     <Compile Include="org\bn\utils\ReverseByteArrayOutputStream.cs">

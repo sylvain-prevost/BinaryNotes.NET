@@ -83,6 +83,9 @@
     <Compile Include="..\..\org\bn\attributes\ASN1Null.cs">
       <Link>src\ASN1Null.cs</Link>
     </Compile>
+    <Compile Include="..\..\org\bn\attributes\ASN1ObjectIdentifier.cs">
+      <Link>src\ASN1ObjectIdentifier.cs</Link>
+    </Compile>
     <Compile Include="..\..\org\bn\attributes\ASN1OctetString.cs">
       <Link>src\ASN1OctetString.cs</Link>
     </Compile>
@@ -227,6 +230,9 @@
     <Compile Include="..\..\org\bn\metadata\ASN1NullMetadata.cs">
       <Link>src\ASN1NullMetadata.cs</Link>
     </Compile>
+    <Compile Include="..\..\org\bn\metadata\ASN1ObjectIdentifierMetadata.cs">
+      <Link>src\ASN1ObjectIdentifierMetadata.cs</Link>
+    </Compile>
     <Compile Include="..\..\org\bn\metadata\ASN1OctetStringMetadata.cs">
       <Link>src\ASN1OctetStringMetadata.cs</Link>
     </Compile>
@@ -262,6 +268,9 @@
     </Compile>
     <Compile Include="..\..\org\bn\types\NullObject.cs">
       <Link>src\NullObject.cs</Link>
+    </Compile>
+    <Compile Include="..\..\org\bn\types\ObjectIdentifier.cs">
+      <Link>src\ObjectIdentifier.cs</Link>
     </Compile>
     <Compile Include="..\..\org\bn\utils\BitArrayInputStream.cs">
       <Link>src\BitArrayInputStream.cs</Link>

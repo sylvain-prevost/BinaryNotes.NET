@@ -409,5 +409,7 @@ namespace org.bn.coders
 		public abstract int encodeString(object obj, System.IO.Stream steam, ElementInfo elementInfo);
 		
 		public abstract int encodeSequenceOf(object obj, System.IO.Stream steam, ElementInfo elementInfo);
+
+        public abstract int encodeObjectIdentifier(Object obj, System.IO.Stream stream, ElementInfo elementInfo);
 	}
 }

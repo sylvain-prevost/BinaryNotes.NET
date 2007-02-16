@@ -28,6 +28,7 @@
     <xsl:import href="stringDecl.xsl"/>
     <xsl:import href="octetStringDecl.xsl"/>
     <xsl:import href="bitStringDecl.xsl"/>
+    <xsl:import href="objectIdentifierDecl.xsl"/>
     <xsl:import href="booleanDecl.xsl"/>
     <xsl:import href="integerDecl.xsl"/>
     <xsl:import href="realDecl.xsl"/>
@@ -46,6 +47,7 @@
             <xsl:when test="typeReference/BUILTINTYPE = 'CHARACTER STRING'"><xsl:call-template name="stringDecl"/> </xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'OCTET STRING'"><xsl:call-template name="octetStringDecl"/> </xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'BIT STRING'"><xsl:call-template name="bitStringDecl"/> </xsl:when>
+	    <xsl:when test="typeReference/BUILTINTYPE = 'OBJECT IDENTIFIER'"><xsl:call-template name="objectIdentifierDecl"/> </xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'BOOLEAN'"><xsl:call-template name="booleanDecl"/> </xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'INTEGER'"><xsl:call-template name="integerDecl"/> </xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'REAL'"><xsl:call-template name="realDecl"/> </xsl:when>

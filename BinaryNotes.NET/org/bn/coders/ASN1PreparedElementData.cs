@@ -176,6 +176,11 @@ namespace org.bn.coders
                 typeMeta = new ASN1BitStringMetadata ( CoderUtils.getAttribute<ASN1BitString> (annotated) ) ;
             }
             else
+            if (CoderUtils.isAttributePresent<ASN1ObjectIdentifier>(annotated))
+            {
+                typeMeta = new ASN1ObjectIdentifierMetadata(CoderUtils.getAttribute<ASN1ObjectIdentifier>(annotated));
+            }
+            else
             if( CoderUtils.isAttributePresent<ASN1String>(annotated) ) {
                 typeMeta = new ASN1StringMetadata ( CoderUtils.getAttribute<ASN1String> (annotated) ) ;
             }

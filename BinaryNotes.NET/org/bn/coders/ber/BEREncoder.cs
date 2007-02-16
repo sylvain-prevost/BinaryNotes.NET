@@ -380,5 +380,10 @@ namespace org.bn.coders.ber
             return resultSize;
         }
 
+        public override int encodeObjectIdentifier(Object obj, System.IO.Stream stream, ElementInfo elementInfo)
+        {
+            // TODO
+            return 0;
+        }
 	}
 }

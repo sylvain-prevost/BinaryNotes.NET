@@ -475,6 +475,7 @@ namespace org.bn.coders
 
         public abstract DecodedObject<object> decodeTag(System.IO.Stream stream);
 
+        public abstract DecodedObject<object> decodeObjectIdentifier(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream);
 
 	}
 }

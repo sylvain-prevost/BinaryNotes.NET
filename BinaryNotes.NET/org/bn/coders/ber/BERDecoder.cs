@@ -28,7 +28,75 @@ namespace org.bn.coders.ber
 {
 	
 	public class BERDecoder:Decoder
-	{		
+	{
+        protected internal virtual DecodedObject<int> decodeLength(System.IO.Stream stream)
+        {
+            int result = 0;
+            int bt = stream.ReadByte();
+            if (bt == -1)
+                throw new System.ArgumentException("Unexpected EOF when decoding!");
+
+            int len = 1;
+            if (bt < 128)
+            {
+                result = bt;
+            }
+            else
+            {
+                // Decode length bug fixed. Thanks to John 
+                for (int i = bt - 128; i > 0; i--)
+                {
+                    int fBt = stream.ReadByte();
+                    if (fBt == -1)
+                        throw new System.ArgumentException("Unexpected EOF when decoding!");
+
+                    result = result << 8;
+                    result = result | fBt;
+                    len++;
+                }
+            }
+            return new DecodedObject<int>(result, len);
+        }
+
+        public override DecodedObject<object> decodeTag(System.IO.Stream stream)
+        {
+            int result = 0;
+            int bt = stream.ReadByte();
+            if (bt == -1)
+                return null;
+            result = bt;
+            int len = 1;
+            int tagValue = bt & 31;
+            //bool isPrimitive = (bt & 0x20) == 0;
+            if (tagValue == UniversalTags.LastUniversal)
+            {
+                bt = 0x80;
+                while ((bt & 0x80) != 0 && len < 4)
+                {
+                    result <<= 8;
+                    bt = stream.ReadByte();
+                    if (bt > 0)
+                    {
+                        result |= bt;
+                        len++;
+                    }
+                    else
+                    {
+                        result >>= 8;
+                        break;
+                    }
+                }
+            }
+
+            return new DecodedObject<object>(result, len);
+        }
+
+        protected bool checkTagForObject(DecodedObject<object> decodedTag, int tagClass, int elementType, int universalTag, ElementInfo elementInfo)
+        {
+            int definedTag = BERCoderUtils.getTagValueForElement(elementInfo, tagClass, elementType, universalTag).Value;
+            return definedTag == (int)decodedTag.Value;
+        }
+
 		public override DecodedObject<object> decodeSequence(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
 		{
             bool isSet = false;
@@ -419,74 +487,13 @@ namespace org.bn.coders.ber
 			}
 			return new DecodedObject<object>(param, len.Value + len.Size);
 		}
-		
-		
-		protected internal virtual DecodedObject<int> decodeLength(System.IO.Stream stream)
-		{
-			int result = 0;
-			int bt = stream.ReadByte();
-			if (bt == - 1)
-				throw new System.ArgumentException("Unexpected EOF when decoding!");
-			
-			int len = 1;
-			if (bt < 128)
-			{
-				result = bt;
-			}
-			else
-			{
-                // Decode length bug fixed. Thanks to John 
-				for (int i = bt - 128; i > 0; i--)
-				{
-					int fBt = stream.ReadByte();
-					if (fBt == - 1)
-						throw new System.ArgumentException("Unexpected EOF when decoding!");
-					
-					result = result << 8;
-					result = result | fBt;
-					len++;
-				}
-			}
-			return new DecodedObject<int>(result, len);
-		}
-		
-		public override DecodedObject<object> decodeTag(System.IO.Stream stream)
-		{
-            int result = 0;
-            int bt = stream.ReadByte();
-            if (bt == -1)
-                return null;
-            result = bt;
-            int len = 1;
-            int tagValue = bt & 31;
-            //bool isPrimitive = (bt & 0x20) == 0;
-            if (tagValue == UniversalTags.LastUniversal)
-            {
-                bt = 0x80;
-                while ((bt & 0x80) != 0 && len < 4)
-                {
-                    result <<= 8;
-                    bt = stream.ReadByte();
-                    if (bt > 0)
-                    {
-                        result |= bt;
-                        len++;
-                    }
-                    else
-                    {
-                        result >>= 8;
-                        break;
-                    }
-                }
-            }
 
-            return new DecodedObject<object>(result, len);
-		}
+        public override DecodedObject<object> decodeObjectIdentifier(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
+        {
+            // TODO
+            return null;
+        }
+
 		
-		protected bool checkTagForObject(DecodedObject<object> decodedTag, int tagClass, int elementType, int universalTag, ElementInfo elementInfo)
-		{
-			int definedTag = BERCoderUtils.getTagValueForElement(elementInfo, tagClass, elementType, universalTag).Value;
-			return definedTag == (int) decodedTag.Value;
-		}
 	}
 }

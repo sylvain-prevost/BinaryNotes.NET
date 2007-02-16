@@ -106,10 +106,12 @@
     <Compile Include="test\org\bn\coders\test_asn\TestNI.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestNI2.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestOCT.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\TestOID.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestParent.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestPRN.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestReal.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestRecursiveDefinetion.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\TestSeqOID.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestSequenceV12.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestSequenceWithNonames.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestSeqV13.cs" />

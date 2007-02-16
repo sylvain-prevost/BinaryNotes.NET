@@ -36,7 +36,11 @@ namespace org.bn.coders.per
 		{
 			return base.decode<T>(new BitArrayInputStream(stream));
 		}
-		
+
+        public override DecodedObject<object> decodeTag(System.IO.Stream stream)
+        {
+            return null;
+        }		
 		
 		protected virtual void  skipAlignedBits(System.IO.Stream stream)
 		{
@@ -655,11 +659,12 @@ namespace org.bn.coders.per
 
             return new DecodedObject<object>(param);
 		}
-		
-		public override DecodedObject<object> decodeTag(System.IO.Stream stream)
-		{
-			return null;
-		}
+
+        public override DecodedObject<object> decodeObjectIdentifier(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
+        {
+            // TODO
+            return null;
+        }
 		
 	}
 }
