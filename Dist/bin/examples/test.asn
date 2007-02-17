@@ -312,5 +312,12 @@ EXPORTS TestOCT,TestPRN,TestI32,TestI16,TestI8,ContentType,ValueWithParams,Param
 		field3	[2] INTEGER
 	}
 
+	FQDN ::= VisibleString(
+		FROM ( "a".."z" | "A".."Z" |"0".."9"| ".-" )
+		
+	)
+	( SIZE (1..255) )
+
+
 
 END

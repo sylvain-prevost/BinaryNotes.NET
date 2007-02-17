@@ -197,7 +197,10 @@ protected
 H_STRING 	: 	SINGLE_QUOTE (HDIG)+ SINGLE_QUOTE 'H'  ;
 
 			
-C_STRING 	: 	'"'	(UPPER | LOWER)*  '"' ;
+//C_STRING 	: 	'"'	(UPPER | LOWER )*  '"' ;
+
+C_STRING	:	'"' (~'"')* '"'	;
+
 
 
 //*************************************************************************
@@ -898,10 +901,10 @@ AsnDefinedValue s;	}
 
 constraint returns [AsnConstraint cnstrnt]
 {cnstrnt=new AsnConstraint();}
-	: L_PAREN 
+	: (L_PAREN 
 		(element_set_specs[cnstrnt]{cnstrnt.isElementSetSpecs=true;})? 
 		(exception_spec[cnstrnt])? 
-	  R_PAREN
+	  R_PAREN)*
 	;
 
 exception_spec[AsnConstraint cnstrnt]
@@ -916,7 +919,9 @@ Object typ;AsnValue val;}
 
 element_set_specs[AsnConstraint cnstrnt]
 {ElementSetSpec elemspec;}
-	:	(elemspec=element_set_spec {cnstrnt.elemSetSpec=elemspec;}
+	:	(elemspec=element_set_spec { 
+				cnstrnt.elemSetSpec=elemspec; // TODO - need list.add() func
+		}
 		(COMMA ELLIPSIS {cnstrnt.isCommaDotDot=true;})? 
 		(COMMA elemspec=element_set_spec {cnstrnt.addElemSetSpec=elemspec;cnstrnt.isAdditionalElementSpec=true;})?)
 	;

@@ -304,5 +304,20 @@ EXPORTS TestOCT,TestPRN,TestI32,TestI16,TestI8,ContentType,ValueWithParams,Param
 		}
 	}
 
+	TestOID ::= OBJECT IDENTIFIER
+
+	TestSeqOID ::= SEQUENCE {
+		field1	[0] OBJECT IDENTIFIER,
+		field2	[1] OBJECT IDENTIFIER OPTIONAL,
+		field3	[2] INTEGER
+	}
+
+	FQDN ::= VisibleString(
+		FROM ( "a".."z" | "A".."Z" |"0".."9"| ".-" )
+		
+	)
+	( SIZE (1..255) )
+
+
 
 END

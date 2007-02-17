@@ -854,7 +854,7 @@ tryAgain:
 		{
 		_loop43:
 		do {
-			if ((_tokenSet_3.member(LA(1))) && (true) && (true) && (true) && (true) && (true) && (true) && (true) && (true) && (true) && (true)) {
+			if ((_tokenSet_3.member(LA(1)))) {
 				{
 				switch ( LA(1)) {
 				case 'a':  case 'b':  case 'c':  case 'd':
@@ -927,7 +927,7 @@ tryAgain:
 		{
 		_loop48:
 		do {
-			if ((_tokenSet_3.member(LA(1))) && (true) && (true) && (true) && (true) && (true) && (true) && (true) && (true) && (true) && (true)) {
+			if ((_tokenSet_3.member(LA(1)))) {
 				{
 				switch ( LA(1)) {
 				case 'a':  case 'b':  case 'c':  case 'd':
@@ -1177,34 +1177,13 @@ inputState.guessing--;
 		{
 		_loop68:
 		do {
-			switch ( LA(1)) {
-			case 'A':  case 'B':  case 'C':  case 'D':
-			case 'E':  case 'F':  case 'G':  case 'H':
-			case 'I':  case 'J':  case 'K':  case 'L':
-			case 'M':  case 'N':  case 'O':  case 'P':
-			case 'Q':  case 'R':  case 'S':  case 'T':
-			case 'U':  case 'V':  case 'W':  case 'X':
-			case 'Y':  case 'Z':
-			{
-				mUPPER(false);
-				break;
+			if ((_tokenSet_7.member(LA(1)))) {
+				matchNot('"');
 			}
-			case 'a':  case 'b':  case 'c':  case 'd':
-			case 'e':  case 'f':  case 'g':  case 'h':
-			case 'i':  case 'j':  case 'k':  case 'l':
-			case 'm':  case 'n':  case 'o':  case 'p':
-			case 'q':  case 'r':  case 's':  case 't':
-			case 'u':  case 'v':  case 'w':  case 'x':
-			case 'y':  case 'z':
-			{
-				mLOWER(false);
-				break;
-			}
-			default:
-			{
+			else {
 				break _loop68;
 			}
-			}
+			
 		} while (true);
 		}
 		match('"');
@@ -1253,5 +1232,12 @@ inputState.guessing--;
 		return data;
 	}
 	public static final BitSet _tokenSet_6 = new BitSet(mk_tokenSet_6());
+	private static final long[] mk_tokenSet_7() {
+		long[] data = new long[8];
+		data[0]=-17179869192L;
+		for (int i = 1; i<=3; i++) { data[i]=-1L; }
+		return data;
+	}
+	public static final BitSet _tokenSet_7 = new BitSet(mk_tokenSet_7());
 	
 	}
