@@ -21,8 +21,12 @@ import org.bn.types.*;
     
             @ASN1BitString( name = "TestBitStrBnd" )
             @ASN1ValueRangeConstraint ( 
+		
 		min = 1L, 
-		max = 16L ) 
+		
+		max = 16L 
+		
+	   )
 	   
             private BitString value = null;
             

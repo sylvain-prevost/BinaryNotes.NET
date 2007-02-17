@@ -21,8 +21,12 @@ import org.bn.types.*;
     
             @ASN1Integer( name = "TestI32" )
             @ASN1ValueRangeConstraint ( 
+		
 		min = 0L, 
-		max = 4294967295L ) 
+		
+		max = 4294967295L 
+		
+	   )
 	   
             private Long value;
             

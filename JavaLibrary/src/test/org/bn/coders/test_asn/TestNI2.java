@@ -21,8 +21,12 @@ import org.bn.types.*;
     
             @ASN1Integer( name = "TestNI2" )
             @ASN1ValueRangeConstraint ( 
+		
 		min = -2048L, 
-		max = 2048L ) 
+		
+		max = 2048L 
+		
+	   )
 	   
             private Integer value;
             

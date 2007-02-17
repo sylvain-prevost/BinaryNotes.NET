@@ -5,6 +5,8 @@ ChangeLog
 							[!] 		- Important warning or note
 							{<component>}	- Component/Group that changed
 
+1.5.0	{comp}		[+] Added support for simple value definitions.
+				( The original LDAP v3 ASN definition without any modification parsed successfully now.)
 1.5.0	{comp}		[*] Fixes for ASN.1 grammatic definitions ( a FROM definition parsing, and another small fixes)
 1.5.0	{doc}		[*] Some documentation fixes for .NET samples
 1.5.0	{comp}		[+] Added support for COMPONENT OF declaration

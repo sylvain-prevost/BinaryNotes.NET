@@ -16,39 +16,40 @@ import org.bn.types.*;
 
 
     @ASN1PreparedElement
-    @ASN1BoxedType ( name = "TestNI" )
-    public class TestNI implements IASN1PreparedElement {
+    @ASN1BoxedType ( name = "FQDN" )
+    public class FQDN implements IASN1PreparedElement {
     
-            @ASN1Integer( name = "TestNI" )
+            @ASN1String( name = "FQDN", 
+        stringType =  UniversalTag.VisibleString , isUCS = false )
             @ASN1ValueRangeConstraint ( 
 		
-		min = -128L, 
+		min = 1L, 
 		
-		max = 128L 
+		max = 255L 
 		
 	   )
 	   
-            private Integer value;
+            private String value;
             
-            public TestNI() {
+            public FQDN() {
             }
 
-            public TestNI(Integer value) {
+            public FQDN(String value) {
                 this.value = value;
             }
             
-            public void setValue(Integer value) {
+            public void setValue(String value) {
                 this.value = value;
             }
             
-            public Integer getValue() {
+            public String getValue() {
                 return this.value;
             }
 
 	    public void initWithDefaults() {
 	    }
 
-        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(TestNI.class);
+        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(FQDN.class);
         public IASN1PreparedElementData getPreparedData() {
             return preparedData;
         }

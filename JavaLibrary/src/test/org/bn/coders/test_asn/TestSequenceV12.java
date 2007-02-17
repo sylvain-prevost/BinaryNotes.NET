@@ -30,8 +30,12 @@ import org.bn.types.*;
     @ASN1String( name = "", 
         stringType =  UniversalTag.PrintableString , isUCS = false )
     @ASN1ValueRangeConstraint ( 
+		
 		min = 1L, 
-		max = 4L ) 
+		
+		max = 4L 
+		
+	   )
 	   
         @ASN1Element ( name = "attrStr", isOptional =  false , hasTag =  true, tag = 1 , hasDefaultValue =  false  )
     
@@ -49,8 +53,12 @@ import org.bn.types.*;
 @ASN1SequenceOf( name = "", isSetOf = false ) 
 
     @ASN1ValueRangeConstraint ( 
+		
 		min = 1L, 
-		max = 5L ) 
+		
+		max = 5L 
+		
+	   )
 	   
         @ASN1Element ( name = "attrArr", isOptional =  false , hasTag =  true, tag = 3 , hasDefaultValue =  false  )
     
@@ -70,8 +78,12 @@ import org.bn.types.*;
                 
   @ASN1BitString( name = "" )
     @ASN1ValueRangeConstraint ( 
+		
 		min = 1L, 
-		max = 36L ) 
+		
+		max = 36L 
+		
+	   )
 	   
         @ASN1Element ( name = "attrBitStrBnd", isOptional =  true , hasTag =  true, tag = 5 , hasDefaultValue =  false  )
     

@@ -21,8 +21,12 @@ import org.bn.types.*;
     
             @ASN1Integer( name = "TestIR" )
             @ASN1ValueRangeConstraint ( 
+		
 		min = 1L, 
-		max = 5L ) 
+		
+		max = 5L 
+		
+	   )
 	   
             private Integer value;
             

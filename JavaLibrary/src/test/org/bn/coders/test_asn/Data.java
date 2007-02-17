@@ -61,8 +61,12 @@ import org.bn.types.*;
                 
   @ASN1Integer( name = "" )
     @ASN1ValueRangeConstraint ( 
+		
 		min = 0L, 
-		max = 255L ) 
+		
+		max = 255L 
+		
+	   )
 	   
         @ASN1Element ( name = "intBndType", isOptional =  false , hasTag =  true, tag = 7 , hasDefaultValue =  false  )
     
