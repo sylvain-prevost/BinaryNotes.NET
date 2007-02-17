@@ -117,6 +117,11 @@ namespace org.bn.coders
                 resultSize += encodeBitString(obj, stream, elementInfo);
             }
             else
+            if (elementInfo.isAttributePresent<ASN1ObjectIdentifier>())
+            {
+                resultSize += encodeObjectIdentifier(obj, stream, elementInfo);
+            }
+            else
             if (elementInfo.isAttributePresent<ASN1String>())
 			{
 				resultSize += encodeString(obj, stream, elementInfo);

@@ -79,7 +79,6 @@ import org.bn.types.*;
   
                     
         
-        
         public void initWithDefaults() {
             Boolean param_DeliveryReportReq =         
             new Boolean (false);

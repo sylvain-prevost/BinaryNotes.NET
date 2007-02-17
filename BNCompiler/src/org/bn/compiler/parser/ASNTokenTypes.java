@@ -162,9 +162,8 @@ public interface ASNTokenTypes {
 	int LITERAL_REFERENCE = 154;
 	int LITERAL_INDEX = 155;
 	int LITERAL_DEFVAL = 156;
-	int DOTDOTDOT = 157;
-	int ALL = 158;
-	int EXCEPT = 159;
-	int INCLUDES = 160;
-	int PATTERN_KW = 161;
+	int ALL = 157;
+	int EXCEPT = 158;
+	int INCLUDES = 159;
+	int PATTERN_KW = 160;
 }

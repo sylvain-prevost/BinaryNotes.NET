@@ -101,7 +101,6 @@ import org.bn.types.*;
   
                     
         
-        
         public void initWithDefaults() {
             String param_Field4 =         
             new String ("Hello");

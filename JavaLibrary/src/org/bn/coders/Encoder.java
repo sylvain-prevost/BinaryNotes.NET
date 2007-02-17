@@ -115,6 +115,10 @@ public abstract class Encoder<T> implements IEncoder<T>, IASN1TypesEncoder {
             resultSize+=encodeBitString(object, stream, elementInfo);
         }
         else
+        if( elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1ObjectIdentifier.class) ) {
+            resultSize+=encodeObjectIdentifier ( object, stream, elementInfo );
+        }
+        else
         if( elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1String.class) ) {
             resultSize+=encodeString(object, stream, elementInfo);
         }

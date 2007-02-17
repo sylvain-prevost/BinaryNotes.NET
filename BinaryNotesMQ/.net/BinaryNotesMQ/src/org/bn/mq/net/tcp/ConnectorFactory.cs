@@ -68,11 +68,11 @@ namespace org.bn.mq.net.tcp
         public virtual ITransport getTransport(Uri addr)
 		{
 			ConnectorTransport transport = null;
-			bool created = false;
+			//bool created = false;
 			lock (createdTransports)
 			{
 				transport = createTransport(addr);
-				created = true;
+				//created = true;
 			}
 			/*if (created)
 			{

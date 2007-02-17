@@ -917,7 +917,7 @@ Object typ;AsnValue val;}
 element_set_specs[AsnConstraint cnstrnt]
 {ElementSetSpec elemspec;}
 	:	(elemspec=element_set_spec {cnstrnt.elemSetSpec=elemspec;}
-		(COMMA DOTDOTDOT {cnstrnt.isCommaDotDot=true;})? 
+		(COMMA ELLIPSIS {cnstrnt.isCommaDotDot=true;})? 
 		(COMMA elemspec=element_set_spec {cnstrnt.addElemSetSpec=elemspec;cnstrnt.isAdditionalElementSpec=true;})?)
 	;
 
@@ -956,7 +956,7 @@ AsnConstraint cns; ElementSetSpec elespec;Object typ; }
 		((COMPONENT_KW cns=constraint {cnsElem.isWithComponent=true;cnsElem.constraint=cns;})
 		|	
 		(COMPONENTS_KW {cnsElem.isWithComponents=true;}
-		L_BRACE (DOTDOTDOT COMMA)? type_constraint_list[cnsElem] R_BRACE )))
+		L_BRACE (ELLIPSIS COMMA)? type_constraint_list[cnsElem] R_BRACE )))
 	;
 
 value_range[ConstraintElements cnsElem]

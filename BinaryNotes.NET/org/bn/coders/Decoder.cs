@@ -117,6 +117,11 @@ namespace org.bn.coders
                 return decodeBitString(decodedTag, objectClass, elementInfo, stream);
             }
             else
+            if (elementInfo.isAttributePresent<ASN1ObjectIdentifier>())
+            {
+                return decodeObjectIdentifier (decodedTag, objectClass, elementInfo, stream);
+            }
+            else
             if (elementInfo.isAttributePresent<ASN1String>())
 			{
 				return decodeString(decodedTag, objectClass, elementInfo, stream);

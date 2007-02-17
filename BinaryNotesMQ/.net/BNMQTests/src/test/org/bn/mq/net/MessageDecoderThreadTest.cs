@@ -167,7 +167,7 @@ namespace test.org.bn.mq.net
         
         private class CallMessageListener : ITransportConnectionListener, ITransportReader {         
             private MessageDecoderThreadTest parent;
-            private int counter = 0;
+            //private int counter = 0;
             public CallMessageListener(MessageDecoderThreadTest parent) {
                 this.parent = parent;
             }

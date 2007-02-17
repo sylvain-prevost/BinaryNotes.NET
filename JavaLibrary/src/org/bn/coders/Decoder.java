@@ -110,6 +110,10 @@ public abstract class Decoder implements IDecoder, IASN1TypesDecoder {
             return decodeBitString(decodedTag, objectClass,elementInfo, stream);
         }
         else
+        if( elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1ObjectIdentifier.class) ) {
+            return decodeObjectIdentifier ( decodedTag, objectClass,elementInfo, stream );
+        }        
+        else
         if( elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1String.class) ) {
             return decodeString(decodedTag, objectClass,elementInfo, stream);
         }

@@ -27,13 +27,6 @@ namespace org.bn.metadata
 {
     public class ASN1ElementMetadata : ASN1FieldMetadata
     {
-        private string name = "";
-
-        public string Name
-        {
-            get { return name; }
-        }
-
         private bool isOptional = true;
 
         public bool IsOptional
