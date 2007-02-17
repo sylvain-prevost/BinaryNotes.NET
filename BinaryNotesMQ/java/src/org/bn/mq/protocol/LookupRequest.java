@@ -22,8 +22,12 @@ import org.bn.types.*;
     @ASN1String( name = "", 
         stringType =  UniversalTag.PrintableString , isUCS = false )
     @ASN1ValueRangeConstraint ( 
+		
 		min = 0L, 
-		max = 255L ) 
+		
+		max = 255L 
+		
+	   )
 	   
         @ASN1Element ( name = "supplierName", isOptional =  false , hasTag =  false  , hasDefaultValue =  false  )
     

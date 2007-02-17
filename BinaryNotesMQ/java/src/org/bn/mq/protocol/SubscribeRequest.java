@@ -105,7 +105,7 @@ import org.bn.types.*;
         
         public void initWithDefaults() {
             Boolean param_Persistence =         
-            new Boolean (false);
+            false;
         setPersistence(param_Persistence);
     
         }

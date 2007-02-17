@@ -69,6 +69,7 @@
     <Compile Include="test\org\bn\coders\test_asn\DataSeq.cs" />
     <Compile Include="test\org\bn\coders\test_asn\DataSeqArray.cs" />
     <Compile Include="test\org\bn\coders\test_asn\DataSeqMO.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\FQDN.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ITUSequence.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ITUType1.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ITUType2.cs" />

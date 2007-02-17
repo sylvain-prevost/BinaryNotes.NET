@@ -144,8 +144,12 @@ namespace test.org.bn.coders.test_asn {
         [ASN1Element ( Name = "intBndType", IsOptional =  false , HasTag =  true, Tag = 7 , HasDefaultValue =  false )  ]
     [ASN1Integer( Name = "" )]
     [ASN1ValueRangeConstraint ( 
+		
 		Min = 0L, 
-		Max = 255L ) ]
+		
+		Max = 255L 
+		
+		) ]
 	    
         public int IntBndType
         {

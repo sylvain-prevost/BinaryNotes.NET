@@ -37,7 +37,23 @@
                 <xsl:if test="$instElementType!='null' and $instElementType!='string'">new <xsl:value-of select="$instElementType"/> (</xsl:if> <xsl:value-of select="cStr"/> <xsl:if test="$instElementType!='null' and $instElementType!='string' ">)</xsl:if>
             </xsl:when>
             <xsl:when test="isDefinedValue = 'true'">
-                <xsl:if test="$instElementType!='null' and $instElementType!='bool'">new <xsl:value-of select="$instElementType"/> (</xsl:if> <xsl:value-of select="definedValue/name"/> <xsl:if test="$instElementType!='null' and $instElementType!='bool' ">)</xsl:if>
+		<xsl:variable name="typeName" select="definedValue/name"/>
+		<xsl:choose>
+			<xsl:when test="$typeName = 'true'"><xsl:value-of select="$typeName"/> </xsl:when>
+			<xsl:when test="$typeName = 'false'"><xsl:value-of select="$typeName"/> </xsl:when>
+			<xsl:otherwise>
+    			<xsl:for-each select="//module/asnValues">
+				<xsl:if test="name = $typeName">
+					<xsl:call-template name="elementDefaultValue">
+						<xsl:with-param name="elementName" select ="$elementName"/>
+						<xsl:with-param name="elementType" select ="$elementType"/>        
+        					<xsl:with-param name="instElementType" select ="$instElementType"/>
+			        		<xsl:with-param name="elementInfo" select ="$elementInfo"/>        
+					</xsl:call-template>
+				</xsl:if>
+			</xsl:for-each>
+			</xsl:otherwise>
+		</xsl:choose>
             </xsl:when>
             <xsl:when test="isSignedNumber = 'true'">
                 <xsl:if test="$instElementType!='null' and $instElementType!='int' and $instElementType!='long'">new <xsl:value-of select="$instElementType"/> ( </xsl:if> <xsl:if test="signedNumber/positive != 'true'">-</xsl:if><xsl:value-of select="signedNumber/num"/> <xsl:if test="$instElementType!='null' and $instElementType!='int' and $instElementType!='long'">)</xsl:if>

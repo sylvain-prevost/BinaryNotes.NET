@@ -22,8 +22,12 @@ import org.bn.types.*;
     @ASN1String( name = "", 
         stringType =  UniversalTag.PrintableString , isUCS = false )
     @ASN1ValueRangeConstraint ( 
+		
 		min = 0L, 
-		max = 255L ) 
+		
+		max = 255L 
+		
+	   )
 	   
         @ASN1Element ( name = "id", isOptional =  false , hasTag =  false  , hasDefaultValue =  false  )
     
@@ -81,7 +85,7 @@ import org.bn.types.*;
         
         public void initWithDefaults() {
             Boolean param_DeliveryReportReq =         
-            new Boolean (false);
+            false;
         setDeliveryReportReq(param_DeliveryReportReq);
     
         }

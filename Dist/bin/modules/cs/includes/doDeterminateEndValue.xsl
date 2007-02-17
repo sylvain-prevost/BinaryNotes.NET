@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!--
 /*
- * Copyright 2006 Abdulla G. Abdurakhmanov (abdulla.abdurakhmanov@gmail.com).
+ * Copyright 2007 Abdulla G. Abdurakhmanov (abdulla.abdurakhmanov@gmail.com).
  * 
  * Licensed under the GPL, Version 2 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,27 +19,25 @@
  * or blog at http://abdulla-a.blogspot.com.
  */
 -->
-
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xsltc="http://xml.apache.org/xalan/xsltc"
     xmlns:redirect="http://xml.apache.org/xalan/redirect"
     extension-element-prefixes="xsltc redirect"
 >
-    <xsl:import href="doDeterminateEndValue.xsl"/>
-
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
 
-    <xsl:template name="valueRangeConstraint">
-        <xsl:if test= "elemSetSpec/intersectionList/cnsElemList/lEndValue">
-            <xsl:if test= "elemSetSpec/intersectionList/cnsElemList/uEndValue">[ASN1ValueRangeConstraint ( 
-		<xsl:for-each select="elemSetSpec/intersectionList/cnsElemList/lEndValue">
-		Min = <xsl:call-template name="doDeterminateEndValue"/>L, 
+    <xsl:template name="doDeterminateEndValue">
+	<xsl:if test="signedNumber/num">
+		<xsl:if test= "signedNumber/positive = 'false'">-</xsl:if><xsl:value-of select="signedNumber/num"/>
+	</xsl:if>
+
+	<xsl:if test="definedValue/name">
+		<xsl:variable name="typeName" select="definedValue/name"/>
+    		<xsl:for-each select="//module/asnValues">
+			<xsl:if test="name = $typeName">
+				<xsl:call-template name="doDeterminateEndValue"/>
+			</xsl:if>
 		</xsl:for-each>
-		<xsl:for-each select="elemSetSpec/intersectionList/cnsElemList/uEndValue">
-		Max = <xsl:call-template name="doDeterminateEndValue"/>L 
-		</xsl:for-each>
-		) ]
-	    </xsl:if>
-        </xsl:if>
+	</xsl:if>
     </xsl:template>
 </xsl:stylesheet>

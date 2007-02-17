@@ -22,8 +22,12 @@ namespace org.bn.mq.protocol {
 	private string messageId_ ;
 	[ASN1String( Name = "", 
         StringType =  UniversalTags.PrintableString , IsUCS = false )][ASN1ValueRangeConstraint ( 
+		
 		Min = 0L, 
-		Max = 255L ) ]
+		
+		Max = 255L 
+		
+		) ]
 	    
         [ASN1Element ( Name = "messageId", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
     

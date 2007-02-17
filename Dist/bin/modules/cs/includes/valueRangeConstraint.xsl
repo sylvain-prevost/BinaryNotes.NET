@@ -25,13 +25,20 @@
     xmlns:redirect="http://xml.apache.org/xalan/redirect"
     extension-element-prefixes="xsltc redirect"
 >
+    <xsl:import href="doDeterminateEndValue.xsl"/>
+
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
 
     <xsl:template name="valueRangeConstraint">
-        <xsl:if test= "elemSetSpec/intersectionList/cnsElemList/lEndValue/signedNumber/num">
-            <xsl:if test= "elemSetSpec/intersectionList/cnsElemList/uEndValue/signedNumber/num">[ASN1ValueRangeConstraint ( 
-		Min = <xsl:if test= "elemSetSpec/intersectionList/cnsElemList/lEndValue/signedNumber/positive = 'false'">-</xsl:if><xsl:value-of select="elemSetSpec/intersectionList/cnsElemList/lEndValue/signedNumber/num"/>L, 
-		Max = <xsl:if test= "elemSetSpec/intersectionList/cnsElemList/uEndValue/signedNumber/positive = 'false'">-</xsl:if><xsl:value-of select="elemSetSpec/intersectionList/cnsElemList/uEndValue/signedNumber/num"/>L ) ]
+        <xsl:if test= "elemSetSpec/intersectionList/cnsElemList/lEndValue">
+            <xsl:if test= "elemSetSpec/intersectionList/cnsElemList/uEndValue">[ASN1ValueRangeConstraint ( 
+		<xsl:for-each select="elemSetSpec/intersectionList/cnsElemList/lEndValue">
+		Min = <xsl:call-template name="doDeterminateEndValue"/>L, 
+		</xsl:for-each>
+		<xsl:for-each select="elemSetSpec/intersectionList/cnsElemList/uEndValue">
+		Max = <xsl:call-template name="doDeterminateEndValue"/>L 
+		</xsl:for-each>
+		) ]
 	    </xsl:if>
         </xsl:if>
     </xsl:template>

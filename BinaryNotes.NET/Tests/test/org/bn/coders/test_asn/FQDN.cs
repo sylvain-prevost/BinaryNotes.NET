@@ -16,31 +16,32 @@ namespace test.org.bn.coders.test_asn {
 
 
     [ASN1PreparedElement]
-    [ASN1BoxedType ( Name = "TestLong" )]
-    public class TestLong: IASN1PreparedElement {
+    [ASN1BoxedType ( Name = "FQDN") ]
+    public class FQDN: IASN1PreparedElement {
+
+            private String val;
     
-            private long val;
-            
-            [ASN1Integer( Name = "TestLong" )]
+            [ASN1String( Name = "FQDN", 
+        StringType =  UniversalTags.VisibleString , IsUCS = false) ]
             [ASN1ValueRangeConstraint ( 
 		
 		Min = 1L, 
 		
-		Max = 2247483648L 
+		Max = 255L 
 		
 		) ]
 	    
-            public long Value
+            public String Value
             {
                 get { return val; }
                 set { val = value; }
             }
             
-            public TestLong() {
+            public FQDN() {
             }
 
-            public TestLong(long value) {
-                this.Value = value;
+            public FQDN(String val) {
+                this.val = val;
             }            
 
             public void initWithDefaults()
@@ -48,7 +49,7 @@ namespace test.org.bn.coders.test_asn {
 	    }
 
 
-            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(TestLong));
+            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(FQDN));
             public IASN1PreparedElementData PreparedData {
             	get { return preparedData; }
             }

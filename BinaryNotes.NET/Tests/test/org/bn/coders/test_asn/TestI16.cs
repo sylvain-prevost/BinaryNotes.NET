@@ -23,8 +23,12 @@ namespace test.org.bn.coders.test_asn {
             
             [ASN1Integer( Name = "TestI16" )]
             [ASN1ValueRangeConstraint ( 
+		
 		Min = 0L, 
-		Max = 65535L ) ]
+		
+		Max = 65535L 
+		
+		) ]
 	    
             public int Value
             {

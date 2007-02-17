@@ -22,8 +22,12 @@ import org.bn.types.*;
     @ASN1String( name = "", 
         stringType =  UniversalTag.PrintableString , isUCS = false )
     @ASN1ValueRangeConstraint ( 
+		
 		min = 0L, 
-		max = 255L ) 
+		
+		max = 255L 
+		
+	   )
 	   
         @ASN1Element ( name = "messageId", isOptional =  false , hasTag =  true, tag = 0 , hasDefaultValue =  false  )
     

@@ -23,8 +23,12 @@ namespace test.org.bn.coders.test_asn {
 
             [ASN1BitString( Name = "TestBitStrBnd") ]            
             [ASN1ValueRangeConstraint ( 
+		
 		Min = 1L, 
-		Max = 16L ) ]
+		
+		Max = 16L 
+		
+		) ]
 	    
             public BitString Value
             {

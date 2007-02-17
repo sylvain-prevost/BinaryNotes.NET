@@ -22,8 +22,12 @@ namespace org.bn.mq.protocol {
 	private string supplierName_ ;
 	[ASN1String( Name = "", 
         StringType =  UniversalTags.PrintableString , IsUCS = false )][ASN1ValueRangeConstraint ( 
+		
 		Min = 0L, 
-		Max = 255L ) ]
+		
+		Max = 255L 
+		
+		) ]
 	    
         [ASN1Element ( Name = "supplierName", IsOptional =  false , HasTag =  false  , HasDefaultValue =  false )  ]
     

@@ -122,8 +122,12 @@ namespace test.org.bn.coders.test_asn {
         private bool  intBndType_present = false ;
 	[ASN1Integer( Name = "" )]
     [ASN1ValueRangeConstraint ( 
+		
 		Min = 0L, 
-		Max = 255L ) ]
+		
+		Max = 255L 
+		
+		) ]
 	    
         [ASN1Element ( Name = "intBndType", IsOptional =  true , HasTag =  true, Tag = 7 , HasDefaultValue =  false )  ]
     
@@ -277,8 +281,12 @@ namespace test.org.bn.coders.test_asn {
         private bool  intBndType2_present = false ;
 	[ASN1Integer( Name = "" )]
     [ASN1ValueRangeConstraint ( 
+		
 		Min = 0L, 
-		Max = 255L ) ]
+		
+		Max = 255L 
+		
+		) ]
 	    
         [ASN1Element ( Name = "intBndType2", IsOptional =  true , HasTag =  true, Tag = 14 , HasDefaultValue =  false )  ]
     
