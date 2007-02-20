@@ -25,13 +25,16 @@
     extension-element-prefixes="xsltc redirect"
 >
     <xsl:import href="element.xsl"/>
+    <xsl:import href="choiceElement.xsl"/>
     <xsl:import href="component.xsl"/>
 
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
     <xsl:template name="elements">
+	<xsl:param name="isChoice"/>
         <xsl:for-each select="elementTypeList/elements">
 	    <xsl:choose>
 		<xsl:when test="isComponentsOf = 'true'"><xsl:call-template name="component"/></xsl:when>
+		<xsl:when test="$isChoice"><xsl:call-template name="choiceElement"/></xsl:when>
             	<xsl:otherwise><xsl:call-template name="element"/></xsl:otherwise>
 	    </xsl:choose>
         </xsl:for-each>        

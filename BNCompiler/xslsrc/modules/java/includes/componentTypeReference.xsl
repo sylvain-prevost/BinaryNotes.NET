@@ -31,7 +31,6 @@
                 	<xsl:call-template name="elements"/>
                 	<xsl:call-template name="sequenceFunctions"/>
 		</xsl:for-each>
-
     </xsl:template>
 
 </xsl:stylesheet>

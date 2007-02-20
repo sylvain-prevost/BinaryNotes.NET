@@ -28,7 +28,12 @@
 
     <xsl:template name="componentTypeReference">
                 <xsl:for-each select="typeReference">
-                	<xsl:call-template name="elements"/>
+			<xsl:if test="isChoice != 'true'">
+                		<xsl:call-template name="elements"/>
+			</xsl:if>
+			<xsl:if test="isChoice = 'true'">
+                		<xsl:call-template name="elements"><xsl:with-param name="isChoice">true</xsl:with-param></xsl:call-template>
+			</xsl:if>
                 	<xsl:call-template name="sequenceFunctions"/>
 		</xsl:for-each>
 

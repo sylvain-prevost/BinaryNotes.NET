@@ -36,6 +36,13 @@
             			<xsl:call-template name="sequenceFunctions"/>
 			</xsl:if>
 	    	</xsl:for-each>
+    		<xsl:for-each select="//module/asnTypes/choices">
+			<xsl:variable name="dName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>
+			<xsl:if test="$dName = $typeName">
+            			<xsl:call-template name="elements"/>            
+            			<xsl:call-template name="choiceFunctions"/>
+			</xsl:if>
+	    	</xsl:for-each>
 	</xsl:variable>	
 
 	<xsl:value-of select="$found"/>

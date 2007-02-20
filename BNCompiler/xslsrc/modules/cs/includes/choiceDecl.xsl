@@ -35,7 +35,7 @@
     [ASN1PreparedElement]    
     [ASN1Choice ( Name = "<xsl:value-of select='$elementName'/>" )]
     public class <xsl:value-of select='$choiceName'/> : IASN1PreparedElement  {
-            <xsl:call-template name="choiceElements"/>
+	    <xsl:call-template name="elements"><xsl:with-param name="isChoice">true</xsl:with-param></xsl:call-template>
             <xsl:call-template name="choiceFunctions"/>
 
             public void initWithDefaults()
