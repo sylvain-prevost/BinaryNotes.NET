@@ -306,6 +306,23 @@ EXPORTS TestOCT,TestPRN,TestI32,TestI16,TestI8,ContentType,ValueWithParams,Param
 		}
 	}
 
+	TestParent2 ::= CHOICE {
+		field10	[0] INTEGER,
+		field20	[1] OCTET STRING OPTIONAL,
+		field30	[2] UTF8String,
+		field40	[3] INTEGER
+	}
+
+	TestTParent2 ::= TestParent2
+
+	TestChild2 ::= CHOICE {
+		COMPONENTS OF TestTParent2,
+		field5	[4] UTF8String,
+		COMPONENTS OF CHOICE {
+			field6 [7] UTF8String
+		}
+	}
+
 	TestOID ::= OBJECT IDENTIFIER
 
 	TestSeqOID ::= SEQUENCE {
@@ -319,5 +336,8 @@ EXPORTS TestOCT,TestPRN,TestI32,TestI16,TestI8,ContentType,ValueWithParams,Param
 		
 	)
 	( SIZE (1..255) )
+
+	
+
 
 END
