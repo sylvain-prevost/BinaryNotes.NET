@@ -27,7 +27,7 @@
 
     <xsl:import href="header.xsl"/>
     <xsl:import href="footer.xsl"/>
-    <xsl:import href="choiceElements.xsl"/>
+    <xsl:import href="elements.xsl"/>
     <xsl:import href="choiceFunctions.xsl"/>
 
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
@@ -42,7 +42,7 @@
     [ASN1PreparedElement]
     [ASN1Choice ( Name = "<xsl:value-of select='$choiceName'/>") ]
     public class <xsl:value-of select="$choiceName"/> : IASN1PreparedElement {
-            <xsl:call-template name="choiceElements"/>
+            <xsl:call-template name="elements"><xsl:with-param name="isChoice">true</xsl:with-param></xsl:call-template>
             <xsl:call-template name="choiceFunctions"/>
 
             public void initWithDefaults()

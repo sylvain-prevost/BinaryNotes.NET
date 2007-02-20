@@ -73,7 +73,7 @@ namespace test.org.bn.coders.test_asn {
     [ASN1PreparedElement]    
     [ASN1Choice ( Name = "ch" )]
     public class ChChoiceType : IASN1PreparedElement  {
-                    
+	            
         
 	private long it1_ ;
         private bool  it1_selected = false ;

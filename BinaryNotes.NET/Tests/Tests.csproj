@@ -92,6 +92,7 @@
     <Compile Include="test\org\bn\coders\test_asn\TaggedSequence.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestBitStr.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestBitStrBnd.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\TestChild2.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestChild3.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestGT.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestI.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="test\org\bn\coders\test_asn\TestOCT.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestOID.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestParent.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\TestParent2.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestPRN.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestReal.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestRecursiveDefinetion.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="test\org\bn\coders\test_asn\TestSeqV13.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestSimpleSequence.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestTParent.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\TestTParent2.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestUnicodeStr.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestUnicodeStrBnd.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestUTC.cs" />

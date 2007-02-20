@@ -29,7 +29,12 @@
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
     <xsl:template name="choiceFunctions">
         <xsl:for-each select="elementTypeList/elements">
-            <xsl:call-template name="choiceElementFunctions"/>
+            <xsl:choose>
+		<xsl:when test="isComponentsOf = 'true'"/>
+		<xsl:otherwise>
+            		<xsl:call-template name="choiceElementFunctions"/>
+		</xsl:otherwise>
+	    </xsl:choose>
         </xsl:for-each>
     </xsl:template>
 </xsl:stylesheet>
