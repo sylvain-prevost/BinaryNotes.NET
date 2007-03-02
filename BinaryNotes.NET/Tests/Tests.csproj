@@ -125,6 +125,7 @@
     <Compile Include="test\org\bn\coders\test_asn\TestUnicodeStrBnd.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestUTC.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TEST_ASN.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\UTF8StringArray.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ValueWithParams.cs" />
     <Compile Include="test\org\bn\performance\DummyPerformanceTest.cs" />
     <Compile Include="test\org\bn\utils\BitArrayInputStreamTest.cs" />

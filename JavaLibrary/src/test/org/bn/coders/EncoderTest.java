@@ -309,6 +309,13 @@ public abstract class EncoderTest extends TestCase {
         assertNotNull(encoder);
         printEncoded("EncodeTestLongTag2: ",encoder, coderTestUtils.createTestLongTag2());
         checkEncoded(encoder, coderTestUtils.createTestLongTag2(), coderTestUtils.createTestLongTag2Bytes());                
-    }        
+    }
+
+    public void testSequenceOfUTFString() throws Exception {
+        IEncoder<UTF8StringArray> encoder = newEncoder();
+        assertNotNull(encoder);
+        printEncoded("Sequence Of UTF8String",encoder, coderTestUtils.createUTF8StringArray());
+        checkEncoded(encoder, coderTestUtils.createUTF8StringArray(), coderTestUtils.createUTF8StringArrayBytes());
+    }
     
 }

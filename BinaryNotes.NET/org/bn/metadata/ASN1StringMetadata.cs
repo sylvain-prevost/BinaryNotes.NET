@@ -29,9 +29,10 @@ namespace org.bn.metadata
     {
         private bool isUCS = false;
         private int     stringType = UniversalTags.PrintableString ;
+        private bool hasDefaults = false;
         
         public ASN1StringMetadata() {
-            
+            hasDefaults = true;
         }
 
         public ASN1StringMetadata(ASN1String annotation)
@@ -56,6 +57,16 @@ namespace org.bn.metadata
         {
             get { return stringType; }
         }
+
+        public override void setParentAnnotated(ICustomAttributeProvider parent) {
+            if(parent!=null) {
+                if(CoderUtils.isAttributePresent<ASN1String>(parent)) {
+                    ASN1String value = CoderUtils.getAttribute<ASN1String>(parent);
+                    stringType = value.StringType;
+                }    
+            }        
+        }
+
 
         public override int encode(IASN1TypesEncoder encoder, object obj, Stream stream, ElementInfo elementInfo) 
         {

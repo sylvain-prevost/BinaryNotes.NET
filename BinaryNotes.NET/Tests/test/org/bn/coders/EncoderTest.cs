@@ -162,7 +162,15 @@ namespace test.org.bn.coders
 			printEncoded("Sequence Of String", encoder, coderTestUtils.createStringArray());
 			checkEncoded(encoder, coderTestUtils.createStringArray(), coderTestUtils.createStringArrayBytes());
 		}
-		
+
+        public virtual void testSequenceOfUTFString()
+        {
+            IEncoder encoder = newEncoder();
+            Assert.NotNull(encoder);
+            printEncoded("Sequence Of UTF8String", encoder, coderTestUtils.createUTF8StringArray());
+            checkEncoded(encoder, coderTestUtils.createUTF8StringArray(), coderTestUtils.createUTF8StringArrayBytes());
+        }		
+
 		
 		public virtual void  testRecursiveDefinition()
 		{

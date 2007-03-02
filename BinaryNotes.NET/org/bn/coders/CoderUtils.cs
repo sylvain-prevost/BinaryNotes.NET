@@ -212,6 +212,11 @@ namespace org.bn.coders
                 ASN1String val = elementInfo.getAttribute<ASN1String>();
                 result = val.StringType;
             }
+            else
+            if(elementInfo.ParentAnnotatedClass!=null && elementInfo.isParentAttributePresent<ASN1String>()) {
+                ASN1String value = elementInfo.getParentAttribute<ASN1String>();
+                result = value.StringType;
+            }
             return result;
         }
 

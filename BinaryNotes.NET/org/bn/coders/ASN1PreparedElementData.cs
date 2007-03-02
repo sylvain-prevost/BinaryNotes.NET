@@ -136,7 +136,8 @@ namespace org.bn.coders
         private void setupMetadata(ICustomAttributeProvider annotated, Type objectClass) {
             if( CoderUtils.isAttributePresent<ASN1SequenceOf>(annotated) ) {
                 typeMeta = new ASN1SequenceOfMetadata( CoderUtils.getAttribute<ASN1SequenceOf> (annotated),
-                    objectClass
+                    objectClass,
+                    annotated
                 ) ;
             }        
             else    

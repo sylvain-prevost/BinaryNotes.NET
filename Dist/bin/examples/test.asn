@@ -74,6 +74,7 @@ EXPORTS TestOCT,TestPRN,TestI32,TestI16,TestI8,ContentType,ValueWithParams,Param
 
 	DataSeqArray ::= SEQUENCE OF DataSeq
 	StringArray ::= SEQUENCE OF PrintableString
+	UTF8StringArray ::= SEQUENCE OF UTF8String
 	OctetStringArray ::= SEQUENCE OF OCTET STRING
 
 	ITUType1 ::= VisibleString

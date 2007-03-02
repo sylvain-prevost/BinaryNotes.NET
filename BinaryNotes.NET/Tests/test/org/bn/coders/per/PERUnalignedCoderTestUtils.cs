@@ -147,6 +147,11 @@ namespace test.org.bn.coders.per
 			return new byte[]{(byte) (0x02), (byte) (0x06), (byte) (0xC5), (byte) (0x8B), (byte) (0x16), (byte) (0x2C), (byte) (0x58), (byte) (0x81), (byte) (0x71), (byte) (0xE3), (byte) (0xC7), (byte) (0x8F), (byte) (0x18)};
 		}
 
+        public override byte[] createUTF8StringArrayBytes()
+        {
+            return new byte[] { 0x02, 0x06, 0x62, 0x62, 0x62, 0x62, 0x62, 0x62, 0x05, 0x63, 0x63, 0x63, 0x63, 0x63 };
+        }
+
         public override byte[] createTestNIBytes()
         {
             return new byte[] { 0x3c, 0x00 };

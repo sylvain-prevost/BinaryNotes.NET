@@ -21,6 +21,8 @@ package org.bn.metadata;
 
 import java.io.OutputStream;
 
+import java.lang.reflect.AnnotatedElement;
+
 import org.bn.coders.ElementInfo;
 import org.bn.coders.IASN1TypesEncoder;
 
@@ -44,5 +46,7 @@ public abstract class ASN1Metadata implements IASN1Metadata
     {
         return name;
     }    
+    
+    public void setParentAnnotated(AnnotatedElement parentAnnotated) {}    
 }
 

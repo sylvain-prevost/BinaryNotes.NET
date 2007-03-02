@@ -58,21 +58,19 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
         setupConstructed(objectClass);
         setupMemberFlag(objectClass);
         setInstanceFactoryInfo(objectClass);
-        //memberClassFlag = objectClass.isMemberClass();
     }
     
     public ASN1PreparedElementData(Class parentClass, Field field) {
         setupMetadata(field, field.getType());
         setupAccessors(parentClass, field);
         setupMemberFlag(field.getType());
-        //memberClassFlag = field.getType().isMemberClass();
     }
-    
+        
     private void setupMetadata(AnnotatedElement annotated, Class objectClass) {
         if( annotated.isAnnotationPresent(ASN1SequenceOf.class) ) {
-            typeMeta = new ASN1SequenceOfMetadata( annotated.getAnnotation( ASN1SequenceOf.class), ((Field)annotated).getGenericType() ) ;
+            typeMeta = new ASN1SequenceOfMetadata( annotated.getAnnotation( ASN1SequenceOf.class), ((Field)annotated).getGenericType(), annotated ) ;
         }        
-        else    
+        else
         if( annotated.isAnnotationPresent(ASN1Sequence.class) ) {
             typeMeta = new ASN1SequenceMetadata( annotated.getAnnotation( ASN1Sequence.class) ) ;
         }

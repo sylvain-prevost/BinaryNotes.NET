@@ -61,7 +61,7 @@ namespace Tests
             test.testEncodeTaggedSequence();
             test.testEncodeLongTag();
             test.testEncodeLongTag2();
-            test.testEncodeCSEnum();
+            test.testSequenceOfUTFString();
         }
 
         static void runDecoderTest(DecoderTest test)

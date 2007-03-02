@@ -22,7 +22,10 @@ package org.bn.metadata;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import java.lang.reflect.AnnotatedElement;
+
 import org.bn.annotations.ASN1String;
+import org.bn.coders.CoderUtils;
 import org.bn.coders.DecodedObject;
 import org.bn.coders.ElementInfo;
 import org.bn.coders.IASN1TypesDecoder;
@@ -37,9 +40,10 @@ public class ASN1StringMetadata
 {
     private boolean isUCS = false;
     private int     stringType = UniversalTag.PrintableString ;
+    private boolean hasDefaults = false;
     
     public ASN1StringMetadata() {
-        
+        hasDefaults = true;
     }
     
     public ASN1StringMetadata(ASN1String annotation) {
@@ -63,6 +67,15 @@ public class ASN1StringMetadata
     public int getStringType()
     {
         return stringType;
+    }
+    
+    public void setParentAnnotated(AnnotatedElement parent) {
+        if(parent!=null) {
+            if(parent.isAnnotationPresent(ASN1String.class)) {
+                ASN1String value = parent.getAnnotation(ASN1String.class);
+                stringType = value.stringType();
+            }    
+        }        
     }
     
     public int encode(IASN1TypesEncoder encoder, Object object, OutputStream stream, 

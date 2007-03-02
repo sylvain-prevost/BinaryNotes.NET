@@ -22,6 +22,7 @@ package org.bn.metadata;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -39,7 +40,7 @@ public class ASN1SequenceOfMetadata extends ASN1FieldMetadata
     private Type itemClass;
     private ASN1PreparedElementData itemClassMetadata;
 
-    public ASN1SequenceOfMetadata(String name, boolean isSetOf, Type itemClass)
+    public ASN1SequenceOfMetadata(String name, boolean isSetOf, Type itemClass, AnnotatedElement seqFieldAnnotatedElem)
     {
         super(name);
         this.isSetOf = isSetOf;
@@ -48,10 +49,12 @@ public class ASN1SequenceOfMetadata extends ASN1FieldMetadata
         Class paramType = (Class)tp.getActualTypeArguments()[0];
         
         this.itemClassMetadata = new ASN1PreparedElementData(paramType);
+        if(this.itemClassMetadata.getTypeMetadata()!=null)
+            this.itemClassMetadata.getTypeMetadata().setParentAnnotated(seqFieldAnnotatedElem);
     }
     
-    public ASN1SequenceOfMetadata(ASN1SequenceOf annotation, Type itemClass) {
-        this(annotation.name(), annotation.isSetOf(), itemClass);
+    public ASN1SequenceOfMetadata(ASN1SequenceOf annotation, Type itemClass, AnnotatedElement seqFieldAnnotatedElem) {
+        this(annotation.name(), annotation.isSetOf(), itemClass, seqFieldAnnotatedElem);
     }               
     
     public boolean isSetOf() {

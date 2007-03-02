@@ -22,48 +22,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.bn.types.BitString;
-
-import test.org.bn.coders.test_asn.BugList;
-import test.org.bn.coders.test_asn.BugPrimitive;
-import test.org.bn.coders.test_asn.BugSequenceType;
-import test.org.bn.coders.test_asn.BugValueType;
-import test.org.bn.coders.test_asn.ContentSchema;
-import test.org.bn.coders.test_asn.Data;
-import test.org.bn.coders.test_asn.DataSeq;
-import test.org.bn.coders.test_asn.DataSeqMO;
-import test.org.bn.coders.test_asn.ITUSequence;
-import test.org.bn.coders.test_asn.ITUType1;
-import test.org.bn.coders.test_asn.ITUType2;
-import test.org.bn.coders.test_asn.ITUType3;
-import test.org.bn.coders.test_asn.ITUType6;
-import test.org.bn.coders.test_asn.NullSequence;
-import test.org.bn.coders.test_asn.PlainParamsMap;
-import test.org.bn.coders.test_asn.SequenceWithEnum;
-import test.org.bn.coders.test_asn.SequenceWithNull;
-import test.org.bn.coders.test_asn.SetWithDefault;
-import test.org.bn.coders.test_asn.StringArray;
-import test.org.bn.coders.test_asn.TaggedNullSequence;
-import test.org.bn.coders.test_asn.TaggedSeqInSeq;
-import test.org.bn.coders.test_asn.TestBitStr;
-import test.org.bn.coders.test_asn.TestBitStrBnd;
-import test.org.bn.coders.test_asn.TestI;
-import test.org.bn.coders.test_asn.TestI14;
-import test.org.bn.coders.test_asn.TestI16;
-import test.org.bn.coders.test_asn.TestI32;
-import test.org.bn.coders.test_asn.TestI8;
-import test.org.bn.coders.test_asn.TestIR;
-import test.org.bn.coders.test_asn.TestLongTag;
-import test.org.bn.coders.test_asn.TestLongTag2;
-import test.org.bn.coders.test_asn.TestLongTag2Choice;
-import test.org.bn.coders.test_asn.TestNI;
-import test.org.bn.coders.test_asn.TestNI2;
-import test.org.bn.coders.test_asn.TestOCT;
-import test.org.bn.coders.test_asn.TestPRN;
-import test.org.bn.coders.test_asn.TestReal;
-import test.org.bn.coders.test_asn.TestRecursiveDefinetion;
-import test.org.bn.coders.test_asn.TestSequenceV12;
-import test.org.bn.coders.test_asn.TestUnicodeStr;
+import org.bn.types.*;
+import test.org.bn.coders.test_asn.*;
 
 public abstract class CoderTestUtilities {
 
@@ -281,6 +241,17 @@ public abstract class CoderTestUtilities {
     
     public abstract byte[] createStringArrayBytes();
 
+    public UTF8StringArray createUTF8StringArray() {
+        UTF8StringArray sequenceOfString = new UTF8StringArray();
+        List<String> list = new LinkedList<String>();
+        list.add("bbbbbb");
+        list.add("ccccc");
+        sequenceOfString.setValue(list);
+        return sequenceOfString;
+    }
+    
+    public abstract byte[] createUTF8StringArrayBytes();
+    
     public TestNI createTestNI() {
         return new TestNI(-8);
     }

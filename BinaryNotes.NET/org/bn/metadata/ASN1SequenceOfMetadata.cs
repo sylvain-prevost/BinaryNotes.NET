@@ -32,18 +32,19 @@ namespace org.bn.metadata
         private Type itemClass;
         private ASN1PreparedElementData itemClassMetadata;
 
-        public ASN1SequenceOfMetadata(String name, bool isSetOf, Type itemClass) : base(name)
+        public ASN1SequenceOfMetadata(String name, bool isSetOf, Type itemClass, ICustomAttributeProvider seqFieldAnnotatedElem)
+            : base(name)
         {
             this.isSetOf = isSetOf;
             this.itemClass = itemClass;
             Type paramType = itemClass.GetGenericArguments()[0];
-            //Type collectionType = typeof(List<>);
-            //Type genCollectionType = collectionType.MakeGenericType(paramType);
             this.itemClassMetadata = new ASN1PreparedElementData(paramType);
+            if (this.itemClassMetadata.TypeMetadata != null)
+                this.itemClassMetadata.TypeMetadata.setParentAnnotated(seqFieldAnnotatedElem);
         }
 
-        public ASN1SequenceOfMetadata(ASN1SequenceOf annotation, Type itemClass)
-            : this(annotation.Name, annotation.IsSetOf, itemClass)
+        public ASN1SequenceOfMetadata(ASN1SequenceOf annotation, Type itemClass, ICustomAttributeProvider seqFieldAnnotatedElem)
+            : this(annotation.Name, annotation.IsSetOf, itemClass, seqFieldAnnotatedElem)
         {
         }               
         

@@ -19,6 +19,8 @@
 
 package org.bn.metadata;
 
+import java.lang.reflect.AnnotatedElement;
+
 /**
  * @author jcfinley@users.sourceforge.net
  */

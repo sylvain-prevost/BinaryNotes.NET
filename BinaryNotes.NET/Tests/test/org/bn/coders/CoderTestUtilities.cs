@@ -260,6 +260,17 @@ namespace test.org.bn.coders
 		
 		public abstract byte[] createStringArrayBytes();
 
+        public virtual UTF8StringArray createUTF8StringArray()
+        {
+            UTF8StringArray sequenceOfString = new UTF8StringArray();
+            List<String> list = new List<String>();
+            list.Add("bbbbbb");
+            list.Add("ccccc");
+            sequenceOfString.Value = list;
+            return sequenceOfString;
+        }
+        public abstract byte[] createUTF8StringArrayBytes();
+
         public TestNI createTestNI()
         {
             return new TestNI(-8);
