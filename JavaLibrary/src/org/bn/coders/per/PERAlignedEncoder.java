@@ -531,7 +531,7 @@ public class PERAlignedEncoder<T> extends Encoder<T> {
         int resultSize = 0, sizeOfString = 0;
         BitString str = (BitString)object;
         byte[] buffer = str.getValue();
-        sizeOfString = buffer.length*8 - str.getTrailBitsCnt();
+        sizeOfString = str.getLengthInBits();
         
         BitArrayOutputStream bitStream = (BitArrayOutputStream)stream;        
         resultSize += encodeLength(sizeOfString, elementInfo, stream);

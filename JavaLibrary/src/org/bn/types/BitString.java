@@ -51,6 +51,10 @@ public class BitString {
     public int getTrailBitsCnt() {
         return trailBitsCnt;
     }
+
+    public int getLengthInBits() {
+	return getLength()*8 - getTrailBitsCnt();
+    }
     
     public byte[] getValue() {
         return bitStrValue;

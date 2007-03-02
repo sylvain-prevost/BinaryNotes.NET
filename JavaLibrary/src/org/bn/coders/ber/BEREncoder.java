@@ -211,7 +211,7 @@ public class BEREncoder<T> extends Encoder<T> {
                                   ElementInfo elementInfo) throws Exception {
         int resultSize = 0, sizeOfString = 0;
         BitString str = (BitString)object;
-        CoderUtils.checkConstraints(str.getLength()*8-str.getTrailBitsCnt() , elementInfo);
+        CoderUtils.checkConstraints(str.getLengthInBits(), elementInfo);
         
         byte[] buffer = str.getValue();
         stream.write( buffer );
