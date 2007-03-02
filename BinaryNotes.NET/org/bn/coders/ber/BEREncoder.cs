@@ -364,7 +364,7 @@ namespace org.bn.coders.ber
         {
             int resultSize = 0, sizeOfString = 0;
             BitString str = (BitString)obj;
-            CoderUtils.checkConstraints(str.getLength()*8-str.TrailBitsCnt , elementInfo);
+            CoderUtils.checkConstraints(str.getLengthInBits(), elementInfo);
             byte[] buffer = str.Value;
             stream.Write( buffer, 0, buffer.Length );
             stream.WriteByte ( (byte) str.getTrailBitsCnt() );

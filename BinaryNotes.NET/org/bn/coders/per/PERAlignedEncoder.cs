@@ -637,7 +637,7 @@ namespace org.bn.coders.per
             int resultSize = 0, sizeOfString = 0;
             BitString str = (BitString)obj;
             byte[] buffer = str.Value;
-            sizeOfString = buffer.Length*8 - str.TrailBitsCnt;
+            sizeOfString = str.getLengthInBits();// buffer.Length*8 - str.TrailBitsCnt;
             resultSize+=encodeLength(sizeOfString, elementInfo, stream);
             doAlign(stream);
 

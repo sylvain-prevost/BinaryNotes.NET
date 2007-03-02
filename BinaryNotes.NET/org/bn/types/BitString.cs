@@ -70,6 +70,8 @@ namespace org.bn.types
             return this.TrailBitsCnt;
         }
 
-
+    	public int getLengthInBits() {
+	    return getLength()*8 - getTrailBitsCnt();
+    	}
     }
 }
