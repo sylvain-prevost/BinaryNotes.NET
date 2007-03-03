@@ -65,6 +65,6 @@ public class MessagingBusNet {
                 }
             }
         }
-        throw new Exception("Unable to find supported factory for URI"+addr);
+        throw new Exception("Unable to find supported factory for URI: "+addr);
     }
 }

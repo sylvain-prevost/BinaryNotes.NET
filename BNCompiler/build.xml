@@ -40,7 +40,7 @@
   <target name="compile" description="Compile Java source files" depends="init">
     <javac destdir="${output.dir}" classpathref="classpath"
            debug="${javac.debug}" nowarn="${javac.nowarn}"
-           deprecation="${javac.deprecation}">
+           deprecation="${javac.deprecation}" optimize="true">
       <src path="src"/>
       <compilerarg line="${javac.compilerargs}"/>
     </javac>

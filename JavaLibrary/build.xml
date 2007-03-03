@@ -22,12 +22,12 @@
     <antcall target="clean"/>
     <javac destdir="${output.dir}" classpathref="classpath"
            debug="${javac.debug}" nowarn="${javac.nowarn}"
-           deprecation="${javac.deprecation}">
+           deprecation="${javac.deprecation}" optimize="true">
       <src path="src"/>
       <compilerarg line="${javac.compilerargs}"/>
     </javac>
   </target>
-  <target name="compile-debug" description="Compile Java source files" depends="init">
+  <target name="compile-debug" description="Compile Java source files with debug information" depends="init">
     <antcall target="clean"/>
     <javac destdir="${output.dir}" classpathref="classpath"
            debug="on" nowarn="${javac.nowarn}"

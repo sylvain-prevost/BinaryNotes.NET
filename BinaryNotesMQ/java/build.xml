@@ -55,8 +55,7 @@
   <target name="compile" description="Compile Java source files" depends="init">
     <javac destdir="${output.dir}" classpathref="classpath"
            debug="${javac.debug}" nowarn="${javac.nowarn}"
-           deprecation="${javac.deprecation}" encoding="Cp1251" source="1.5"
-           target="1.5">
+           deprecation="${javac.deprecation}" optimize="true">
       <src path="src"/>
       <compilerarg line="${javac.compilerargs}"/>
     </javac>
