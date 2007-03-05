@@ -25,8 +25,6 @@ import org.bn.metadata.ASN1ElementMetadata;
 import org.bn.metadata.ASN1Metadata;
 import org.bn.metadata.ASN1TypeMetadata;
 
-import test.org.bn.coders.test_asn.SequenceWithNull;
-
 public interface IASN1PreparedElement {
     IASN1PreparedElementData getPreparedData();
     void initWithDefaults();
