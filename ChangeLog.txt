@@ -8,7 +8,7 @@ ChangeLog
 1.5.0	{lib}		[*] Fixed UTF8String (and other string datatypes instead of PrintableString) encoding for primitive SEQUENCE OF declaration
 1.5.0	{comp}		[+] Added support for simple value definitions.
 				( The original LDAP v3 ASN definition without any modification parsed successfully now.)
-1.5.0	{comp}		[*] Fixes for ASN.1 grammatic definitions ( a FROM definition parsing, and another small fixes)
+1.5.0	{comp}		[*] Fixes for some ASN.1 grammatic definitions
 1.5.0	{doc}		[*] Some documentation fixes for .NET samples
 1.5.0	{comp}		[+] Added support for COMPONENT OF declaration (for CHOICE/SEQUENCE constructions)
 1.5.0	{lib}		[+] Improved performance for Java (Disabled field method access)
