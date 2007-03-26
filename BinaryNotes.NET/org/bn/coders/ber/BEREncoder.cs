@@ -383,7 +383,8 @@ namespace org.bn.coders.ber
         public override int encodeObjectIdentifier(Object obj, System.IO.Stream stream, ElementInfo elementInfo)
         {
             // TODO
-            return 0;
+            throw new Exception("Not implemented by Alan! ;-)");
+            //return 0;
         }
 	}
 }

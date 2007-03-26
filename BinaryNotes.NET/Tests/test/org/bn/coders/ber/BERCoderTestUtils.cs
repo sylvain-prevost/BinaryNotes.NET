@@ -262,5 +262,10 @@ namespace test.org.bn.coders.ber
             return new byte[] { 0x02, 0x01, 0x01 };
         }
 
+        public override byte[] createTestOIDBytes()
+        {
+            return new byte[0] { };
+        }
+
 	}
 }

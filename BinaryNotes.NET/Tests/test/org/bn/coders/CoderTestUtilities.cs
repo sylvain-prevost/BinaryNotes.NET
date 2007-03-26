@@ -432,5 +432,13 @@ namespace test.org.bn.coders
         }
         public abstract byte[] createCSEnumBytes();
 
+        public TestOID createTestOID()
+        {
+            TestOID result = new TestOID();
+            result.Value = new ObjectIdentifier(new byte[] { 0x06, 0x03, 0x81, 0x34, 0x03 });
+            return result;
+        }
+        public abstract byte[] createTestOIDBytes();
+
 	}
 }

@@ -329,6 +329,13 @@ namespace test.org.bn.coders
             checkEncoded(encoder, coderTestUtils.createCSEnum(), coderTestUtils.createCSEnumBytes());
         }
 
+        public virtual void testEncodeOID()
+        {
+            IEncoder encoder = newEncoder();
+            Assert.NotNull(encoder);
+            printEncoded("TestOID test", encoder, coderTestUtils.createTestOID());
+            checkEncoded(encoder, coderTestUtils.createTestOID(), coderTestUtils.createTestOIDBytes());
+        }
 
 	}
 }
