@@ -226,7 +226,6 @@ namespace test.org.bn.coders.per
             return new byte[] { 0x05, (byte)0x80, (byte)0xFD, 0x18, 0x6D, 0x21 };
         }
 
- 
         public override byte[] createTaggedSequenceBytes()
         {
             return new byte[] { 0x81, 0xC1, 0x83, 0x04};
@@ -247,10 +246,24 @@ namespace test.org.bn.coders.per
             return new byte[] { 0x01, 0x01 };
         }
 
-        public override byte[] createTestOIDBytes()
+        public override byte[] createTestOID1Bytes()
         {
-            return new byte[0] { };
+            return new byte[] { 0 };
         }
 
+        public override byte[] createTestOID2Bytes()
+        {
+            return new byte[] { 0 };
+        }
+
+        public override byte[] createTestOID3Bytes()
+        {
+            return new byte[] { 0 };
+        }
+
+        public override byte[] createTestOID4Bytes()
+        {
+            return new byte[] { 0 };
+        }
 	}
 }

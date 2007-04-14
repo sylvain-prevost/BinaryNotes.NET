@@ -333,8 +333,14 @@ namespace test.org.bn.coders
         {
             IEncoder encoder = newEncoder();
             Assert.NotNull(encoder);
-            printEncoded("TestOID test", encoder, coderTestUtils.createTestOID());
-            checkEncoded(encoder, coderTestUtils.createTestOID(), coderTestUtils.createTestOIDBytes());
+            printEncoded("TestOID1 test", encoder, coderTestUtils.createTestOID1());
+            checkEncoded(encoder, coderTestUtils.createTestOID1(), coderTestUtils.createTestOID1Bytes());
+            printEncoded("TestOID2 test", encoder, coderTestUtils.createTestOID2());
+            checkEncoded(encoder, coderTestUtils.createTestOID2(), coderTestUtils.createTestOID2Bytes());
+            printEncoded("TestOID3 test", encoder, coderTestUtils.createTestOID3());
+            checkEncoded(encoder, coderTestUtils.createTestOID3(), coderTestUtils.createTestOID3Bytes());
+            printEncoded("TestOID4 test", encoder, coderTestUtils.createTestOID4());
+            checkEncoded(encoder, coderTestUtils.createTestOID4(), coderTestUtils.createTestOID4Bytes());
         }
 
 	}

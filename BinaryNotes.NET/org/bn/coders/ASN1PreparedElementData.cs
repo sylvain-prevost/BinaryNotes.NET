@@ -279,19 +279,19 @@ namespace org.bn.coders
             {
                 this.doSelectMethod = CoderUtils.findDoSelectMethodForField(field, objectClass);
             }
-            catch (Exception e) { e = null; }
+            catch (Exception) {}
 
             try
             {
                 isSelectedMethod = CoderUtils.findIsSelectedMethodForField (field, objectClass);
             }
-            catch (Exception e) { e = null; }
+            catch (Exception) {}
 
             try
             {
                 isPresentMethod = CoderUtils.findIsPresentMethodForField (field, objectClass);
             }
-            catch (Exception e) { e = null; }
+            catch (Exception) {}
 
         }
 

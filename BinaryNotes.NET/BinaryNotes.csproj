@@ -162,6 +162,7 @@
     <Compile Include="org\bn\coders\ber\BERCoderUtils.cs" />
     <Compile Include="org\bn\coders\ber\BERDecoder.cs" />
     <Compile Include="org\bn\coders\ber\BEREncoder.cs" />
+    <Compile Include="org\bn\coders\ber\BERObjectIdentifier.cs" />
     <Compile Include="org\bn\coders\CoderUtils.cs" />
     <Compile Include="org\bn\coders\DecodedObject.cs" />
     <Compile Include="org\bn\coders\Decoder.cs">

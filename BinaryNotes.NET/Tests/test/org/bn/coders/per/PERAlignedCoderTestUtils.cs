@@ -246,10 +246,24 @@ namespace test.org.bn.coders.per
             return new byte[] { 0x01, 0x01 };
         }
 
-        public override byte[] createTestOIDBytes()
+        public override byte[] createTestOID1Bytes()
         {
-            return new byte[0] { };
+            return new byte[] { 0 };
         }
 
+        public override byte[] createTestOID2Bytes()
+        {
+            return new byte[] { 0 };
+        }
+
+        public override byte[] createTestOID3Bytes()
+        {
+            return new byte[] { 0 };
+        }
+
+        public override byte[] createTestOID4Bytes()
+        {
+            return new byte[] { 0 };
+        }
 	}
 }

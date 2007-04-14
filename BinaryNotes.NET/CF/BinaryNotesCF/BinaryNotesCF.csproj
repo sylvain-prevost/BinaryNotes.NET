@@ -131,6 +131,9 @@
     <Compile Include="..\..\org\bn\coders\ber\BEREncoder.cs">
       <Link>src\BEREncoder.cs</Link>
     </Compile>
+    <Compile Include="..\..\org\bn\coders\ber\BERObjectIdentifier.cs">
+      <Link>src\BERObjectIdentifier.cs</Link>
+    </Compile>
     <Compile Include="..\..\org\bn\coders\CoderUtils.cs">
       <Link>src\CoderUtils.cs</Link>
     </Compile>

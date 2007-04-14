@@ -25,37 +25,43 @@ namespace org.bn.types
 {
     public class ObjectIdentifier
     {
+        private string oidString;
 
-        public ObjectIdentifier(String oidAsStr)
+        public ObjectIdentifier(string oidString)
         {
-            setValue(oidAsStr);
+            setValue(oidString);
         }
 
-        public ObjectIdentifier(byte[] oidAsBytes)
+        public string getValue()
         {
-            setValue(oidAsBytes);
+            return oidString;
         }
 
-        public byte[] getValue()
+        public void setValue(string oidString)
         {
-            // TODO
-            return null;
+            this.oidString = oidString;
         }
 
-        public String getValueAsStr()
+        public int[] getIntArray()
         {
-            // TODO
-            return null;
+            string[] sa = oidString.Split('.');
+            int[] ia = new int[sa.Length];
+            for (int i=0; i < sa.Length; i++)
+            {
+                ia[i] = int.Parse(sa[i]);
+            }
+            return ia;
         }
 
-        public void setValue(byte[] oidAsBytes)
+        public static string intArrayToDottedDecimal(int[] oidIntArray)
         {
-            // TODO
-        }
-
-        public void setValue(String oidAsStr)
-        {
-            // TODO
+            StringBuilder sb = new StringBuilder(oidIntArray.Length*4);
+            for (int i = 0; i < oidIntArray.Length; i++)
+            {
+                if (sb.Length > 0) sb.Append('.');
+                sb.Append(oidIntArray[i].ToString().Trim());
+            }
+            return sb.ToString();
         }
     }
 }

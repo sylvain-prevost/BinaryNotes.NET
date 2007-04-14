@@ -46,7 +46,7 @@ namespace org.bn.metadata
                 valueField = objClass.GetProperty("Value"); //getDeclaredField("value");
                 valueFieldMeta = new ASN1PreparedElementData(objClass, valueField);
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
         }
 
         public override int encode(IASN1TypesEncoder encoder, object obj, Stream stream, ElementInfo elementInfo)

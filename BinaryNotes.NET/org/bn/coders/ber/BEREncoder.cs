@@ -370,7 +370,6 @@ namespace org.bn.coders.ber
             stream.WriteByte ( (byte) str.getTrailBitsCnt() );
             sizeOfString = buffer.Length + 1;
             
-
             resultSize += sizeOfString;
             resultSize += encodeLength(sizeOfString, stream);
             resultSize += encodeTag( 
@@ -382,9 +381,17 @@ namespace org.bn.coders.ber
 
         public override int encodeObjectIdentifier(Object obj, System.IO.Stream stream, ElementInfo elementInfo)
         {
-            // TODO
-            throw new Exception("Not implemented by Alan! ;-)");
-            //return 0;
+            ObjectIdentifier oid = (ObjectIdentifier)obj;
+            int[] ia = oid.getIntArray();
+            byte[] buffer = BERObjectIdentifier.Encode(ia);
+            stream.Write(buffer, 0, buffer.Length);
+            int resultSize = buffer.Length;
+            resultSize += encodeLength(resultSize, stream);
+            resultSize += encodeTag(
+                BERCoderUtils.getTagValueForElement(elementInfo, TagClasses.Universal, ElementType.Primitive, UniversalTags.ObjectIdentifier),
+                stream
+            );
+            return resultSize;
         }
 	}
 }

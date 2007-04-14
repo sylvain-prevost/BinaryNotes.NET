@@ -660,8 +660,9 @@ namespace org.bn.coders.per
 
         public override int encodeObjectIdentifier(Object obj, System.IO.Stream stream, ElementInfo elementInfo)
         {
-            // TODO
-            return 0;
+           // TODO
+            stream.WriteByte(0); 
+            return 1;
         }
 
 	}

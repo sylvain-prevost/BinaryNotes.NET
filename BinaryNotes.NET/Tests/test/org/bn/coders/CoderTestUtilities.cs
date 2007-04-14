@@ -432,13 +432,40 @@ namespace test.org.bn.coders
         }
         public abstract byte[] createCSEnumBytes();
 
-        public TestOID createTestOID()
+        public TestOID createTestOID1()
         {
             TestOID result = new TestOID();
-            result.Value = new ObjectIdentifier(new byte[] { 0x06, 0x03, 0x81, 0x34, 0x03 });
+            result.Value = new ObjectIdentifier("2.100.3"); // example from X.690
             return result;
         }
-        public abstract byte[] createTestOIDBytes();
 
+        public abstract byte[] createTestOID1Bytes();
+
+        public TestOID createTestOID2()
+        {
+            TestOID result = new TestOID();
+            result.Value = new ObjectIdentifier("2.5.4.6");  // CountryName
+            return result;
+        }
+
+        public abstract byte[] createTestOID2Bytes();
+
+        public TestOID createTestOID3()
+        {
+            TestOID result = new TestOID();
+            result.Value = new ObjectIdentifier("1.2.840.113549.1.1.5");  // sha1withRSAEncryption
+            return result;
+        }
+
+        public abstract byte[] createTestOID3Bytes();
+
+        public TestOID createTestOID4()
+        {
+            TestOID result = new TestOID();
+            result.Value = new ObjectIdentifier("1.0.8571.2");  // example from ASN1 Complete (excellent free book) 
+            return result;
+        }
+
+        public abstract byte[] createTestOID4Bytes();
 	}
 }
