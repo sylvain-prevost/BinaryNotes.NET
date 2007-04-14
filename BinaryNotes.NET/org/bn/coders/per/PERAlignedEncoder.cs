@@ -503,15 +503,16 @@ namespace org.bn.coders.per
         public override int encodeEnumItem(object enumConstant, System.Type enumClass, System.IO.Stream stream, ElementInfo elementInfo)
 		{
 			ASN1EnumItem enumObj = elementInfo.getAttribute<ASN1EnumItem>();
-			int min = 0, max = enumClass.GetFields().Length, val = 0;
+			//int min = 0, max = enumClass.GetFields().Length, val = 0;
+            int min = 0, max = 0, val = 0;
             foreach (FieldInfo enumItem in enumClass.GetFields())
-		    {
+		    {                
                 if (CoderUtils.isAttributePresent<ASN1EnumItem>(enumItem))
-			    {
+			    {                    
 					ASN1EnumItem enumItemObj = CoderUtils.getAttribute<ASN1EnumItem>(enumItem);
 					if (enumItemObj.Tag == enumObj.Tag)
-						break;
-					val++;
+                        val = max;
+                    max++; //val++;
 				}
 			}
 			return encodeConstraintNumber(val, min, max, (BitArrayOutputStream) stream);

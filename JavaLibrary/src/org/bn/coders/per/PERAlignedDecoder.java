@@ -398,7 +398,14 @@ public class PERAlignedDecoder extends Decoder {
                                            ElementInfo elementInfo, 
                                     InputStream stream) throws Exception {
         //ASN1EnumItem enumObj = elementInfo.getAnnotatedClass().getAnnotation(ASN1EnumItem.class);
-        int min = 0, max = enumClass.getDeclaredFields().length;
+        //int min = 0, max = enumClass.getDeclaredFields().length;
+	int min = 0, max = 0;
+        for(Field enumItem: enumClass.getDeclaredFields()) {             
+            if(enumItem.isAnnotationPresent(ASN1EnumItem.class)) {
+		max++;
+	    }
+	}
+
         int enumItemIdx = (int)decodeConstraintNumber(min,max,(BitArrayInputStream)stream);
         DecodedObject<Integer> result = new DecodedObject<Integer>();
         int idx=0;

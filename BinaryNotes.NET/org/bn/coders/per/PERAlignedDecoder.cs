@@ -407,7 +407,16 @@ namespace org.bn.coders.per
 
         public override DecodedObject<object> decodeEnumItem(DecodedObject<object> decodedTag, System.Type objectClass, System.Type enumClass, ElementInfo elementInfo, System.IO.Stream stream)
 		{			
-			int min = 0, max = enumClass.GetFields().Length;
+			//int min = 0, max = enumClass.GetFields().Length;
+            int min = 0, max = 0;
+            foreach (FieldInfo enumItem in enumClass.GetFields())
+            {
+                if (CoderUtils.isAttributePresent<ASN1EnumItem>(enumItem))
+                {
+                    max++;
+                }
+            }
+
 			int enumItemIdx = (int)decodeConstraintNumber(min, max, (BitArrayInputStream) stream);
 			DecodedObject<object> result = new DecodedObject<object>();
 			int idx = 0;

@@ -478,13 +478,15 @@ public class PERAlignedEncoder<T> extends Encoder<T> {
     public int encodeEnumItem(Object enumConstant, Class enumClass, OutputStream stream, 
                                  ElementInfo elementInfo) throws Exception {
         ASN1EnumItem enumObj = elementInfo.getAnnotatedClass().getAnnotation(ASN1EnumItem.class);
-        int min = 0, max = enumClass.getDeclaredFields().length, value =0;
+        //int min = 0, max = enumClass.getDeclaredFields().length, value =0;
+	int min = 0, max = 0, value =0;
         for(Field enumItem: enumClass.getDeclaredFields()) { 
             if(enumItem.isAnnotationPresent(ASN1EnumItem.class)) {
+
                 ASN1EnumItem enumItemObj = enumItem.getAnnotation(ASN1EnumItem.class);        
                 if(enumItemObj.tag() == enumObj.tag())
-                    break;
-                value++;
+                    value = max;
+                max ++;
             }
         }
          return encodeConstraintNumber(value,min,max,(BitArrayOutputStream)stream);
