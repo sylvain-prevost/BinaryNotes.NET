@@ -489,7 +489,11 @@ public class PERAlignedEncoder<T> extends Encoder<T> {
                 max ++;
             }
         }
-         return encodeConstraintNumber(value,min,max,(BitArrayOutputStream)stream);
+
+	if( max > 0 )
+        	return encodeConstraintNumber(value,min,max-1,(BitArrayOutputStream)stream);
+        else
+		throw new Exception("Unable to present any enum item!");
     }
 
     public int encodeBoolean(Object object, OutputStream stream, 

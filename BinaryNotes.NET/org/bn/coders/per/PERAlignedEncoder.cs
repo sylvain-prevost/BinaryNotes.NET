@@ -515,7 +515,10 @@ namespace org.bn.coders.per
                     max++; //val++;
 				}
 			}
-			return encodeConstraintNumber(val, min, max, (BitArrayOutputStream) stream);
+            if (max > 0)
+			    return encodeConstraintNumber(val, min, max, (BitArrayOutputStream) stream);
+            else
+                throw new Exception("Unable to present any enum item!");
 		}
 
         public override int encodeBoolean(object obj, System.IO.Stream stream, ElementInfo elementInfo)

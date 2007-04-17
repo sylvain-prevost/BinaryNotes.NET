@@ -417,7 +417,10 @@ namespace org.bn.coders.per
                 }
             }
 
-			int enumItemIdx = (int)decodeConstraintNumber(min, max, (BitArrayInputStream) stream);
+            if (max <= 0)
+                throw new Exception("Unable to present any enum item!");
+
+			int enumItemIdx = (int)decodeConstraintNumber(min, max - 1, (BitArrayInputStream) stream);
 			DecodedObject<object> result = new DecodedObject<object>();
 			int idx = 0;
             foreach (FieldInfo enumItem in enumClass.GetFields())

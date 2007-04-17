@@ -406,7 +406,10 @@ public class PERAlignedDecoder extends Decoder {
 	    }
 	}
 
-        int enumItemIdx = (int)decodeConstraintNumber(min,max,(BitArrayInputStream)stream);
+	if(max<=0)
+		throw new Exception("Unable to present any enum item!");
+
+        int enumItemIdx = (int)decodeConstraintNumber(min,max-1,(BitArrayInputStream)stream);
         DecodedObject<Integer> result = new DecodedObject<Integer>();
         int idx=0;
         for(Field enumItem: enumClass.getDeclaredFields()) {             
