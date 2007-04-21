@@ -18,6 +18,7 @@
 */
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -27,12 +28,12 @@ namespace org.bn.coders.ber
      * BER OID Encoding
      * Implemented by Alan Gutzeit.
      */
-    static class BERObjectIdentifier
+    public static class BERObjectIdentifier
     {
         public static byte[] Encode(int[] oidArcArray)
         {
             int arcLength = oidArcArray.Length;
-            if (arcLength < 2) throw new Exception("oidArcArray length below 2");
+            if (arcLength < 2) throw new Exception("Object id must contain at least 2 arcs");
             byte[] result = new byte[(arcLength * 5)]; // 32-bit encoding cannot exceed 5 bytes each 
             int nextAvailable = 0;
             nextAvailable += EncodeFirstTwoArcs(oidArcArray[0], oidArcArray[1], result, nextAvailable);
@@ -40,13 +41,14 @@ namespace org.bn.coders.ber
             {
                 nextAvailable += EncodeOneArc(oidArcArray[i], result, nextAvailable);
             }
-            if (nextAvailable > 255) throw new Exception("Encoded length cannot exceed 255");
+            if (nextAvailable > 255) throw new Exception("Encoded length of object id exceeded 255 bytes");
             return Truncate(result, nextAvailable);
         }
 
         private static int EncodeFirstTwoArcs(int topArc, int secondArc, byte[] result, int nextAvailable)
         {
-            if (topArc < 0 || topArc > 2) throw new Exception("Top arc must be less than 3");
+            if (topArc < 0 || topArc > 2) throw new Exception("Top-level arc must be 0, 1 or 2");
+            if (secondArc < 0 || secondArc > 39) throw new Exception("Second-level arc must be less than 40");
             int combinedArc = topArc * 40 + secondArc;
             return EncodeOneArc(combinedArc, result, nextAvailable);
         }
@@ -55,19 +57,12 @@ namespace org.bn.coders.ber
         //         11112222333344445555666677778888 
         // 00001111x2222333x3444455x5566667x7778888
 
-        // Decoding: 
-        // xxxx1111x2222333x3444455x5566667x7778888
-        //         11112222333344445555666677778888 
-        //
-
         /// <summary>
         /// Adds encoding to passed result array. Note that result array must already have adequate capacity. 
         /// </summary>
         /// <returns>length of result</returns>
         private static int EncodeOneArc(int arc, byte[] result, int nextAvailable)
         {
-            if (arc < 1) throw new Exception("arc must be greater then zero");
-
             long arc1 = (arc & 0x7f);
             long arc2 = (arc & 0x3f80) << 1;
             long arc3 = (arc & 0x1fc000) << 2;
@@ -82,13 +77,12 @@ namespace org.bn.coders.ber
             temp[1] = (byte)((all & 0xff000000) >> 24);
             temp[0] = (byte)((all & 0xff00000000) >> 32);
 
-            int resultLength = 0;
+            int resultLength = 1;
             if (temp[0] > 0) resultLength = 5;            
             else if (temp[1] > 0) resultLength = 4;
             else if (temp[2] > 0) resultLength = 3;
             else if (temp[3] > 0) resultLength = 2;
-            else if (temp[4] > 0) resultLength = 1;
-            if (resultLength < 1) throw new Exception("no result");
+            // temp[4] can be zero if arc = 0 so resultLength defaults to 1 
 
             // all bytes have high-order bit one except last byte has high-order bit zero 
             temp[0] |= 0x80; // high-bit set
@@ -106,12 +100,79 @@ namespace org.bn.coders.ber
         private static byte[] Truncate(byte[] b1, int nextAvailable)
         {
             byte[] b2 = new byte[nextAvailable];
-            if (nextAvailable == 0) return b2;
-            for (int i = 0; i < nextAvailable; i++)
-            {
-                b2[i] = b1[i];
-            }
+            System.Array.Copy(b1, b2, nextAvailable);
             return b2;
+        }
+
+        // =========================================================================
+
+        public static string Decode(byte[] oidBytes)
+        {
+            int[] intArray1 = BerByteArrayToIntArray(oidBytes);
+            if (intArray1.Length < 1) throw new Exception("Object id must contain at least 2 arcs");
+            int[] intArray2 = new int[intArray1.Length + 1];
+            int combinedArc = intArray1[0];
+            int arc1, arc2;
+            if (combinedArc < 40) 
+            {
+                arc1 = 0;
+                arc2 = combinedArc;
+            }
+            else if (combinedArc < 80)
+            {
+                arc1 = 1;
+                arc2 = combinedArc - 40;
+            }
+            else 
+            {
+                arc1 = 2;
+                arc2 = combinedArc - 80;
+            }
+            intArray2[0] = arc1;
+            intArray2[1] = arc2;
+            System.Array.Copy(intArray1, 1, intArray2, 2, intArray2.Length - 2);
+            return IntArrayToDottedDecimal(intArray2);
+        }
+
+        public static string IntArrayToDottedDecimal(int[] oidIntArray)
+        {
+            StringBuilder sb = new StringBuilder(oidIntArray.Length * 4);
+            for (int i = 0; i < oidIntArray.Length; i++)
+            {
+                if (sb.Length > 0) sb.Append('.');
+                sb.Append(oidIntArray[i].ToString().Trim());
+            }
+            return sb.ToString();
+        }
+
+        // Decoding: 
+        // xxxx1111x2222333x3444455x5566667x7778888
+        //         11112222333344445555666677778888 
+        //
+
+        public static int[] BerByteArrayToIntArray(byte[] berBytes)
+        {
+            ArrayList intArrayList = new ArrayList();
+            int result = 0;
+            int byteShiftCount = 0;
+            for (int i = 0; i < berBytes.Length; i++)
+            {
+                if ((berBytes[i] & 0x80) == 0) // last byte in integer
+                {
+                    result += berBytes[i];
+                    intArrayList.Add(result);
+                    result = 0;
+                    byteShiftCount = 0;
+                }
+                else // not last byte in integer 
+                {
+                    if (byteShiftCount == 3) throw new Exception("Left shift exceeds integer boundry");
+                    result += (berBytes[i] & 0x7F);
+                    result = result << 8;
+                    byteShiftCount++;
+                }
+            }
+            return (int[])intArrayList.ToArray(typeof(int));
         }
     }
 }

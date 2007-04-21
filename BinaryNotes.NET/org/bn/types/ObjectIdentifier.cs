@@ -52,16 +52,5 @@ namespace org.bn.types
             }
             return ia;
         }
-
-        public static string intArrayToDottedDecimal(int[] oidIntArray)
-        {
-            StringBuilder sb = new StringBuilder(oidIntArray.Length*4);
-            for (int i = 0; i < oidIntArray.Length; i++)
-            {
-                if (sb.Length > 0) sb.Append('.');
-                sb.Append(oidIntArray[i].ToString().Trim());
-            }
-            return sb.ToString();
-        }
     }
 }

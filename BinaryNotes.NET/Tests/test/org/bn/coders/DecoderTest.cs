@@ -420,5 +420,8 @@ namespace test.org.bn.coders
             Assert.Equals(val, coderTestUtils.createCSEnum());
         }
 
+        public virtual void testDecodeOID()
+        {
+        }
 	}
 }

@@ -90,6 +90,7 @@ namespace Tests
             test.testDecodeLongTag();
             test.testDecodeLongTag2();
             test.testDecodeCSEnum();
+            test.testDecodeOID();
         }
 
         [STAThread]

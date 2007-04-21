@@ -435,7 +435,7 @@ namespace test.org.bn.coders
         public TestOID createTestOID1()
         {
             TestOID result = new TestOID();
-            result.Value = new ObjectIdentifier("2.100.3"); // example from X.690
+            result.Value = new ObjectIdentifier("2.5.4.6");  // CountryName
             return result;
         }
 
@@ -444,7 +444,7 @@ namespace test.org.bn.coders
         public TestOID createTestOID2()
         {
             TestOID result = new TestOID();
-            result.Value = new ObjectIdentifier("2.5.4.6");  // CountryName
+            result.Value = new ObjectIdentifier("1.2.840.113549.1.1.5");  // sha1withRSAEncryption
             return result;
         }
 
@@ -453,16 +453,17 @@ namespace test.org.bn.coders
         public TestOID createTestOID3()
         {
             TestOID result = new TestOID();
-            result.Value = new ObjectIdentifier("1.2.840.113549.1.1.5");  // sha1withRSAEncryption
+            result.Value = new ObjectIdentifier("1.0.8571.2");  // example from ASN1 Complete (excellent free book) 
             return result;
         }
 
         public abstract byte[] createTestOID3Bytes();
 
+        // This test added because BER encode had bug with handling a zero exclusive of first two arcs
         public TestOID createTestOID4()
         {
             TestOID result = new TestOID();
-            result.Value = new ObjectIdentifier("1.0.8571.2");  // example from ASN1 Complete (excellent free book) 
+            result.Value = new ObjectIdentifier("2.23.42.3.0");  // SET attribute cert 
             return result;
         }
 

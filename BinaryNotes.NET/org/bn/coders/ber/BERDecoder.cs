@@ -490,10 +490,13 @@ namespace org.bn.coders.ber
 
         public override DecodedObject<object> decodeObjectIdentifier(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
         {
-            // TODO
-            return null;
+            if (!checkTagForObject(decodedTag, TagClasses.Universal, ElementType.Primitive, UniversalTags.ObjectIdentifier, elementInfo))
+                return null;
+            DecodedObject<int> len = decodeLength(stream);
+            byte[] byteBuf = new byte[len.Value];
+            stream.Read(byteBuf, 0, byteBuf.Length);
+            string dottedDecimal = BERObjectIdentifier.Decode(byteBuf);
+            return new DecodedObject<object>(new ObjectIdentifier(dottedDecimal));
         }
-
-		
 	}
 }
