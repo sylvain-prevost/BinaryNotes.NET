@@ -5,14 +5,14 @@ ChangeLog
 							[!] 		- Important warning or note
 							{<component>}	- Component/Group that changed
 
-1.5.0	{lib}		[*] Fixed encoding of ENUMERATION for PER. Thanks to Tomas Carlsson (Bug #1699806).
-1.5.0	{lib}		[*] Fixed UTF8String (and other string datatypes instead of PrintableString) encoding for primitive SEQUENCE OF declaration
+1.5.0	{lib}		[*] Fixed an encoding bug of ENUMERATION for PER. Thanks to Tomas Carlsson (Bug #1699806).
+1.5.0	{lib}		[*] Fixed an UTF8String (and other string datatypes instead of PrintableString) encoding for primitive SEQUENCE OF declaration
 1.5.0	{comp}		[+] Added support for simple value definitions.
 				( The original LDAP v3 ASN definition without any modification parsed successfully now.)
 1.5.0	{comp}		[*] Fixes for some ASN.1 grammatic definitions
 1.5.0	{doc}		[*] Some documentation fixes for .NET samples
 1.5.0	{comp}		[+] Added support for COMPONENT OF declaration (for CHOICE/SEQUENCE constructions)
-1.5.0	{lib}		[+] Improved performance for Java (Disabled field method access)
+1.5.0	{lib}		[+] Improved performance for Java (Disabled field a method access checking)
 -
 1.4.2	{doc}		[*] Small documentation fixes
 1.4.2	{comp}		[*] Fixed an isPresent function generating for Java
