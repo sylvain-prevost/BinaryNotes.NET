@@ -306,7 +306,7 @@ namespace org.bn.coders.ber
             return resultSize;*/
 		}
 		
-		protected internal int encodeLength(int length, System.IO.Stream stream)
+		protected static internal int encodeLength(int length, System.IO.Stream stream)
 		{
 			int resultSize = 0;
 			
