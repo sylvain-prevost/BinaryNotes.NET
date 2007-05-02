@@ -248,22 +248,22 @@ namespace test.org.bn.coders.per
 
         public override byte[] createTestOID1Bytes()
         {
-            return new byte[] { 0x06, 0x03, 0x55, 0x04, 0x06 };
+            return new byte[] { 0 };
         }
 
         public override byte[] createTestOID2Bytes()
         {
-            return new byte[] { 0x06, 0x09, 0x2A, 0x86, 0x48, 0x86, 0xF7, 0x0D, 0x01, 0x01, 0x05 };
+            return new byte[] { 0 };
         }
 
         public override byte[] createTestOID3Bytes()
         {
-            return new byte[] { 0x06, 0x04, 0x28, 0xC2, 0x7B, 0x02 };
+            return new byte[] { 0 };
         }
 
         public override byte[] createTestOID4Bytes()
         {
-            return new byte[] { 0x06, 0x04, 0x67, 0x2A, 0x03, 0x00 };
+            return new byte[] { 0 };
         }
 	}
 }

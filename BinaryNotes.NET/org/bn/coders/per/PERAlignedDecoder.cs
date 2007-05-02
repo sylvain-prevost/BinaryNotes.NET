@@ -39,10 +39,6 @@ namespace org.bn.coders.per
 
         public override DecodedObject<object> decodeTag(System.IO.Stream stream)
         {
-            //if ((stream.Length > 0) && (stream.ReadByte().Equals(UniversalTags.ObjectIdentifier)))
-            //{
-            //    return new DecodedObject<object>(UniversalTags.ObjectIdentifier, (int)stream.Length);
-            //}
             return null;
         }		
 		

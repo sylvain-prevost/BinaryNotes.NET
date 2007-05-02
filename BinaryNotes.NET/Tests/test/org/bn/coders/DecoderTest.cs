@@ -31,15 +31,6 @@ namespace test.org.bn.coders
 	[TestFixture]
 	public abstract class DecoderTest
 	{
-        protected internal virtual object printDecoded<T>(System.String details, IDecoder decoder,byte[] inputStreamBytes)
-        {
-            System.IO.MemoryStream inputStream = new System.IO.MemoryStream(inputStreamBytes);
-            Object obj = decoder.decode<T>(inputStream);
-            T decodedObject = (T)obj; 
-            System.Console.Out.WriteLine("Decoded by " + decoder.ToString() + " (" + details + decodedObject.ToString() + ") : " + ByteTools.byteArrayToHexString(inputStream.ToArray()));
-            return decodedObject;
-        }
-
         private CoderTestUtilities coderTestUtils;
 
 		public DecoderTest(string testName, CoderTestUtilities coderTestUtils)
@@ -431,15 +422,6 @@ namespace test.org.bn.coders
 
         public virtual void testDecodeOID()
         {
-            IDecoder decoder = newDecoder();
-            Assert.NotNull(decoder);
-            //
-            byte[] testOid1Bytes = coderTestUtils.createTestOID1Bytes();
-            object obj1 = printDecoded<ObjectIdentifier>("Decode OID ", decoder, testOid1Bytes);
-            ObjectIdentifier oid1 = (ObjectIdentifier) obj1;
-
-            //TestOID referenceOID1 = coderTestUtils.createTestOID1();
-            //checkDecoded(decoder, coderTestUtils.createTestOID1(), coderTestUtils.createTestOID1Bytes());
         }
 	}
 }

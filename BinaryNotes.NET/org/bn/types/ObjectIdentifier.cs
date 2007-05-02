@@ -20,12 +20,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using org.bn.attributes;
 
 namespace org.bn.types
 {
-    [ASN1Element(Name = "ObjectIdentifier")]
-    [ASN1ObjectIdentifier(Name = "ObjectIdentifier")]
     public class ObjectIdentifier
     {
         private string oidString;
@@ -54,11 +51,6 @@ namespace org.bn.types
                 ia[i] = int.Parse(sa[i]);
             }
             return ia;
-        }
-
-        public override string ToString()
-        {
-            return oidString;
         }
     }
 }

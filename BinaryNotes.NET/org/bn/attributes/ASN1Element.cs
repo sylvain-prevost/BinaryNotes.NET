@@ -21,7 +21,7 @@ using org.bn.coders;
 
 namespace org.bn.attributes
 {
-    [AttributeUsage(AttributeTargets.Property|AttributeTargets.Class, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class ASN1Element : Attribute
     {
         private string name = "";

@@ -19,7 +19,7 @@
 using System;
 namespace org.bn.attributes
 {
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class ASN1ObjectIdentifier : Attribute
     {
         private string name = "";
