@@ -308,48 +308,7 @@ namespace org.bn.coders.ber
 		
 		protected internal int encodeLength(int length, System.IO.Stream stream)
 		{
-			int resultSize = 0;
-			
-			if (length < 0)
-			{
-				throw new System.ArgumentException();
-			}
-			else if (length < 128)
-			{
-				stream.WriteByte((byte) length);
-				resultSize++;
-			}
-			else if (length < 256)
-			{
-				stream.WriteByte((byte) length);
-				stream.WriteByte((byte) 0x81);
-				resultSize += 2;
-			}
-			else if (length < 65536)
-			{
-				stream.WriteByte((byte) (length));
-				stream.WriteByte((byte) (length >> 8));
-				stream.WriteByte((byte) 0x82);
-				resultSize += 3;
-			}
-			else if (length < 16777126)
-			{
-				stream.WriteByte((byte) (length));
-				stream.WriteByte((byte) (length >> 8));
-				stream.WriteByte((byte) (length >> 16));
-				stream.WriteByte((byte) 0x83);
-				resultSize += 4;
-			}
-			else
-			{
-				stream.WriteByte((byte) (length));
-				stream.WriteByte((byte) (length >> 8));
-				stream.WriteByte((byte) (length >> 16));
-				stream.WriteByte((byte) (length >> 24));
-				stream.WriteByte((byte) 0x84);
-				resultSize += 5;
-			}
-			return resultSize;
+            return BERCoderUtils.encodeLength (length, stream);
 		}
 
         public override int encodeNull(object obj, System.IO.Stream stream, ElementInfo elementInfo)

@@ -664,9 +664,16 @@ namespace org.bn.coders.per
 
         public override int encodeObjectIdentifier(Object obj, System.IO.Stream stream, ElementInfo elementInfo)
         {
-           // TODO
-            stream.WriteByte(0); 
-            return 1;
+            ObjectIdentifier oid = (ObjectIdentifier)obj;
+            int[] ia = oid.getIntArray();
+            byte[] buffer = org.bn.coders.ber.BERObjectIdentifier.Encode(ia);
+            if (buffer.Length < 1) return 0;
+            stream.WriteByte((byte)UniversalTags.ObjectIdentifier);
+            int resultSize = 1; // size of tag 
+            resultSize += org.bn.coders.ber.BERCoderUtils.encodeLength(buffer.Length, stream);
+            stream.Write(buffer, 0, buffer.Length);
+            resultSize += buffer.Length; // size of buffer         
+            return resultSize;
         }
 
 	}
