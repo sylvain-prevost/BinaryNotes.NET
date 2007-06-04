@@ -562,8 +562,12 @@ public class PERAlignedEncoder<T> extends Encoder<T> {
                                ElementInfo elementInfo) throws Exception {
         int resultSize = 0;
         byte[] value = null;
-        if(CoderUtils.getStringTagForElement(elementInfo) == UniversalTag.UTF8String) {        
+        int stringTag = CoderUtils.getStringTagForElement(elementInfo); 
+        if(stringTag == UniversalTag.UTF8String) {        
             value = object.toString().getBytes("utf-8");        
+        }
+        else if (stringTag == UniversalTag.BMPString) {
+            value = object.toString().getBytes("UnicodeBigUnmarked");
         }
         else {
             value = object.toString().getBytes();

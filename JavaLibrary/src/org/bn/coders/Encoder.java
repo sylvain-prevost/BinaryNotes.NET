@@ -39,6 +39,7 @@ import org.bn.annotations.*;
 import org.bn.annotations.constraints.*;
 import org.bn.metadata.ASN1ElementMetadata;
 import org.bn.utils.ReverseByteArrayOutputStream;
+import org.bn.types.*;
 
 public abstract class Encoder<T> implements IEncoder<T>, IASN1TypesEncoder {
     
@@ -111,11 +112,11 @@ public abstract class Encoder<T> implements IEncoder<T>, IASN1TypesEncoder {
             resultSize+=encodeOctetString(object, stream, elementInfo);
         }
         else
-        if( elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1BitString.class) ) {
+        if( elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1BitString.class) || object.getClass().equals(BitString.class) ) {
             resultSize+=encodeBitString(object, stream, elementInfo);
         }
         else
-        if( elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1ObjectIdentifier.class) ) {
+        if( elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1ObjectIdentifier.class) || object.getClass().equals(ObjectIdentifier.class) ) {
             resultSize+=encodeObjectIdentifier ( object, stream, elementInfo );
         }
         else

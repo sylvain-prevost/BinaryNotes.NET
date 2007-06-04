@@ -51,10 +51,10 @@ public ASNLexer(LexerSharedInputState state) {
 	literals.put(new ANTLRHashString("MACRO", this), new Integer(146));
 	literals.put(new ANTLRHashString("ENCRYPTED", this), new Integer(141));
 	literals.put(new ANTLRHashString("CHOICE", this), new Integer(18));
-	literals.put(new ANTLRHashString("ACCESS", this), new Integer(151));
+	literals.put(new ANTLRHashString("ACCESS", this), new Integer(150));
 	literals.put(new ANTLRHashString("ABSTRACT-BIND", this), new Integer(136));
 	literals.put(new ANTLRHashString("END", this), new Integer(27));
-	literals.put(new ANTLRHashString("DEFVAL", this), new Integer(156));
+	literals.put(new ANTLRHashString("DEFVAL", this), new Integer(155));
 	literals.put(new ANTLRHashString("PDV", this), new Integer(65));
 	literals.put(new ANTLRHashString("INTERSECTION", this), new Integer(49));
 	literals.put(new ANTLRHashString("COMPONENT", this), new Integer(21));
@@ -65,7 +65,7 @@ public ASNLexer(LexerSharedInputState state) {
 	literals.put(new ANTLRHashString("IA5String", this), new Integer(41));
 	literals.put(new ANTLRHashString("ALGORITHM", this), new Integer(140));
 	literals.put(new ANTLRHashString("EMBEDDED", this), new Integer(26));
-	literals.put(new ANTLRHashString("SYNTAX", this), new Integer(150));
+	literals.put(new ANTLRHashString("SYNTAX", this), new Integer(149));
 	literals.put(new ANTLRHashString("INSTANCE", this), new Integer(47));
 	literals.put(new ANTLRHashString("ENUMERATED", this), new Integer(28));
 	literals.put(new ANTLRHashString("NumericString", this), new Integer(56));
@@ -93,7 +93,7 @@ public ASNLexer(LexerSharedInputState state) {
 	literals.put(new ANTLRHashString("WITH", this), new Integer(89));
 	literals.put(new ANTLRHashString("OF", this), new Integer(61));
 	literals.put(new ANTLRHashString("ABSTRACT-UNBIND", this), new Integer(137));
-	literals.put(new ANTLRHashString("INDEX", this), new Integer(155));
+	literals.put(new ANTLRHashString("INDEX", this), new Integer(154));
 	literals.put(new ANTLRHashString("EXPORTS", this), new Integer(33));
 	literals.put(new ANTLRHashString("FALSE", this), new Integer(36));
 	literals.put(new ANTLRHashString("GeneralizedTime", this), new Integer(38));
@@ -111,7 +111,7 @@ public ASNLexer(LexerSharedInputState state) {
 	literals.put(new ANTLRHashString("MIN", this), new Integer(54));
 	literals.put(new ANTLRHashString("APPLICATION-SERVICE-ELEMENT", this), new Integer(126));
 	literals.put(new ANTLRHashString("INCLUDES", this), new Integer(46));
-	literals.put(new ANTLRHashString("REFERENCE", this), new Integer(154));
+	literals.put(new ANTLRHashString("REFERENCE", this), new Integer(153));
 	literals.put(new ANTLRHashString("RELATIVE", this), new Integer(71));
 	literals.put(new ANTLRHashString("BOOLEAN", this), new Integer(15));
 	literals.put(new ANTLRHashString("ALL", this), new Integer(6));
@@ -138,7 +138,7 @@ public ASNLexer(LexerSharedInputState state) {
 	literals.put(new ANTLRHashString("PARAMETER", this), new Integer(64));
 	literals.put(new ANTLRHashString("OPERATION", this), new Integer(60));
 	literals.put(new ANTLRHashString("ABSTRACT-ERROR", this), new Integer(139));
-	literals.put(new ANTLRHashString("STATUS", this), new Integer(152));
+	literals.put(new ANTLRHashString("STATUS", this), new Integer(151));
 	literals.put(new ANTLRHashString("OID", this), new Integer(62));
 	literals.put(new ANTLRHashString("EXCEPT", this), new Integer(31));
 	literals.put(new ANTLRHashString("APPLICATION", this), new Integer(9));
@@ -153,7 +153,7 @@ public ASNLexer(LexerSharedInputState state) {
 	literals.put(new ANTLRHashString("OCTET", this), new Integer(59));
 	literals.put(new ANTLRHashString("COMPONENTS", this), new Integer(20));
 	literals.put(new ANTLRHashString("DEFINITIONS", this), new Integer(25));
-	literals.put(new ANTLRHashString("DESCRIPTION", this), new Integer(153));
+	literals.put(new ANTLRHashString("DESCRIPTION", this), new Integer(152));
 	literals.put(new ANTLRHashString("TRUE", this), new Integer(79));
 	literals.put(new ANTLRHashString("ABSTRACT-OPERATION", this), new Integer(138));
 	literals.put(new ANTLRHashString("SEQUENCE", this), new Integer(73));

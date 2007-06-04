@@ -226,8 +226,13 @@ namespace org.bn.coders.ber
 		{
 			int resultSize = 0, sizeOfString = 0;
             byte[] buffer = null;
-            if (CoderUtils.getStringTagForElement(elementInfo)== UniversalTags.UTF8String)
+            int stringTag = CoderUtils.getStringTagForElement(elementInfo);
+
+            if (stringTag == UniversalTags.UTF8String)
                 buffer = System.Text.UTF8Encoding.UTF8.GetBytes((string)obj);
+            else
+            if (stringTag == UniversalTags.BMPString)
+                buffer = System.Text.UnicodeEncoding.BigEndianUnicode.GetBytes((string)obj);
             else
                 buffer = System.Text.ASCIIEncoding.ASCII.GetBytes((string)obj);
             sizeOfString = buffer.Length;

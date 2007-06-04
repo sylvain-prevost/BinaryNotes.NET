@@ -25,6 +25,7 @@ using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.metadata;
 using org.bn.metadata.constraints;
+using org.bn.types;
 
 namespace org.bn.coders
 {
@@ -173,11 +174,12 @@ namespace org.bn.coders
                 typeMeta = new ASN1OctetStringMetadata( CoderUtils.getAttribute<ASN1OctetString> (annotated) ) ;
             }
             else
-            if( CoderUtils.isAttributePresent<ASN1BitString>(annotated) ) {
+            if (CoderUtils.isAttributePresent<ASN1BitString>(annotated) || objectClass.Equals(typeof(BitString)))
+            {
                 typeMeta = new ASN1BitStringMetadata ( CoderUtils.getAttribute<ASN1BitString> (annotated) ) ;
             }
             else
-            if (CoderUtils.isAttributePresent<ASN1ObjectIdentifier>(annotated))
+            if (CoderUtils.isAttributePresent<ASN1ObjectIdentifier>(annotated) || objectClass.Equals(typeof(ObjectIdentifier)))
             {
                 typeMeta = new ASN1ObjectIdentifierMetadata(CoderUtils.getAttribute<ASN1ObjectIdentifier>(annotated));
             }

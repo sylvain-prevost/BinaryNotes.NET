@@ -206,15 +206,15 @@ public class CoderUtils {
         }
     }
     
-    public static boolean isImplements(Class objectClass, Class interfaceClass) {        
+    /*public static boolean isImplements(Class objectClass, Class interfaceClass) {        
         return objectClass.isAnnotationPresent(ASN1PreparedElement.class);
         /*for(Class item: objectClass.getInterfaces()) {
             if(item.equals(interfaceClass)) {
                 return true;
             }
         }
-        return false;*/
-    }
+        return false;/
+    }*/
     
     public static boolean isAnyField(Field field, ElementInfo elementInfo) {
         boolean isAny = false;

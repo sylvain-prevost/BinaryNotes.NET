@@ -558,8 +558,12 @@ namespace org.bn.coders.per
 			int resultSize = 0;
 
             byte[] val = null;
-            if (CoderUtils.getStringTagForElement(elementInfo) == UniversalTags.UTF8String)
+            int stringTag = CoderUtils.getStringTagForElement(elementInfo);
+            if (stringTag == UniversalTags.UTF8String)
                 val = System.Text.UTF8Encoding.UTF8.GetBytes((string)obj);
+            else
+            if (stringTag == UniversalTags.BMPString)
+                val = System.Text.UnicodeEncoding.BigEndianUnicode.GetBytes((string)obj);
             else
                 val = System.Text.ASCIIEncoding.ASCII.GetBytes((string)obj);
 			

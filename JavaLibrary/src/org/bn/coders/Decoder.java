@@ -36,7 +36,7 @@ import org.bn.annotations.*;
 import org.bn.metadata.ASN1AnyMetadata;
 import org.bn.metadata.ASN1ElementMetadata;
 import org.bn.metadata.ASN1NullMetadata;
-
+import org.bn.types.*;
 
 public abstract class Decoder implements IDecoder, IASN1TypesDecoder { 
 
@@ -56,7 +56,7 @@ public abstract class Decoder implements IDecoder, IASN1TypesDecoder {
     }
     
     public DecodedObject decodeClassType(DecodedObject decodedTag, Class objectClass, ElementInfo elementInfo, InputStream stream) throws Exception {
-        if(CoderUtils.isImplements(objectClass,IASN1PreparedElement.class)) {
+        if(objectClass.isAnnotationPresent(ASN1PreparedElement.class)) {
             return decodePreparedElement(decodedTag, objectClass,elementInfo, stream);
         }
         else 
@@ -106,11 +106,13 @@ public abstract class Decoder implements IDecoder, IASN1TypesDecoder {
             return decodeOctetString(decodedTag, objectClass,elementInfo, stream);
         }
         else
-        if( elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1BitString.class) ) {
+        if( elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1BitString.class) 
+	        || elementInfo.getAnnotatedClass().equals(BitString.class)) {
             return decodeBitString(decodedTag, objectClass,elementInfo, stream);
         }
         else
-        if( elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1ObjectIdentifier.class) ) {
+        if( elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1ObjectIdentifier.class) 
+		|| elementInfo.getAnnotatedClass().equals(ObjectIdentifier.class) ) {
             return decodeObjectIdentifier ( decodedTag, objectClass,elementInfo, stream );
         }        
         else

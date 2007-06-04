@@ -5,6 +5,8 @@ ChangeLog
 							[!] 		- Important warning or note
 							{<component>}	- Component/Group that changed
 
+1.5.0	{lib}		[+] Support for direct mapping special ASN.1 types - BitString and ObjectIdentifier.
+1.5.0	{all}		[+] Support for BMPString. Thanks for Tomas Carlsson (Bug #1722605/ Patch #1722874).
 1.5.0	{lib}		[*] Fixed an encoding bug of ENUMERATION for PER. Thanks to Tomas Carlsson (Bug #1699806).
 1.5.0	{lib}		[*] Fixed an UTF8String (and other string datatypes instead of PrintableString) encoding for primitive SEQUENCE OF declaration
 1.5.0	{comp}		[+] Added support for simple value definitions.

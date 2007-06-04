@@ -620,15 +620,25 @@ namespace org.bn.coders.per
 			if (strLen > 0)
 			{
 				byte[] val = new byte[strLen];
-				stream.Read(val, 0, val.Length);                
-                if (CoderUtils.getStringTagForElement(elementInfo) == UniversalTags.UTF8String)
+				stream.Read(val, 0, val.Length);
+                int stringTag = CoderUtils.getStringTagForElement(elementInfo);
+                if (stringTag == UniversalTags.UTF8String)
+                {
                     result.Value = new string(
                         System.Text.UTF8Encoding.UTF8.GetChars(val)
                     );
+                }
                 else
-                    result.Value = new string(
-                        System.Text.ASCIIEncoding.ASCII.GetChars(val)
-                    );
+                    if (stringTag == UniversalTags.BMPString)
+                    {
+                        result.Value = new string(
+                            System.Text.UnicodeEncoding.BigEndianUnicode.GetChars(val)
+                        );
+                    }
+                    else
+                        result.Value = new string(
+                            System.Text.ASCIIEncoding.ASCII.GetChars(val)
+                        );
 
 			}
 			else

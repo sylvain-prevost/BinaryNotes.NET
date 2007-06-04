@@ -602,8 +602,11 @@ public class PERAlignedDecoder extends Decoder {
         if(strLen > 0) {
             byte[] value = new byte[strLen];
             stream.read(value);
-            if(CoderUtils.getStringTagForElement(elementInfo) == UniversalTag.UTF8String) {
+            int stringTag = CoderUtils.getStringTagForElement(elementInfo); 
+            if(stringTag == UniversalTag.UTF8String) {
                 result.setValue(new String(value, "utf-8"));
+            } else if (stringTag == UniversalTag.BMPString) {
+                result.setValue(new String(value, "UnicodeBigUnmarked"));
             }
             else {
                 result.setValue(new String(value));
@@ -652,4 +655,5 @@ public class PERAlignedDecoder extends Decoder {
         return null;
     }
 }
+
 

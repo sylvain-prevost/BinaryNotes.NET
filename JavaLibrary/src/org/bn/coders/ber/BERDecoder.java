@@ -381,9 +381,12 @@ public class BERDecoder extends Decoder {
         byte[] byteBuf = new byte[len.getValue()];
         stream.read(byteBuf);
         String result = null;
-        
-        if(CoderUtils.getStringTagForElement(elementInfo) == UniversalTag.UTF8String) {        
+        int stringTag = CoderUtils.getStringTagForElement(elementInfo); 
+        if(stringTag == UniversalTag.UTF8String) {        
             result = new String(byteBuf, "utf-8");
+        }
+        else if (stringTag == UniversalTag.BMPString) {
+            result = new String(byteBuf, "UnicodeBigUnmarked");
         }
         else {
             result = new String(byteBuf);

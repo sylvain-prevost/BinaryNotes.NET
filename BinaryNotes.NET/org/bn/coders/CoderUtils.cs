@@ -350,7 +350,7 @@ namespace org.bn.coders
         {
             string methodName = "is" + field.Name.ToUpper().Substring(0, (1) - (0)) + field.Name.Substring(1) + "Present";
             return objClass.GetMethod(methodName, new System.Type[0]);
-        }                
+        }
 
     }
 }

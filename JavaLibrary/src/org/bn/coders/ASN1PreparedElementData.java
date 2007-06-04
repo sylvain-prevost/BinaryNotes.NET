@@ -33,6 +33,7 @@ import org.bn.annotations.*;
 import org.bn.annotations.constraints.*;
 import org.bn.metadata.*;
 import org.bn.metadata.constraints.*;
+import org.bn.types.*;
 
 public final class ASN1PreparedElementData implements IASN1PreparedElementData {
     private ASN1Metadata typeMeta;
@@ -103,11 +104,11 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
             typeMeta = new ASN1OctetStringMetadata( annotated.getAnnotation( ASN1OctetString.class) ) ;
         }
         else
-        if( annotated.isAnnotationPresent(ASN1BitString.class) ) {
+        if( annotated.isAnnotationPresent(ASN1BitString.class) || objectClass.equals(BitString.class) ) {
             typeMeta = new ASN1BitStringMetadata( annotated.getAnnotation( ASN1BitString.class) ) ;
         }
         else
-        if( annotated.isAnnotationPresent(ASN1ObjectIdentifier.class) ) {
+        if( annotated.isAnnotationPresent(ASN1ObjectIdentifier.class) || objectClass.equals(ObjectIdentifier.class) ) {
             typeMeta = new ASN1ObjectIdentifierMetadata ( annotated.getAnnotation( ASN1ObjectIdentifier.class) ) ;
         }
         else

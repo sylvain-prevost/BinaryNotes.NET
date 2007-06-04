@@ -230,8 +230,11 @@ public class BEREncoder<T> extends Encoder<T> {
                                ElementInfo elementInfo) throws Exception {
         int resultSize = 0, sizeOfString = 0;
         byte[] strBuf = null;
-        if(CoderUtils.getStringTagForElement(elementInfo) == UniversalTag.UTF8String) {
+        int stringTag = CoderUtils.getStringTagForElement(elementInfo); 
+        if(stringTag == UniversalTag.UTF8String) {
             strBuf = object.toString().getBytes("utf-8");
+        } else if (stringTag == UniversalTag.BMPString) {
+            strBuf = object.toString().getBytes("UnicodeBigUnmarked");
         }
         else {
             strBuf = object.toString().getBytes();

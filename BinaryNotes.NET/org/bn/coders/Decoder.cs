@@ -21,6 +21,7 @@ using System.Reflection;
 using System.IO;
 using org.bn.attributes;
 using org.bn.metadata;
+using org.bn.types;
 
 namespace org.bn.coders
 {	
@@ -112,12 +113,12 @@ namespace org.bn.coders
 				return decodeOctetString(decodedTag, objectClass, elementInfo, stream);
 			}
 			else
-            if (elementInfo.isAttributePresent<ASN1BitString>())
+            if (elementInfo.isAttributePresent<ASN1BitString>() || elementInfo.AnnotatedClass.Equals(typeof(BitString)))
             {
                 return decodeBitString(decodedTag, objectClass, elementInfo, stream);
             }
             else
-            if (elementInfo.isAttributePresent<ASN1ObjectIdentifier>())
+            if (elementInfo.isAttributePresent<ASN1ObjectIdentifier>() || elementInfo.AnnotatedClass.Equals(typeof(ObjectIdentifier)))
             {
                 return decodeObjectIdentifier (decodedTag, objectClass, elementInfo, stream);
             }

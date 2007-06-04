@@ -430,10 +430,18 @@ namespace org.bn.coders.ber
 			byte[] byteBuf = new byte[len.Value];
             stream.Read(byteBuf, 0, byteBuf.Length);
             string result = null;
-            if (CoderUtils.getStringTagForElement(elementInfo) == UniversalTags.UTF8String)
+            int stringTag = CoderUtils.getStringTagForElement(elementInfo);
+            if ( stringTag == UniversalTags.UTF8String)
             {
                 result = new string(
                     System.Text.UTF8Encoding.UTF8.GetChars(byteBuf)
+                );
+            }
+            else
+            if (stringTag == UniversalTags.BMPString )
+            {
+                result = new string(
+                    System.Text.UnicodeEncoding.BigEndianUnicode.GetChars(byteBuf)
                 );
             }
             else {
