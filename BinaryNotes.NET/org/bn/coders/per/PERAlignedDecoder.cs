@@ -684,8 +684,12 @@ namespace org.bn.coders.per
 
         public override DecodedObject<object> decodeObjectIdentifier(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
         {
-            // TODO
-            return null;
+            org.bn.coders.ber.BERDecoder berDecoder = new org.bn.coders.ber.BERDecoder();
+            DecodedObject<int> len = berDecoder.decodeLength(stream);
+            byte[] byteBuf = new byte[len.Value];
+            stream.Read(byteBuf, 0, byteBuf.Length);
+            string dottedDecimal = org.bn.coders.ber.BERObjectIdentifier.Decode(byteBuf);
+            return new DecodedObject<object>(new ObjectIdentifier(dottedDecimal));
         }
 		
 	}
