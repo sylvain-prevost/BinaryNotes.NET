@@ -150,8 +150,7 @@ namespace org.bn.coders.ber
             }
             return resultSize;
         }
-
-        public static int decodeLength(System.IO.Stream stream)
+        public static DecodedObject<int> decodeLength(System.IO.Stream stream)
         {
             int result = 0;
             int bt = stream.ReadByte();
@@ -177,7 +176,7 @@ namespace org.bn.coders.ber
                     len++;
                 }
             }
-            return result;
+            return new DecodedObject<int>(result, len);
         }
 	}
 }

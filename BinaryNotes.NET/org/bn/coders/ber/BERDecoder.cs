@@ -31,31 +31,7 @@ namespace org.bn.coders.ber
 	{
         protected internal virtual DecodedObject<int> decodeLength(System.IO.Stream stream)
         {
-            int result = 0;
-            int bt = stream.ReadByte();
-            if (bt == -1)
-                throw new System.ArgumentException("Unexpected EOF when decoding!");
-
-            int len = 1;
-            if (bt < 128)
-            {
-                result = bt;
-            }
-            else
-            {
-                // Decode length bug fixed. Thanks to John 
-                for (int i = bt - 128; i > 0; i--)
-                {
-                    int fBt = stream.ReadByte();
-                    if (fBt == -1)
-                        throw new System.ArgumentException("Unexpected EOF when decoding!");
-
-                    result = result << 8;
-                    result = result | fBt;
-                    len++;
-                }
-            }
-            return new DecodedObject<int>(result, len);
+            return BERCoderUtils.decodeLength(stream);
         }
 
         public override DecodedObject<object> decodeTag(System.IO.Stream stream)
