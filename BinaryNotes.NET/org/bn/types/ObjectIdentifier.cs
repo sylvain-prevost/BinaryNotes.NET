@@ -29,18 +29,19 @@ namespace org.bn.types
 
         public ObjectIdentifier(string oidString)
         {
-            setValue(oidString);
+            Value = oidString;
         }
 
-        public string getValue()
+        public string Value
         {
-            return oidString;
+            get { return oidString; }
+            set { oidString = value; }
         }
 
-        public void setValue(string oidString)
+        /*public void setValue(string oidString)
         {
             this.oidString = oidString;
-        }
+        }*/
 
         public int[] getIntArray()
         {

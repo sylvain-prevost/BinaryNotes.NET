@@ -225,16 +225,7 @@ namespace org.bn.coders.ber
         public override int encodeString(object obj, System.IO.Stream stream, ElementInfo elementInfo)
 		{
 			int resultSize = 0, sizeOfString = 0;
-            byte[] buffer = null;
-            int stringTag = CoderUtils.getStringTagForElement(elementInfo);
-
-            if (stringTag == UniversalTags.UTF8String)
-                buffer = System.Text.UTF8Encoding.UTF8.GetBytes((string)obj);
-            else
-            if (stringTag == UniversalTags.BMPString)
-                buffer = System.Text.UnicodeEncoding.BigEndianUnicode.GetBytes((string)obj);
-            else
-                buffer = System.Text.ASCIIEncoding.ASCII.GetBytes((string)obj);
+            byte[] buffer = CoderUtils.ASN1StringToBuffer(obj, elementInfo); 
             sizeOfString = buffer.Length;
             CoderUtils.checkConstraints(sizeOfString, elementInfo);
 

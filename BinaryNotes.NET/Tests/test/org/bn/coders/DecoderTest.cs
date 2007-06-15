@@ -431,13 +431,21 @@ namespace test.org.bn.coders
 
         public virtual void testDecodeOID()
         {
+            //byte[] testOid1Bytes = coderTestUtils.createTestOID1Bytes();
+            //object obj1 = printDecoded<ObjectIdentifier>("Decode OID ", decoder, testOid1Bytes);
+            //ObjectIdentifier oid1 = (ObjectIdentifier)obj1;
             IDecoder decoder = newDecoder();
             Assert.NotNull(decoder);
-            //
-            byte[] testOid1Bytes = coderTestUtils.createTestOID1Bytes();
-            object obj1 = printDecoded<ObjectIdentifier>("Decode OID ", decoder, testOid1Bytes);
-            ObjectIdentifier oid1 = (ObjectIdentifier)obj1;
+
+            System.IO.MemoryStream stream =
+              new System.IO.MemoryStream(coderTestUtils.createTestOID1Bytes());
+            ObjectIdentifier oid1 = decoder.decode<ObjectIdentifier>(stream);
             // CheckDecoded will go here 
+            Assert.Equals(oid1.Value, coderTestUtils.createTestOID1().Value.Value);
+
+            stream = new System.IO.MemoryStream(coderTestUtils.createTestOID1Bytes());
+            TestOID oid1_boxed = decoder.decode<TestOID>(stream);
+            Assert.Equals(oid1_boxed.Value.Value, coderTestUtils.createTestOID1().Value.Value);           
         }
 	}
 }

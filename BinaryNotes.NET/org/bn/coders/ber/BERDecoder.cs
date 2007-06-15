@@ -405,27 +405,7 @@ namespace org.bn.coders.ber
             CoderUtils.checkConstraints(len.Value, elementInfo);
 			byte[] byteBuf = new byte[len.Value];
             stream.Read(byteBuf, 0, byteBuf.Length);
-            string result = null;
-            int stringTag = CoderUtils.getStringTagForElement(elementInfo);
-            if ( stringTag == UniversalTags.UTF8String)
-            {
-                result = new string(
-                    System.Text.UTF8Encoding.UTF8.GetChars(byteBuf)
-                );
-            }
-            else
-            if (stringTag == UniversalTags.BMPString )
-            {
-                result = new string(
-                    System.Text.UnicodeEncoding.BigEndianUnicode.GetChars(byteBuf)
-                );
-            }
-            else {
-                result = new string(
-                    System.Text.ASCIIEncoding.ASCII.GetChars(byteBuf)
-                );
-            }
- 
+            string result = CoderUtils.bufferToASN1String(byteBuf, elementInfo);
 			return new DecodedObject<object>(result, len.Value + len.Size);
 		}
 		

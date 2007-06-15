@@ -229,16 +229,7 @@ public class BEREncoder<T> extends Encoder<T> {
     public int encodeString(Object object, OutputStream stream, 
                                ElementInfo elementInfo) throws Exception {
         int resultSize = 0, sizeOfString = 0;
-        byte[] strBuf = null;
-        int stringTag = CoderUtils.getStringTagForElement(elementInfo); 
-        if(stringTag == UniversalTag.UTF8String) {
-            strBuf = object.toString().getBytes("utf-8");
-        } else if (stringTag == UniversalTag.BMPString) {
-            strBuf = object.toString().getBytes("UnicodeBigUnmarked");
-        }
-        else {
-            strBuf = object.toString().getBytes();
-        }
+        byte[] strBuf = CoderUtils.ASN1StringToBuffer(object, elementInfo);
         stream.write( strBuf );
         sizeOfString = strBuf.length;
 

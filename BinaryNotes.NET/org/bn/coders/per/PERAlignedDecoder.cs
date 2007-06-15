@@ -621,25 +621,7 @@ namespace org.bn.coders.per
 			{
 				byte[] val = new byte[strLen];
 				stream.Read(val, 0, val.Length);
-                int stringTag = CoderUtils.getStringTagForElement(elementInfo);
-                if (stringTag == UniversalTags.UTF8String)
-                {
-                    result.Value = new string(
-                        System.Text.UTF8Encoding.UTF8.GetChars(val)
-                    );
-                }
-                else
-                    if (stringTag == UniversalTags.BMPString)
-                    {
-                        result.Value = new string(
-                            System.Text.UnicodeEncoding.BigEndianUnicode.GetChars(val)
-                        );
-                    }
-                    else
-                        result.Value = new string(
-                            System.Text.ASCIIEncoding.ASCII.GetChars(val)
-                        );
-
+                result.Value = CoderUtils.bufferToASN1String(val, elementInfo);
 			}
 			else
 				result.Value = ("");

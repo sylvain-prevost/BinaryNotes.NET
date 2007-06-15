@@ -380,17 +380,7 @@ public class BERDecoder extends Decoder {
         CoderUtils.checkConstraints(len.getValue(),elementInfo);
         byte[] byteBuf = new byte[len.getValue()];
         stream.read(byteBuf);
-        String result = null;
-        int stringTag = CoderUtils.getStringTagForElement(elementInfo); 
-        if(stringTag == UniversalTag.UTF8String) {        
-            result = new String(byteBuf, "utf-8");
-        }
-        else if (stringTag == UniversalTag.BMPString) {
-            result = new String(byteBuf, "UnicodeBigUnmarked");
-        }
-        else {
-            result = new String(byteBuf);
-        }
+        String result = CoderUtils.bufferToASN1String (byteBuf, elementInfo);
         return new DecodedObject(result, len.getValue() + len.getSize());
     }
 

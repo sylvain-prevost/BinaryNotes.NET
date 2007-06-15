@@ -18,6 +18,8 @@
  */
 package org.bn.coders;
 
+import java.io.UnsupportedEncodingException;
+
 import java.lang.reflect.Field;
 
 import java.lang.reflect.Method;
@@ -339,4 +341,34 @@ public class CoderUtils {
         else
             return objectClass.isMemberClass();
     }
+
+    public static byte[] ASN1StringToBuffer(Object obj, ElementInfo elementInfo) throws UnsupportedEncodingException {
+        byte[] strBuf = null;
+        int stringTag = getStringTagForElement(elementInfo); 
+        if(stringTag == UniversalTag.UTF8String) {
+            strBuf = obj.toString().getBytes("utf-8");
+        } else if (stringTag == UniversalTag.BMPString) {
+            strBuf = obj.toString().getBytes("UnicodeBigUnmarked");
+        }
+        else {
+            strBuf = obj.toString().getBytes();
+        }
+	return strBuf;
+    }
+    
+    public static String bufferToASN1String(byte[] byteBuf, ElementInfo elementInfo) throws UnsupportedEncodingException {
+        String result = null;
+        int stringTag = getStringTagForElement(elementInfo); 
+        if(stringTag == UniversalTag.UTF8String) {        
+            result = new String(byteBuf, "utf-8");
+        }
+        else if (stringTag == UniversalTag.BMPString) {
+            result = new String(byteBuf, "UnicodeBigUnmarked");
+        }
+        else {
+            result = new String(byteBuf);
+        }
+        return result;
+    }
+
 }

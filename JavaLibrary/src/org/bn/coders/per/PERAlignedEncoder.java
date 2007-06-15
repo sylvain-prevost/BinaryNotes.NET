@@ -561,18 +561,7 @@ public class PERAlignedEncoder<T> extends Encoder<T> {
     public int encodeString(Object object, OutputStream stream, 
                                ElementInfo elementInfo) throws Exception {
         int resultSize = 0;
-        byte[] value = null;
-        int stringTag = CoderUtils.getStringTagForElement(elementInfo); 
-        if(stringTag == UniversalTag.UTF8String) {        
-            value = object.toString().getBytes("utf-8");        
-        }
-        else if (stringTag == UniversalTag.BMPString) {
-            value = object.toString().getBytes("UnicodeBigUnmarked");
-        }
-        else {
-            value = object.toString().getBytes();
-        }
-                
+        byte[] value = CoderUtils.ASN1StringToBuffer(object, elementInfo);                
         resultSize = encodeLength(value.length, elementInfo, stream);
         doAlign(stream);
         resultSize+=value.length;

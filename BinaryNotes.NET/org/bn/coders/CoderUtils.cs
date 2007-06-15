@@ -352,5 +352,46 @@ namespace org.bn.coders
             return objClass.GetMethod(methodName, new System.Type[0]);
         }
 
+        public static byte[] ASN1StringToBuffer(object obj, ElementInfo elementInfo)
+        {
+            int stringTag = getStringTagForElement(elementInfo);
+            byte[] buffer = null;
+
+            if (stringTag == UniversalTags.UTF8String)
+                buffer = System.Text.UTF8Encoding.UTF8.GetBytes((string)obj);
+            else
+                if (stringTag == UniversalTags.BMPString)
+                    buffer = System.Text.UnicodeEncoding.BigEndianUnicode.GetBytes((string)obj);
+                else
+                    buffer = System.Text.ASCIIEncoding.ASCII.GetBytes((string)obj);
+            return buffer;
+        }
+
+        public static string bufferToASN1String(byte[] byteBuf, ElementInfo elementInfo)
+        {
+            string result = null;
+            int stringTag = getStringTagForElement(elementInfo);
+            if (stringTag == UniversalTags.UTF8String)
+            {
+                result = new string(
+                    System.Text.UTF8Encoding.UTF8.GetChars(byteBuf)
+                );
+            }
+            else
+                if (stringTag == UniversalTags.BMPString)
+                {
+                    result = new string(
+                        System.Text.UnicodeEncoding.BigEndianUnicode.GetChars(byteBuf)
+                    );
+                }
+                else
+                {
+                    result = new string(
+                        System.Text.ASCIIEncoding.ASCII.GetChars(byteBuf)
+                    );
+                }
+            return result;
+        }
+
     }
 }
