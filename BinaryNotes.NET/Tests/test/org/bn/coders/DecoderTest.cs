@@ -40,16 +40,7 @@ namespace test.org.bn.coders
 		
 		protected abstract IDecoder newDecoder();
 		
-        protected internal virtual object printDecoded<T>(System.String details, IDecoder decoder, byte[] inputStreamBytes)
-        {
-            System.IO.MemoryStream inputStream = new System.IO.MemoryStream(inputStreamBytes);
-            Object obj = decoder.decode<T>(inputStream);
-            T decodedObject = (T)obj;
-            System.Console.Out.WriteLine("Decoded by " + decoder.ToString() + " (" + details + decodedObject.ToString() + ") : " + ByteTools.byteArrayToHexString(inputStream.ToArray()));
-            return decodedObject;
-        }
-
-		private void  checkData(Data dec, Data std)
+    	private void  checkData(Data dec, Data std)
 		{
 			if (std.isBinarySelected())
 			{
@@ -430,22 +421,35 @@ namespace test.org.bn.coders
         }
 
         public virtual void testDecodeOID()
-        {
-            //byte[] testOid1Bytes = coderTestUtils.createTestOID1Bytes();
-            //object obj1 = printDecoded<ObjectIdentifier>("Decode OID ", decoder, testOid1Bytes);
-            //ObjectIdentifier oid1 = (ObjectIdentifier)obj1;
+        {            
             IDecoder decoder = newDecoder();
             Assert.NotNull(decoder);
 
             System.IO.MemoryStream stream =
               new System.IO.MemoryStream(coderTestUtils.createTestOID1Bytes());
             ObjectIdentifier oid1 = decoder.decode<ObjectIdentifier>(stream);
-            // CheckDecoded will go here 
+            System.Console.Out.WriteLine("Decoded by " + decoder.ToString() + " (OID " + oid1.Value + ") : " + ByteTools.byteArrayToHexString(stream.ToArray()));
             Assert.Equals(oid1.Value, coderTestUtils.createTestOID1().Value.Value);
 
             stream = new System.IO.MemoryStream(coderTestUtils.createTestOID1Bytes());
             TestOID oid1_boxed = decoder.decode<TestOID>(stream);
-            Assert.Equals(oid1_boxed.Value.Value, coderTestUtils.createTestOID1().Value.Value);           
+            Assert.Equals(oid1_boxed.Value.Value, coderTestUtils.createTestOID1().Value.Value);
+
+            stream = new System.IO.MemoryStream(coderTestUtils.createTestOID2Bytes());
+            ObjectIdentifier oid2 = decoder.decode<ObjectIdentifier>(stream);
+            System.Console.Out.WriteLine("Decoded by " + decoder.ToString() + " (OID " + oid2.Value + ") : " + ByteTools.byteArrayToHexString(stream.ToArray()));
+            Assert.Equals(oid2.Value, coderTestUtils.createTestOID2().Value.Value);
+
+            stream = new System.IO.MemoryStream(coderTestUtils.createTestOID3Bytes());
+            ObjectIdentifier oid3 = decoder.decode<ObjectIdentifier>(stream);
+            System.Console.Out.WriteLine("Decoded by " + decoder.ToString() + " (OID " + oid3.Value + ") : " + ByteTools.byteArrayToHexString(stream.ToArray()));
+            Assert.Equals(oid3.Value, coderTestUtils.createTestOID3().Value.Value);
+
+            stream = new System.IO.MemoryStream(coderTestUtils.createTestOID2Bytes());
+            ObjectIdentifier oid4 = decoder.decode<ObjectIdentifier>(stream);
+            System.Console.Out.WriteLine("Decoded by " + decoder.ToString() + " (OID " + oid4.Value + ") : " + ByteTools.byteArrayToHexString(stream.ToArray()));
+            Assert.Equals(oid4.Value, coderTestUtils.createTestOID4().Value.Value);
+
         }
 	}
 }

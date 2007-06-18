@@ -663,8 +663,7 @@ namespace org.bn.coders.per
             int[] ia = oid.getIntArray();
             byte[] buffer = org.bn.coders.ber.BERObjectIdentifier.Encode(ia);
             if (buffer.Length < 1) return 0;
-            stream.WriteByte((byte)UniversalTags.ObjectIdentifier);
-            int resultSize = 1; // size of tag 
+            int resultSize = 0; // size of tag 
             resultSize += org.bn.coders.ber.BERCoderUtils.encodeLength(buffer.Length, stream);
             stream.Write(buffer, 0, buffer.Length);
             resultSize += buffer.Length; // size of buffer         

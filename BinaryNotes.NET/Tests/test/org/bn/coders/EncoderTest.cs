@@ -335,19 +335,19 @@ namespace test.org.bn.coders
             Assert.NotNull(encoder);
             //
             TestOID testOID = coderTestUtils.createTestOID1();
-            printEncoded("Encode OID "+testOID.Value.Value, encoder, testOID);
+            printEncoded("OID "+testOID.Value.Value, encoder, testOID);
             checkEncoded(encoder, coderTestUtils.createTestOID1(), coderTestUtils.createTestOID1Bytes());
             //
             testOID = coderTestUtils.createTestOID2();
-            printEncoded("Encode OID " + testOID.Value.Value, encoder, testOID);
+            printEncoded("OID " + testOID.Value.Value, encoder, testOID);
             checkEncoded(encoder, coderTestUtils.createTestOID2(), coderTestUtils.createTestOID2Bytes());
             //
             testOID = coderTestUtils.createTestOID3();
-            printEncoded("Encode OID " + testOID.Value.Value, encoder, testOID);
+            printEncoded("OID " + testOID.Value.Value, encoder, testOID);
             checkEncoded(encoder, coderTestUtils.createTestOID3(), coderTestUtils.createTestOID3Bytes());
             //
             testOID = coderTestUtils.createTestOID4();
-            printEncoded("Encode OID " + testOID.Value.Value, encoder, testOID);
+            printEncoded("OID " + testOID.Value.Value, encoder, testOID);
             checkEncoded(encoder, coderTestUtils.createTestOID4(), coderTestUtils.createTestOID4Bytes());
         }
 
