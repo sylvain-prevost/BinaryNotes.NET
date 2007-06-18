@@ -666,6 +666,8 @@ namespace org.bn.coders.per
 
         public override DecodedObject<object> decodeObjectIdentifier(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
         {
+            int tag = stream.ReadByte(); // drop the tag byte
+            System.Diagnostics.Debug.Assert(tag == 6, "Object Id Tag Must be 6");
             DecodedObject<int> len = org.bn.coders.ber.BERCoderUtils.decodeLength(stream);
             byte[] byteBuf = new byte[len.value];
             stream.Read(byteBuf, 0, byteBuf.Length);
