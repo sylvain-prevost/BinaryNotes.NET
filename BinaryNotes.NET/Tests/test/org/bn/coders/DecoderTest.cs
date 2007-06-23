@@ -445,7 +445,7 @@ namespace test.org.bn.coders
             System.Console.Out.WriteLine("Decoded by " + decoder.ToString() + " (OID " + oid3.Value + ") : " + ByteTools.byteArrayToHexString(stream.ToArray()));
             Assert.Equals(oid3.Value, coderTestUtils.createTestOID3().Value.Value);
 
-            stream = new System.IO.MemoryStream(coderTestUtils.createTestOID2Bytes());
+            stream = new System.IO.MemoryStream(coderTestUtils.createTestOID4Bytes());
             ObjectIdentifier oid4 = decoder.decode<ObjectIdentifier>(stream);
             System.Console.Out.WriteLine("Decoded by " + decoder.ToString() + " (OID " + oid4.Value + ") : " + ByteTools.byteArrayToHexString(stream.ToArray()));
             Assert.Equals(oid4.Value, coderTestUtils.createTestOID4().Value.Value);

@@ -153,26 +153,43 @@ namespace org.bn.coders.ber
         public static int[] BerByteArrayToIntArray(byte[] berBytes)
         {
             ArrayList intArrayList = new ArrayList();
-            int result = 0;
-            int byteShiftCount = 0;
+            ArrayList oneArcSequence = new ArrayList();
+            int byteCount = 0;
             for (int i = 0; i < berBytes.Length; i++)
             {
-                if ((berBytes[i] & 0x80) == 0) // last byte in integer
+                if ((berBytes[i] & 0x80) == 0) // last byte in arc
                 {
-                    result += berBytes[i];
-                    intArrayList.Add(result);
-                    result = 0;
-                    byteShiftCount = 0;
+                    oneArcSequence.Add(berBytes[i]); 
+                    intArrayList.Add(DecodeOneArc(oneArcSequence));
+                    oneArcSequence = new ArrayList();
+                    byteCount = 0;
                 }
-                else // not last byte in integer 
+                else // not last byte in arc
                 {
-                    if (byteShiftCount == 3) throw new Exception("Left shift exceeds integer boundry");
-                    result += (berBytes[i] & 0x7F);
-                    result = result << 8;
-                    byteShiftCount++;
+                    if (byteCount == 5) throw new Exception("Conversion can only handle 5 bytes");
+                    oneArcSequence.Add(berBytes[i]); 
+                    byteCount++;
                 }
             }
             return (int[])intArrayList.ToArray(typeof(int));
+        }
+
+        // returns an single integer arc from an list of BER encoded bytes.  Note that the byte array must 
+        // already contain one and only one encoded arc sequence. 
+        private static int DecodeOneArc(ArrayList berByteList)
+        {
+            if (berByteList.Count < 1 || berByteList.Count > 5) throw new Exception("Conversion requires from 1 to 5 bytes");
+            long all = 0;
+            
+            int startByteIndex = berByteList.Count - 1;
+            byte[] berBytes = (byte[])berByteList.ToArray(typeof(byte));
+            for (int i = 0; i <= startByteIndex; i++)
+            {
+                berBytes[i] = (byte)(berBytes[i] & 0x7f); // make continuation bit zero so it doesn't affect the result
+                if (i != 0) all = all << 7;
+                all = all | berBytes[i];
+            }
+            return (int) all; 
         }
     }
 }
