@@ -94,21 +94,27 @@ namespace BNP2PExample
 
         public SessionTypeEnum SessionType { get { return sessionType; } }
 
-        public void SendMessageToAllPeers(T msg)
+        public void SendMessageToAllPeers(string msg)
         {
-            IMessage<T> imsg = ptpTalkerSession.createMessage(msg);
-
             Hashtable transportCollectionClone = talkerConnectionListener.GetTransportCollectionClone(); // Make a clone in case collection is modified during iteration
             foreach (DictionaryEntry de in transportCollectionClone)
             {
                 ITransport transport = (ITransport)de.Value;
-                SendMessageToOnePeer(imsg, transport);
+                SendMessageToOnePeer(msg, transport);
             }
         }
 
-        private void SendMessageToOnePeer(IMessage<T> imsg, ITransport transport)
-        {
-            ptpTalkerSession.sendMessage(imsg, transport);
+        private void SendMessageToOnePeer(string msg, ITransport transport)
+        {            
+            System.Net.Sockets.Socket socket = ((Transport)transport).getSocket();
+            System.Net.EndPoint endPoint = socket.LocalEndPoint;
+            StringBuilder sb = new StringBuilder(100);
+            sb.Append(msg);
+            sb.Append(" From " + endPoint);
+            sb.Append(" To " + transport.getAddr());
+            T t = (T)(object)sb.ToString();
+            IMessage<T> tmsg = ptpTalkerSession.createMessage(t);
+            ptpTalkerSession.sendMessage(tmsg, transport);
         }
 
         public T onMessage(IPTPSession<T> session, ITransport transport, IMessage<T> message)

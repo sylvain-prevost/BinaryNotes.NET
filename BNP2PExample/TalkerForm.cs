@@ -165,7 +165,7 @@ namespace BNP2PExample
             Debug.Assert(talkerSession != null);
             if (menuItem.Text == TEST_MESSAGE)
             {
-                talkerSession.SendMessageToAllPeers(treeNode.Text);
+                talkerSession.SendMessageToAllPeers("Test");
                 return;
             }
             toolStripStatusLabel1.Text = "Context Item " + menuItem.Text + " not implemented";
