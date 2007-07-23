@@ -121,9 +121,18 @@ namespace BNP2PExample
                 toolStripStatusLabel1.Text = e1.Message;
                 return;
             }
-            TreeNode treeNode = tvConnections.Nodes.Add("Client " + GetClientAddressString());
+            TreeNode treeNode = tvConnections.Nodes.Add("Client " + GetClientAddressString() + " " + talkerSession.ClientAddress());
             treeNode.Tag = talkerSession;
-            talkerSession.TopLevelTreeNode = treeNode; 
+            talkerSession.TopLevelTreeNode = treeNode;
+        }
+
+        private string TreeNodeText(TalkerSession<string> talkerSession)
+        {
+            StringBuilder sb = new StringBuilder(80);
+            sb.Append(talkerSession.SessionType);
+            sb.Append(" " + talkerSession.ServerAddress());
+            sb.Append(" " + talkerSession.ClientAddress());
+            return sb.ToString();
         }
 
         private string GetServerAddressString()
@@ -165,13 +174,19 @@ namespace BNP2PExample
             Debug.Assert(talkerSession != null);
             if (menuItem.Text == TEST_MESSAGE)
             {
-                talkerSession.SendMessageToAllPeers("Test");
+                talkerSession.SendMessageToAllPeers(TEST_MESSAGE);
+                return;
+            }
+            if (menuItem.Text == REFRESH)
+            {
+                treeNode.Text = TreeNodeText(talkerSession);
                 return;
             }
             toolStripStatusLabel1.Text = "Context Item " + menuItem.Text + " not implemented";
         }
         //
         private const string TEST_MESSAGE = "Test Message";
+        private const string REFRESH = "Refresh";
         //
         private void tvConnections_MouseUp(object sender, MouseEventArgs e)
         {
@@ -189,7 +204,8 @@ namespace BNP2PExample
             EventHandler menuItemClickHandler = new System.EventHandler(menuItem_Click);
             MenuItem[] menuItems = new MenuItem[] 
                 {
-                    new MenuItem(TEST_MESSAGE,      menuItemClickHandler),
+                    new MenuItem(TEST_MESSAGE, menuItemClickHandler),
+                    new MenuItem(REFRESH,      menuItemClickHandler),
                 };
             ContextMenu contextMenu = new ContextMenu(menuItems);
 
@@ -203,63 +219,6 @@ namespace BNP2PExample
         }
 
         #region Position
-
-        /// <summary>
-        /// Returns the position number (zero thru five) that is nearest to the forms current position. The position numbers are:
-        /// 0 = upper left, 1 = upper right, 2 = middle left, 3 = middle right, 4 = lower left, 5 = lower right
-        /// </summary>
-        private int Position()
-        {
-            Rectangle rc = Screen.PrimaryScreen.WorkingArea;
-            int w = rc.Width / 2;
-            int h = rc.Height / 3;
-            int smallestDistance = int.MaxValue;
-            int pos = 0;
-            int d;
-            //
-            d = Distance(this.Left, this.Top, 0, 0);
-            if (d < smallestDistance)
-            {
-                smallestDistance = d;
-                pos = 0;
-            }
-            //
-            d = Distance(this.Left, this.Top, w, 0);
-            if (d < smallestDistance)
-            {
-                smallestDistance = d;
-                pos = 1;
-            }
-            //
-            d = Distance(this.Left, this.Top, 0, h);
-            if (d < smallestDistance)
-            {
-                smallestDistance = d;
-                pos = 2;
-            }
-            //
-            d = Distance(this.Left, this.Top, w, h);
-            if (d < smallestDistance)
-            {
-                smallestDistance = d;
-                pos = 3;
-            }
-            //
-            d = Distance(this.Left, this.Top, 0, h + h);
-            if (d < smallestDistance)
-            {
-                smallestDistance = d;
-                pos = 4;
-            }
-            //
-            d = Distance(this.Left, this.Top, w, h + h);
-            if (d < smallestDistance)
-            {
-                smallestDistance = d;
-                pos = 5;
-            }
-            return pos;
-        }
 
         private int Distance(int x1, int y1, int x2, int y2)
         {
@@ -276,22 +235,23 @@ namespace BNP2PExample
         private void Position(int pos)
         {
             Rectangle rc = Screen.PrimaryScreen.WorkingArea;
-            int w = rc.Width / 2;
+            int w = rc.Width;
             int h = rc.Height / 3;
             this.Width = w;
             this.Height = h;
-            // Negative pos means middle center position (not one of the six "slots"). 
+            // Negative pos means middle center position (not one of the 3 "slots"). 
             // Random offset helps make it clear when new process is started otherwise
             // forms exactly stack which could confuse a new user.
             if (pos < 0)
             {
                 int offset = new Random().Next(-50, 50);
                 this.Top = (h / 2) + offset;
-                this.Left = w / 2 + offset;
+                this.Left = Math.Abs(offset);
+                this.Width = (int)(w * .8); 
                 return;
             }
             //
-            pos %= 6; // always zero thru five
+            pos %= 3; // always zero, one or two
             //
             int top;
             int left;
@@ -302,24 +262,12 @@ namespace BNP2PExample
                     left = 0;
                     break;
                 case 1:
-                    top = 0;
-                    left = w;
+                    top = h;
+                    left = 0;
                     break;
                 case 2:
-                    top = h;
-                    left = 0;
-                    break;
-                case 3:
-                    top = h;
-                    left = w;
-                    break;
-                case 4:
                     top = h + h;
                     left = 0;
-                    break;
-                case 5:
-                    top = h + h;
-                    left = w;
                     break;
                 default: // should never happen
                     throw new Exception("Position outside expected range");
@@ -328,34 +276,19 @@ namespace BNP2PExample
             this.Left = left;
         }
 
-        private void upperLeftToolStripMenuItem_Click(object sender, EventArgs e)
+        private void topToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Position(0);
         }
 
-        private void upperRightToolStripMenuItem_Click(object sender, EventArgs e)
+        private void middleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Position(1);
         }
 
-        private void middleLeftToolStripMenuItem_Click(object sender, EventArgs e)
+        private void bottomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Position(2);
-        }
-
-        private void middleRightToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Position(3);
-        }
-
-        private void lowerLeftToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Position(4);
-        }
-
-        private void lowerRIghtToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Position(5);
         }
 
         #endregion

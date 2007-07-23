@@ -122,15 +122,17 @@
 
 To create a server, enter the port id into the "Port" box and click on the "New Server" button. Note that the contents of the "Transport Address" box are ignored - the server is always created on localhost (i.e., the same computer that the process is running on). If the port is available, you will see an entry for your new server added to the treeview box on the left. If the port is unavailable, a message will be displayed on the status line at the bottom. You can click the "New Server" button repeatedly to create multiple servers but you must change the port number each time.
 
-To create a client, ensure that the transport address and port boxes contain the desired server address and click on the "New Client" button. You will see a client entry added to the treeview box on the left. You can click the "New Client" button repeatedly to create multiple clients attached to the same address. 
+To create a client, ensure that the transport address and port boxes contain the desired server address and click on the "New Client" button. You will see an entry for your new client added to the treeview box on the left. You can click the "New Client" button repeatedly to create multiple clients attached to the same address. 
 
 If you used the same form instance to create both the server and clients then the servers and clients are running in the same process (the process id is displayed in the title bar of the form). You can click the "New Process" button to start a new instance of the form. This will allow you to create clients that attach to the same address but run in different processes.  
 
-The box on the left contains an item for each server and client that is running under that process. To send a test message, right-click on an entry to display the context menu. Select the "Test Message" item to send the test message. If you do this on a server entry, the message is sent to all clients attached to that sever. On the other hand, sending a message from the client only sends it to the attached server. This behavior is coded into the example - the framework allows you to customize the message handling in any way you like. 
+The box on the left contains an item for each server and client that is running under that process. To send a test message, right-click on an entry to display the context menu. Select the "Test Message" item to send the test message. If you do this on a server entry, the message is sent to all clients attached to that server. On the other hand, sending a message from the client only sends it to the attached server. This behavior is coded into the example, not the framework. The BN framework allows you to customize the message handling in any way you like. 
+
+The context menu also contains a "Refresh" item.  Sometimes the client connection to the bus is not yet established at the time the treeview is updated. In that case, the client does not display its local address. Selecting refresh will update the treeview so that the full address is displayed. 
 
 While this example uses simple strings as messages, a real application would probably use ASN.1. See the BNMQExample project for code that shows the use of ASN.1 messages.   
 
-There are two menu items at the top of the process window: Position and Help. Help displays the information you are currently reading. Position allows you to select one of the six screen positions causing the form to move into that position on the screen. There are six predefined positions so you can easily see the message traffic between six processes.  Each process can contain as many servers and clients as you like. 
+There are two menu items at the top of the process window: Position and Help. Help displays the information you are currently reading. Position allows you to select one of three predefined screen positions causing the form to move into that position on the screen. This makes it easier to see the message traffic between three processes.  Each process can contain as many servers and clients as you like. 
 
 Lastly there is a "Clear" button on the lower right that empties the text box for that process only.</value>
   </data>

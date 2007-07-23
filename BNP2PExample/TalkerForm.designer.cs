@@ -30,12 +30,9 @@ namespace BNP2PExample
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.positionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.upperLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.upperRightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.middleLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.middleRightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lowerLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lowerRIghtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.middleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bottomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNewClient = new System.Windows.Forms.Button();
             this.tbReceived = new System.Windows.Forms.TextBox();
@@ -68,57 +65,33 @@ namespace BNP2PExample
             // positionToolStripMenuItem
             // 
             this.positionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.upperLeftToolStripMenuItem,
-            this.upperRightToolStripMenuItem,
-            this.middleLeftToolStripMenuItem,
-            this.middleRightToolStripMenuItem,
-            this.lowerLeftToolStripMenuItem,
-            this.lowerRIghtToolStripMenuItem});
+            this.topToolStripMenuItem,
+            this.middleToolStripMenuItem,
+            this.bottomToolStripMenuItem});
             this.positionToolStripMenuItem.Name = "positionToolStripMenuItem";
             this.positionToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.positionToolStripMenuItem.Text = "Position";
             // 
-            // upperLeftToolStripMenuItem
+            // topToolStripMenuItem
             // 
-            this.upperLeftToolStripMenuItem.Name = "upperLeftToolStripMenuItem";
-            this.upperLeftToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.upperLeftToolStripMenuItem.Text = "Upper Left";
-            this.upperLeftToolStripMenuItem.Click += new System.EventHandler(this.upperLeftToolStripMenuItem_Click);
+            this.topToolStripMenuItem.Name = "topToolStripMenuItem";
+            this.topToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.topToolStripMenuItem.Text = "Top";
+            this.topToolStripMenuItem.Click += new System.EventHandler(this.topToolStripMenuItem_Click);
             // 
-            // upperRightToolStripMenuItem
+            // middleToolStripMenuItem
             // 
-            this.upperRightToolStripMenuItem.Name = "upperRightToolStripMenuItem";
-            this.upperRightToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.upperRightToolStripMenuItem.Text = "Upper Right";
-            this.upperRightToolStripMenuItem.Click += new System.EventHandler(this.upperRightToolStripMenuItem_Click);
+            this.middleToolStripMenuItem.Name = "middleToolStripMenuItem";
+            this.middleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.middleToolStripMenuItem.Text = "Middle";
+            this.middleToolStripMenuItem.Click += new System.EventHandler(this.middleToolStripMenuItem_Click);
             // 
-            // middleLeftToolStripMenuItem
+            // bottomToolStripMenuItem
             // 
-            this.middleLeftToolStripMenuItem.Name = "middleLeftToolStripMenuItem";
-            this.middleLeftToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.middleLeftToolStripMenuItem.Text = "Middle Left";
-            this.middleLeftToolStripMenuItem.Click += new System.EventHandler(this.middleLeftToolStripMenuItem_Click);
-            // 
-            // middleRightToolStripMenuItem
-            // 
-            this.middleRightToolStripMenuItem.Name = "middleRightToolStripMenuItem";
-            this.middleRightToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.middleRightToolStripMenuItem.Text = "Middle Right";
-            this.middleRightToolStripMenuItem.Click += new System.EventHandler(this.middleRightToolStripMenuItem_Click);
-            // 
-            // lowerLeftToolStripMenuItem
-            // 
-            this.lowerLeftToolStripMenuItem.Name = "lowerLeftToolStripMenuItem";
-            this.lowerLeftToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.lowerLeftToolStripMenuItem.Text = "Lower Left";
-            this.lowerLeftToolStripMenuItem.Click += new System.EventHandler(this.lowerLeftToolStripMenuItem_Click);
-            // 
-            // lowerRIghtToolStripMenuItem
-            // 
-            this.lowerRIghtToolStripMenuItem.Name = "lowerRIghtToolStripMenuItem";
-            this.lowerRIghtToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.lowerRIghtToolStripMenuItem.Text = "Lower RIght";
-            this.lowerRIghtToolStripMenuItem.Click += new System.EventHandler(this.lowerRIghtToolStripMenuItem_Click);
+            this.bottomToolStripMenuItem.Name = "bottomToolStripMenuItem";
+            this.bottomToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bottomToolStripMenuItem.Text = "Bottom";
+            this.bottomToolStripMenuItem.Click += new System.EventHandler(this.bottomToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -219,7 +192,7 @@ namespace BNP2PExample
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(205, 35);
+            this.label1.Location = new System.Drawing.Point(205, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 14;
@@ -228,7 +201,7 @@ namespace BNP2PExample
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(396, 35);
+            this.label2.Location = new System.Drawing.Point(396, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 15;
@@ -236,7 +209,7 @@ namespace BNP2PExample
             // 
             // nudTransportPort
             // 
-            this.nudTransportPort.Location = new System.Drawing.Point(431, 31);
+            this.nudTransportPort.Location = new System.Drawing.Point(431, 30);
             this.nudTransportPort.Name = "nudTransportPort";
             this.nudTransportPort.Size = new System.Drawing.Size(62, 20);
             this.nudTransportPort.TabIndex = 16;
@@ -281,12 +254,9 @@ namespace BNP2PExample
         private System.Windows.Forms.TextBox tbReceived;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.ToolStripMenuItem positionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem upperLeftToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem upperRightToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem middleLeftToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem middleRightToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lowerLeftToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lowerRIghtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem middleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bottomToolStripMenuItem;
         private System.Windows.Forms.TextBox tbTransportAddress;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.TreeView tvConnections;

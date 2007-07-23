@@ -104,6 +104,30 @@ namespace BNP2PExample
             }
         }
 
+        public string ServerAddress()
+        {
+            return talkerConnection.Addr.ToString();
+        }
+
+        public string ClientAddress()
+        {
+            if (sessionType == SessionTypeEnum.Server) return String.Empty;
+            Hashtable transportCollectionClone = talkerConnectionListener.GetTransportCollectionClone();
+            if (transportCollectionClone.Count != 1)
+            {
+                if (transportCollectionClone.Count != 1) return String.Empty;
+            } 
+            foreach (DictionaryEntry de in transportCollectionClone)
+            {
+                ITransport transport = (ITransport)de.Value;
+                if (transport == null) return String.Empty;
+                System.Net.Sockets.Socket socket = ((Transport)transport).getSocket();
+                System.Net.EndPoint endPoint = socket.LocalEndPoint;
+                return endPoint.ToString();
+            }
+            return String.Empty;
+        }
+
         private void SendMessageToOnePeer(string msg, ITransport transport)
         {            
             System.Net.Sockets.Socket socket = ((Transport)transport).getSocket();
