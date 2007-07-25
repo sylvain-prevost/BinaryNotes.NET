@@ -35,6 +35,8 @@ import org.bn.coders.Decoder;
 
 import org.bn.types.BitString;
 
+import org.bn.types.ObjectIdentifier;
+
 import test.org.bn.utils.ByteTools;
 import test.org.bn.coders.test_asn.*;
 
@@ -437,4 +439,18 @@ public abstract class DecoderTest extends TestCase {
         assertTrue(val.isTestaSelected());
         assertEquals(val.getTesta().getTestb(), coderTestUtils.createTestLongTag2().getTesta().getTestb());    
     }
+    
+    public void testDecodeOID() throws Exception {
+        IDecoder decoder = newDecoder();
+        assertNotNull(decoder);
+
+        ByteArrayInputStream stream = 
+            new ByteArrayInputStream(coderTestUtils.createTestOID1Bytes());
+        ObjectIdentifier oid1 = decoder.decode(stream, ObjectIdentifier.class);
+        assertEquals(oid1.getValue(), coderTestUtils.createTestOID1().getValue().getValue());
+        
+        // TODO others test
+        // FIXME
+
+    }    
 }

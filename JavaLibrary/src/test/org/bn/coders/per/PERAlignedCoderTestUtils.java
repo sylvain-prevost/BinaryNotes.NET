@@ -211,4 +211,25 @@ public class PERAlignedCoderTestUtils extends CoderTestUtilities {
     public byte[] createUTF8StringArrayBytes() {
         return new byte[] { 0x02,0x06,0x62,0x62,0x62,0x62,0x62,0x62,0x05,0x63,0x63,0x63,0x63,0x63 };
     }
+
+    public byte[] createTestOID1Bytes()
+    {
+        return new byte[] { 0x03, 0x55, 0x04, 0x06 };
+    }
+
+    public byte[] createTestOID2Bytes()
+    {
+        return new byte[] { 0x09, 0x2A, (byte)0x86, 0x48, (byte)0x86, (byte)0xF7, 
+                0x0D, 0x01, 0x01, 0x05 };
+    }
+
+    public byte[] createTestOID3Bytes()
+    {
+        return new byte[] { 0x04, 0x28, (byte)0xC2, 0x7B, 0x02 };
+    }
+
+    public byte[] createTestOID4Bytes()
+    {
+        return new byte[] { 0x04, 0x67, 0x2A, 0x03, 0x00 };
+    }
 }

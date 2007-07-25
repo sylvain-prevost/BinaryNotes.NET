@@ -318,4 +318,25 @@ public abstract class EncoderTest extends TestCase {
         checkEncoded(encoder, coderTestUtils.createUTF8StringArray(), coderTestUtils.createUTF8StringArrayBytes());
     }
     
+    public void testEncodeOID() throws Exception {
+        IEncoder encoder = newEncoder();
+        assertNotNull(encoder);
+        //
+        TestOID testOID = coderTestUtils.createTestOID1();
+        printEncoded("OID "+testOID.getValue().getValue(), encoder, testOID);
+        checkEncoded(encoder, coderTestUtils.createTestOID1(), coderTestUtils.createTestOID1Bytes());
+        //
+        testOID = coderTestUtils.createTestOID2();
+        printEncoded("OID " + testOID.getValue().getValue(), encoder, testOID);
+        checkEncoded(encoder, coderTestUtils.createTestOID2(), coderTestUtils.createTestOID2Bytes());
+        //
+        testOID = coderTestUtils.createTestOID3();
+        printEncoded("OID " + testOID.getValue().getValue(), encoder, testOID);
+        checkEncoded(encoder, coderTestUtils.createTestOID3(), coderTestUtils.createTestOID3Bytes());
+        //
+        testOID = coderTestUtils.createTestOID4();
+        printEncoded("OID " + testOID.getValue().getValue(), encoder, testOID);
+        checkEncoded(encoder, coderTestUtils.createTestOID4(), coderTestUtils.createTestOID4Bytes());
+    }   
+    
 }
