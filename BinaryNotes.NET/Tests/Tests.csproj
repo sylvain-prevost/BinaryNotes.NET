@@ -29,7 +29,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="csUnit, Version=2.1.1.6855, Culture=neutral, PublicKeyToken=6871f04765cca910, processorArchitecture=MSIL" />
+    <Reference Include="csUnit, Version=2.1.1.6855, Culture=neutral, PublicKeyToken=6871f04765cca910, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dist\depends\.net\csUnit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />

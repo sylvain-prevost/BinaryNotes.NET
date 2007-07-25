@@ -65,7 +65,7 @@
     <Compile Include="TalkerSession.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BinaryNotesMQ\.net\BinaryNotesMQ\BinaryNotesMQ.csproj">
+    <ProjectReference Include="..\..\..\BinaryNotesMQ\.net\BinaryNotesMQ\BinaryNotesMQ.csproj">
       <Project>{0EEB930C-D643-4258-9912-7D546F6AC031}</Project>
       <Name>BinaryNotesMQ</Name>
     </ProjectReference>

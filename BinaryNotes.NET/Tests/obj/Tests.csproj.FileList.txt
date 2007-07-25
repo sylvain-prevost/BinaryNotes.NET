@@ -12,3 +12,5 @@ obj\Debug\Tests.exe
 obj\Debug\Tests.pdb
 bin\Release\BinaryNotes.pdb
 bin\Debug\BinaryNotes.pdb
+bin\Debug\csUnit.dll
+bin\Release\csUnit.dll
