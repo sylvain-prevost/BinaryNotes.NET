@@ -36,12 +36,7 @@ namespace org.bn.types
         {
             get { return oidString; }
             set { oidString = value; }
-        }
-
-        /*public void setValue(string oidString)
-        {
-            this.oidString = oidString;
-        }*/
+        }   
 
         public int[] getIntArray()
         {

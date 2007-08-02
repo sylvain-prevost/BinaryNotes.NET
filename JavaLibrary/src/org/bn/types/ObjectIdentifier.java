@@ -19,34 +19,33 @@
 
 package org.bn.types;
 
-/**
- * BitString represents ASN.1 OBJECT IDENTIFIER data types
- */
 public class ObjectIdentifier {
-
-    public ObjectIdentifier(String oidAsStr) {
+	
+	private String oidString;
+	
+    public ObjectIdentifier(String oidAsStr) 
+    {
         setValue(oidAsStr);
     }
     
-    public ObjectIdentifier(byte[] oidAsBytes) {
-         setValue(oidAsBytes);
+    public String getValue() 
+    {
+        return oidString;
     }
     
-    public byte[] getValue() {
-        // TODO
-        return null;
-    }
-    
-    public String getValueAsStr() {
-        // TODO
-        return null;
+    public void setValue(String value) 
+    {
+    	oidString = value;
     }
 
-    public void setValue(byte[] oidAsBytes) {
-        // TODO
-    }
-
-    public void setValue(String oidAsStr) {
-        // TODO
+    public int[] getIntArray()
+    {
+        String[] sa = oidString.split(".");
+        int[] ia = new int[sa.length];
+        for (int i=0; i < sa.length; i++)
+        {
+        	ia[i] = new Integer(sa[i]).intValue();
+        }
+        return ia;
     }
 }
