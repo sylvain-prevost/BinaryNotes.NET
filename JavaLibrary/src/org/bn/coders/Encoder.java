@@ -38,6 +38,7 @@ import org.bn.IEncoder;
 import org.bn.annotations.*;
 import org.bn.annotations.constraints.*;
 import org.bn.metadata.ASN1ElementMetadata;
+import org.bn.metadata.ASN1Metadata;
 import org.bn.utils.ReverseByteArrayOutputStream;
 import org.bn.types.*;
 
@@ -175,12 +176,11 @@ public abstract class Encoder<T> implements IEncoder<T>, IASN1TypesEncoder {
         //elementInfo.setPreparedASN1ElementInfo(preparedInstance.getPreparedData().getASN1ElementInfo());
         if(elementDataSave!=null)
             elementInfo.setPreparedASN1ElementInfo(elementDataSave);
-        return preparedInstance.getPreparedData().getTypeMetadata().encode(
-            this, object, stream, elementInfo
-        );        
+        IASN1PreparedElementData preparedInstanceData = preparedInstance.getPreparedData();
+        ASN1Metadata metaData = preparedInstanceData.getTypeMetadata();
+        return metaData.encode(this, object, stream, elementInfo);        
     }
      
-    
     public Object invokeGetterMethodForField(Field field, Object object, ElementInfo elementInfo) throws Exception {
         if(elementInfo!=null && elementInfo.hasPreparedInfo()) {
             return elementInfo.getPreparedInfo().invokeGetterMethod(object, (java.lang.Object[])null);

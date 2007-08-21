@@ -16,7 +16,8 @@ public class BERObjectIdentifier
             nextAvailable += EncodeOneArc(oidArcArray[i], result, nextAvailable);
         }
         assert nextAvailable <= 255 : "Encoded length of object id exceeded 255 bytes";
-        return Truncate(result, nextAvailable);
+        byte[] ba = Truncate(result, nextAvailable);; 
+        return  ba;
     }
 
     private static int EncodeFirstTwoArcs(int topArc, int secondArc, byte[] result, int nextAvailable)
@@ -74,7 +75,7 @@ public class BERObjectIdentifier
     private static byte[] Truncate(byte[] b1, int nextAvailable)
     {
         byte[] b2 = new byte[nextAvailable];
-        // System.arraycopy(b1, b2, nextAvailable);
+        System.arraycopy(b1, 0, b2, 0, nextAvailable);
         return b2;
     }
 

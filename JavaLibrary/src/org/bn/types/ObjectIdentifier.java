@@ -40,7 +40,7 @@ public class ObjectIdentifier {
 
     public int[] getIntArray()
     {
-        String[] sa = oidString.split(".");
+        String[] sa = oidString.split("\\.");
         int[] ia = new int[sa.length];
         for (int i=0; i < sa.length; i++)
         {

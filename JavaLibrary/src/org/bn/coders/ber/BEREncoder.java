@@ -31,6 +31,7 @@ import org.bn.coders.TagClass;
 import org.bn.coders.UniversalTag;
 import org.bn.metadata.ASN1SequenceOfMetadata;
 import org.bn.types.BitString;
+import org.bn.types.ObjectIdentifier;
 import org.bn.utils.ReverseByteArrayOutputStream;
 
 public class BEREncoder<T> extends Encoder<T> {
@@ -344,9 +345,18 @@ public class BEREncoder<T> extends Encoder<T> {
         return resultSize;
     }
 
-    public int encodeObjectIdentifier(Object object, OutputStream steam, 
-                                      ElementInfo elementInfo) {
-        // TODO
-        return 0;
+    public int encodeObjectIdentifier(Object object, OutputStream stream, 
+                                      ElementInfo elementInfo) throws Exception {
+    	 ObjectIdentifier oid = (ObjectIdentifier)object;
+         int[] ia = oid.getIntArray();
+         byte[] buffer = BERObjectIdentifier.Encode(ia);
+         stream.write(buffer, 0, buffer.length);
+         int resultSize = buffer.length;
+         resultSize += encodeLength(resultSize, stream);
+         resultSize += encodeTag(
+             BERCoderUtils.getTagValueForElement(elementInfo, TagClass.Universal, ElementType.Primitive, UniversalTag.ObjectIdentifier),
+             stream
+         );
+         return resultSize;
     }
 }
