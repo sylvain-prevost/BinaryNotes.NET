@@ -22,6 +22,7 @@ import org.bn.annotations.ASN1Element;
 import org.bn.annotations.ASN1String;
 import org.bn.coders.DecodedObject;
 import org.bn.coders.ElementInfo;
+import org.bn.coders.UniversalTag;
 import org.bn.metadata.ASN1ElementMetadata;
 
 public class BERCoderUtils {
@@ -29,7 +30,13 @@ public class BERCoderUtils {
     public static DecodedObject<Integer> getTagValueForElement(ElementInfo info, int tagClass, int elemenType, int universalTag) {
         DecodedObject<Integer> result = new DecodedObject<Integer>();
         result.setSize(1);
-        result.setValue(tagClass | elemenType | universalTag);
+        // result.setValue(tagClass | elemenType | universalTag);
+	if(universalTag < UniversalTag.LastUniversal) {
+        	result.setValue(tagClass | elemenType | universalTag);
+	}
+	else
+		result = getTagValue ( tagClass , elemenType , universalTag , universalTag, tagClass ) ;
+
         if(info.hasPreparedInfo()) {
             ASN1ElementMetadata meta = info.getPreparedASN1ElementInfo();
             if(meta!=null && meta.hasTag()) {

@@ -19,6 +19,7 @@
 using System;
 using System.Reflection;
 using org.bn.attributes;
+using org.bn.coders;
 using org.bn.metadata;
 
 namespace org.bn.coders.ber
@@ -28,7 +29,13 @@ namespace org.bn.coders.ber
 		public static DecodedObject<int> getTagValueForElement(ElementInfo info, int tagClass, int elemenType, int universalTag)
 		{
             DecodedObject<int> result = new DecodedObject<int>();
-			result.Value =  tagClass | elemenType | universalTag;
+	    // result.Value =  tagClass | elemenType | universalTag;
+	    if(universalTag < UniversalTags.LastUniversal) {
+        	result.Value = tagClass | elemenType | universalTag;
+	    }
+	    else
+		result = getTagValue ( tagClass , elemenType , universalTag , universalTag, tagClass ) ;
+	    
             result.Size = 1;
             if(info.hasPreparedInfo()) 
             {
