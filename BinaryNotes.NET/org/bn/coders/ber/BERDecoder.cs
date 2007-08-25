@@ -166,7 +166,8 @@ namespace org.bn.coders.ber
 
         public override DecodedObject<object> decodeChoice(DecodedObject<object> decodedTag, Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
         {
-            if(elementInfo.ASN1ElementInfo!=null || (elementInfo.hasPreparedInfo() && elementInfo.hasPreparedASN1ElementInfo()))
+            if ( (elementInfo.hasPreparedInfo() && elementInfo.hasPreparedASN1ElementInfo() && elementInfo.PreparedASN1ElementInfo.HasTag)
+                || (elementInfo.ASN1ElementInfo != null && elementInfo.ASN1ElementInfo.HasTag)) 
             {
                 if (!checkTagForObject(decodedTag, TagClasses.ContextSpecific, ElementType.Constructed, UniversalTags.LastUniversal, elementInfo))
                     return null;

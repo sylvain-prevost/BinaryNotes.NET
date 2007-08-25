@@ -77,7 +77,9 @@ namespace org.bn.coders.ber
 		{
 			int result = 0;
 			int sizeOfChoiceField = base.encodeChoice(obj, stream, elementInfo);
-            if (elementInfo.ASN1ElementInfo != null || (elementInfo.hasPreparedInfo() && elementInfo.hasPreparedASN1ElementInfo()) )
+            if (
+                (elementInfo.hasPreparedInfo() && elementInfo.hasPreparedASN1ElementInfo() && elementInfo.PreparedASN1ElementInfo.HasTag )
+                || ( elementInfo.ASN1ElementInfo != null && elementInfo.ASN1ElementInfo.HasTag) )
             {
                 result += encodeHeader(BERCoderUtils.getTagValueForElement(elementInfo, TagClasses.ContextSpecific, ElementType.Constructed, UniversalTags.LastUniversal), sizeOfChoiceField, stream);
             }

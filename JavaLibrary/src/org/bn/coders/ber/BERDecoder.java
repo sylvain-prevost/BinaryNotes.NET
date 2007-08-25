@@ -300,7 +300,8 @@ public class BERDecoder extends Decoder {
                                          ElementInfo elementInfo, 
                                    InputStream stream) throws Exception {   
         
-        if(elementInfo.getASN1ElementInfo()!=null || (elementInfo.hasPreparedInfo() && elementInfo.hasPreparedASN1ElementInfo())) {
+        if((elementInfo.hasPreparedInfo() && elementInfo.hasPreparedASN1ElementInfo() && elementInfo.getPreparedASN1ElementInfo().hasTag())
+           || (elementInfo.getASN1ElementInfo()!=null && elementInfo.getASN1ElementInfo().hasTag() )) {
             if(!checkTagForObject(decodedTag, TagClass.ContextSpecific, ElementType.Constructed, UniversalTag.LastUniversal, elementInfo))
                 return null;
             DecodedObject<Integer> lenOfChild = decodeLength(stream);

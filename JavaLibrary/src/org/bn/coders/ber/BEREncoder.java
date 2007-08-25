@@ -66,8 +66,8 @@ public class BEREncoder<T> extends Encoder<T> {
         int resultSize = 0;
         int sizeOfChoiceField =  super.encodeChoice ( object, stream , elementInfo );
         
-        if(elementInfo.getASN1ElementInfo()!=null 
-            || (elementInfo.hasPreparedInfo() && elementInfo.hasPreparedASN1ElementInfo()) ) {
+        if((elementInfo.hasPreparedInfo() && elementInfo.hasPreparedASN1ElementInfo() && elementInfo.getPreparedASN1ElementInfo().hasTag())
+           || (elementInfo.getASN1ElementInfo()!=null && elementInfo.getASN1ElementInfo().hasTag() )) {
                 resultSize += encodeHeader (BERCoderUtils.getTagValueForElement (elementInfo,TagClass.ContextSpecific, ElementType.Constructed, UniversalTag.LastUniversal), sizeOfChoiceField, stream );
         }        
         resultSize+= sizeOfChoiceField;
