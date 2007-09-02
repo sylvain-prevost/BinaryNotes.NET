@@ -114,8 +114,8 @@ public class BERObjectIdentifier
         StringBuilder sb = new StringBuilder(oidIntArray.length * 4);
         for (int i = 0; i < oidIntArray.length; i++)
         {
-            //if (sb.length > 0) sb.append('.');
-            //sb.Append(oidIntArray[i].tostring().Trim());
+            if (sb.length() > 0) sb.append('.');
+            sb.append(new Integer(oidIntArray[i]).toString().trim());
         }
         return sb.toString();
     }

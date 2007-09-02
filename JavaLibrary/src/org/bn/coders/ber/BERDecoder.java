@@ -425,8 +425,13 @@ public class BERDecoder extends Decoder {
     public DecodedObject decodeObjectIdentifier(DecodedObject decodedTag, 
                                                 Class objectClass, 
                                                 ElementInfo elementInfo, 
-                                                InputStream stream) {
-        // TODO
-        return null;
+                                                InputStream stream) throws Exception {
+        if (!checkTagForObject(decodedTag, TagClass.Universal, ElementType.Primitive, UniversalTag.ObjectIdentifier, elementInfo))
+            return null;
+        DecodedObject<Integer> len = decodeLength(stream);
+        byte[] byteBuf = new byte[len.getValue()];
+        stream.read(byteBuf, 0, byteBuf.length);
+        String dottedDecimal = BERObjectIdentifier.Decode(byteBuf);
+        return new DecodedObject<Object>(new ObjectIdentifier(dottedDecimal));
     }
 }

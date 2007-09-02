@@ -28,6 +28,11 @@ public class ObjectIdentifier {
         setValue(oidAsStr);
     }
     
+    public ObjectIdentifier() 
+    {
+    	oidString = null;
+    }
+    
     public String getValue() 
     {
         return oidString;

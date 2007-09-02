@@ -642,9 +642,12 @@ public class PERAlignedDecoder extends Decoder {
     public DecodedObject decodeObjectIdentifier(DecodedObject decodedTag, 
                                                 Class objectClass, 
                                                 ElementInfo elementInfo, 
-                                                InputStream stream) {
-        // TODO
-        return null;
+                                                InputStream stream)  throws Exception {
+        int len = decodeLength(elementInfo,stream);
+        byte[] byteBuf = new byte[len];
+        stream.read(byteBuf, 0, byteBuf.length);
+        String dottedDecimal = org.bn.coders.ber.BERObjectIdentifier.Decode(byteBuf);
+        return new DecodedObject<Object>(new ObjectIdentifier(dottedDecimal));
     }
 }
 

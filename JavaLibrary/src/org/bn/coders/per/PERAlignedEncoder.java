@@ -619,9 +619,16 @@ public class PERAlignedEncoder<T> extends Encoder<T> {
         return resultSize;
     }
 
-    public int encodeObjectIdentifier(Object object, OutputStream steam, 
-                                      ElementInfo elementInfo) {
-        // TODO
-        return 0;
+    public int encodeObjectIdentifier(Object object, OutputStream stream, 
+                                      ElementInfo elementInfo) throws Exception  {
+        ObjectIdentifier oid = (ObjectIdentifier)object;
+        int[] ia = oid.getIntArray();
+        byte[] buffer = org.bn.coders.ber.BERObjectIdentifier.Encode(ia);
+        if (buffer.length < 1) return 0;
+        int resultSize = 0; // size of tag 
+        resultSize += encodeLength(buffer.length, elementInfo, stream);
+        stream.write(buffer, 0, buffer.length);
+        resultSize += buffer.length; // size of buffer         
+        return resultSize;
     }
 }

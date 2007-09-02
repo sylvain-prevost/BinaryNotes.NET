@@ -448,9 +448,17 @@ public abstract class DecoderTest extends TestCase {
             new ByteArrayInputStream(coderTestUtils.createTestOID1Bytes());
         ObjectIdentifier oid1 = decoder.decode(stream, ObjectIdentifier.class);
         assertEquals(oid1.getValue(), coderTestUtils.createTestOID1().getValue().getValue());
-        
-        // TODO others test
-        // FIXME
 
+        stream = new ByteArrayInputStream(coderTestUtils.createTestOID2Bytes());
+        ObjectIdentifier oid2 = decoder.decode(stream, ObjectIdentifier.class);
+        assertEquals(oid2.getValue(), coderTestUtils.createTestOID2().getValue().getValue());
+
+        stream = new ByteArrayInputStream(coderTestUtils.createTestOID3Bytes());
+        ObjectIdentifier oid3 = decoder.decode(stream, ObjectIdentifier.class);
+        assertEquals(oid3.getValue(), coderTestUtils.createTestOID3().getValue().getValue());
+
+        stream = new ByteArrayInputStream(coderTestUtils.createTestOID4Bytes());
+        ObjectIdentifier oid4 = decoder.decode(stream, ObjectIdentifier.class);
+        assertEquals(oid4.getValue(), coderTestUtils.createTestOID4().getValue().getValue());        
     }    
 }
