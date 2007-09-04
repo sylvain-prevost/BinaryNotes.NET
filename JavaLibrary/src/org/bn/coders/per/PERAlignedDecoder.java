@@ -617,8 +617,8 @@ public class PERAlignedDecoder extends Decoder {
         int countOfElements = decodeLength(elementInfo,stream);;
         
         if(countOfElements > 0) {
-            ParameterizedType tp = (ParameterizedType)elementInfo.getGenericInfo();
-            Class paramType = (Class)tp.getActualTypeArguments()[0];
+	
+            Class paramType = CoderUtils.getCollectionType(elementInfo);
             
             for(int i=0;i<countOfElements;i++) {
                 ElementInfo info = new ElementInfo();

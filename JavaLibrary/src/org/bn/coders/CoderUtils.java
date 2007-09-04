@@ -20,27 +20,14 @@ package org.bn.coders;
 
 import java.io.UnsupportedEncodingException;
 
-import java.lang.reflect.Field;
-
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.bn.annotations.ASN1Any;
-import org.bn.annotations.ASN1Element;
-import org.bn.annotations.ASN1Null;
-import org.bn.annotations.ASN1PreparedElement;
-import org.bn.annotations.ASN1Sequence;
-import org.bn.annotations.ASN1SequenceOf;
-import org.bn.annotations.ASN1String;
-import org.bn.annotations.constraints.ASN1SizeConstraint;
-import org.bn.annotations.constraints.ASN1ValueRangeConstraint;
-import org.bn.metadata.ASN1AnyMetadata;
-import org.bn.metadata.ASN1NullMetadata;
-import org.bn.metadata.ASN1SequenceMetadata;
-import org.bn.metadata.ASN1SequenceOfMetadata;
-import org.bn.metadata.ASN1StringMetadata;
+import org.bn.annotations.*;
+import org.bn.annotations.constraints.*;
+import org.bn.metadata.*;
 import org.bn.types.*;
 
 public class CoderUtils {
@@ -369,6 +356,27 @@ public class CoderUtils {
             result = new String(byteBuf);
         }
         return result;
+    }
+
+    public static Class getCollectionType(ElementInfo elementInfo) {
+        ParameterizedType tp = (ParameterizedType)elementInfo.getGenericInfo();
+	return getCollectionType(tp);
+    }
+
+    public static Class getCollectionType(ParameterizedType tp) {
+
+	Type tpParam = tp.getActualTypeArguments()[0];
+	Class paramType = null;
+	if(tpParam instanceof GenericArrayType) {
+		paramType = (Class)((GenericArrayType)tpParam).getGenericComponentType();
+		if(paramType.equals(byte.class)) {
+			paramType = byte[].class;
+		}
+	}
+	else
+            paramType = (Class)tp.getActualTypeArguments()[0];
+	return paramType;
+
     }
 
 }

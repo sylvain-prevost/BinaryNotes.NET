@@ -27,11 +27,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 import org.bn.annotations.ASN1SequenceOf;
-import org.bn.coders.ASN1PreparedElementData;
-import org.bn.coders.DecodedObject;
-import org.bn.coders.ElementInfo;
-import org.bn.coders.IASN1TypesDecoder;
-import org.bn.coders.IASN1TypesEncoder;
+import org.bn.coders.*;
 
 
 public class ASN1SequenceOfMetadata extends ASN1FieldMetadata
@@ -45,8 +41,9 @@ public class ASN1SequenceOfMetadata extends ASN1FieldMetadata
         super(name);
         this.isSetOf = isSetOf;
         this.itemClass = itemClass;
-        ParameterizedType tp = (ParameterizedType)itemClass;
-        Class paramType = (Class)tp.getActualTypeArguments()[0];
+        //ParameterizedType tp = (ParameterizedType)itemClass;
+        //Class paramType = (Class)tp.getActualTypeArguments()[0];
+	Class paramType = CoderUtils.getCollectionType((ParameterizedType)itemClass);
         
         this.itemClassMetadata = new ASN1PreparedElementData(paramType);
         if(this.itemClassMetadata.getTypeMetadata()!=null)

@@ -395,8 +395,7 @@ public class BERDecoder extends Decoder {
         if(len.getValue()!=0) {
             int lenOfItems = 0;
             int cntOfItems = 0;
-            ParameterizedType tp = (ParameterizedType)elementInfo.getGenericInfo();
-            Class paramType = (Class)tp.getActualTypeArguments()[0];
+	    Class paramType = CoderUtils.getCollectionType(elementInfo);
 
             do {
                 ElementInfo info = new ElementInfo();
