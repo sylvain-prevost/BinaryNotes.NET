@@ -302,7 +302,7 @@ public class CoderUtils {
             return objectClass.getMethod(methodName, new Class[] {paramClass});
         }
         catch(NoSuchMethodException ex) {
-            Method[] methods = objectClass.getClass().getMethods();
+            Method[] methods = objectClass.getMethods();
             for(Method method : methods) {
                 if(method.getName().equalsIgnoreCase(methodName)) {
                     return method;

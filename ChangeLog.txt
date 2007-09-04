@@ -5,6 +5,8 @@ ChangeLog
 							[!] 		- Important warning or note
 							{<component>}	- Component/Group that changed
 
+1.5.1	{lib}		[*] Fixed bug in the method finding algorithm. For some class definitions it's not worked correctly and raises NoSuchMethodException. (Only for Java)
+-
 1.5.0	{lib}		[+] Added support for ObjectIdentifer type by Alan Gutzeit
 1.5.0	{lib}		[*] Fixed the incorrect tag encoding for untagged choice in BER. Thanks to Sabri Skhiri.
 1.5.0	{lib}		[*] Fixed the incorrect tag encoding for BER. Thanks to Sabri Skhiri.
