@@ -372,7 +372,6 @@ public abstract class Decoder implements IDecoder, IASN1TypesDecoder {
     }
         
     public DecodedObject decodeEnum(DecodedObject decodedTag,Class objectClass, ElementInfo elementInfo, InputStream stream) throws Exception  {
-        Object result = objectClass.newInstance();
         Field field = objectClass.getDeclaredField("value");
 
         Class enumClass = null;
@@ -387,6 +386,8 @@ public abstract class Decoder implements IDecoder, IASN1TypesDecoder {
         
         Field param = null;
         if(itemValue!=null) {
+            Object result = objectClass.newInstance();
+
             for(Field enumItem: enumClass.getDeclaredFields()) {
                 if(enumItem.isAnnotationPresent(ASN1EnumItem.class)) {
                     ASN1EnumItem meta = enumItem.getAnnotation(ASN1EnumItem.class);

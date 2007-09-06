@@ -378,7 +378,6 @@ namespace org.bn.coders
 
         public virtual DecodedObject<object> decodeEnum(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
 		{
-			object result = createInstanceForElement(objectClass, elementInfo);
             Type enumClass = null;
             foreach (MemberInfo member in objectClass.GetMembers())
             {
@@ -401,6 +400,8 @@ namespace org.bn.coders
             System.Reflection.FieldInfo param = null;
 			if (itemValue != null)
 			{
+			object result = createInstanceForElement(objectClass, elementInfo);
+
 		        foreach(FieldInfo enumItem in enumClass.GetFields())
 		        {
                     if (CoderUtils.isAttributePresent<ASN1EnumItem>(enumItem))
