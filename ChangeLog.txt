@@ -5,6 +5,7 @@ ChangeLog
 							[!] 		- Important warning or note
 							{<component>}	- Component/Group that changed
 
+1.5.1	{lib}		[*] Fixed optional enumeration decoding. Thanks Sabri Skhiri.
 1.5.1	{lib}		[*] Fixed decoding for SEQUENCE OF OCTET STRING construction. Thanks to Chris Warren for report.
 1.5.1	{lib}		[*] Fixed bug in the method finding algorithm. For some class definitions it's not worked correctly and raises NoSuchMethodException. (Only for Java)
 -

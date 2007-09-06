@@ -415,8 +415,11 @@ namespace org.bn.coders
 			        }
 		        }
 				invokeSetterMethodForField(field, result, param.GetValue(null) , null);
+				return new DecodedObject<object>(result, itemValue.Size);
 			}
-			return new DecodedObject<object>(result, itemValue.Size);
+			else
+				return null;
+			
 		}
 
         public abstract DecodedObject<object> decodeEnumItem(DecodedObject<object> decodedTag, System.Type objectClass, System.Type enumClass, ElementInfo elementInfo, System.IO.Stream stream);

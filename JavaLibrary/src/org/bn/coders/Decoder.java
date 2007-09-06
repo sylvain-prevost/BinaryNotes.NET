@@ -397,8 +397,10 @@ public abstract class Decoder implements IDecoder, IASN1TypesDecoder {
                 }
             }
             invokeSetterMethodForField ( field, result, param.get(null), null) ;
+	    return new DecodedObject(result,itemValue.getSize());
         }        
-        return new DecodedObject(result,itemValue.getSize());
+	else
+	    return null;        
     }    
 
     public DecodedObject decodeElement(DecodedObject decodedTag,Class objectClass, ElementInfo elementInfo, InputStream stream) throws Exception  {
