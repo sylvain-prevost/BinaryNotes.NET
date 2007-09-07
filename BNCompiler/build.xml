@@ -8,41 +8,55 @@
     <pathelement location="${depends.libs.path}/lineargs.jar"/>
   </path>
   <path id="library.antlr">
+    <pathelement location="${depends.libs.path}/activation.jar"/>
     <pathelement location="${depends.libs.path}/antlr.jar"/>
   </path>
   <path id="library.JUnit">
     <pathelement location="${depends.libs.path}/junit.jar"/>
   </path>
   <path id="library.JAXB">
-    <pathelement location="${depends.libs.path}/activation.jar"/>
-    <pathelement location="${depends.libs.path}/jaxb-api.jar"/>
-    <pathelement location="${depends.libs.path}/jaxb-impl.jar"/>
-    <pathelement location="${depends.libs.path}/jaxb1-impl.jar"/>
-    <pathelement location="${depends.libs.path}/jsr173_1.0_api.jar"/>
+    <pathelement location="${depends.libs.path}/java5/jaxb-api.jar"/>
+    <pathelement location="${depends.libs.path}/java5/jaxb-impl.jar"/>
+    <pathelement location="${depends.libs.path}/java5/jaxb1-impl.jar"/>
+    <pathelement location="${depends.libs.path}/java5/jsr173_1.0_api.jar"/>
   </path>
   <path id="classpath">
     <path refid="library.bn"/>
     <path refid="library.lineargs"/>
     <path refid="library.antlr"/>
     <path refid="library.JUnit"/>
-    <path refid="library.JAXB"/>
+  </path>
+  <path id="classpath-j5">
+	<path refid="classpath"/>
+	<path refid="library.JAXB"/>
   </path>
   <target name="init">
     <tstamp/>
     <mkdir dir="${output.dir}"/>
+    <available classname="javax.xml.bind.JAXBContext" classpathref="classpath" property="jaxb.present"/>
   </target>
-  <target name="all" description="Build the project" depends="compile,copy,copy-xsls, buildjar"/>
+  <target name="all" description="Build the project" depends="compile, copy, buildjar, compile-j5, copy, buildjar-j5, copy-xsls"/>
   <target name="clean" description="Clean the project">
     <delete includeemptydirs="true" quiet="true">
       <fileset dir="${output.dir}" includes="**/*"/>
     </delete>
   </target>
-  <target name="compile" description="Compile Java source files" depends="init">
+  <target name="compile" description="Compile Java source files" depends="init" if="jaxb.present">
+    <antcall target="clean"/>
     <javac destdir="${output.dir}" classpathref="classpath"
            debug="${javac.debug}" nowarn="${javac.nowarn}"
            deprecation="${javac.deprecation}" optimize="true">
       <src path="src"/>
       <compilerarg line="${javac.compilerargs}"/>
+    </javac>
+  </target>
+  <target name="compile-j5" description="Compile Java source files" depends="init">
+    <antcall target="clean"/>
+    <javac destdir="${output.dir}" classpathref="classpath-j5"
+           debug="${javac.debug}" nowarn="${javac.nowarn}"
+           deprecation="${javac.deprecation}" optimize="true">
+      <src path="src"/>
+      <compilerarg line="${javac.compilerargs} -target 1.5 -source 1.5"/>
     </javac>
   </target>
   <target name="copy" description="Copy files to output directory"
@@ -59,7 +73,7 @@
       </fileset>
     </copy>
   </target>
-  <target name="buildjar" description="Building jar file" depends="init">
+  <target name="buildjar" description="Building jar file" depends="init" if="jaxb.present">
         <jar destfile="${dist.path.bin}/bncompiler.jar" compress="yes">
             <fileset dir="${output.dir}"/>
 	    <manifest>
@@ -68,6 +82,19 @@
 		<attribute name="Implementation-URL" value="http://bnotes.sourceforge.net"/>
 		<attribute name="Implementation-Mail" value="abdulla.abdurakhmanov@gmail.com"/>
 		<attribute name="Implementation-Title" value="BinaryNotes Compiler"/>
+		<attribute name="Version" value="${version}"/>
+	    </manifest>
+        </jar>  
+  </target>
+  <target name="buildjar-j5" description="Building jar file for Java5" depends="init">
+        <jar destfile="${dist.path.bin}/bncompiler-java5.jar" compress="yes">
+            <fileset dir="${output.dir}"/>
+	    <manifest>
+		<attribute name="Main-Class" value="org.bn.compiler.Main"/>
+		<attribute name="Implementation-Vendor" value="Abdulla G. Abdurakhmanov"/>
+		<attribute name="Implementation-URL" value="http://bnotes.sourceforge.net"/>
+		<attribute name="Implementation-Mail" value="abdulla.abdurakhmanov@gmail.com"/>
+		<attribute name="Implementation-Title" value="BinaryNotes Compiler for Java5"/>
 		<attribute name="Version" value="${version}"/>
 	    </manifest>
         </jar>  
