@@ -37,6 +37,7 @@ import test.org.bn.utils.BitArrayInputStreamTest;
 import test.org.bn.utils.BitArrayOutputStreamTest;
 
 public class AllTests {
+	
     public static Test suite() {
         TestSuite suite;
         suite = new TestSuite("AllTests");
