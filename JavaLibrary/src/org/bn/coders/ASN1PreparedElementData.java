@@ -51,23 +51,23 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
     private Method doSelectedMethod = null;
     private Method isSelectedMethod = null;
     private boolean memberClassFlag = false;
-    private Constructor newInstanceConstructor = null;
-    private Class newInstanceClass = null;
+    private Constructor<?> newInstanceConstructor = null;
+    private Class<?> newInstanceClass = null;
     
-    public ASN1PreparedElementData(Class objectClass) {
+    public ASN1PreparedElementData(Class<?> objectClass) {
         setupMetadata(objectClass, objectClass);
         setupConstructed(objectClass);
         setupMemberFlag(objectClass);
         setInstanceFactoryInfo(objectClass);
     }
     
-    public ASN1PreparedElementData(Class parentClass, Field field) {
+    public ASN1PreparedElementData(Class<?> parentClass, Field field) {
         setupMetadata(field, field.getType());
         setupAccessors(parentClass, field);
         setupMemberFlag(field.getType());
     }
         
-    private void setupMetadata(AnnotatedElement annotated, Class objectClass) {
+    private void setupMetadata(AnnotatedElement annotated, Class<?> objectClass) {
         if( annotated.isAnnotationPresent(ASN1SequenceOf.class) ) {
             typeMeta = new ASN1SequenceOfMetadata( annotated.getAnnotation( ASN1SequenceOf.class), ((Field)annotated).getGenericType(), annotated ) ;
         }        
@@ -187,7 +187,7 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
         return fieldsMetadata[index];
     }
 
-    private void setupConstructed(Class objectClass) {
+    private void setupConstructed(Class<?> objectClass) {
         int count = 0;
         Field srcFields[] = null;
         if(typeMeta !=null && typeMeta instanceof ASN1SequenceMetadata && ((ASN1SequenceMetadata)typeMeta).isSet()) {
@@ -252,7 +252,7 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
         return this.constraint != null;
     }
 
-    private void setupAccessors(Class objectClass, Field field) {
+    private void setupAccessors(Class<?> objectClass, Field field) {
         try {
             doSelectedMethod = CoderUtils.findDoSelectMethodForField(field, objectClass, field.getType());
             doSelectedMethod.setAccessible(true);
@@ -283,7 +283,7 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
         setInstanceFactoryInfo(field.getType());
     }
     
-    public void setInstanceFactoryInfo(Class objClass) {
+    public void setInstanceFactoryInfo(Class<?> objClass) {
         try {
             newInstanceClass = objClass;
             newInstanceConstructor = objClass.getDeclaredConstructor();
@@ -313,7 +313,7 @@ public final class ASN1PreparedElementData implements IASN1PreparedElementData {
         return this.memberClassFlag;
     }
 
-    protected void setupMemberFlag(Class cls) {
+    protected void setupMemberFlag(Class<?> cls) {
         memberClassFlag = cls.isMemberClass() && !Modifier.isStatic(cls.getModifiers());
     }
     

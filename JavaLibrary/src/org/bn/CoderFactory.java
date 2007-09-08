@@ -198,7 +198,7 @@ public class CoderFactory {
             return null;
     }
     
-    public IASN1PreparedElementData newPreparedElementData(Class typeInfo) {
+    public IASN1PreparedElementData newPreparedElementData(Class<?> typeInfo) {
         return new ASN1PreparedElementData(typeInfo);
     }
     

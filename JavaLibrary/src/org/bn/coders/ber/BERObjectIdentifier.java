@@ -22,6 +22,7 @@ import java.util.ArrayList;
 /**
 * Implementation of OID encoding by Alan Gutzeit
 */
+@SuppressWarnings("unchecked")
 public class BERObjectIdentifier 
 {
 	public static byte[] Encode(int[] oidArcArray)
@@ -145,7 +146,7 @@ public class BERObjectIdentifier
     //         11112222333344445555666677778888 
     //
 
-    public static int[] BerByteArrayToIntArray(byte[] berBytes)
+	public static int[] BerByteArrayToIntArray(byte[] berBytes)
     {
         ArrayList intArrayList = new ArrayList();
         ArrayList oneArcSequence = new ArrayList();

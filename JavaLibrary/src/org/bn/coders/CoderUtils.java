@@ -141,7 +141,7 @@ public class CoderUtils {
            return result;
     }    
     
-    public static SortedMap<Integer,Field> getSetOrder(Class objectClass){
+    public static SortedMap<Integer,Field> getSetOrder(Class<?> objectClass){
         SortedMap<Integer, Field> fieldOrder = new TreeMap<Integer,Field>();
         final int tagNA = -1;        
         for ( Field field : objectClass.getDeclaredFields() ) {
@@ -195,9 +195,9 @@ public class CoderUtils {
         }
     }
     
-    /*public static boolean isImplements(Class objectClass, Class interfaceClass) {        
+    /*public static boolean isImplements(Class<?> objectClass, Class<?> interfaceClass) {        
         return objectClass.isAnnotationPresent(ASN1PreparedElement.class);
-        /*for(Class item: objectClass.getInterfaces()) {
+        /*for(Class<?> item: objectClass.getInterfaces()) {
             if(item.equals(interfaceClass)) {
                 return true;
             }
@@ -284,7 +284,7 @@ public class CoderUtils {
         return isEqual;
     }
     
-    public static Method findMethodForField(String methodName, Class objectClass, Class paramClass ) throws NoSuchMethodException {
+    public static Method findMethodForField(String methodName, Class<?> objectClass, Class<?> paramClass ) throws NoSuchMethodException {
         try {
             return objectClass.getMethod(methodName, new Class[] {paramClass});
         }
@@ -299,28 +299,28 @@ public class CoderUtils {
         }
     }      
     
-    public static Method findSetterMethodForField(Field field, Class objectClass, Class paramClass) throws NoSuchMethodException {
+    public static Method findSetterMethodForField(Field field, Class<?> objectClass, Class<?> paramClass) throws NoSuchMethodException {
         String methodName = "set"+field.getName().toUpperCase().substring(0,1)+field.getName().substring(1);
         return findMethodForField(methodName, objectClass, paramClass);
     }
     
-    public static Method findDoSelectMethodForField(Field field, Class objectClass, Class paramClass) throws NoSuchMethodException {
+    public static Method findDoSelectMethodForField(Field field, Class<?> objectClass, Class<?> paramClass) throws NoSuchMethodException {
         String methodName = "select"+field.getName().toUpperCase().substring(0,1)+field.getName().substring(1);
         return findMethodForField(methodName, objectClass, paramClass);
     }
     
     
-    public static Method findGetterMethodForField(Field field, Class objectClass) throws NoSuchMethodException {
+    public static Method findGetterMethodForField(Field field, Class<?> objectClass) throws NoSuchMethodException {
         String getterMethodName = "get"+field.getName().toUpperCase().substring(0,1)+field.getName().substring(1);
         return objectClass.getMethod(getterMethodName,(java.lang.Class[])null);
     }
 
-    public static Method findIsSelectedMethodForField(Field field, Class objectClass) throws NoSuchMethodException {
+    public static Method findIsSelectedMethodForField(Field field, Class<?> objectClass) throws NoSuchMethodException {
         String methodName = "is"+field.getName().toUpperCase().substring(0,1)+field.getName().substring(1)+"Selected";
         return objectClass.getMethod(methodName,(java.lang.Class[])null);
     }    
     
-    public static boolean isMemberClass(Class objectClass, ElementInfo elementInfo) {
+    public static boolean isMemberClass(Class<?> objectClass, ElementInfo elementInfo) {
         //return objectClass.isMemberClass();
         if(elementInfo.hasPreparedInfo()) {
             return elementInfo.getPreparedInfo().isMemberClass();
@@ -358,23 +358,23 @@ public class CoderUtils {
         return result;
     }
 
-    public static Class getCollectionType(ElementInfo elementInfo) {
+    public static Class<?> getCollectionType(ElementInfo elementInfo) {
         ParameterizedType tp = (ParameterizedType)elementInfo.getGenericInfo();
 	return getCollectionType(tp);
     }
 
-    public static Class getCollectionType(ParameterizedType tp) {
+    public static Class<?> getCollectionType(ParameterizedType tp) {
 
 	Type tpParam = tp.getActualTypeArguments()[0];
-	Class paramType = null;
+	Class<?> paramType = null;
 	if(tpParam instanceof GenericArrayType) {
-		paramType = (Class)((GenericArrayType)tpParam).getGenericComponentType();
+		paramType = (Class<?>)((GenericArrayType)tpParam).getGenericComponentType();
 		if(paramType.equals(byte.class)) {
 			paramType = byte[].class;
 		}
 	}
 	else
-            paramType = (Class)tp.getActualTypeArguments()[0];
+            paramType = (Class<?>)tp.getActualTypeArguments()[0];
 	return paramType;
 
     }
