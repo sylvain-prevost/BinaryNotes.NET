@@ -351,5 +351,11 @@ namespace test.org.bn.coders
             checkEncoded(encoder, coderTestUtils.createTestOID4(), coderTestUtils.createTestOID4Bytes());
         }
 
-	}
+
+        internal void testEncodeCSSpecific()
+        {
+            test_asn.Version version = new test_asn.Version();
+            Assert.NotNull(version);
+        }
+    }
 }

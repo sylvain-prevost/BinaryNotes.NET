@@ -451,5 +451,9 @@ namespace test.org.bn.coders
             Assert.Equals(oid4.Value, coderTestUtils.createTestOID4().Value.Value);
 
         }
-	}
+
+        internal void testDecodeCSSpecific()
+        {
+        }
+    }
 }

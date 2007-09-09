@@ -185,16 +185,26 @@ namespace org.bn.coders
         public static SortedList<int, PropertyInfo> getSetOrder(Type objClass)
         {
             SortedList<int, PropertyInfo> fieldOrder = new SortedList<int, PropertyInfo>();
-            const int tagNA = -1;
+            int tagNA = -1;
             foreach (PropertyInfo field in objClass.GetProperties())
             {
                 ASN1Element element = CoderUtils.getAttribute<ASN1Element>(field);
                 if (element != null)
                 {
-                    if (element.HasTag)
-                        fieldOrder.Add(element.Tag, field);
-                    else
-                        fieldOrder.Add(tagNA, field);
+                    try
+                    {
+                        if (element.HasTag)
+                            fieldOrder.Add(element.Tag, field);
+                        else
+                            fieldOrder.Add(tagNA--, field);
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        if (element.HasTag)
+                            throw new Exception("Duplicate tag [" + element.Tag + "] for set has been detected!");
+                        else
+                            throw new Exception("Cannot be specified more field in SET without tag specified");
+                    }
                 }
             }
             return fieldOrder;

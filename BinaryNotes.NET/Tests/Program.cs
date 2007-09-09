@@ -63,6 +63,7 @@ namespace Tests
             test.testEncodeLongTag2();
             test.testSequenceOfUTFString();
             test.testEncodeOID();
+            test.testEncodeCSSpecific();
         }
 
         static void runDecoderTest(DecoderTest test)
@@ -91,6 +92,7 @@ namespace Tests
             test.testDecodeLongTag2();
             test.testDecodeCSEnum();
             test.testDecodeOID();
+            test.testDecodeCSSpecific();
         }
 
         [STAThread]

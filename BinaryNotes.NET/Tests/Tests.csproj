@@ -81,6 +81,8 @@
     <Compile Include="test\org\bn\coders\test_asn\ITUType5.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ITUType6.cs" />
     <Compile Include="test\org\bn\coders\test_asn\main.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Major.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Minor.cs" />
     <Compile Include="test\org\bn\coders\test_asn\NullSequence.cs" />
     <Compile Include="test\org\bn\coders\test_asn\OctetStringArray.cs" />
     <Compile Include="test\org\bn\coders\test_asn\PlainParamsMap.cs" />
@@ -130,6 +132,7 @@
     <Compile Include="test\org\bn\coders\test_asn\TEST_ASN.cs" />
     <Compile Include="test\org\bn\coders\test_asn\UTF8StringArray.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ValueWithParams.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Version.cs" />
     <Compile Include="test\org\bn\performance\DummyPerformanceTest.cs" />
     <Compile Include="test\org\bn\utils\BitArrayInputStreamTest.cs" />
     <Compile Include="test\org\bn\utils\BitArrayOutputStreamTest.cs" />

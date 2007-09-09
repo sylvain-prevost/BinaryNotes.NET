@@ -338,7 +338,12 @@ EXPORTS TestOCT,TestPRN,TestI32,TestI16,TestI8,ContentType,ValueWithParams,Param
 	)
 	( SIZE (1..255) )
 
-	
+	Minor ::= [APPLICATION 105] INTEGER
+	Major ::= [APPLICATION 106] INTEGER 
 
+	Version ::= SET { 
+		minor Minor, 
+		major Major 
+	} 
 
 END
