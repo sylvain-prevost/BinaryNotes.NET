@@ -20,16 +20,17 @@
     <pathelement path="${depends.libs.path}/lineargs.jar"/>
     <pathelement path="${depends.libs.path}/antlr.jar"/>
     <pathelement path="${depends.libs.path}/activation.jar"/>
-    <pathelement path="${depends.libs.path}/jaxb-api.jar"/>
-    <pathelement path="${depends.libs.path}/jaxb-impl.jar"/>
-    <pathelement path="${depends.libs.path}/jaxb1-impl.jar"/>
-    <pathelement path="${depends.libs.path}/jsr173_1.0_api.jar"/>
+    <pathelement path="${depends.libs.path}/java5/jaxb-api.jar"/>
+    <pathelement path="${depends.libs.path}/java5/jaxb-impl.jar"/>
+    <pathelement path="${depends.libs.path}/java5/jaxb1-impl.jar"/>
+    <pathelement path="${depends.libs.path}/java5/jsr173_1.0_api.jar"/>
     <pathelement path="${dist.path.lib}/java/binarynotes.jar"/>
     <pathelement path="${dist.path.bin}/bncompiler.jar"/>
   </path>
   <target name="init">
     <tstamp/>
     <mkdir dir="${output.dir}"/>
+    <available classname="javax.xml.bind.JAXBContext" classpathref="classpath" property="jaxb.present"/>
   </target>
   <target name="bncompile" depends="init">
     <java classname="org.bn.compiler.Main" fork="true">

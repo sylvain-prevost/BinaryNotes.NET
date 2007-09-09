@@ -35,28 +35,18 @@
     <mkdir dir="${output.dir}"/>
     <available classname="javax.xml.bind.JAXBContext" classpathref="classpath" property="jaxb.present"/>
   </target>
-  <target name="all" description="Build the project" depends="compile, copy, buildjar, compile-j5, copy, buildjar-j5, copy-xsls"/>
+  <target name="all" description="Build the project" depends="compile, copy, buildjar, copy-xsls"/>
   <target name="clean" description="Clean the project">
     <delete includeemptydirs="true" quiet="true">
       <fileset dir="${output.dir}" includes="**/*"/>
     </delete>
   </target>
-  <target name="compile" description="Compile Java source files" depends="init" if="jaxb.present">
-    <antcall target="clean"/>
-    <javac destdir="${output.dir}" classpathref="classpath"
-           debug="${javac.debug}" nowarn="${javac.nowarn}"
-           deprecation="${javac.deprecation}" optimize="true">
-      <src path="src"/>
-      <compilerarg line="${javac.compilerargs}"/>
-    </javac>
-  </target>
-  <target name="compile-j5" description="Compile Java source files" depends="init">
-    <antcall target="clean"/>
+  <target name="compile" description="Compile Java source files" depends="init">
     <javac destdir="${output.dir}" classpathref="classpath-j5"
            debug="${javac.debug}" nowarn="${javac.nowarn}"
            deprecation="${javac.deprecation}" optimize="true">
       <src path="src"/>
-      <compilerarg line="${javac.compilerargs} -target 1.5 -source 1.5"/>
+      <compilerarg line="${javac.compilerargs}"/>
     </javac>
   </target>
   <target name="copy" description="Copy files to output directory"
@@ -73,30 +63,17 @@
       </fileset>
     </copy>
   </target>
-  <target name="buildjar" description="Building jar file" depends="init" if="jaxb.present">
+  <target name="buildjar" description="Building jar file" depends="init">
         <jar destfile="${dist.path.bin}/bncompiler.jar" compress="yes">
             <fileset dir="${output.dir}"/>
-	    <manifest>
-		<attribute name="Main-Class" value="org.bn.compiler.Main"/>
-		<attribute name="Implementation-Vendor" value="Abdulla G. Abdurakhmanov"/>
-		<attribute name="Implementation-URL" value="http://bnotes.sourceforge.net"/>
-		<attribute name="Implementation-Mail" value="abdulla.abdurakhmanov@gmail.com"/>
-		<attribute name="Implementation-Title" value="BinaryNotes Compiler"/>
-		<attribute name="Version" value="${version}"/>
-	    </manifest>
-        </jar>  
-  </target>
-  <target name="buildjar-j5" description="Building jar file for Java5" depends="init">
-        <jar destfile="${dist.path.bin}/bncompiler-java5.jar" compress="yes">
-            <fileset dir="${output.dir}"/>
-	    <manifest>
-		<attribute name="Main-Class" value="org.bn.compiler.Main"/>
-		<attribute name="Implementation-Vendor" value="Abdulla G. Abdurakhmanov"/>
-		<attribute name="Implementation-URL" value="http://bnotes.sourceforge.net"/>
-		<attribute name="Implementation-Mail" value="abdulla.abdurakhmanov@gmail.com"/>
-		<attribute name="Implementation-Title" value="BinaryNotes Compiler for Java5"/>
-		<attribute name="Version" value="${version}"/>
-	    </manifest>
+		    <manifest>
+				<attribute name="Main-Class" value="org.bn.compiler.Main"/>
+				<attribute name="Implementation-Vendor" value="Abdulla G. Abdurakhmanov"/>
+				<attribute name="Implementation-URL" value="http://bnotes.sourceforge.net"/>
+				<attribute name="Implementation-Mail" value="abdulla.abdurakhmanov@gmail.com"/>
+				<attribute name="Implementation-Title" value="BinaryNotes Compiler"/>
+				<attribute name="Version" value="${version}"/>
+		    </manifest>
         </jar>  
   </target>
   <target name="copy-xsls" description="Copy XSL templates to Dist"

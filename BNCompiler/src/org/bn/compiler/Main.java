@@ -29,7 +29,6 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 import java.io.OutputStream;
-import java.io.PrintStream;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -40,7 +39,7 @@ import org.lineargs.LineArgsParser;
 
 
 public class Main {
-    private final static String version = "1.5.0";
+    private final static String version = "1.5.1";
     private LineArgsParser     parser    = new LineArgsParser();
     private CompilerArgs arguments = null;
     
