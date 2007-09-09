@@ -31,7 +31,7 @@
 	<xsl:param name="elementName"/>
 	<xsl:variable name="sequenceName"><xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>SequenceType</xsl:variable>        
 
-            <xsl:if test="typeReference/isSequence = 'true'">
+            <xsl:if test="typeReference/isSequence = 'true' or typeReference/isSequence = 'false' ">
                 <xsl:for-each select="typeReference">
 
        @ASN1PreparedElement

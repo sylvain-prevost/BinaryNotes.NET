@@ -41,7 +41,7 @@
             <xsl:when test="typeReference/BUILTINTYPE = 'REAL'">double</xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'INTEGER'"><xsl:for-each select="typeReference"><xsl:call-template name="integerTypeDecl"/></xsl:for-each></xsl:when>
             <xsl:when test="typeReference/isSequenceOf = 'true'"><xsl:if test="$instanceable != 'yes'">System.Collections.Generic.ICollection</xsl:if><xsl:if test="$instanceable = 'yes'">System.Collections.Generic.List</xsl:if>&lt;<xsl:for-each select="typeReference"><xsl:call-template name="elementType"/></xsl:for-each>&gt;</xsl:when>
-	    <xsl:when test="typeReference/isSequence = 'true'"><xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>SequenceType</xsl:when>
+	    <xsl:when test="typeReference/isSequence = 'true' or typeReference/isSequence = 'false'"><xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>SequenceType</xsl:when>
             <xsl:when test="typeReference/isChoice = 'true'"><xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>ChoiceType</xsl:when>
             <xsl:when test="typeReference/isNull = 'true'">NullObject</xsl:when>
             <xsl:otherwise>byte[]</xsl:otherwise>

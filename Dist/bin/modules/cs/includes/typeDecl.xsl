@@ -52,7 +52,7 @@
             <xsl:when test="typeReference/BUILTINTYPE = 'INTEGER'"><xsl:call-template name="integerDecl"/> </xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'REAL'"><xsl:call-template name="realDecl"/> </xsl:when>
             <xsl:when test="typeReference/isSequenceOf = 'true'"><xsl:call-template name="sequenceOfDecl"/></xsl:when>
-            <xsl:when test="typeReference/isSequence = 'true'"><xsl:call-template name="sequenceDecl"><xsl:with-param name="elementName" select="name"/></xsl:call-template></xsl:when>
+            <xsl:when test="typeReference/isSequence = 'true' or typeReference/isSequence = 'false'"><xsl:call-template name="sequenceDecl"><xsl:with-param name="elementName" select="name"/></xsl:call-template></xsl:when>
             <xsl:when test="typeReference/isChoice = 'true'"><xsl:call-template name="choiceDecl"><xsl:with-param name="elementName" select="name"/></xsl:call-template></xsl:when>
             <xsl:when test="typeReference/isNull = 'true'"><xsl:call-template name="nullDecl"/></xsl:when>
             <xsl:when test="string-length(typeName) > 0"></xsl:when>

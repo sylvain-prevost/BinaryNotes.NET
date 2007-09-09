@@ -5,6 +5,8 @@ ChangeLog
 							[!] 		- Important warning or note
 							{<component>}	- Component/Group that changed
 
+1.5.1	{lib}		[*] Fixed incorrect set ordering for untagged SET fields
+1.5.1	{comp}		[*] Fixed incorrect code generation for tagged SET 
 1.5.1	{all}		[+] Java5 configuration is added (Some platforms like Mac OS haven't Java6 up till now)
 1.5.1	{lib}		[*] Fixed optional enumeration decoding. Thanks Sabri Skhiri.
 1.5.1	{lib}		[*] Fixed decoding for SEQUENCE OF OCTET STRING construction. Thanks to Chris Warren for report.

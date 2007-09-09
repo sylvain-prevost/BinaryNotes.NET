@@ -346,7 +346,7 @@ EXPORTS TestOCT,TestPRN,TestI32,TestI16,TestI8,ContentType,ValueWithParams,Param
 		major Major 
 	} 
 
-        TestTaggedSet ::= SET {
+        TestTaggedSet ::= [APPLICATION 54] SET {
                 field1 [1] INTEGER,
                 field2 [2] INTEGER
         }
