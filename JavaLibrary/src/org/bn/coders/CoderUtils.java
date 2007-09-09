@@ -143,14 +143,14 @@ public class CoderUtils {
     
     public static SortedMap<Integer,Field> getSetOrder(Class<?> objectClass){
         SortedMap<Integer, Field> fieldOrder = new TreeMap<Integer,Field>();
-        final int tagNA = -1;        
+        int tagNA = -1;        
         for ( Field field : objectClass.getDeclaredFields() ) {
             ASN1Element element = field.getAnnotation(ASN1Element.class);
             if(element!=null) {
                 if(element.hasTag())
                     fieldOrder.put(element.tag(),field);
                 else
-                    fieldOrder.put(tagNA,field);
+                    fieldOrder.put(tagNA--,field);
             }
         }
         return fieldOrder;
