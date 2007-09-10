@@ -37,6 +37,7 @@
     <xsl:import href="nullDecl.xsl"/>
     <xsl:import href="sequenceDecl.xsl"/>
     <xsl:import href="choiceDecl.xsl"/>
+    <xsl:import href="enumDecl.xsl"/>
     
     <xsl:import href="constraint.xsl"/>
 
@@ -54,6 +55,7 @@
             <xsl:when test="typeReference/isSequenceOf = 'true'"><xsl:call-template name="sequenceOfDecl"/></xsl:when>
             <xsl:when test="typeReference/isSequence = 'true' or typeReference/isSequence = 'false'"><xsl:call-template name="sequenceDecl"><xsl:with-param name="elementName" select="name"/></xsl:call-template></xsl:when>
             <xsl:when test="typeReference/isChoice = 'true'"><xsl:call-template name="choiceDecl"><xsl:with-param name="elementName" select="name"/></xsl:call-template></xsl:when>
+	    <xsl:when test="typeReference/isEnum = 'true'"><xsl:call-template name="enumDecl"><xsl:with-param name="elementName" select="name"/></xsl:call-template></xsl:when>
             <xsl:when test="typeReference/isNull = 'true'"><xsl:call-template name="nullDecl"/></xsl:when>
             <xsl:when test="string-length(typeName) > 0"></xsl:when>
             <xsl:otherwise><xsl:call-template name="anyDecl"/> </xsl:otherwise>

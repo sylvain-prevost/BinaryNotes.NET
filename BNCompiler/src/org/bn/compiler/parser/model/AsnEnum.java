@@ -14,6 +14,7 @@ public class AsnEnum {
     public String             name;
     public AsnNamedNumberList namedNumberList;
     public String             snaccName;    // specifically added for snacc code generation
+    public Boolean            isEnum = true;
 
     //~--- constructors -------------------------------------------------------
 
