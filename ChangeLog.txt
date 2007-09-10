@@ -7,7 +7,7 @@ ChangeLog
 
 1.5.1	{comp}		[*] Fixed incorrect code generation for tagged SET OF. Thanks to Ulf Richter
 1.5.1	{comp}		[*] Fixed incorrect code generation for unnamed inner enumeration
-1.5.1	{lib}		[*] Fixed incorrect set ordering for untagged SET fields
+1.5.1	{lib}		[*] Fixed incorrect set ordering for untagged SET fields. Thanks to Ulf Richter.
 1.5.1	{comp}		[*] Fixed incorrect code generation for tagged SET. Thanks to Ulf Richter.
 1.5.1	{all}		[+] Regression: Java5 configuration is returned back (Some platforms like Mac OS haven't Java6 up till now)
 1.5.1	{lib}		[*] Fixed optional enumeration decoding. Thanks Sabri Skhiri.
