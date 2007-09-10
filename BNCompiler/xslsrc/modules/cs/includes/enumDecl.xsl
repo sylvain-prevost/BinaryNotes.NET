@@ -33,7 +33,7 @@
     
     <xsl:variable name="outputDirectory"><xsl:value-of select="//outputDirectory"/></xsl:variable>
     
-    <xsl:template name="enum">
+    <xsl:template name="enumDecl">
 	<xsl:param name="elementName"/>        
 	<xsl:variable name="enumName"><xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>EnumType</xsl:variable>
             <xsl:if test="typeReference/isEnum = 'true'">
