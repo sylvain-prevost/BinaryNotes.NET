@@ -461,4 +461,16 @@ public abstract class DecoderTest extends TestCase {
         ObjectIdentifier oid4 = decoder.decode(stream, ObjectIdentifier.class);
         assertEquals(oid4.getValue(), coderTestUtils.createTestOID4().getValue().getValue());        
     }    
+    
+    public void testDecodeTaggedSet() throws Exception {
+        IDecoder decoder = newDecoder();
+        assertNotNull(decoder);
+
+        ByteArrayInputStream stream = 
+            new ByteArrayInputStream(coderTestUtils.createTaggedSetBytes());
+        Config tset = decoder.decode(stream, Config.class);
+        assertEquals(tset.getValue().getLstVersion().getValue().size(), 
+        		coderTestUtils.createTaggedSet().getValue().getLstVersion().getValue().size());
+    	
+    }
 }

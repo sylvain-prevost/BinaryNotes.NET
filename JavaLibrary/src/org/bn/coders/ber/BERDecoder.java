@@ -388,8 +388,14 @@ public class BERDecoder extends Decoder {
     public DecodedObject decodeSequenceOf(DecodedObject decodedTag, Class objectClass, 
                                              ElementInfo elementInfo, 
                                       InputStream stream) throws Exception {
-        if(!checkTagForObject(decodedTag, TagClass.Universal, ElementType.Constructed, UniversalTag.Sequence, elementInfo))
-            return null;                                      
+    	if(!CoderUtils.isSequenceSetOf( elementInfo )) { 
+	        if(!checkTagForObject(decodedTag, TagClass.Universal, ElementType.Constructed, UniversalTag.Sequence, elementInfo))
+	            return null;
+    	}
+    	else {
+	        if(!checkTagForObject(decodedTag, TagClass.Universal, ElementType.Constructed, UniversalTag.Set, elementInfo))
+	            return null;    		
+    	}
         Collection result = new LinkedList();
         DecodedObject<Integer> len = decodeLength(stream);
         if(len.getValue()!=0) {

@@ -337,6 +337,16 @@ public abstract class EncoderTest extends TestCase {
         testOID = coderTestUtils.createTestOID4();
         printEncoded("OID " + testOID.getValue().getValue(), encoder, testOID);
         checkEncoded(encoder, coderTestUtils.createTestOID4(), coderTestUtils.createTestOID4Bytes());
-    }   
+    }
+    
+    public void testEncodeTaggedSet() throws Exception {
+    	IEncoder<?> encoder = newEncoder();
+        assertNotNull(encoder);
+        //
+        Config taggedSet = coderTestUtils.createTaggedSet();
+        printEncoded("TaggedSet",encoder, taggedSet);
+        checkEncoded(encoder, coderTestUtils.createTaggedSet(), coderTestUtils.createTaggedSetBytes());
+        
+    }
     
 }

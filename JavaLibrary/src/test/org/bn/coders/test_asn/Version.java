@@ -16,15 +16,21 @@ import org.bn.types.*;
 
 
     @ASN1PreparedElement
-    @ASN1Sequence ( name = "Version", isSet = true )
+    @ASN1BoxedType ( name = "Version" )
     public class Version implements IASN1PreparedElement {
-            
-        @ASN1Element ( name = "minor", isOptional =  false , hasTag =  false  , hasDefaultValue =  false  )
+                
+        
+
+       @ASN1PreparedElement
+       @ASN1Sequence ( name = "Version" , isSet = true )
+       public static class VersionSequenceType implements IASN1PreparedElement {
+                
+        @ASN1Element ( name = "minor", isOptional =  true , hasTag =  false  , hasDefaultValue =  false  )
     
 	private Minor minor = null;
                 
   
-        @ASN1Element ( name = "major", isOptional =  false , hasTag =  false  , hasDefaultValue =  false  )
+        @ASN1Element ( name = "major", isOptional =  true , hasTag =  false  , hasDefaultValue =  false  )
     
 	private Major major = null;
                 
@@ -34,6 +40,10 @@ import org.bn.types.*;
             return this.minor;
         }
 
+        
+        public boolean isMinorPresent () {
+            return this.minor != null;
+        }
         
 
         public void setMinor (Minor value) {
@@ -47,17 +57,57 @@ import org.bn.types.*;
         }
 
         
+        public boolean isMajorPresent () {
+            return this.major != null;
+        }
+        
 
         public void setMajor (Major value) {
             this.major = value;
         }
         
   
-                    
-        
+                
+                
         public void initWithDefaults() {
             
         }
+
+        public IASN1PreparedElementData getPreparedData() {
+            return preparedData_VersionSequenceType;
+        }
+
+       private static IASN1PreparedElementData preparedData_VersionSequenceType = CoderFactory.getInstance().newPreparedElementData(VersionSequenceType.class);
+                
+       }
+
+       
+                
+        @ASN1Element ( name = "Version", isOptional =  false , hasTag =  true, tag = 74, 
+        tagClass =  TagClass.Application  , hasDefaultValue =  false  )
+    
+        private VersionSequenceType  value;        
+
+        
+        
+        public Version () {
+        }
+        
+        
+        
+        public void setValue(VersionSequenceType value) {
+            this.value = value;
+        }
+        
+        
+        
+        public VersionSequenceType getValue() {
+            return this.value;
+        }            
+        
+
+	    public void initWithDefaults() {
+	    }
 
         private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(Version.class);
         public IASN1PreparedElementData getPreparedData() {

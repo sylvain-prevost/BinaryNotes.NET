@@ -232,4 +232,11 @@ public class PERAlignedCoderTestUtils extends CoderTestUtilities {
     {
         return new byte[] { 0x04, 0x67, 0x2A, 0x03, 0x00 };
     }
+
+	@Override
+	public byte[] createTaggedSetBytes() {
+		return new byte[] { 01,(byte) 0xC0,0x02,0x00,(byte) 0xAA,0x02,0x00,(byte) 0xBB,0x02,0x00,(byte) 0xCC };
+	}
+    
+    
 }
