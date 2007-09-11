@@ -412,8 +412,16 @@ namespace org.bn.coders.ber
 		
 		public override DecodedObject<object> decodeSequenceOf(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
 		{
-			if (!checkTagForObject(decodedTag, TagClasses.Universal, ElementType.Constructed, UniversalTags.Sequence, elementInfo))
-				return null;
+            if (!CoderUtils.isSequenceSetOf(elementInfo))
+            {
+                if (!checkTagForObject(decodedTag, TagClasses.Universal, ElementType.Constructed, UniversalTags.Sequence, elementInfo))
+                    return null;
+            }
+            else
+            {
+                if (!checkTagForObject(decodedTag, TagClasses.Universal, ElementType.Constructed, UniversalTags.Set, elementInfo))
+                    return null;
+            }
 
             Type paramType = (System.Type)objectClass.GetGenericArguments()[0];
             Type collectionType = typeof(List<>);
