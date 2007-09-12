@@ -16,29 +16,32 @@ import org.bn.types.*;
 
 
     @ASN1PreparedElement
-    @ASN1BoxedType ( name = "ITUType4" )
-    public class ITUType4 implements IASN1PreparedElement {
+    @ASN1BoxedType ( name = "LstVersion" )
+    public class LstVersion implements IASN1PreparedElement {
                 
         
-        @ASN1Element ( name = "ITUType4", isOptional =  false , hasTag =  true, tag = 7, 
+@ASN1SequenceOf( name = "", isSetOf = true ) 
+
+    
+        @ASN1Element ( name = "LstVersion", isOptional =  false , hasTag =  true, tag = 75, 
         tagClass =  TagClass.Application  , hasDefaultValue =  false  )
     
-        private ITUType3  value;        
+        private java.util.Collection<Version>   value;        
 
         
         
-        public ITUType4 () {
+        public LstVersion () {
         }
         
         
         
-        public void setValue(ITUType3 value) {
+        public void setValue(java.util.Collection<Version>  value) {
             this.value = value;
         }
         
         
         
-        public ITUType3 getValue() {
+        public java.util.Collection<Version>  getValue() {
             return this.value;
         }            
         
@@ -46,7 +49,7 @@ import org.bn.types.*;
 	    public void initWithDefaults() {
 	    }
 
-        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(ITUType4.class);
+        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(LstVersion.class);
         public IASN1PreparedElementData getPreparedData() {
             return preparedData;
         }
