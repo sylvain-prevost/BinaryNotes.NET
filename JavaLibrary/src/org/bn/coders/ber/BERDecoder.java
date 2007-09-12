@@ -93,14 +93,19 @@ public class BERDecoder extends Decoder {
     public DecodedObject decodeSequence(DecodedObject decodedTag,Class objectClass, 
                                            ElementInfo elementInfo, InputStream stream) throws Exception {
         boolean isSet = false;
-        if(checkTagForObject(decodedTag, TagClass.Universal, ElementType.Constructed, UniversalTag.Sequence,elementInfo)) {
+        if(!CoderUtils.isSequenceSet(elementInfo)) {
+	        if(checkTagForObject(decodedTag, TagClass.Universal, ElementType.Constructed, UniversalTag.Sequence,elementInfo)) {
+	        }
+	        else
+	        	return null;	        
         }
-        else
-        if(checkTagForObject(decodedTag, TagClass.Universal, ElementType.Constructed, UniversalTag.Set,elementInfo)) {
-            isSet = true;
+        else {
+	        if(checkTagForObject(decodedTag, TagClass.Universal, ElementType.Constructed, UniversalTag.Set,elementInfo)) {
+	            isSet = true;
+	        }
+	        else
+	        	return null;
         }
-        else
-            return null;
 
         DecodedObject<Integer> len = decodeLength(stream);
         int saveMaxAvailableLen = elementInfo.getMaxAvailableLen();
@@ -158,12 +163,16 @@ public class BERDecoder extends Decoder {
                     }                
                     
                     if(!isAny) {
-                        fieldTag = decodeTag(stream);
-                        if(fieldTag!=null)
-                            sizeOfSet += fieldTag.getSize();
-                        else {
-                            break;
-                        }
+                    	if(i<fields.length-1) {
+	                        fieldTag = decodeTag(stream);
+	                        if(fieldTag!=null)
+	                            sizeOfSet += fieldTag.getSize();
+	                        else {
+	                            break;
+	                        }
+                    	}
+                    	else
+                    		break;
                     }
                 }
             }    
