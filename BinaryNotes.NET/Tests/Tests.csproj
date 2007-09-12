@@ -63,6 +63,7 @@
     <Compile Include="test\org\bn\coders\test_asn\BugPrimitive.cs" />
     <Compile Include="test\org\bn\coders\test_asn\BugSequenceType.cs" />
     <Compile Include="test\org\bn\coders\test_asn\BugValueType.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Config.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ContentPartHeader.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ContentPartHeaders.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ContentSchema.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="test\org\bn\coders\test_asn\ITUType4.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ITUType5.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ITUType6.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\LstVersion.cs" />
     <Compile Include="test\org\bn\coders\test_asn\main.cs" />
     <Compile Include="test\org\bn\coders\test_asn\Major.cs" />
     <Compile Include="test\org\bn\coders\test_asn\Minor.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="test\org\bn\coders\test_asn\TestSequenceWithNonames.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestSeqV13.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestSimpleSequence.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\TestTaggedSetInSet.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestTParent.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestTParent2.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestUnicodeStr.cs" />

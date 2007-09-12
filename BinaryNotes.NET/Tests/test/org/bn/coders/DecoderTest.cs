@@ -455,5 +455,29 @@ namespace test.org.bn.coders
         internal void testDecodeCSSpecific()
         {
         }
+
+        internal void testDecodeTaggedSet()
+        {
+            IDecoder decoder = newDecoder();
+            Assert.NotNull(decoder);
+
+            System.IO.MemoryStream stream =
+              new System.IO.MemoryStream(coderTestUtils.createTaggedSetBytes());
+            Config tset = decoder.decode<Config>(stream);
+            Assert.Equals(tset.Value.LstVersion.Value.Count,
+                    coderTestUtils.createTaggedSet().Value.LstVersion.Value.Count);
+        	
+        }
+
+        internal void testDecodeTaggedSetInSet()
+        {
+            IDecoder decoder = newDecoder();
+            Assert.NotNull(decoder);
+
+            System.IO.MemoryStream stream =
+              new System.IO.MemoryStream(coderTestUtils.createTaggedSetInSetBytes());
+            TestTaggedSetInSet tset = decoder.decode<TestTaggedSetInSet>(stream);
+        }
+
     }
 }

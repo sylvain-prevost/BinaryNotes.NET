@@ -357,5 +357,24 @@ namespace test.org.bn.coders
             test_asn.Version version = new test_asn.Version();
             Assert.NotNull(version);
         }
+
+        internal void testEncodeTaggedSet() {
+            IEncoder encoder = newEncoder();
+            Assert.NotNull(encoder);
+            //
+            Config taggedSet = coderTestUtils.createTaggedSet();
+            printEncoded("TaggedSet",encoder, taggedSet);
+            checkEncoded(encoder, coderTestUtils.createTaggedSet(), coderTestUtils.createTaggedSetBytes());            
+        }
+
+        internal void testEncodeTaggedSetInSet() {
+            IEncoder encoder = newEncoder();
+            Assert.NotNull(encoder);
+
+            TestTaggedSetInSet taggedSet = coderTestUtils.createTaggedSetInSet();
+            printEncoded("TaggedSetInSet",encoder, taggedSet);
+            checkEncoded(encoder, coderTestUtils.createTaggedSetInSet(), coderTestUtils.createTaggedSetInSetBytes());
+        }
+
     }
 }

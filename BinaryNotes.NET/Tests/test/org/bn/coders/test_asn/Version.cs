@@ -16,37 +16,86 @@ namespace test.org.bn.coders.test_asn {
 
 
     [ASN1PreparedElement]
-    [ASN1Sequence ( Name = "Version", IsSet = true  )]
-    public class Version : IASN1PreparedElement {
-                    
+    [ASN1BoxedType ( Name = "Version") ]
+    public class Version: IASN1PreparedElement {
+            
+           
+        private VersionSequenceType  val;
+
+        
+       [ASN1PreparedElement]
+       [ASN1Sequence ( Name = "Version", IsSet = true  )]
+       public class VersionSequenceType : IASN1PreparedElement {
+                        
 	private Minor minor_ ;
 	
-        [ASN1Element ( Name = "minor", IsOptional =  false , HasTag =  false  , HasDefaultValue =  false )  ]
+        private bool  minor_present = false ;
+	
+        [ASN1Element ( Name = "minor", IsOptional =  true , HasTag =  false  , HasDefaultValue =  false )  ]
     
         public Minor Minor
         {
             get { return minor_; }
-            set { minor_ = value;  }
+            set { minor_ = value; minor_present = true;  }
         }
         
                 
           
 	private Major major_ ;
 	
-        [ASN1Element ( Name = "major", IsOptional =  false , HasTag =  false  , HasDefaultValue =  false )  ]
+        private bool  major_present = false ;
+	
+        [ASN1Element ( Name = "major", IsOptional =  true , HasTag =  false  , HasDefaultValue =  false )  ]
     
         public Major Major
         {
             get { return major_; }
-            set { major_ = value;  }
+            set { major_ = value; major_present = true;  }
         }
         
                 
   
+        public bool isMinorPresent () {
+            return this.minor_present == true;
+        }
+        
+        public bool isMajorPresent () {
+            return this.major_present == true;
+        }
+        
+                
+                public void initWithDefaults() {
+            		
+                }
 
-            public void initWithDefaults() {
-            	
+            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(VersionSequenceType));
+            public IASN1PreparedElementData PreparedData {
+            	get { return preparedData; }
             }
+
+                
+       }
+                
+        [ASN1Element ( Name = "Version", IsOptional =  false , HasTag =  true, Tag = 74, 
+        TagClass =  TagClasses.Application  , HasDefaultValue =  false )  ]
+    
+        public VersionSequenceType Value
+        {
+                get { return val; }        
+                    
+                set { val = value; }
+                        
+        }            
+
+                    
+        
+        public Version ()
+        {
+        }
+
+            public void initWithDefaults()
+	    {
+	    }
 
 
             private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(Version));
@@ -54,7 +103,7 @@ namespace test.org.bn.coders.test_asn {
             	get { return preparedData; }
             }
 
-            
+        
     }
             
 }

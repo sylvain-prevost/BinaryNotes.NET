@@ -64,6 +64,8 @@ namespace Tests
             test.testSequenceOfUTFString();
             test.testEncodeOID();
             test.testEncodeCSSpecific();
+            test.testEncodeTaggedSet();
+            test.testEncodeTaggedSetInSet();
         }
 
         static void runDecoderTest(DecoderTest test)
@@ -93,6 +95,8 @@ namespace Tests
             test.testDecodeCSEnum();
             test.testDecodeOID();
             test.testDecodeCSSpecific();
+            test.testDecodeTaggedSet();
+            test.testDecodeTaggedSetInSet();
         }
 
         [STAThread]
