@@ -33,7 +33,7 @@ namespace org.bn.coders
             ElementInfo elemInfo = new ElementInfo();
             elemInfo.AnnotatedClass = objectClass;
             object objectInstance = null;
-            if (objectClass.IsSubclassOf(typeof(IASN1PreparedElement)))
+            if (CoderUtils.isImplements(objectClass,(typeof(IASN1PreparedElement))))
             {
                 objectInstance = createInstanceForElement(objectClass, elemInfo);
             }

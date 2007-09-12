@@ -92,6 +92,13 @@
     <Compile Include="test\org\bn\coders\test_asn\SequenceWithDefault.cs" />
     <Compile Include="test\org\bn\coders\test_asn\SequenceWithEnum.cs" />
     <Compile Include="test\org\bn\coders\test_asn\SequenceWithNull.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Set1.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Set2.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Set3.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Set4.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Set5.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Set6.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Set7.cs" />
     <Compile Include="test\org\bn\coders\test_asn\SetOfTest.cs" />
     <Compile Include="test\org\bn\coders\test_asn\SetWithDefault.cs" />
     <Compile Include="test\org\bn\coders\test_asn\StringArray.cs" />

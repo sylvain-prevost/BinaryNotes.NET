@@ -374,6 +374,12 @@ namespace test.org.bn.coders
             TestTaggedSetInSet taggedSet = coderTestUtils.createTaggedSetInSet();
             printEncoded("TaggedSetInSet",encoder, taggedSet);
             checkEncoded(encoder, coderTestUtils.createTaggedSetInSet(), coderTestUtils.createTaggedSetInSetBytes());
+
+            Set7 set7 = coderTestUtils.createSet7();
+            printEncoded("Set7", encoder, set7);
+            checkEncoded(encoder, coderTestUtils.createSet7(), coderTestUtils.createSet7Bytes());
+
+
         }
 
     }

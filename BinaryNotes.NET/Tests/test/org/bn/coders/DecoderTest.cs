@@ -477,6 +477,9 @@ namespace test.org.bn.coders
             System.IO.MemoryStream stream =
               new System.IO.MemoryStream(coderTestUtils.createTaggedSetInSetBytes());
             TestTaggedSetInSet tset = decoder.decode<TestTaggedSetInSet>(stream);
+
+            stream = new System.IO.MemoryStream(coderTestUtils.createSet7Bytes());
+            Set7 set7 = decoder.decode<Set7>(stream);
         }
 
     }

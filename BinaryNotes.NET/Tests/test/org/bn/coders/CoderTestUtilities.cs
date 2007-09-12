@@ -528,5 +528,29 @@ namespace test.org.bn.coders
 
         public abstract byte[] createTaggedSetInSetBytes();
 
+        public Set7 createSet7()
+        {
+            Set7 set7 = new Set7();
+            set7.Value = (new Set7.Set7SequenceType());
+            set7.Value.Set6 = (new Set6());
+            set7.Value.Set6.Value = (new Set6.Set6SequenceType());
+            set7.Value.Set6.Value.Set4 = (new Set4());
+            set7.Value.Set6.Value.Set4.Value = (new List<Set3>());
+            Set3 set3 = new Set3();
+            set3.Value = (new Set3.Set3SequenceType());
+            set3.Value.Set2 = (new Set2());
+            set3.Value.Set2.Value = (new List<Set1>());
+            Set1 set1 = new Set1();
+            set1.Value = (new Set1.Set1SequenceType());
+            set1.Value.Set1ID = 0x44L;
+            set3.Value.Set2.Value.Add(set1);
+            set7.Value.Set6.Value.Set4.Value.Add(set3);
+            set7.Value.Set6.Value.Set5 = (new Set5());
+            set7.Value.Set6.Value.Set5.Value = (new List<Set3>());
+            set7.Value.Set6.Value.Set5.Value.Add(set3);
+            return set7;
+        }
+
+        public abstract byte[] createSet7Bytes();
 	}
 }

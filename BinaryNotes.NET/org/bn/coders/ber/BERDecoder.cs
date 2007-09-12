@@ -76,14 +76,22 @@ namespace org.bn.coders.ber
 		public override DecodedObject<object> decodeSequence(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
 		{
             bool isSet = false;
-            if(checkTagForObject(decodedTag,TagClasses.Universal, ElementType.Constructed,UniversalTags.Sequence,elementInfo)) {
+            if (!CoderUtils.isSequenceSet(elementInfo))
+            {
+                if (!checkTagForObject(decodedTag, TagClasses.Universal, ElementType.Constructed, UniversalTags.Sequence, elementInfo))
+                {
+                    return null;
+                }
             }
             else
-            if(checkTagForObject(decodedTag,TagClasses.Universal, ElementType.Constructed,UniversalTags.Set,elementInfo)) {
-                isSet = true;
+            {
+                if (checkTagForObject(decodedTag, TagClasses.Universal, ElementType.Constructed, UniversalTags.Set, elementInfo))
+                {
+                    isSet = true;
+                }
+                else
+                    return null;
             }
-            else
-                return null;
 			DecodedObject<int> len = decodeLength(stream);
             int saveMaxAvailableLen = elementInfo.MaxAvailableLen;
             elementInfo.MaxAvailableLen = (len.Value);
@@ -148,13 +156,18 @@ namespace org.bn.coders.ber
 
                         if (!isAny)
                         {
-                            fieldTag = decodeTag(stream);
-                            if (fieldTag != null)
-                                sizeOfSequence += fieldTag.Size;
-                            else
+                            if (i < fields.Length - 1)
                             {
-                                break;
+                                fieldTag = decodeTag(stream);
+                                if (fieldTag != null)
+                                    sizeOfSequence += fieldTag.Size;
+                                else
+                                {
+                                    break;
+                                }
                             }
+                            else
+                                break;
                         }
                     }
                     ;
