@@ -481,6 +481,9 @@ public abstract class DecoderTest extends TestCase {
         ByteArrayInputStream stream = 
             new ByteArrayInputStream(coderTestUtils.createTaggedSetInSetBytes());
         TestTaggedSetInSet tset = decoder.decode(stream, TestTaggedSetInSet.class);
+        stream = 
+            new ByteArrayInputStream(coderTestUtils.createSet7Bytes());
+        Set7 set7 = decoder.decode(stream, Set7.class);
     }
 
 }

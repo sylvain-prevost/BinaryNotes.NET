@@ -531,5 +531,29 @@ public abstract class CoderTestUtilities {
     }
 
     public abstract byte[] createTaggedSetInSetBytes();
+    
+    public Set7 createSet7() {
+    	Set7 set7 = new Set7();
+    	set7.setValue(new Set7.Set7SequenceType());
+    	set7.getValue().setSet6(new Set6());
+    	set7.getValue().getSet6().setValue(new Set6.Set6SequenceType());
+    	set7.getValue().getSet6().getValue().setSet4( new Set4() );
+    	set7.getValue().getSet6().getValue().getSet4().setValue( new LinkedList < Set3 > () );
+    	Set3 set3 = new Set3();
+    	set3.setValue( new Set3.Set3SequenceType() );
+    	set3.getValue().setSet2(new Set2());
+    	set3.getValue().getSet2().setValue( new LinkedList<Set1>() );
+    	Set1 set1 = new Set1();
+    	set1.setValue( new Set1.Set1SequenceType() );
+    	set1.getValue().setSet1ID(0x44L);
+    	set3.getValue().getSet2().getValue().add( set1 );
+    	set7.getValue().getSet6().getValue().getSet4().getValue().add( set3 );
+    	set7.getValue().getSet6().getValue().setSet5( new Set5() );
+    	set7.getValue().getSet6().getValue().getSet5().setValue( new LinkedList<Set3>() );
+    	set7.getValue().getSet6().getValue().getSet5().getValue().add ( set3 );
+    	return set7;
+    }
+    
+    public abstract byte[] createSet7Bytes();
 
 }

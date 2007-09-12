@@ -16,30 +16,32 @@ import org.bn.types.*;
 
 
     @ASN1PreparedElement
-    @ASN1BoxedType ( name = "TestLongTag" )
-    public class TestLongTag implements IASN1PreparedElement {
+    @ASN1BoxedType ( name = "Set4" )
+    public class Set4 implements IASN1PreparedElement {
                 
-        @ASN1Integer( name = "" )
+        
+@ASN1SequenceOf( name = "", isSetOf = true ) 
+
     
-        @ASN1Element ( name = "TestLongTag", isOptional =  false , hasTag =  true, tag = 15123, 
+        @ASN1Element ( name = "Set4", isOptional =  false , hasTag =  true, tag = 61, 
         tagClass =  TagClass.Application  , hasDefaultValue =  false  )
     
-        private Long  value;        
+        private java.util.Collection<Set3>   value;        
 
         
         
-        public TestLongTag () {
+        public Set4 () {
         }
         
         
         
-        public void setValue(Long value) {
+        public void setValue(java.util.Collection<Set3>  value) {
             this.value = value;
         }
         
         
         
-        public Long getValue() {
+        public java.util.Collection<Set3>  getValue() {
             return this.value;
         }            
         
@@ -47,7 +49,7 @@ import org.bn.types.*;
 	    public void initWithDefaults() {
 	    }
 
-        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(TestLongTag.class);
+        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(Set4.class);
         public IASN1PreparedElementData getPreparedData() {
             return preparedData;
         }
