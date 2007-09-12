@@ -473,4 +473,14 @@ public abstract class DecoderTest extends TestCase {
         		coderTestUtils.createTaggedSet().getValue().getLstVersion().getValue().size());
     	
     }
+
+    public void testDecodeTaggedSetInSet() throws Exception {
+        IDecoder decoder = newDecoder();
+        assertNotNull(decoder);
+
+        ByteArrayInputStream stream = 
+            new ByteArrayInputStream(coderTestUtils.createTaggedSetInSetBytes());
+        TestTaggedSetInSet tset = decoder.decode(stream, TestTaggedSetInSet.class);
+    }
+
 }

@@ -351,9 +351,9 @@ EXPORTS TestOCT,TestPRN,TestI32,TestI16,TestI8,ContentType,ValueWithParams,Param
 		major_config Major
 	}
 
-        TestTaggedSet ::= [APPLICATION 54] SET {
-                field1 [1] INTEGER,
-                field2 [2] INTEGER
-        }
+	TestTaggedSetInSet ::= [APPLICATION 77] IMPLICIT SET { 
+		config1 Config, 
+		config2 Config 
+	} 
 
 END

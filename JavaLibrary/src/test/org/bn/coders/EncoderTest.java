@@ -348,5 +348,14 @@ public abstract class EncoderTest extends TestCase {
         checkEncoded(encoder, coderTestUtils.createTaggedSet(), coderTestUtils.createTaggedSetBytes());
         
     }
+
+    public void testEncodeTaggedSetInSet() throws Exception {
+    	IEncoder<?> encoder = newEncoder();
+        assertNotNull(encoder);
+        //
+        TestTaggedSetInSet taggedSet = coderTestUtils.createTaggedSetInSet();
+        printEncoded("TaggedSetInSet",encoder, taggedSet);
+        checkEncoded(encoder, coderTestUtils.createTaggedSetInSet(), coderTestUtils.createTaggedSetInSetBytes());
+    }
     
 }

@@ -499,4 +499,15 @@ public abstract class CoderTestUtilities {
     }
     
     public abstract byte[] createTaggedSetBytes();
+
+    public TestTaggedSetInSet createTaggedSetInSet() {
+	TestTaggedSetInSet result = new TestTaggedSetInSet();
+	result.setValue ( new TestTaggedSetInSet.TestTaggedSetInSetSequenceType() ) ;
+	result.getValue().setConfig1 ( createTaggedSet() );
+	result.getValue().setConfig2 ( createTaggedSet() );
+	return result;
+    }
+
+    public abstract byte[] createTaggedSetInSetBytes();
+
 }
