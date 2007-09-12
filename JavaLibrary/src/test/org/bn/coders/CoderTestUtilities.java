@@ -497,15 +497,37 @@ public abstract class CoderTestUtilities {
         
         return config_bn;    	
     }
+
+    public Config2 createTaggedSet2() {
+        Config2 config_bn = new Config2();
+        config_bn.setValue( new Config2.Config2SequenceType() );
+        config_bn.getValue().setMajor_config ( new Major() );
+        config_bn.getValue().getMajor_config().setValue ( 0xCCL );
+
+
+        Version version_bn = new Version();
+        version_bn.setValue ( new Version.VersionSequenceType() );
+        version_bn.getValue().setMajor (new Major() );
+        version_bn.getValue().getMajor().setValue ( 0xAAL );
+        version_bn.getValue().setMinor ( new Minor() );
+        version_bn.getValue().getMinor().setValue ( 0xBBL );
+
+        config_bn.getValue().setLstVersion ( new LstVersion() );
+
+        config_bn.getValue().getLstVersion().setValue ( new LinkedList<Version>() );
+        config_bn.getValue().getLstVersion().getValue().add(version_bn);
+        
+        return config_bn;    	
+    }
     
     public abstract byte[] createTaggedSetBytes();
 
     public TestTaggedSetInSet createTaggedSetInSet() {
-	TestTaggedSetInSet result = new TestTaggedSetInSet();
-	result.setValue ( new TestTaggedSetInSet.TestTaggedSetInSetSequenceType() ) ;
-	result.getValue().setConfig1 ( createTaggedSet() );
-	result.getValue().setConfig2 ( createTaggedSet() );
-	return result;
+		TestTaggedSetInSet result = new TestTaggedSetInSet();
+		result.setValue ( new TestTaggedSetInSet.TestTaggedSetInSetSequenceType() ) ;
+		result.getValue().setConfig1 ( createTaggedSet() );
+		result.getValue().setConfig2 ( createTaggedSet2() );
+		return result;
     }
 
     public abstract byte[] createTaggedSetInSetBytes();

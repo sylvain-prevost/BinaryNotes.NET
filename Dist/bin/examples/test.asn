@@ -351,9 +351,14 @@ EXPORTS TestOCT,TestPRN,TestI32,TestI16,TestI8,ContentType,ValueWithParams,Param
 		major_config Major
 	}
 
+	Config2 ::=  [APPLICATION 79] IMPLICIT SEQUENCE {
+		lstVersion LstVersion,
+		major_config Major
+	}
+
 	TestTaggedSetInSet ::= [APPLICATION 77] IMPLICIT SET { 
 		config1 Config, 
-		config2 Config 
+		config2 Config2
 	} 
 
 END

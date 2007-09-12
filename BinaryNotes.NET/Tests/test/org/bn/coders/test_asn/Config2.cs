@@ -16,37 +16,37 @@ namespace test.org.bn.coders.test_asn {
 
 
     [ASN1PreparedElement]
-    [ASN1BoxedType ( Name = "TestTaggedSetInSet") ]
-    public class TestTaggedSetInSet: IASN1PreparedElement {
+    [ASN1BoxedType ( Name = "Config2") ]
+    public class Config2: IASN1PreparedElement {
             
            
-        private TestTaggedSetInSetSequenceType  val;
+        private Config2SequenceType  val;
 
         
        [ASN1PreparedElement]
-       [ASN1Sequence ( Name = "TestTaggedSetInSet", IsSet = true  )]
-       public class TestTaggedSetInSetSequenceType : IASN1PreparedElement {
+       [ASN1Sequence ( Name = "Config2", IsSet = false  )]
+       public class Config2SequenceType : IASN1PreparedElement {
                         
-	private Config config1_ ;
+	private LstVersion lstVersion_ ;
 	
-        [ASN1Element ( Name = "config1", IsOptional =  false , HasTag =  false  , HasDefaultValue =  false )  ]
+        [ASN1Element ( Name = "lstVersion", IsOptional =  false , HasTag =  false  , HasDefaultValue =  false )  ]
     
-        public Config Config1
+        public LstVersion LstVersion
         {
-            get { return config1_; }
-            set { config1_ = value;  }
+            get { return lstVersion_; }
+            set { lstVersion_ = value;  }
         }
         
                 
           
-	private Config2 config2_ ;
+	private Major major_config_ ;
 	
-        [ASN1Element ( Name = "config2", IsOptional =  false , HasTag =  false  , HasDefaultValue =  false )  ]
+        [ASN1Element ( Name = "major_config", IsOptional =  false , HasTag =  false  , HasDefaultValue =  false )  ]
     
-        public Config2 Config2
+        public Major Major_config
         {
-            get { return config2_; }
-            set { config2_ = value;  }
+            get { return major_config_; }
+            set { major_config_ = value;  }
         }
         
                 
@@ -56,7 +56,7 @@ namespace test.org.bn.coders.test_asn {
             		
                 }
 
-            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(TestTaggedSetInSetSequenceType));
+            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(Config2SequenceType));
             public IASN1PreparedElementData PreparedData {
             	get { return preparedData; }
             }
@@ -64,10 +64,10 @@ namespace test.org.bn.coders.test_asn {
                 
        }
                 
-        [ASN1Element ( Name = "TestTaggedSetInSet", IsOptional =  false , HasTag =  true, Tag = 77, 
+        [ASN1Element ( Name = "Config2", IsOptional =  false , HasTag =  true, Tag = 79, 
         TagClass =  TagClasses.Application  , HasDefaultValue =  false )  ]
     
-        public TestTaggedSetInSetSequenceType Value
+        public Config2SequenceType Value
         {
                 get { return val; }        
                     
@@ -77,7 +77,7 @@ namespace test.org.bn.coders.test_asn {
 
                     
         
-        public TestTaggedSetInSet ()
+        public Config2 ()
         {
         }
 
@@ -86,7 +86,7 @@ namespace test.org.bn.coders.test_asn {
 	    }
 
 
-            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(TestTaggedSetInSet));
+            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(Config2));
             public IASN1PreparedElementData PreparedData {
             	get { return preparedData; }
             }

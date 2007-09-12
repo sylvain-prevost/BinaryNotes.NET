@@ -384,9 +384,24 @@ namespace org.bn.coders
 		{
 			PropertyInfo field = obj.GetType().GetProperty("Value");
 			elementInfo.AnnotatedClass = field;
+
             if (elementInfo.ASN1ElementInfo == null)
             {
                 elementInfo.ASN1ElementInfo = CoderUtils.getAttribute<ASN1Element>(field);
+            }
+            else
+            {
+                if (!elementInfo.ASN1ElementInfo.HasTag)
+                {
+                    ASN1Element fieldInfo = CoderUtils.getAttribute<ASN1Element>(field);
+                    if (fieldInfo!=null && fieldInfo.HasTag)
+                    {
+                        elementInfo.ASN1ElementInfo.HasTag = true;
+                        elementInfo.ASN1ElementInfo.TagClass = fieldInfo.TagClass;
+                        elementInfo.ASN1ElementInfo.IsImplicitTag = fieldInfo.IsImplicitTag;
+                        elementInfo.ASN1ElementInfo.Tag = fieldInfo.Tag;
+                    }
+                }
             }
 			if (CoderUtils.isAttributePresent<ASN1Null>(field))
 			{

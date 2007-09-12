@@ -64,6 +64,7 @@
     <Compile Include="test\org\bn\coders\test_asn\BugSequenceType.cs" />
     <Compile Include="test\org\bn\coders\test_asn\BugValueType.cs" />
     <Compile Include="test\org\bn\coders\test_asn\Config.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Config2.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ContentPartHeader.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ContentPartHeaders.cs" />
     <Compile Include="test\org\bn\coders\test_asn\ContentSchema.cs" />

@@ -5,6 +5,7 @@ ChangeLog
 							[!] 		- Important warning or note
 							{<component>}	- Component/Group that changed
 
+1.5.1	{lib}		[*] Fixed the user specific tag encoding/decoding over boxed types for BER.
 1.5.1	{lib}		[*] Fixed decoding SET OF for BER. Thanks to Ulf Richter
 1.5.1	{comp}		[*] Fixed incorrect code generation for tagged SET OF. Thanks to Ulf Richter
 1.5.1	{comp}		[*] Fixed incorrect code generation for unnamed inner enumeration

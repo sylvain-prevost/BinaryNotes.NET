@@ -492,14 +492,37 @@ namespace test.org.bn.coders
             return config_bn;
         }
 
+        private Config2 createTaggedSet2()
+        {
+            Config2 config_bn = new Config2();
+            config_bn.Value = (new Config2.Config2SequenceType());
+            config_bn.Value.Major_config = (new Major());
+            config_bn.Value.Major_config.Value = (0xCCL);
+
+
+            test_asn.Version version_bn = new test_asn.Version();
+            version_bn.Value = (new test_asn.Version.VersionSequenceType());
+            version_bn.Value.Major = (new Major());
+            version_bn.Value.Major.Value = (0xAAL);
+            version_bn.Value.Minor = (new Minor());
+            version_bn.Value.Minor.Value = (0xBBL);
+
+            config_bn.Value.LstVersion = (new LstVersion());
+
+            config_bn.Value.LstVersion.Value = (new List<test_asn.Version>());
+            config_bn.Value.LstVersion.Value.Add(version_bn);
+
+            return config_bn;
+        }
+
         public abstract byte[] createTaggedSetBytes();
 
         public TestTaggedSetInSet createTaggedSetInSet()
         {
             TestTaggedSetInSet result = new TestTaggedSetInSet();
             result.Value = (new TestTaggedSetInSet.TestTaggedSetInSetSequenceType());
-            result.Value.Config1 = (createTaggedSet());
-            result.Value.Config2 = (createTaggedSet());
+            result.Value.Config1 = (createTaggedSet());            
+            result.Value.Config2 = (createTaggedSet2());
             return result;
         }
 

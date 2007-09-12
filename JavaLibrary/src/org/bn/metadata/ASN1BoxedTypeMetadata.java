@@ -68,7 +68,23 @@ public class ASN1BoxedTypeMetadata  extends ASN1FieldMetadata {
             result = encoder.invokeGetterMethodForField(valueField,object, elementInfo);
         }        
         if(saveInfo!=null) {
-            elementInfo.setPreparedASN1ElementInfo(saveInfo);            
+            if (!saveInfo.hasTag()
+                    && elementInfo.hasPreparedASN1ElementInfo()
+                    && elementInfo.getPreparedASN1ElementInfo().hasTag())
+            {
+                ASN1ElementMetadata elData = new ASN1ElementMetadata(
+                	saveInfo.getName(),
+                	saveInfo.isOptional(),
+                    elementInfo.getPreparedASN1ElementInfo().hasTag(),
+                    elementInfo.getPreparedASN1ElementInfo().isImplicitTag(),
+                    elementInfo.getPreparedASN1ElementInfo().getTagClass(),
+                    elementInfo.getPreparedASN1ElementInfo().getTag(),
+                    saveInfo.hasDefaultValue()
+                );
+                elementInfo.setPreparedASN1ElementInfo ( elData );
+            }
+            else
+                elementInfo.setPreparedASN1ElementInfo(saveInfo);
         }
         return valueFieldMeta.getTypeMetadata().encode(encoder,result, stream, elementInfo);
     }    
@@ -85,7 +101,24 @@ public class ASN1BoxedTypeMetadata  extends ASN1FieldMetadata {
          }                
         
         if(saveElemInfo!=null) {
-            elementInfo.setPreparedASN1ElementInfo(saveElemInfo);
+            if (!saveElemInfo.hasTag()
+                    && elementInfo.hasPreparedASN1ElementInfo()
+                    && elementInfo.getPreparedASN1ElementInfo().hasTag())
+            {
+                ASN1ElementMetadata elData = new ASN1ElementMetadata(
+                    saveElemInfo.getName(),
+                    saveElemInfo.isOptional(),
+                    elementInfo.getPreparedASN1ElementInfo().hasTag(),
+                    elementInfo.getPreparedASN1ElementInfo().isImplicitTag(),
+                    elementInfo.getPreparedASN1ElementInfo().getTagClass(),
+                    elementInfo.getPreparedASN1ElementInfo().getTag(),
+                    saveElemInfo.hasDefaultValue()
+                );
+                elementInfo.setPreparedASN1ElementInfo ( elData );
+            }
+            else
+                elementInfo.setPreparedASN1ElementInfo(saveElemInfo);
+        	
         }
         DecodedObject decodedResult = valueFieldMeta.getTypeMetadata().decode(decoder,decodedTag,valueField.getType(),elementInfo,stream);
         if(decodedResult!=null) {

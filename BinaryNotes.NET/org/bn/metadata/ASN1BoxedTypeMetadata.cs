@@ -58,7 +58,23 @@ namespace org.bn.metadata
                 result = encoder.invokeGetterMethodForField(valueField, obj, elementInfo);
             }        
             if(saveInfo!=null) {
-                elementInfo.PreparedASN1ElementInfo = (saveInfo);            
+                if (!saveInfo.HasTag 
+                    && elementInfo.hasPreparedASN1ElementInfo()
+                    && elementInfo.PreparedASN1ElementInfo.HasTag)
+                {
+                    ASN1ElementMetadata elData = new ASN1ElementMetadata(
+                        saveInfo.Name,
+                        saveInfo.IsOptional,
+                        elementInfo.PreparedASN1ElementInfo.HasTag,
+                        elementInfo.PreparedASN1ElementInfo.IsImplicitTag,
+                        elementInfo.PreparedASN1ElementInfo.TagClass,
+                        elementInfo.PreparedASN1ElementInfo.Tag,
+                        saveInfo.HasDefaultValue
+                    );
+                    elementInfo.PreparedASN1ElementInfo = elData;
+                }
+                else
+                    elementInfo.PreparedASN1ElementInfo = (saveInfo);
             }
             return valueFieldMeta.TypeMetadata.encode(encoder,result, stream, elementInfo);
         }
@@ -71,7 +87,23 @@ namespace org.bn.metadata
              elementInfo.PreparedInfo = (valueFieldMeta);
             
             if(saveElemInfo!=null) {
-                elementInfo.PreparedASN1ElementInfo = (saveElemInfo);
+                if (!saveElemInfo.HasTag
+                        && elementInfo.hasPreparedASN1ElementInfo()
+                        && elementInfo.PreparedASN1ElementInfo.HasTag)
+                {
+                    ASN1ElementMetadata elData = new ASN1ElementMetadata(
+                        saveElemInfo.Name,
+                        saveElemInfo.IsOptional,
+                        elementInfo.PreparedASN1ElementInfo.HasTag,
+                        elementInfo.PreparedASN1ElementInfo.IsImplicitTag,
+                        elementInfo.PreparedASN1ElementInfo.TagClass,
+                        elementInfo.PreparedASN1ElementInfo.Tag,
+                        saveElemInfo.HasDefaultValue
+                    );
+                    elementInfo.PreparedASN1ElementInfo = elData;
+                }
+                else
+                    elementInfo.PreparedASN1ElementInfo = (saveElemInfo);
             }
             DecodedObject<object> decodedResult = 
                 valueFieldMeta.TypeMetadata.decode(decoder,decodedTag,valueField.PropertyType,elementInfo,stream);
