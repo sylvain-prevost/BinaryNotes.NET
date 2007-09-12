@@ -361,4 +361,25 @@ EXPORTS TestOCT,TestPRN,TestI32,TestI16,TestI8,ContentType,ValueWithParams,Param
 		config2 Config2
 	} 
 
+	Set1 ::= [APPLICATION 55] IMPLICIT SET { 
+		set1ID INTEGER 	}
+	
+	Set2 ::= [APPLICATION 128] IMPLICIT SET OF Set1
+	
+	Set3 ::= [APPLICATION 124] IMPLICIT SET{ 
+		set2 Set2
+	}
+	
+	Set4 ::= [APPLICATION 61] IMPLICIT SET OF Set3
+
+	Set5 ::= [APPLICATION 127] IMPLICIT SET OF Set3
+
+	Set6 ::= [APPLICATION 56] IMPLICIT SET {
+		set4 Set4,
+		set5 Set5
+	}
+
+	Set7 ::= [APPLICATION 90] IMPLICIT SET {
+		set6 Set6
+	}
 END
