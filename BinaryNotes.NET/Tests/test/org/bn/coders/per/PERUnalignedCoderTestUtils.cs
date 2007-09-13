@@ -281,5 +281,10 @@ namespace test.org.bn.coders.per
             return new byte[] { 0x01, 0x01, 0x01, 0x44, 0x01, 0x01, 0x01, 0x44 };
         }
 
+        public override byte[] createTest128TagBytes()
+        {
+            return new byte[] { 0x01, 0x0A };
+        }
+
 	}
 }

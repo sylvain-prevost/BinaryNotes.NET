@@ -51,7 +51,7 @@ namespace org.bn.coders.ber
                 {
                     result <<= 8;
                     bt = stream.ReadByte();
-                    if (bt > 0)
+                    if (bt >= 0)
                     {
                         result |= bt;
                         len++;

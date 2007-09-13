@@ -311,6 +311,10 @@ namespace test.org.bn.coders
             Assert.NotNull(encoder);
             printEncoded("EncodeTestLongTag: ", encoder, coderTestUtils.createTestLongTag());
             checkEncoded(encoder, coderTestUtils.createTestLongTag(), coderTestUtils.createTestLongTagBytes());
+
+            printEncoded("EncodeTest128Tag: ", encoder, coderTestUtils.createTest128Tag());
+            checkEncoded(encoder, coderTestUtils.createTest128Tag(), coderTestUtils.createTest128TagBytes());
+
         }
 
         public void testEncodeLongTag2()
@@ -378,7 +382,6 @@ namespace test.org.bn.coders
             Set7 set7 = coderTestUtils.createSet7();
             printEncoded("Set7", encoder, set7);
             checkEncoded(encoder, coderTestUtils.createSet7(), coderTestUtils.createSet7Bytes());
-
 
         }
 

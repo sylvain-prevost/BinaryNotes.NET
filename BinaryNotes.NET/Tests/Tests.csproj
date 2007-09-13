@@ -105,6 +105,7 @@
     <Compile Include="test\org\bn\coders\test_asn\TaggedNullSequence.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TaggedSeqInSeq.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TaggedSequence.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\Test128Tag.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestBitStr.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestBitStrBnd.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestChild2.cs" />

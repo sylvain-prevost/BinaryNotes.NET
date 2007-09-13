@@ -552,5 +552,15 @@ namespace test.org.bn.coders
         }
 
         public abstract byte[] createSet7Bytes();
+
+        public Test128Tag createTest128Tag()
+        {
+            Test128Tag tag = new Test128Tag();
+            tag.Value = 10L;
+            return tag;
+        }
+
+        public abstract byte[] createTest128TagBytes();
+
 	}
 }

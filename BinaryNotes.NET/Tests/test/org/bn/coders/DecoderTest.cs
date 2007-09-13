@@ -398,7 +398,12 @@ namespace test.org.bn.coders
             System.IO.MemoryStream stream =
               new System.IO.MemoryStream(coderTestUtils.createTestLongTagBytes());
             TestLongTag val = decoder.decode<TestLongTag>(stream);
-            Assert.Equals(val.Value, coderTestUtils.createTestLongTag().Value);    
+            Assert.Equals(val.Value, coderTestUtils.createTestLongTag().Value);
+
+            stream =
+              new System.IO.MemoryStream(coderTestUtils.createTest128TagBytes());
+            Test128Tag val2 = decoder.decode<Test128Tag>(stream);
+            Assert.Equals(val2.Value, coderTestUtils.createTest128Tag().Value);    
         }
 
         public void testDecodeLongTag2()
