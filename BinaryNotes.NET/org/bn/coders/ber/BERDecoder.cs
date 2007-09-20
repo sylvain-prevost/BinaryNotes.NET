@@ -187,7 +187,7 @@ namespace org.bn.coders.ber
                 DecodedObject<int> len =  decodeLength(stream);
                 DecodedObject<object> childDecodedTag = decodeTag(stream);
                 DecodedObject<object> result = base.decodeChoice(childDecodedTag, objectClass, elementInfo, stream);
-                result.Size += len.Size + decodedTag.Size;
+                result.Size += len.Size + childDecodedTag.Size;
                 return result;
             }
             else
