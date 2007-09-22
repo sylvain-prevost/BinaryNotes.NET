@@ -33,3 +33,5 @@ See to licenses\3rdparty\csunit_license.txt
 but it's optionally, and maybe changed by to another SQL DB. 
 Web site: http://sqlite.phxsoftware.com/
 There are zero licensing restrictions for private or commercial use.
+
+* The first version of the ASN.1 grammar was based upon the one posted byVivek Gupta Tue Nov 11, 2003 14:29 on the ANTLR site. (ASN1_grammar.zip)
