@@ -86,6 +86,9 @@ public class BERDecoder extends Decoder {
 
     protected boolean checkTagForObject(DecodedObject decodedTag, int tagClass, int elementType, int universalTag, 
                                         ElementInfo elementInfo) {
+    	if(decodedTag == null) {
+    		return false;
+    	}
         int definedTag = BERCoderUtils.getTagValueForElement(elementInfo,tagClass,elementType,universalTag).getValue();
         return definedTag == (Integer)decodedTag.getValue();
     }
@@ -126,14 +129,19 @@ public class BERDecoder extends Decoder {
                                       ElementInfo elementInfo, Integer len,InputStream stream) throws Exception {
         Object set = createInstanceForElement(objectClass,elementInfo);
         initDefaultValues(set, elementInfo);
-
-        DecodedObject fieldTag = decodeTag(stream);
+        int maxSeqLen = elementInfo.getMaxAvailableLen();
         int sizeOfSet = 0;
+        
+        DecodedObject<?> fieldTag = null;
+        
+        if(maxSeqLen==-1 || maxSeqLen>0) {
+        	fieldTag = decodeTag(stream);
+        }
+        
         if(fieldTag!=null)
             sizeOfSet+=fieldTag.getSize();
 
         Field[] fields = elementInfo.getFields(objectClass);
-        int maxSeqLen = elementInfo.getMaxAvailableLen();
 
         boolean fieldEncoded = false; 
         do {
@@ -159,19 +167,21 @@ public class BERDecoder extends Decoder {
                     }
 
                     if(maxSeqLen!=-1) {
-                        elementInfo.setMaxAvailableLen(maxSeqLen - sizeOfSet);
-                        if(elementInfo.getMaxAvailableLen()<=0)
-                        	break;                        
+                        elementInfo.setMaxAvailableLen(maxSeqLen - sizeOfSet);              
                     }                
                     
                     if(!isAny) {
                     	if(i<fields.length-1) {
-	                        fieldTag = decodeTag(stream);
-	                        if(fieldTag!=null)
-	                            sizeOfSet += fieldTag.getSize();
-	                        else {
-	                            break;
+	                        if(maxSeqLen==-1 || elementInfo.getMaxAvailableLen()>0) {                        	                    		
+		                        fieldTag = decodeTag(stream);
+		                        if(fieldTag!=null)
+		                            sizeOfSet += fieldTag.getSize();
+		                        else {
+		                            break;
+		                        }
 	                        }
+	                        else
+	                        	fieldTag = null;
                     	}
                     	else
                     		break;

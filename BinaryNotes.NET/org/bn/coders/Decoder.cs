@@ -255,12 +255,17 @@ namespace org.bn.coders
 		{
 			object sequence = createInstanceForElement(objectClass, elementInfo);
             initDefaultValues(sequence);
-			DecodedObject<object> fieldTag = decodeTag(stream);
-			int sizeOfSequence = 0;
-			if (fieldTag != null)
-				sizeOfSequence += fieldTag.Size;
-			PropertyInfo[] fields = elementInfo.getProperties(objectClass);
+            DecodedObject<object> fieldTag = null;
             int maxSeqLen = elementInfo.MaxAvailableLen;
+            int sizeOfSequence = 0;
+            if (maxSeqLen == -1 || maxSeqLen > 0)
+            {
+                fieldTag = decodeTag(stream);
+                if (fieldTag != null)
+                    sizeOfSequence += fieldTag.Size;
+            }
+			PropertyInfo[] fields = elementInfo.getProperties(objectClass);
+            
 			for (int i = 0; i < fields.Length; i++)
 			{
 				PropertyInfo field = fields[i];
@@ -289,21 +294,24 @@ namespace org.bn.coders
                     if (maxSeqLen != -1)
                     {
                         elementInfo.MaxAvailableLen = (maxSeqLen - sizeOfSequence);
-                        if (elementInfo.MaxAvailableLen <= 0)
-                            break;
                     }                
 
                     if(!isAny)
 					{
                         if (i < fields.Length - 1)
                         {
-                            fieldTag = decodeTag(stream);
-                            if (fieldTag != null)
+                            if (maxSeqLen == -1 || elementInfo.MaxAvailableLen > 0)
                             {
-                                sizeOfSequence += fieldTag.Size;
+                                fieldTag = decodeTag(stream);
+                                if (fieldTag != null)
+                                {
+                                    sizeOfSequence += fieldTag.Size;
+                                }
+                                else
+                                    break;
                             }
                             else
-                                break;
+                                fieldTag = null;
                         }
                     }
 				}

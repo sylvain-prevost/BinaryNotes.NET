@@ -69,6 +69,8 @@ namespace org.bn.coders.ber
 
         protected bool checkTagForObject(DecodedObject<object> decodedTag, int tagClass, int elementType, int universalTag, ElementInfo elementInfo)
         {
+            if (decodedTag == null)
+                return false;
             int definedTag = BERCoderUtils.getTagValueForElement(elementInfo, tagClass, elementType, universalTag).Value;
             return definedTag == (int)decodedTag.Value;
         }
@@ -112,13 +114,18 @@ namespace org.bn.coders.ber
         {
             object sequence = createInstanceForElement(objectClass,elementInfo);
             initDefaultValues(sequence);
-            DecodedObject<object> fieldTag = decodeTag(stream);
+            DecodedObject<object> fieldTag = null;
             int sizeOfSequence = 0;
-            if (fieldTag != null)
-                sizeOfSequence += fieldTag.Size;
+            int maxSeqLen = elementInfo.MaxAvailableLen;
+
+            if (maxSeqLen == -1 || maxSeqLen > 0)
+            {
+                fieldTag = decodeTag(stream);
+                if (fieldTag != null)
+                    sizeOfSequence += fieldTag.Size;
+            }
             PropertyInfo[] fields =
                 elementInfo.getProperties(objectClass);
-            int maxSeqLen = elementInfo.MaxAvailableLen;
 
             bool fieldEncoded = false;
             do
@@ -152,21 +159,24 @@ namespace org.bn.coders.ber
                         if (maxSeqLen != -1)
                         {
                             elementInfo.MaxAvailableLen = (maxSeqLen - sizeOfSequence);
-                            if (elementInfo.MaxAvailableLen <= 0)
-                                break;
                         }
 
                         if (!isAny)
                         {
                             if (i < fields.Length - 1)
                             {
-                                fieldTag = decodeTag(stream);
-                                if (fieldTag != null)
-                                    sizeOfSequence += fieldTag.Size;
-                                else
+                                if (maxSeqLen == -1 || elementInfo.MaxAvailableLen > 0)
                                 {
-                                    break;
+                                    fieldTag = decodeTag(stream);
+                                    if (fieldTag != null)
+                                        sizeOfSequence += fieldTag.Size;
+                                    else
+                                    {
+                                        break;
+                                    }
                                 }
+                                else
+                                    fieldTag = null;
                             }
                             else
                                 break;

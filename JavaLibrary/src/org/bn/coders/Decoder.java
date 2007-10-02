@@ -237,62 +237,75 @@ public abstract class Decoder implements IDecoder, IASN1TypesDecoder {
     public DecodedObject decodeSequence(DecodedObject decodedTag, Class objectClass, ElementInfo elementInfo, InputStream stream) throws Exception {
         Object sequence = createInstanceForElement(objectClass, elementInfo);
         initDefaultValues(sequence, elementInfo);
-        
-        DecodedObject fieldTag = decodeTag(stream);
-        int sizeOfSequence = 0;
-        if(fieldTag!=null)
-            sizeOfSequence+=fieldTag.getSize();
-        
-        Field[] fields = elementInfo.getFields(objectClass);
         int maxSeqLen = elementInfo.getMaxAvailableLen();
-        for(int i=0; i<fields.length; i++) {
-            Field field = fields[i];            
-            DecodedObject obj = decodeSequenceField(fieldTag,sequence,i, field,stream,elementInfo, true);
-            if(obj!=null) {
-                sizeOfSequence+=obj.getSize();
-                
-                boolean isAny = false;
-                if(i+1==fields.length-1) {
-                    ElementInfo info = new ElementInfo();
-                    info.setAnnotatedClass(fields[i+1]);        
-                    info.setMaxAvailableLen(elementInfo.getMaxAvailableLen());
-                    info.setGenericInfo(field.getGenericType());
-                    if(elementInfo.hasPreparedInfo()) {
-                        info.setPreparedInfo(elementInfo.getPreparedInfo().getFieldMetadata(i+1));
-                    }
-                    else
-                        info.setASN1ElementInfoForClass(fields[i+1]);                
-                    isAny = CoderUtils.isAnyField(fields[i+1], info);
-                }
-
-                if(maxSeqLen!=-1) {
-                    elementInfo.setMaxAvailableLen(maxSeqLen - sizeOfSequence);
-                    if(elementInfo.getMaxAvailableLen()<=0)
-                    	break;
-                }                
-                
-                if(!isAny) {
-                    if(i<fields.length-1) {
-                        fieldTag = decodeTag(stream);
-                        if(fieldTag!=null) {                        
-                            sizeOfSequence+=fieldTag.getSize();
+        int curFieldIdx = 0;
+        int sizeOfSequence = 0;
+        
+        DecodedObject<?> fieldTag = null;
+        Field[] fields = elementInfo.getFields(objectClass);
+        
+        if(maxSeqLen==-1 || maxSeqLen>0) {
+        	fieldTag = decodeTag(stream);
+            if(fieldTag!=null)
+                sizeOfSequence+=fieldTag.getSize();
+            
+            for(curFieldIdx=0; curFieldIdx<fields.length; curFieldIdx++) {
+                Field field = fields[curFieldIdx];            
+                DecodedObject<?> obj = decodeSequenceField(fieldTag,sequence,curFieldIdx, field,stream,elementInfo, true);
+                if(obj!=null) {
+                    sizeOfSequence+=obj.getSize();
+                    
+                    boolean isAny = false;
+                    if(curFieldIdx+1==fields.length-1) {
+                        ElementInfo info = new ElementInfo();
+                        info.setAnnotatedClass(fields[curFieldIdx+1]);        
+                        info.setMaxAvailableLen(elementInfo.getMaxAvailableLen());
+                        info.setGenericInfo(field.getGenericType());
+                        if(elementInfo.hasPreparedInfo()) {
+                            info.setPreparedInfo(elementInfo.getPreparedInfo().getFieldMetadata(curFieldIdx+1));
                         }
                         else
-                            break;
+                            info.setASN1ElementInfoForClass(fields[curFieldIdx+1]);                
+                        isAny = CoderUtils.isAnyField(fields[curFieldIdx+1], info);
                     }
-                }
-                
-                
 
-                
-            };
+                    if(maxSeqLen!=-1) {
+                        elementInfo.setMaxAvailableLen(maxSeqLen - sizeOfSequence);
+                        //if(elementInfo.getMaxAvailableLen()<=0)
+                        //	break;
+                    }                
+                    
+                    if(!isAny) {
+                        if(curFieldIdx<fields.length-1) {
+	                        if(maxSeqLen==-1 || elementInfo.getMaxAvailableLen()>0) {                        	
+		                            fieldTag = decodeTag(stream);
+		                            if(fieldTag!=null) {                        
+		                                sizeOfSequence+=fieldTag.getSize();
+		                            }
+		                            else
+		                            	break;
+	                        }
+	                        else
+	                        	fieldTag = null;
+                        }
+                    }
+                };
+            }
+            
+
         }
+        
+        /*for(;curFieldIdx<fields.length; curFieldIdx++) {
+            Field field = fields[curFieldIdx]; 
+            ElementInfo info = createSequenceFieldInfo(elementInfo, sequence, field, curFieldIdx);                
+        	CoderUtils.checkForOptionalField(field, info);
+        } */      
+
         return new DecodedObject(sequence,sizeOfSequence);
     }
     
-    
-    protected DecodedObject decodeSequenceField(DecodedObject fieldTag, Object sequenceObj, int fieldIdx, Field field, InputStream stream, ElementInfo elementInfo, boolean optionalCheck) throws  Exception {
-        ElementInfo info = new ElementInfo();
+    protected ElementInfo createSequenceFieldInfo(ElementInfo elementInfo, Object sequenceObj, Field field, int fieldIdx) {
+    	ElementInfo info = new ElementInfo();
         info.setAnnotatedClass(field);        
         info.setMaxAvailableLen(elementInfo.getMaxAvailableLen());
         info.setGenericInfo(field.getGenericType());
@@ -304,7 +317,12 @@ public abstract class Decoder implements IDecoder, IASN1TypesDecoder {
             
         if(CoderUtils.isMemberClass(field.getType(),info)) {
             info.setParentObject(sequenceObj);
-        }            
+        }
+        return info;
+    }
+    
+    protected DecodedObject decodeSequenceField(DecodedObject fieldTag, Object sequenceObj, int fieldIdx, Field field, InputStream stream, ElementInfo elementInfo, boolean optionalCheck) throws  Exception {
+        ElementInfo info = createSequenceFieldInfo(elementInfo, sequenceObj, field, fieldIdx);            
             
         if(CoderUtils.isNullField(field,info)) {
             return decodeNull(fieldTag,field.getType(),info, stream);
