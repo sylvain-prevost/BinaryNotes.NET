@@ -39,7 +39,7 @@ import org.lineargs.LineArgsParser;
 
 
 public class Main {
-    private final static String version = "1.5.1";
+    private final static String version = "1.5.2";
     private LineArgsParser     parser    = new LineArgsParser();
     private CompilerArgs arguments = null;
     

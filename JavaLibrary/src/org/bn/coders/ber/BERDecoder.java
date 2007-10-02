@@ -160,6 +160,8 @@ public class BERDecoder extends Decoder {
 
                     if(maxSeqLen!=-1) {
                         elementInfo.setMaxAvailableLen(maxSeqLen - sizeOfSet);
+                        if(elementInfo.getMaxAvailableLen()<=0)
+                        	break;                        
                     }                
                     
                     if(!isAny) {

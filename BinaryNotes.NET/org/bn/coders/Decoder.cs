@@ -289,6 +289,8 @@ namespace org.bn.coders
                     if (maxSeqLen != -1)
                     {
                         elementInfo.MaxAvailableLen = (maxSeqLen - sizeOfSequence);
+                        if (elementInfo.MaxAvailableLen <= 0)
+                            break;
                     }                
 
                     if(!isAny)

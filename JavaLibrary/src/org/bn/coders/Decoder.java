@@ -267,6 +267,8 @@ public abstract class Decoder implements IDecoder, IASN1TypesDecoder {
 
                 if(maxSeqLen!=-1) {
                     elementInfo.setMaxAvailableLen(maxSeqLen - sizeOfSequence);
+                    if(elementInfo.getMaxAvailableLen()<=0)
+                    	break;
                 }                
                 
                 if(!isAny) {
