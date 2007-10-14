@@ -179,18 +179,18 @@ public class CoderUtils {
         if(elementInfo.hasPreparedInfo()) {
             if(elementInfo.getPreparedInfo().hasConstraint())
                 if(!elementInfo.getPreparedInfo().getConstraint().checkValue(value))
-                    throw new Exception("Length of '"+elementInfo.getAnnotatedClass().toString()+"' out of bound");
+                    throw new Exception("Value of '"+elementInfo.getAnnotatedClass().toString()+"' out of bounds");
         }
         else {
             if(elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1ValueRangeConstraint.class)) {
                 ASN1ValueRangeConstraint constraint = elementInfo.getAnnotatedClass().getAnnotation(ASN1ValueRangeConstraint.class);
                 if(value> constraint.max() || value<constraint.min() )
-                    throw new Exception("Length of '"+elementInfo.getAnnotatedClass().toString()+"' out of bound");
+                    throw new Exception("Value of '"+elementInfo.getAnnotatedClass().toString()+"' out of bounds");
             }
             if(elementInfo.getAnnotatedClass().isAnnotationPresent(ASN1SizeConstraint.class)) {
                 ASN1SizeConstraint constraint = elementInfo.getAnnotatedClass().getAnnotation(ASN1SizeConstraint.class);
                 if(value!= constraint.max())
-                    throw new Exception("Length of '"+elementInfo.getAnnotatedClass().toString()+"' out of bound");
+                    throw new Exception("Value of '"+elementInfo.getAnnotatedClass().toString()+"' out of bounds");
             }        
         }
     }
