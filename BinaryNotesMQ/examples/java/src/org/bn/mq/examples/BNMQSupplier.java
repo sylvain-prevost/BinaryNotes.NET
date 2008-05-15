@@ -19,7 +19,6 @@
 
 package org.bn.mq.examples;
 
-import java.io.IOException;
 
 import java.net.URI;
 
@@ -27,18 +26,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.bn.mq.IMQConnection;
-import org.bn.mq.IMQConnectionListener;
-import org.bn.mq.IMessage;
-import org.bn.mq.IMessageQueue;
-import org.bn.mq.IMessagingBus;
-import org.bn.mq.IPersistenceQueueStorage;
-import org.bn.mq.IPersistenceStorage;
-import org.bn.mq.ISupplier;
-import org.bn.mq.MQFactory;
-
-import org.bn.mq.examples.protocol.ExampleMessage;
-import org.bn.mq.net.ITransport;
+import org.bn.mq.*;
+import org.bn.mq.examples.protocol.*;
+import org.bn.mq.net.*;
 
 //import test.org.bn.mq.MQFactoryTest;
 
@@ -116,7 +106,6 @@ public class BNMQSupplier {
         
         
         IMQConnection serverConnection  = null;
-        IMQConnection clientConnection  = null;
         IMessageQueue<ExampleMessage> queue = null;
         IPersistenceQueueStorage<ExampleMessage> queueStorage = null;
         QueueDispatcher dispatcher = null;
