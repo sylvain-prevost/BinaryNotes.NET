@@ -21,8 +21,6 @@ package org.bn;
 
 import java.io.InputStream;
 
-import org.bn.coders.Decoder;
-
 /**
  * The ASN.1 decoder interface
  */
