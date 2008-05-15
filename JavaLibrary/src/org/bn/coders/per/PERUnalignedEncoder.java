@@ -19,12 +19,7 @@
 package org.bn.coders.per;
 
 import java.io.OutputStream;
-
-import org.bn.annotations.ASN1String;
-import org.bn.annotations.constraints.ASN1ValueRangeConstraint;
-import org.bn.coders.CoderUtils;
 import org.bn.coders.ElementInfo;
-import org.bn.coders.UniversalTag;
 import org.bn.utils.BitArrayOutputStream;
 
 public class PERUnalignedEncoder<T> extends PERAlignedEncoder<T> {

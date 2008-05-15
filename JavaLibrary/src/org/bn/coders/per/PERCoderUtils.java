@@ -18,14 +18,9 @@
  */
 package org.bn.coders.per;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.*;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
-
-import org.bn.annotations.ASN1Element;
+import java.util.*;
 import org.bn.coders.CoderUtils;
 import org.bn.coders.ElementInfo;
 import org.bn.coders.UniversalTag;

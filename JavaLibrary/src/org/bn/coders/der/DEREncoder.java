@@ -19,20 +19,10 @@
  package org.bn.coders.der;
 
 import java.io.OutputStream;
-
 import java.lang.reflect.Field;
-
-import java.util.Map;
-import java.util.SortedMap;
-
-import org.bn.annotations.ASN1Sequence;
-import org.bn.coders.CoderUtils;
-import org.bn.coders.ElementInfo;
-import org.bn.coders.ElementType;
-import org.bn.coders.TagClass;
-import org.bn.coders.UniversalTag;
-import org.bn.coders.ber.BERCoderUtils;
-import org.bn.coders.ber.BEREncoder;
+import java.util.*;
+import org.bn.coders.*;
+import org.bn.coders.ber.*;
 
 public class DEREncoder<T> extends BEREncoder<T> {
     public DEREncoder() {
@@ -40,7 +30,7 @@ public class DEREncoder<T> extends BEREncoder<T> {
 
     public int encodeSequence(Object object, OutputStream stream, 
                                  ElementInfo elementInfo) throws Exception {
-        ASN1Sequence seqInfo = elementInfo.getAnnotatedClass().getAnnotation(ASN1Sequence.class);
+        // ASN1Sequence seqInfo = elementInfo.getAnnotatedClass().getAnnotation(ASN1Sequence.class);
         if(!CoderUtils.isSequenceSet(elementInfo)) {
             return super.encodeSequence(object, stream, elementInfo);
         }

@@ -23,20 +23,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.ParameterizedType;
-
-import java.util.Collection;
-import java.util.LinkedList;
-
-import java.util.Map;
-import java.util.SortedMap;
-
+import java.lang.reflect.*;
+import java.util.*;
 import org.bn.annotations.*;
 import org.bn.annotations.constraints.*;
 import org.bn.coders.*;
-import org.bn.metadata.ASN1SequenceOfMetadata;
+import org.bn.metadata.*;
 import org.bn.metadata.constraints.*;
 import org.bn.types.*;
 import org.bn.utils.*;

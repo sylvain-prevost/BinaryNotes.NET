@@ -20,26 +20,11 @@ package org.bn.coders;
 
 import java.io.OutputStream;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.AccessibleObject;
-import java.lang.reflect.AnnotatedElement;
-import java.lang.reflect.Field;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
-import java.lang.reflect.Type;
-
-import java.util.LinkedList;
-
-import java.util.List;
-
+import java.lang.reflect.*;
 import org.bn.IEncoder;
 import org.bn.annotations.*;
-import org.bn.annotations.constraints.*;
 import org.bn.metadata.ASN1ElementMetadata;
 import org.bn.metadata.ASN1Metadata;
-import org.bn.utils.ReverseByteArrayOutputStream;
 import org.bn.types.*;
 
 public abstract class Encoder<T> implements IEncoder<T>, IASN1TypesEncoder {

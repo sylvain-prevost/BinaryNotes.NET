@@ -19,11 +19,6 @@
 
 package org.bn.coders;
 
-import java.lang.reflect.Field;
-
-import org.bn.metadata.ASN1ElementMetadata;
-import org.bn.metadata.ASN1Metadata;
-import org.bn.metadata.ASN1TypeMetadata;
 
 public interface IASN1PreparedElement {
     IASN1PreparedElementData getPreparedData();
