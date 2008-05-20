@@ -23,7 +23,7 @@ namespace test.org.bn.coders.test_asn {
 	private TestLongTag2Choice testa_ ;
         private bool  testa_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "testa", IsOptional =  false , HasTag =  true, Tag = 33 , HasDefaultValue =  false )  ]
     

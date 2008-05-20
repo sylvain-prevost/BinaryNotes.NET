@@ -23,7 +23,7 @@ namespace test.org.bn.coders.test_asn {
 	private BugPrimitive bugPrimitive_ ;
         private bool  bugPrimitive_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "bugPrimitive", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
     
@@ -39,7 +39,7 @@ namespace test.org.bn.coders.test_asn {
 	private BugEnum bugEnum_ ;
         private bool  bugEnum_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "bugEnum", IsOptional =  false , HasTag =  true, Tag = 1 , HasDefaultValue =  false )  ]
     
@@ -55,7 +55,7 @@ namespace test.org.bn.coders.test_asn {
 	private BugSequenceType bugSequence_ ;
         private bool  bugSequence_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "bugSequence", IsOptional =  false , HasTag =  true, Tag = 2 , HasDefaultValue =  false )  ]
     

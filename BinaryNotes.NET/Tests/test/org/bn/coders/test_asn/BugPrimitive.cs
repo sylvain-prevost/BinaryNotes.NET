@@ -23,10 +23,10 @@ namespace test.org.bn.coders.test_asn {
 	private bool bugBoolean_ ;
         private bool  bugBoolean_selected = false ;
         
-        
-        
+                
+        [ASN1Boolean( Name = "" )]
+    
         [ASN1Element ( Name = "bugBoolean", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
-    [ASN1Boolean( Name = "" )]
     
         public bool BugBoolean
         {
@@ -40,10 +40,10 @@ namespace test.org.bn.coders.test_asn {
 	private long bugInteger_ ;
         private bool  bugInteger_selected = false ;
         
-        
-        
+                
+        [ASN1Integer( Name = "" )]
+    
         [ASN1Element ( Name = "bugInteger", IsOptional =  false , HasTag =  true, Tag = 1 , HasDefaultValue =  false )  ]
-    [ASN1Integer( Name = "" )]
     
         public long BugInteger
         {

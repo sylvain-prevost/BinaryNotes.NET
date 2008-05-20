@@ -23,10 +23,10 @@ namespace test.org.bn.coders.test_asn {
 	private long field10_ ;
         private bool  field10_selected = false ;
         
-        
-        
+                
+        [ASN1Integer( Name = "" )]
+    
         [ASN1Element ( Name = "field10", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
-    [ASN1Integer( Name = "" )]
     
         public long Field10
         {
@@ -40,10 +40,10 @@ namespace test.org.bn.coders.test_asn {
 	private byte[] field20_ ;
         private bool  field20_selected = false ;
         
-        
-        
+                
+        [ASN1OctetString( Name = "" )]
+    
         [ASN1Element ( Name = "field20", IsOptional =  true , HasTag =  true, Tag = 1 , HasDefaultValue =  false )  ]
-    [ASN1OctetString( Name = "" )]
     
         public byte[] Field20
         {
@@ -57,11 +57,11 @@ namespace test.org.bn.coders.test_asn {
 	private string field30_ ;
         private bool  field30_selected = false ;
         
-        
-        
-        [ASN1Element ( Name = "field30", IsOptional =  false , HasTag =  true, Tag = 2 , HasDefaultValue =  false )  ]
-    [ASN1String( Name = "", 
+                
+        [ASN1String( Name = "", 
         StringType =  UniversalTags.UTF8String , IsUCS = false )]
+        [ASN1Element ( Name = "field30", IsOptional =  false , HasTag =  true, Tag = 2 , HasDefaultValue =  false )  ]
+    
         public string Field30
         {
             get { return field30_; }
@@ -74,10 +74,10 @@ namespace test.org.bn.coders.test_asn {
 	private long field40_ ;
         private bool  field40_selected = false ;
         
-        
-        
+                
+        [ASN1Integer( Name = "" )]
+    
         [ASN1Element ( Name = "field40", IsOptional =  false , HasTag =  true, Tag = 3 , HasDefaultValue =  false )  ]
-    [ASN1Integer( Name = "" )]
     
         public long Field40
         {

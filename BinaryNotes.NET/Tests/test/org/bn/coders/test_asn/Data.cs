@@ -23,7 +23,7 @@ namespace test.org.bn.coders.test_asn {
 	private TestPRN plain_ ;
         private bool  plain_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "plain", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
     
@@ -39,7 +39,7 @@ namespace test.org.bn.coders.test_asn {
 	private TestOCT unicode_ ;
         private bool  unicode_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "unicode", IsOptional =  false , HasTag =  true, Tag = 1 , HasDefaultValue =  false )  ]
     
@@ -55,7 +55,7 @@ namespace test.org.bn.coders.test_asn {
 	private TestOCT binary_ ;
         private bool  binary_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "binary", IsOptional =  false , HasTag =  true, Tag = 2 , HasDefaultValue =  false )  ]
     
@@ -71,11 +71,11 @@ namespace test.org.bn.coders.test_asn {
 	private string simpleType_ ;
         private bool  simpleType_selected = false ;
         
-        
-        
-        [ASN1Element ( Name = "simpleType", IsOptional =  false , HasTag =  true, Tag = 3 , HasDefaultValue =  false )  ]
-    [ASN1String( Name = "", 
+                
+        [ASN1String( Name = "", 
         StringType =  UniversalTags.PrintableString , IsUCS = false )]
+        [ASN1Element ( Name = "simpleType", IsOptional =  false , HasTag =  true, Tag = 3 , HasDefaultValue =  false )  ]
+    
         public string SimpleType
         {
             get { return simpleType_; }
@@ -88,10 +88,10 @@ namespace test.org.bn.coders.test_asn {
 	private byte[] simpleOctType_ ;
         private bool  simpleOctType_selected = false ;
         
-        
-        
+                
+        [ASN1OctetString( Name = "" )]
+    
         [ASN1Element ( Name = "simpleOctType", IsOptional =  false , HasTag =  true, Tag = 4 , HasDefaultValue =  false )  ]
-    [ASN1OctetString( Name = "" )]
     
         public byte[] SimpleOctType
         {
@@ -105,10 +105,10 @@ namespace test.org.bn.coders.test_asn {
 	private bool booleanType_ ;
         private bool  booleanType_selected = false ;
         
-        
-        
+                
+        [ASN1Boolean( Name = "" )]
+    
         [ASN1Element ( Name = "booleanType", IsOptional =  false , HasTag =  true, Tag = 5 , HasDefaultValue =  false )  ]
-    [ASN1Boolean( Name = "" )]
     
         public bool BooleanType
         {
@@ -122,10 +122,10 @@ namespace test.org.bn.coders.test_asn {
 	private long intType_ ;
         private bool  intType_selected = false ;
         
-        
-        
+                
+        [ASN1Integer( Name = "" )]
+    
         [ASN1Element ( Name = "intType", IsOptional =  false , HasTag =  true, Tag = 6 , HasDefaultValue =  false )  ]
-    [ASN1Integer( Name = "" )]
     
         public long IntType
         {
@@ -139,10 +139,8 @@ namespace test.org.bn.coders.test_asn {
 	private int intBndType_ ;
         private bool  intBndType_selected = false ;
         
-        
-        
-        [ASN1Element ( Name = "intBndType", IsOptional =  false , HasTag =  true, Tag = 7 , HasDefaultValue =  false )  ]
-    [ASN1Integer( Name = "" )]
+                
+        [ASN1Integer( Name = "" )]
     [ASN1ValueRangeConstraint ( 
 		
 		Min = 0L, 
@@ -151,6 +149,8 @@ namespace test.org.bn.coders.test_asn {
 		
 		) ]
 	    
+        [ASN1Element ( Name = "intBndType", IsOptional =  false , HasTag =  true, Tag = 7 , HasDefaultValue =  false )  ]
+    
         public int IntBndType
         {
             get { return intBndType_; }

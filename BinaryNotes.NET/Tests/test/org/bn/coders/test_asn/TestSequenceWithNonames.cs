@@ -78,10 +78,10 @@ namespace test.org.bn.coders.test_asn {
 	private long it1_ ;
         private bool  it1_selected = false ;
         
-        
-        
+                
+        [ASN1Integer( Name = "" )]
+    
         [ASN1Element ( Name = "it1", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
-    [ASN1Integer( Name = "" )]
     
         public long It1
         {
@@ -95,10 +95,10 @@ namespace test.org.bn.coders.test_asn {
 	private byte[] it2_ ;
         private bool  it2_selected = false ;
         
-        
-        
+                
+        [ASN1OctetString( Name = "" )]
+    
         [ASN1Element ( Name = "it2", IsOptional =  false , HasTag =  true, Tag = 1 , HasDefaultValue =  false )  ]
-    [ASN1OctetString( Name = "" )]
     
         public byte[] It2
         {

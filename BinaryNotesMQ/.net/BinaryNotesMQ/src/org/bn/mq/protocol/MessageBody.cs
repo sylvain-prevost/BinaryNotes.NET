@@ -23,7 +23,7 @@ namespace org.bn.mq.protocol {
 	private MessageUserBody messageUserBody_ ;
         private bool  messageUserBody_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "messageUserBody", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
     
@@ -39,7 +39,7 @@ namespace org.bn.mq.protocol {
 	private DeliveryReport deliveryReport_ ;
         private bool  deliveryReport_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "deliveryReport", IsOptional =  false , HasTag =  true, Tag = 1 , HasDefaultValue =  false )  ]
     
@@ -55,7 +55,7 @@ namespace org.bn.mq.protocol {
 	private SubscribeRequest subscribeRequest_ ;
         private bool  subscribeRequest_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "subscribeRequest", IsOptional =  false , HasTag =  true, Tag = 2 , HasDefaultValue =  false )  ]
     
@@ -71,7 +71,7 @@ namespace org.bn.mq.protocol {
 	private SubscribeResult subscribeResult_ ;
         private bool  subscribeResult_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "subscribeResult", IsOptional =  false , HasTag =  true, Tag = 3 , HasDefaultValue =  false )  ]
     
@@ -87,7 +87,7 @@ namespace org.bn.mq.protocol {
 	private UnsubscribeRequest unsubscribeRequest_ ;
         private bool  unsubscribeRequest_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "unsubscribeRequest", IsOptional =  false , HasTag =  true, Tag = 4 , HasDefaultValue =  false )  ]
     
@@ -103,7 +103,7 @@ namespace org.bn.mq.protocol {
 	private UnsubscribeResult unsubscribeResult_ ;
         private bool  unsubscribeResult_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "unsubscribeResult", IsOptional =  false , HasTag =  true, Tag = 5 , HasDefaultValue =  false )  ]
     
@@ -119,7 +119,7 @@ namespace org.bn.mq.protocol {
 	private LookupRequest lookupRequest_ ;
         private bool  lookupRequest_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "lookupRequest", IsOptional =  false , HasTag =  true, Tag = 6 , HasDefaultValue =  false )  ]
     
@@ -135,7 +135,7 @@ namespace org.bn.mq.protocol {
 	private LookupResult lookupResult_ ;
         private bool  lookupResult_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "lookupResult", IsOptional =  false , HasTag =  true, Tag = 7 , HasDefaultValue =  false )  ]
     
@@ -151,7 +151,7 @@ namespace org.bn.mq.protocol {
 	private AliveRequest aliveRequest_ ;
         private bool  aliveRequest_selected = false ;
         
-        
+                
         
         [ASN1Element ( Name = "aliveRequest", IsOptional =  false , HasTag =  true, Tag = 8 , HasDefaultValue =  false )  ]
     

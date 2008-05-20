@@ -37,9 +37,9 @@
 	private <xsl:call-template name="elementType"/> <xsl:value-of select="' '"/> <xsl:value-of select="$elementName"/>_ ;
         private bool <xsl:value-of select="' '"/> <xsl:value-of select="$elementName"/>_selected = false ;
         
-        
-        <xsl:call-template name="elementDecl"/>
+                
         <xsl:call-template name="typeDecl"/>
+	<xsl:call-template name="elementDecl"/>
         public <xsl:call-template name="elementType"/> <xsl:value-of select="' '"/> <xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>
         {
             get { return <xsl:value-of select="$elementName"/>_; }

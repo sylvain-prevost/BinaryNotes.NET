@@ -14,13 +14,15 @@
 		<exclude name="**/classes/**"/>
 		<exclude name="**/obj/**"/>
 		<exclude name="**/*.suo"/>
-		<exclude name="Dist/bin/output/*"/>
+		<exclude name="Dist/bin/output/**"/>
+		<exclude name="Dist/bin/examples/output/**"/>
 	    </fileset>
         </zip>  
         <zip destfile="${output.dir}/BinaryNotes${version}-only-bin.zip" compress="yes" >
             <fileset dir="${package.path}" defaultexcludes="yes">
 		<exclude name="**/.svn"/>
-		<exclude name="Dist/bin/output/*"/>
+		<exclude name="Dist/bin/output/**"/>
+		<exclude name="Dist/bin/examples/output/**"/>
 		<include name="Dist/**"/>
 		<include name="ChangeLog.txt"/>
 	    </fileset>
