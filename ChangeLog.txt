@@ -5,6 +5,8 @@ ChangeLog
 							[!] 		- Important warning or note
 							{<component>}	- Component/Group that changed
 
+
+1.5.2	{comp}		[*] Fixed incorrect source generation #1897652 and #1897645. Thanks to Fredrik Palsson.
 1.5.2	{lib}		[*] Fixed decoding optional fields for SEQUENCE for BER. Thanks to Chris Warren.
 1.5.2	{lib}		[*] Fixed BER decoding for size of CHOICE only for .NET. Thanks to Ulf Richter.
 -

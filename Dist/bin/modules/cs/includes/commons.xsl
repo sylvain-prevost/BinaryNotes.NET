@@ -38,7 +38,8 @@
 
     <xsl:template name="toUpperFirstLetter">
         <xsl:param name="input"/>
-        <xsl:value-of select="concat ( translate( substring($input,1,1),'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), substring($input,2) )"/>
+	<xsl:value-of select="concat ( translate( substring($input,1,1),'abcdefghijklmnopqrstuvwxyz-[]', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ___'), translate(substring($input,2),'-[]','___') )"/>
+        <!-- <xsl:value-of select="concat ( translate( substring($input,1,1),'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), substring($input,2) )"/> -->
     </xsl:template>
 
     <xsl:template name="doMangleIdent">

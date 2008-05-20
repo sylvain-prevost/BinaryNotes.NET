@@ -55,8 +55,9 @@
         public void select<xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template> (<xsl:call-template name="elementType"/> value) {
             this.<xsl:value-of select="$elementName"/> = value;
             <xsl:for-each select="parent::elementTypeList/elements">
-                <xsl:if test="name != $elementName">
-                    set<xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:with-param></xsl:call-template>(null);
+		<xsl:variable name="itemName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>		
+                <xsl:if test="$itemName != $elementName">
+                    set<xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$itemName"/></xsl:call-template>(null);
                 </xsl:if>
             </xsl:for-each>            
         }
