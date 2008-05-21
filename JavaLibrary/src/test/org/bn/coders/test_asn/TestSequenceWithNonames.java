@@ -150,8 +150,8 @@ import org.bn.types.*;
   
 
        @ASN1PreparedElement
-       @ASN1Sequence ( name = "" , isSet = false )
-       public static class SequenceType implements IASN1PreparedElement {
+       @ASN1Sequence ( name = "seqf" , isSet = false )
+       public static class SeqfSequenceType implements IASN1PreparedElement {
                 @ASN1Integer( name = "" )
     
         @ASN1Element ( name = "it1", isOptional =  true , hasTag =  false  , hasDefaultValue =  false  )
@@ -182,21 +182,21 @@ import org.bn.types.*;
         }
 
         public IASN1PreparedElementData getPreparedData() {
-            return preparedData_SequenceType;
+            return preparedData_SeqfSequenceType;
         }
 
-       private static IASN1PreparedElementData preparedData_SequenceType = CoderFactory.getInstance().newPreparedElementData(SequenceType.class);
+       private static IASN1PreparedElementData preparedData_SeqfSequenceType = CoderFactory.getInstance().newPreparedElementData(SeqfSequenceType.class);
                 
        }
 
        
                 
-@ASN1SequenceOf( name = "", isSetOf = false ) 
+@ASN1SequenceOf( name = "seqf", isSetOf = false ) 
 
     
         @ASN1Element ( name = "seqf", isOptional =  false , hasTag =  true, tag = 2 , hasDefaultValue =  false  )
     
-	private java.util.Collection<SequenceType>  seqf = null;
+	private java.util.Collection<SeqfSequenceType>  seqf = null;
                 
   
         
@@ -224,13 +224,13 @@ import org.bn.types.*;
         
   
         
-        public java.util.Collection<SequenceType>  getSeqf () {
+        public java.util.Collection<SeqfSequenceType>  getSeqf () {
             return this.seqf;
         }
 
         
 
-        public void setSeqf (java.util.Collection<SequenceType>  value) {
+        public void setSeqf (java.util.Collection<SeqfSequenceType>  value) {
             this.seqf = value;
         }
         

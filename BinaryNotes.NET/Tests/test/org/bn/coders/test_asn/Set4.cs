@@ -23,7 +23,7 @@ namespace test.org.bn.coders.test_asn {
         private System.Collections.Generic.ICollection<Set3>  val;
 
         
-[ASN1SequenceOf( Name = "", IsSetOf = true  )]
+[ASN1SequenceOf( Name = "Set4", IsSetOf = true  )]
 
     
         [ASN1Element ( Name = "Set4", IsOptional =  false , HasTag =  true, Tag = 61, 

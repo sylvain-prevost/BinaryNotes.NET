@@ -27,7 +27,7 @@ import org.bn.types.*;
 	private String name = null;
                 
   
-@ASN1SequenceOf( name = "", isSetOf = false ) 
+@ASN1SequenceOf( name = "values", isSetOf = false ) 
 
     
         @ASN1Element ( name = "values", isOptional =  false , hasTag =  true, tag = 1 , hasDefaultValue =  false  )

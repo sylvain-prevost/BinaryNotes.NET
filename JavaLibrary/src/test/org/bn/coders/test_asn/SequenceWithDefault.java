@@ -119,7 +119,7 @@ import org.bn.types.*;
     @ASN1String( name = "", 
         stringType =  UniversalTag.PrintableString , isUCS = false )
     
-@ASN1SequenceOf( name = "", isSetOf = false ) 
+@ASN1SequenceOf( name = "withSeqOf", isSetOf = false ) 
 
     
         @ASN1Element ( name = "withSeqOf", isOptional =  false , hasTag =  true, tag = 6 , hasDefaultValue =  true  )
@@ -127,7 +127,7 @@ import org.bn.types.*;
 	private java.util.Collection<String>  withSeqOf = null;
                 
   
-@ASN1SequenceOf( name = "", isSetOf = false ) 
+@ASN1SequenceOf( name = "withSeqOf2", isSetOf = false ) 
 
     
         @ASN1Element ( name = "withSeqOf2", isOptional =  false , hasTag =  true, tag = 7 , hasDefaultValue =  true  )

@@ -36,7 +36,7 @@ namespace test.org.bn.coders.test_asn {
 	
         private bool  params_present = false ;
 	
-[ASN1SequenceOf( Name = "", IsSetOf = false  )]
+[ASN1SequenceOf( Name = "params", IsSetOf = false  )]
 
     
         [ASN1Element ( Name = "params", IsOptional =  true , HasTag =  true, Tag = 1 , HasDefaultValue =  false )  ]

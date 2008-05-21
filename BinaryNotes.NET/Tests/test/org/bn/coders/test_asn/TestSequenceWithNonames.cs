@@ -164,11 +164,11 @@ namespace test.org.bn.coders.test_asn {
         
                 
           
-	private System.Collections.Generic.ICollection<SequenceType> seqf_ ;
+	private System.Collections.Generic.ICollection<SeqfSequenceType> seqf_ ;
 	
        [ASN1PreparedElement]
-       [ASN1Sequence ( Name = "", IsSet = false  )]
-       public class SequenceType : IASN1PreparedElement {
+       [ASN1Sequence ( Name = "seqf", IsSet = false  )]
+       public class SeqfSequenceType : IASN1PreparedElement {
                         
 	private long it1_ ;
 	
@@ -194,7 +194,7 @@ namespace test.org.bn.coders.test_asn {
             		
                 }
 
-            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(SequenceType));
+            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(SeqfSequenceType));
             public IASN1PreparedElementData PreparedData {
             	get { return preparedData; }
             }
@@ -202,12 +202,12 @@ namespace test.org.bn.coders.test_asn {
                 
        }
                 
-[ASN1SequenceOf( Name = "", IsSetOf = false  )]
+[ASN1SequenceOf( Name = "seqf", IsSetOf = false  )]
 
     
         [ASN1Element ( Name = "seqf", IsOptional =  false , HasTag =  true, Tag = 2 , HasDefaultValue =  false )  ]
     
-        public System.Collections.Generic.ICollection<SequenceType> Seqf
+        public System.Collections.Generic.ICollection<SeqfSequenceType> Seqf
         {
             get { return seqf_; }
             set { seqf_ = value;  }

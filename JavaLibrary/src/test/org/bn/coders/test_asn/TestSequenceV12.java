@@ -50,7 +50,7 @@ import org.bn.types.*;
     @ASN1String( name = "", 
         stringType =  UniversalTag.PrintableString , isUCS = false )
     
-@ASN1SequenceOf( name = "", isSetOf = false ) 
+@ASN1SequenceOf( name = "attrArr", isSetOf = false ) 
 
     @ASN1ValueRangeConstraint ( 
 		

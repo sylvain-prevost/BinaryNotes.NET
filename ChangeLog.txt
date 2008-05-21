@@ -6,6 +6,7 @@ ChangeLog
 							{<component>}	- Component/Group that changed
 
 
+1.5.2	{comp}		[*] Fixed duplicate names generation for noname SEQUENCE OF (#1899960). Thanks to Matt Cupp.
 1.5.2	{comp}		[*] Fixed incorrect source generation for .NET (#1897644). Thanks to Fredrik Palsson.
 1.5.2	{comp}		[*] Fixed incorrect source generation #1897652 and #1897645. Thanks to Fredrik Palsson.
 1.5.2	{lib}		[*] Fixed decoding optional fields for SEQUENCE for BER. Thanks to Chris Warren.

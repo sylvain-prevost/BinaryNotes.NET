@@ -34,7 +34,7 @@ namespace test.org.bn.coders.test_asn {
           
 	private System.Collections.Generic.ICollection<ValueWithParams> values_ ;
 	
-[ASN1SequenceOf( Name = "", IsSetOf = false  )]
+[ASN1SequenceOf( Name = "values", IsSetOf = false  )]
 
     
         [ASN1Element ( Name = "values", IsOptional =  false , HasTag =  true, Tag = 1 , HasDefaultValue =  false )  ]

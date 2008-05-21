@@ -31,7 +31,7 @@
 
     <xsl:template name="typeReference">
 	<xsl:param name="elementName"/>
-        <xsl:param name="instanceable"/>        
+        <xsl:param name="instanceable"/>
         <xsl:choose>
             <xsl:when test="typeReference/BUILTINTYPE = 'CHARACTER STRING'">string</xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'OCTET STRING'">byte[]</xsl:when>
@@ -40,7 +40,7 @@
             <xsl:when test="typeReference/BUILTINTYPE = 'BOOLEAN'">bool</xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'REAL'">double</xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'INTEGER'"><xsl:for-each select="typeReference"><xsl:call-template name="integerTypeDecl"/></xsl:for-each></xsl:when>
-            <xsl:when test="typeReference/isSequenceOf = 'true' or typeReference/isSequenceOf = 'false'"><xsl:if test="$instanceable != 'yes'">System.Collections.Generic.ICollection</xsl:if><xsl:if test="$instanceable = 'yes'">System.Collections.Generic.List</xsl:if>&lt;<xsl:for-each select="typeReference"><xsl:call-template name="elementType"/></xsl:for-each>&gt;</xsl:when>
+            <xsl:when test="typeReference/isSequenceOf = 'true' or typeReference/isSequenceOf = 'false'"><xsl:if test="$instanceable != 'yes'">System.Collections.Generic.ICollection</xsl:if><xsl:if test="$instanceable = 'yes'">System.Collections.Generic.List</xsl:if>&lt;<xsl:for-each select="typeReference"><xsl:call-template name="elementType"><xsl:with-param name="parentElementName" select="$elementName"/></xsl:call-template></xsl:for-each>&gt;</xsl:when>
 	    <xsl:when test="typeReference/isSequence = 'true' or typeReference/isSequence = 'false'"><xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>SequenceType</xsl:when>
             <xsl:when test="typeReference/isChoice = 'true'"><xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>ChoiceType</xsl:when>
 	    <xsl:when test="typeReference/isEnum = 'true'"><xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>EnumType</xsl:when>

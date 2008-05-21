@@ -141,7 +141,7 @@ namespace test.org.bn.coders.test_asn {
 	private System.Collections.Generic.ICollection<string> withSeqOf_ ;
 	[ASN1String( Name = "", 
         StringType =  UniversalTags.PrintableString , IsUCS = false )]
-[ASN1SequenceOf( Name = "", IsSetOf = false  )]
+[ASN1SequenceOf( Name = "withSeqOf", IsSetOf = false  )]
 
     
         [ASN1Element ( Name = "withSeqOf", IsOptional =  false , HasTag =  true, Tag = 6 , HasDefaultValue =  true )  ]
@@ -156,7 +156,7 @@ namespace test.org.bn.coders.test_asn {
           
 	private System.Collections.Generic.ICollection<TestPRN> withSeqOf2_ ;
 	
-[ASN1SequenceOf( Name = "", IsSetOf = false  )]
+[ASN1SequenceOf( Name = "withSeqOf2", IsSetOf = false  )]
 
     
         [ASN1Element ( Name = "withSeqOf2", IsOptional =  false , HasTag =  true, Tag = 7 , HasDefaultValue =  true )  ]

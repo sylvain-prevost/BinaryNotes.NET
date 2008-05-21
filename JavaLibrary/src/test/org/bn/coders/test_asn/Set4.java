@@ -20,7 +20,7 @@ import org.bn.types.*;
     public class Set4 implements IASN1PreparedElement {
                 
         
-@ASN1SequenceOf( name = "", isSetOf = true ) 
+@ASN1SequenceOf( name = "Set4", isSetOf = true ) 
 
     
         @ASN1Element ( name = "Set4", isOptional =  false , hasTag =  true, tag = 61, 

@@ -67,7 +67,7 @@ namespace test.org.bn.coders.test_asn {
 	private System.Collections.Generic.ICollection<string> attrArr_ ;
 	[ASN1String( Name = "", 
         StringType =  UniversalTags.PrintableString , IsUCS = false )]
-[ASN1SequenceOf( Name = "", IsSetOf = false  )]
+[ASN1SequenceOf( Name = "attrArr", IsSetOf = false  )]
 
     [ASN1ValueRangeConstraint ( 
 		

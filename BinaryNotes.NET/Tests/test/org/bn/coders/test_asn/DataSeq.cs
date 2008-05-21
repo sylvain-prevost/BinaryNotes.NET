@@ -132,7 +132,7 @@ namespace test.org.bn.coders.test_asn {
 	private System.Collections.Generic.ICollection<string> stringArray_ ;
 	[ASN1String( Name = "", 
         StringType =  UniversalTags.PrintableString , IsUCS = false )]
-[ASN1SequenceOf( Name = "", IsSetOf = false  )]
+[ASN1SequenceOf( Name = "stringArray", IsSetOf = false  )]
 
     
         [ASN1Element ( Name = "stringArray", IsOptional =  false , HasTag =  true, Tag = 8 , HasDefaultValue =  false )  ]
@@ -147,7 +147,7 @@ namespace test.org.bn.coders.test_asn {
           
 	private System.Collections.Generic.ICollection<Data> dataArray_ ;
 	
-[ASN1SequenceOf( Name = "", IsSetOf = false  )]
+[ASN1SequenceOf( Name = "dataArray", IsSetOf = false  )]
 
     
         [ASN1Element ( Name = "dataArray", IsOptional =  false , HasTag =  true, Tag = 9 , HasDefaultValue =  false )  ]

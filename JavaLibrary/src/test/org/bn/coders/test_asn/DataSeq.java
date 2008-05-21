@@ -76,7 +76,7 @@ import org.bn.types.*;
     @ASN1String( name = "", 
         stringType =  UniversalTag.PrintableString , isUCS = false )
     
-@ASN1SequenceOf( name = "", isSetOf = false ) 
+@ASN1SequenceOf( name = "stringArray", isSetOf = false ) 
 
     
         @ASN1Element ( name = "stringArray", isOptional =  false , hasTag =  true, tag = 8 , hasDefaultValue =  false  )
@@ -84,7 +84,7 @@ import org.bn.types.*;
 	private java.util.Collection<String>  stringArray = null;
                 
   
-@ASN1SequenceOf( name = "", isSetOf = false ) 
+@ASN1SequenceOf( name = "dataArray", isSetOf = false ) 
 
     
         @ASN1Element ( name = "dataArray", isOptional =  false , hasTag =  true, tag = 9 , hasDefaultValue =  false  )

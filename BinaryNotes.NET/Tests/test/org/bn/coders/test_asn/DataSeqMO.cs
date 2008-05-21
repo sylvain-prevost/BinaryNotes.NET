@@ -144,7 +144,7 @@ namespace test.org.bn.coders.test_asn {
         private bool  stringArray_present = false ;
 	[ASN1String( Name = "", 
         StringType =  UniversalTags.PrintableString , IsUCS = false )]
-[ASN1SequenceOf( Name = "", IsSetOf = false  )]
+[ASN1SequenceOf( Name = "stringArray", IsSetOf = false  )]
 
     
         [ASN1Element ( Name = "stringArray", IsOptional =  true , HasTag =  true, Tag = 8 , HasDefaultValue =  false )  ]
@@ -161,7 +161,7 @@ namespace test.org.bn.coders.test_asn {
 	
         private bool  dataArray_present = false ;
 	
-[ASN1SequenceOf( Name = "", IsSetOf = false  )]
+[ASN1SequenceOf( Name = "dataArray", IsSetOf = false  )]
 
     
         [ASN1Element ( Name = "dataArray", IsOptional =  true , HasTag =  true, Tag = 9 , HasDefaultValue =  false )  ]
@@ -303,7 +303,7 @@ namespace test.org.bn.coders.test_asn {
         private bool  stringArray2_present = false ;
 	[ASN1String( Name = "", 
         StringType =  UniversalTags.PrintableString , IsUCS = false )]
-[ASN1SequenceOf( Name = "", IsSetOf = false  )]
+[ASN1SequenceOf( Name = "stringArray2", IsSetOf = false  )]
 
     
         [ASN1Element ( Name = "stringArray2", IsOptional =  true , HasTag =  true, Tag = 15 , HasDefaultValue =  false )  ]
@@ -320,7 +320,7 @@ namespace test.org.bn.coders.test_asn {
 	
         private bool  dataArray2_present = false ;
 	
-[ASN1SequenceOf( Name = "", IsSetOf = false  )]
+[ASN1SequenceOf( Name = "dataArray2", IsSetOf = false  )]
 
     
         [ASN1Element ( Name = "dataArray2", IsOptional =  true , HasTag =  true, Tag = 16 , HasDefaultValue =  false )  ]

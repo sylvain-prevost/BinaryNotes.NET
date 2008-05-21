@@ -28,8 +28,15 @@
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
 
     <xsl:template name="elementType">
-        <xsl:param name="instanceable" select="'no'"/>    
-        <xsl:variable name="elementName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>
+        <xsl:param name="instanceable" select="'no'"/>
+	<xsl:param name="parentElementName"/>
+	<xsl:variable name="currentNodeName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>
+        <xsl:variable name="elementName">		
+		<xsl:choose>
+			<xsl:when test="$currentNodeName!=''"><xsl:value-of select="$currentNodeName"/></xsl:when>
+			<xsl:otherwise><xsl:value-of select="$parentElementName"/></xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
         <xsl:choose>
             <xsl:when test="string-length(typeName) > 0"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="typeName"/></xsl:call-template></xsl:when>
             <xsl:when test="typeReference"><xsl:call-template name="typeReference"><xsl:with-param name="elementName" select="$elementName"/><xsl:with-param name="instanceable" select="$instanceable"/></xsl:call-template></xsl:when>

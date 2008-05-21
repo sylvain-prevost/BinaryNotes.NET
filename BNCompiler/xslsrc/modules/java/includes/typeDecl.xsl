@@ -44,6 +44,13 @@
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
 
     <xsl:template name="typeDecl">
+	<xsl:param name="parentElementName"/>
+	<xsl:variable name="elementName">
+		<xsl:choose>
+            		<xsl:when test="string-length(name) > 0"><xsl:value-of select="name"/></xsl:when>
+			<xsl:otherwise><xsl:value-of select="$parentElementName"/></xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
         <xsl:choose>
             <xsl:when test="typeReference/BUILTINTYPE = 'CHARACTER STRING'"><xsl:call-template name="stringDecl"/> </xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'OCTET STRING'"><xsl:call-template name="octetStringDecl"/> </xsl:when>
@@ -52,10 +59,10 @@
             <xsl:when test="typeReference/BUILTINTYPE = 'BOOLEAN'"><xsl:call-template name="booleanDecl"/> </xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'INTEGER'"><xsl:call-template name="integerDecl"/> </xsl:when>
             <xsl:when test="typeReference/BUILTINTYPE = 'REAL'"><xsl:call-template name="realDecl"/> </xsl:when>
-            <xsl:when test="typeReference/isSequenceOf = 'true' or typeReference/isSequenceOf = 'false'"><xsl:call-template name="sequenceOfDecl"/></xsl:when>
-            <xsl:when test="typeReference/isSequence = 'true' or typeReference/isSequence = 'false'"><xsl:call-template name="sequenceDecl"><xsl:with-param name="elementName" select="name"/></xsl:call-template></xsl:when>
-            <xsl:when test="typeReference/isChoice = 'true'"><xsl:call-template name="choiceDecl"><xsl:with-param name="elementName" select="name"/></xsl:call-template></xsl:when>
-	    <xsl:when test="typeReference/isEnum = 'true'"><xsl:call-template name="enumDecl"><xsl:with-param name="elementName" select="name"/></xsl:call-template></xsl:when>
+            <xsl:when test="typeReference/isSequenceOf = 'true' or typeReference/isSequenceOf = 'false'"><xsl:call-template name="sequenceOfDecl"><xsl:with-param name="elementName" select="$elementName"/></xsl:call-template></xsl:when>
+            <xsl:when test="typeReference/isSequence = 'true' or typeReference/isSequence = 'false'"><xsl:call-template name="sequenceDecl"><xsl:with-param name="elementName" select="$elementName"/></xsl:call-template></xsl:when>
+            <xsl:when test="typeReference/isChoice = 'true'"><xsl:call-template name="choiceDecl"><xsl:with-param name="elementName" select="$elementName"/></xsl:call-template></xsl:when>
+	    <xsl:when test="typeReference/isEnum = 'true'"><xsl:call-template name="enumDecl"><xsl:with-param name="elementName" select="$elementName"/></xsl:call-template></xsl:when>
             <xsl:when test="typeReference/isNull = 'true'"><xsl:call-template name="nullDecl"/></xsl:when>
             <xsl:when test="string-length(typeName) > 0"></xsl:when>
             <xsl:otherwise><xsl:call-template name="anyDecl"/> </xsl:otherwise>

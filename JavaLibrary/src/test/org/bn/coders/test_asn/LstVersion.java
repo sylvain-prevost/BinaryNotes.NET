@@ -20,7 +20,7 @@ import org.bn.types.*;
     public class LstVersion implements IASN1PreparedElement {
                 
         
-@ASN1SequenceOf( name = "", isSetOf = true ) 
+@ASN1SequenceOf( name = "LstVersion", isSetOf = true ) 
 
     
         @ASN1Element ( name = "LstVersion", isOptional =  false , hasTag =  true, tag = 75, 
