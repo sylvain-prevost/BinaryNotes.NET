@@ -90,7 +90,7 @@ public class Main {
     public static void main(String args[]) {
         try {
             System.out.println("BinaryNotes compiler v"+version);
-            System.out.println("        (c) 2007 Abdulla G. Abdurakhmanov");
+            System.out.println("        (c) 2007-2008 Abdulla G. Abdurakhmanov");
             new Main().start(args);
         } catch (Exception ex) {
             System.err.println(ex);
