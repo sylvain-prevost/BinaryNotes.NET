@@ -1,17 +1,13 @@
 -- License --
 
-* The BinaryNotes library & Messages Queues licensed under LGPL (Lesser GPL) v2 
-	(see to licenses\lgpl.txt for details).
+* The BinaryNotes v1.5.3 or greater licensed under Apache Licence v2  http://www.apache.org/licenses/LICENSE-2.0.html
+(Older versions were licensed under LGPL/GPL)
 
-* The BinaryNotes compiler  licensed under GPL v2 
-		(see to licenses\gpl.txt for details).
-
-(á) 2006 Abdulla G. Abdurakhmanov (abdulla.abdurakhmanov@gmail.com)
+(c) 2006-2011 Abdulla G. Abdurakhmanov (abdulla.abdurakhmanov@gmail.com)
 http://bnotes.sourceforge.net
 
 
 -- 3rd-party licenses --
-
 * The BinaryNotes compiler uses JAXB Reference implementation (http://jaxb.dev.java.net) 
 licensed under COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
 (see to licenses\3rdyparty\cddl.txt for details)

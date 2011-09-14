@@ -39,7 +39,7 @@ import org.lineargs.LineArgsParser;
 
 
 public class Main {
-    private final static String version = "1.5.2";
+    private final static String version = "1.5.3";
     private LineArgsParser     parser    = new LineArgsParser();
     private CompilerArgs arguments = null;
     
@@ -90,7 +90,7 @@ public class Main {
     public static void main(String args[]) {
         try {
             System.out.println("BinaryNotes compiler v"+version);
-            System.out.println("        (c) 2007-2008 Abdulla G. Abdurakhmanov");
+            System.out.println("        (c) 2006-2011 Abdulla G. Abdurakhmanov");
             new Main().start(args);
         } catch (Exception ex) {
             System.err.println(ex);
