@@ -1,3 +1,4 @@
-base referer
-rect $interfaceorg_1_1bn_1_1mq_1_1_i_remote_supplier.html 19,7 205,33
-rect $interfaceorg_1_1bn_1_1mq_1_1_i_supplier.html 255,7 391,33
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$interfaceorg_1_1bn_1_1mq_1_1_i_remote_supplier.html" title="Interface to remote supplier." alt="" coords="5,5,184,35"/>
+<area shape="rect" id="node3" href="$interfaceorg_1_1bn_1_1mq_1_1_i_supplier.html" title="Interface to supplier." alt="" coords="233,5,367,35"/>
+</map>

@@ -1,3 +1,4 @@
-base referer
-rect $interfaceorg_1_1bn_1_1mq_1_1_i_remote_message_queue_3_01_t_01_4.html 17,7 286,33
-rect $interfaceorg_1_1bn_1_1mq_1_1_i_message_queue_3_01_t_01_4.html 336,7 552,33
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$interfaceorg_1_1bn_1_1mq_1_1_i_remote_message_queue_3_01_t_01_4.html" title="Remote message queue interface." alt="" coords="7,5,260,35"/>
+<area shape="rect" id="node3" href="$interfaceorg_1_1bn_1_1mq_1_1_i_message_queue_3_01_t_01_4.html" title="Defintion of supplier MessageQueue." alt="" coords="311,5,519,35"/>
+</map>
