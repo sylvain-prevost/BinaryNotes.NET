@@ -149,6 +149,7 @@
     <Compile Include="test\org\bn\coders\test_asn\TestReal.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestRecursiveDefinetion.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestSeqOID.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\TestBasicSequence.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestSequenceV12.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestSequenceWithNonames.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestSeqV13.cs" />

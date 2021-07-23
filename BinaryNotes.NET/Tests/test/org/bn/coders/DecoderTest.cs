@@ -109,7 +109,31 @@ namespace test.org.bn.coders
 			Assert.Equals(decoded.SimpleType, standard.SimpleType);
 			ByteTools.checkBuffers(decoded.SimpleOctType, standard.SimpleOctType);
 		}
-		
+
+        public virtual void testDefiniteLengthBasicSequenceDecode()
+        {
+            IDecoder decoder = newDecoder();
+            System.IO.MemoryStream stream = new System.IO.MemoryStream((coderTestUtils.createDefiniteLengthBasicSequenceBytes()));
+            TestBasicSequence definiteLengthSequence = decoder.decode<TestBasicSequence>(stream);
+            checkBasicSequence(definiteLengthSequence, coderTestUtils.createBasicSequence());
+        }
+
+        public virtual void testIndefiniteLengthBasicSequenceDecode()
+        {
+            IDecoder decoder = newDecoder();
+            System.IO.MemoryStream stream = new System.IO.MemoryStream((coderTestUtils.createIndefiniteLengthBasicSequenceBytes()));
+            TestBasicSequence inDefiniteLengthSequence = decoder.decode<TestBasicSequence>(stream);
+            checkBasicSequence(inDefiniteLengthSequence, coderTestUtils.createBasicSequence());
+        }
+
+        protected internal virtual void checkBasicSequence(TestBasicSequence decoded, TestBasicSequence standard)
+        {
+            Assert.Equals(decoded.Simple_integer, standard.Simple_integer);
+            ByteTools.checkBuffers(decoded.Simple_octet_string, standard.Simple_octet_string);
+        }
+
+        
+
 		public virtual void  testITUDeDecode()
 		{
 			IDecoder decoder = newDecoder();

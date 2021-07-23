@@ -94,7 +94,19 @@ namespace test.org.bn.coders
 			return seq;
 		}
 		public abstract byte[] createDataSeqBytes();
-		
+
+        public virtual TestBasicSequence createBasicSequence()
+        {
+            TestBasicSequence seq = new TestBasicSequence();
+            seq.Simple_integer = 0x112233;
+            seq.Simple_octet_string = new byte[] { (byte)(0x4A), (byte)(0x6F), (byte)(0x6E), (byte)(0x65), (byte)(0x73) };
+            return seq;
+        }
+
+        public abstract byte[] createDefiniteLengthBasicSequenceBytes();
+
+        public abstract byte[] createIndefiniteLengthBasicSequenceBytes();
+
 		public virtual DataSeqMO createDataSeqMO()
 		{
 			DataSeqMO seq = new DataSeqMO();
