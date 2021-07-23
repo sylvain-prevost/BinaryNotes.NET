@@ -196,7 +196,7 @@ namespace org.bn.coders
                         else
                             fieldOrder.Add(tagNA--, field);
                     }
-                    catch (ArgumentException ex)
+                    catch (ArgumentException)
                     {
                         if (element.HasTag)
                             throw new Exception("Duplicate tag [" + element.Tag + "] for set has been detected!");

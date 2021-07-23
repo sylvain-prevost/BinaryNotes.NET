@@ -37,5 +37,10 @@ namespace org.bn.types
             else
                 return false;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
