@@ -94,8 +94,10 @@ namespace Tests
             test.testDecodeCSSpecific();
             test.testDecodeTaggedSet();
             test.testDecodeTaggedSetInSet();
-
             test.testDefiniteLengthBasicSequenceDecode();
+
+            // expected to fail until support is added
+            test.testSequenceWithOidDecode();
 
             // expected to fail until support is added
             test.testIndefiniteLengthBasicSequenceDecode();

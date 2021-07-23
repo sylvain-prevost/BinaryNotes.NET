@@ -95,6 +95,14 @@ namespace test.org.bn.coders
 		}
 		public abstract byte[] createDataSeqBytes();
 
+        public virtual TestSequenceWithOid createSequenceWithOid()
+        {
+            TestSequenceWithOid seq = new TestSequenceWithOid();
+            seq.Simple_oid = new ObjectIdentifier("2.5.4.6");
+            seq.Simple_integer = 0x112233;
+            return seq;
+        }
+
         public virtual TestBasicSequence createBasicSequence()
         {
             TestBasicSequence seq = new TestBasicSequence();

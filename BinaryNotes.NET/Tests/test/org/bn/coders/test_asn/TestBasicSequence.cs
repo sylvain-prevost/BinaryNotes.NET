@@ -16,7 +16,7 @@ namespace test.org.bn.coders.test_asn {
 
 
     [ASN1PreparedElement]
-    [ASN1Sequence ( Name = "Test", IsSet = false  )]
+    [ASN1Sequence ( Name = "TestBasicSequence", IsSet = false  )]
     public class TestBasicSequence : IASN1PreparedElement {
                     
 	private long simple_integer_ ;

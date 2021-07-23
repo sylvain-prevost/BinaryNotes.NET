@@ -110,6 +110,20 @@ namespace test.org.bn.coders
 			ByteTools.checkBuffers(decoded.SimpleOctType, standard.SimpleOctType);
 		}
 
+        public virtual void testSequenceWithOidDecode()
+        {
+            IDecoder decoder = newDecoder();
+            System.IO.MemoryStream stream = new System.IO.MemoryStream((coderTestUtils.createDefiniteLengthBasicSequenceBytes()));
+            TestSequenceWithOid definiteLengthSequence = decoder.decode<TestSequenceWithOid>(stream);
+            checkSequenceWithOid(definiteLengthSequence, coderTestUtils.createSequenceWithOid());
+        }
+
+        protected internal virtual void checkSequenceWithOid(TestSequenceWithOid decoded, TestSequenceWithOid standard)
+        {
+            Assert.Equals(decoded.Simple_oid.Value, standard.Simple_oid.Value);
+            Assert.Equals(decoded.Simple_integer, standard.Simple_integer);
+        }
+
         public virtual void testDefiniteLengthBasicSequenceDecode()
         {
             IDecoder decoder = newDecoder();
