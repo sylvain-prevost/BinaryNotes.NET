@@ -1,21 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31507.150
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryNotes", "BinaryNotes.csproj", "{7BB91554-CA9A-4F6E-91CB-E34410F215A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{8D701C15-B34F-4F9D-B70A-8188BCF13232}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryNotesMQ", "..\BinaryNotesMQ\.net\BinaryNotesMQ\BinaryNotesMQ.csproj", "{0EEB930C-D643-4258-9912-7D546F6AC031}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BNMQTests", "..\BinaryNotesMQ\.net\BNMQTests\BNMQTests.csproj", "{940A43F5-F22A-4C5E-9271-F381B159BDD7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BNMQExample", "..\BinaryNotesMQ\examples\.net\BNMQExample\BNMQExample.csproj", "{4801C926-5F21-484E-83C3-E28626C8BB09}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryNotesCF", "CF\BinaryNotesCF\BinaryNotesCF.csproj", "{72AB1AFF-9ECD-4730-93B5-BF9E3B497241}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryNotesMQCF", "..\BinaryNotesMQ\.net\BinaryNotesMQCF\BinaryNotesMQCF.csproj", "{FBE152BF-B843-448F-9D5C-92F27181CCB8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BNP2PExample", "..\BinaryNotesMQ\examples\.net\BNP2PExample\BNP2PExample.csproj", "{802DA0C2-F2EA-4878-BAF9-220C88D20E6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,32 +21,11 @@ Global
 		{8D701C15-B34F-4F9D-B70A-8188BCF13232}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D701C15-B34F-4F9D-B70A-8188BCF13232}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D701C15-B34F-4F9D-B70A-8188BCF13232}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0EEB930C-D643-4258-9912-7D546F6AC031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EEB930C-D643-4258-9912-7D546F6AC031}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0EEB930C-D643-4258-9912-7D546F6AC031}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0EEB930C-D643-4258-9912-7D546F6AC031}.Release|Any CPU.Build.0 = Release|Any CPU
-		{940A43F5-F22A-4C5E-9271-F381B159BDD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{940A43F5-F22A-4C5E-9271-F381B159BDD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{940A43F5-F22A-4C5E-9271-F381B159BDD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{940A43F5-F22A-4C5E-9271-F381B159BDD7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4801C926-5F21-484E-83C3-E28626C8BB09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4801C926-5F21-484E-83C3-E28626C8BB09}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4801C926-5F21-484E-83C3-E28626C8BB09}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4801C926-5F21-484E-83C3-E28626C8BB09}.Release|Any CPU.Build.0 = Release|Any CPU
-		{72AB1AFF-9ECD-4730-93B5-BF9E3B497241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72AB1AFF-9ECD-4730-93B5-BF9E3B497241}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72AB1AFF-9ECD-4730-93B5-BF9E3B497241}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72AB1AFF-9ECD-4730-93B5-BF9E3B497241}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FBE152BF-B843-448F-9D5C-92F27181CCB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FBE152BF-B843-448F-9D5C-92F27181CCB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FBE152BF-B843-448F-9D5C-92F27181CCB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FBE152BF-B843-448F-9D5C-92F27181CCB8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{802DA0C2-F2EA-4878-BAF9-220C88D20E6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{802DA0C2-F2EA-4878-BAF9-220C88D20E6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{802DA0C2-F2EA-4878-BAF9-220C88D20E6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{802DA0C2-F2EA-4878-BAF9-220C88D20E6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC58D504-3B86-48BF-9FCE-99206B8DBAA3}
 	EndGlobalSection
 EndGlobal
