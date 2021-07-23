@@ -76,12 +76,6 @@
     <Compile Include="test\org\bn\coders\der\DERDecoderTest.cs" />
     <Compile Include="test\org\bn\coders\der\DEREncoderTest.cs" />
     <Compile Include="test\org\bn\coders\EncoderTest.cs" />
-    <Compile Include="test\org\bn\coders\per\PERAlignedCoderTestUtils.cs" />
-    <Compile Include="test\org\bn\coders\per\PERAlignedDecoderTest.cs" />
-    <Compile Include="test\org\bn\coders\per\PERAlignedEncoderTest.cs" />
-    <Compile Include="test\org\bn\coders\per\PERUnalignedCoderTestUtils.cs" />
-    <Compile Include="test\org\bn\coders\per\PERUnalignedDecoderTest.cs" />
-    <Compile Include="test\org\bn\coders\per\PERUnalignedEncoderTest.cs" />
     <Compile Include="test\org\bn\coders\test_asn\BugEnum.cs" />
     <Compile Include="test\org\bn\coders\test_asn\BugList.cs" />
     <Compile Include="test\org\bn\coders\test_asn\BugPrimitive.cs" />

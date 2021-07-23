@@ -205,11 +205,6 @@
     <Compile Include="org\bn\coders\IASN1PreparedElementData.cs" />
     <Compile Include="org\bn\coders\IASN1TypesDecoder.cs" />
     <Compile Include="org\bn\coders\IASN1TypesEncoder.cs" />
-    <Compile Include="org\bn\coders\per\PERAlignedDecoder.cs" />
-    <Compile Include="org\bn\coders\per\PERAlignedEncoder.cs" />
-    <Compile Include="org\bn\coders\per\PERCoderUtils.cs" />
-    <Compile Include="org\bn\coders\per\PERUnalignedDecoder.cs" />
-    <Compile Include="org\bn\coders\per\PERUnalignedEncoder.cs" />
     <Compile Include="org\bn\coders\TagClass.cs">
       <SubType>Code</SubType>
     </Compile>

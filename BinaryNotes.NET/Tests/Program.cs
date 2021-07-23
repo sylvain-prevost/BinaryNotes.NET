@@ -24,7 +24,6 @@ using csUnit;
 using test.org.bn.utils;
 using test.org.bn.coders;
 using test.org.bn.coders.ber;
-using test.org.bn.coders.per;
 using test.org.bn.coders.der;
 using test.org.bn.performance;
 
@@ -105,13 +104,9 @@ namespace Tests
             new CoderUtilsTest().testDefStringToOctetString();
 
             runEncoderTest(new BEREncoderTest(""));
-            runEncoderTest(new PERAlignedEncoderTest(""));
-            runEncoderTest(new PERUnalignedEncoderTest(""));
             runEncoderTest(new DEREncoderTest(""));
 
             runDecoderTest(new BERDecoderTest(""));
-            runDecoderTest(new PERAlignedDecoderTest(""));
-            runDecoderTest(new PERUnalignedDecoderTest(""));
             runDecoderTest(new DERDecoderTest(""));
 
             new DummyPerformanceTest().testEncodePerf();

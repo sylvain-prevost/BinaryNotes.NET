@@ -22,7 +22,6 @@ using csUnit;
 using test.org.bn.coders;
 using test.org.bn.coders.ber;
 using test.org.bn.coders.test_asn;
-using test.org.bn.coders.per;
 
 namespace test.org.bn.performance
 {
@@ -70,14 +69,10 @@ namespace test.org.bn.performance
         public void testEncodePerf()
         {
             runEncoderPerfTest("BER");
-            runEncoderPerfTest("PER");
-            runEncoderPerfTest("PER/Unaligned");
         }
 
         public void testDecodePerf(){
             runDecoderPerfTest("BER", new BERCoderTestUtils());
-            runDecoderPerfTest("PER", new PERAlignedCoderTestUtils());
-            runDecoderPerfTest("PER/Unaligned", new PERUnalignedCoderTestUtils());
         }
 
     }

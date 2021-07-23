@@ -1,3 +1,5 @@
-/BinaryNotes.NET/Tests/bin
-/BinaryNotes.NET/Tests/obj
-/BinaryNotes.NET/.vs
+/Dist
+**/bin
+**/obj
+**/.vs
+

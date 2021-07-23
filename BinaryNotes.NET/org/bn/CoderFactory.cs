@@ -37,19 +37,6 @@ namespace org.bn
                 return new org.bn.coders.ber.BEREncoder();
             }
             else
-            if (encodingSchema.Equals("PER", StringComparison.CurrentCultureIgnoreCase) || 
-                encodingSchema.Equals("PER/Aligned", StringComparison.CurrentCultureIgnoreCase) ||
-                encodingSchema.Equals("PER/A", StringComparison.CurrentCultureIgnoreCase))
-            {
-                return new org.bn.coders.per.PERAlignedEncoder();
-            }
-            else
-            if (encodingSchema.Equals("PER/Unaligned", StringComparison.CurrentCultureIgnoreCase)||
-                encodingSchema.Equals("PER/U", StringComparison.CurrentCultureIgnoreCase))
-            {
-                return new org.bn.coders.per.PERUnalignedEncoder();
-            }
-            else
             if (encodingSchema.Equals("DER", StringComparison.CurrentCultureIgnoreCase))
             {
                 return new org.bn.coders.der.DEREncoder();
@@ -65,19 +52,6 @@ namespace org.bn
         public IDecoder newDecoder(String encodingSchema) {
             if(encodingSchema.Equals("BER", StringComparison.CurrentCultureIgnoreCase)) {
                 return new org.bn.coders.ber.BERDecoder();
-            }
-            else
-            if (encodingSchema.Equals("PER", StringComparison.CurrentCultureIgnoreCase) || 
-                encodingSchema.Equals("PER/Aligned", StringComparison.CurrentCultureIgnoreCase)||
-                encodingSchema.Equals("PER/A", StringComparison.CurrentCultureIgnoreCase))
-            {
-                return new org.bn.coders.per.PERAlignedDecoder();
-            }
-            else
-            if (encodingSchema.Equals("PER/Unaligned", StringComparison.CurrentCultureIgnoreCase)||
-                encodingSchema.Equals("PER/U", StringComparison.CurrentCultureIgnoreCase))
-            {
-                return new org.bn.coders.per.PERUnalignedDecoder();
             }
             else
             if (encodingSchema.Equals("DER", StringComparison.CurrentCultureIgnoreCase))
