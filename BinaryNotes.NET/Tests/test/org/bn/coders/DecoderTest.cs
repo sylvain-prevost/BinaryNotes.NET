@@ -113,7 +113,7 @@ namespace test.org.bn.coders
         public virtual void testSequenceWithOidDecode()
         {
             IDecoder decoder = newDecoder();
-            System.IO.MemoryStream stream = new System.IO.MemoryStream((coderTestUtils.createDefiniteLengthBasicSequenceBytes()));
+            System.IO.MemoryStream stream = new System.IO.MemoryStream((coderTestUtils.createSequenceWithOidBytes()));
             TestSequenceWithOid definiteLengthSequence = decoder.decode<TestSequenceWithOid>(stream);
             checkSequenceWithOid(definiteLengthSequence, coderTestUtils.createSequenceWithOid());
         }

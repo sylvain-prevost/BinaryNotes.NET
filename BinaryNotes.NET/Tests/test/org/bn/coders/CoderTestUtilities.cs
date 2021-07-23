@@ -103,6 +103,8 @@ namespace test.org.bn.coders
             return seq;
         }
 
+        public abstract byte[] createSequenceWithOidBytes();
+
         public virtual TestBasicSequence createBasicSequence()
         {
             TestBasicSequence seq = new TestBasicSequence();
