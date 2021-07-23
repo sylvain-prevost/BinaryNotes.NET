@@ -31,6 +31,8 @@
         <xsl:param name="elementInfo"/>        
         
         <xsl:choose>
+            <xsl:when test="isTrueKW = 'true'">true</xsl:when>
+            <xsl:when test="isFalseKW = 'true'">false</xsl:when>
             <xsl:when test="isCString = 'true'">
                 <xsl:if test="$instElementType!='null' and $instElementType!='string'">new <xsl:value-of select="$instElementType"/> (</xsl:if> <xsl:value-of select="cStr"/> <xsl:if test="$instElementType!='null' and $instElementType!='string' ">)</xsl:if>
             </xsl:when>
