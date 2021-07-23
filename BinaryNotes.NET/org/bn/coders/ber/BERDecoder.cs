@@ -27,7 +27,7 @@ namespace org.bn.coders.ber
 	
 	public class BERDecoder:Decoder
 	{
-        protected internal virtual DecodedObject<int> decodeLength(System.IO.Stream stream)
+        protected internal virtual DecodedLength decodeLength(System.IO.Stream stream)
         {
             return BERCoderUtils.decodeLength(stream);
         }
@@ -92,20 +92,23 @@ namespace org.bn.coders.ber
                 else
                     return null;
             }
-			DecodedObject<int> len = decodeLength(stream);
-            int saveMaxAvailableLen = elementInfo.MaxAvailableLen;
-            elementInfo.MaxAvailableLen = (len.Value);
+            using (DecodedLength len = decodeLength(stream))
+            {
+                int saveMaxAvailableLen = elementInfo.MaxAvailableLen;
+                elementInfo.MaxAvailableLen = (len.Value);
 
-            DecodedObject<object> result = null;
-            if(!isSet)
-			    result =base.decodeSequence(decodedTag, objectClass, elementInfo, stream);
-            else
-                result = decodeSet(decodedTag, objectClass, elementInfo, len.Value, stream);
-			if (result.Size != len.Value)
-				throw new System.ArgumentException("Sequence '" + objectClass.ToString() + "' size is incorrect!");
-			result.Size = result.Size + len.Size;
-            elementInfo.MaxAvailableLen = (saveMaxAvailableLen);
-			return result;
+                DecodedObject<object> result = null;
+                if (!isSet)
+                    result = base.decodeSequence(decodedTag, objectClass, elementInfo, stream);
+                else
+                    result = decodeSet(decodedTag, objectClass, elementInfo, len.Value, stream);
+                if (result.Size != len.Value)
+                    throw new System.ArgumentException("Sequence '" + objectClass.ToString() + "' size is incorrect!");
+                result.Size = result.Size + len.Size;
+                elementInfo.MaxAvailableLen = (saveMaxAvailableLen);
+                return result;
+            }
+            
 		}
 
         protected virtual DecodedObject<object> decodeSet(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, int len, System.IO.Stream stream)
@@ -194,11 +197,14 @@ namespace org.bn.coders.ber
             {
                 if (!checkTagForObject(decodedTag, TagClasses.ContextSpecific, ElementType.Constructed, UniversalTags.LastUniversal, elementInfo))
                     return null;
-                DecodedObject<int> len =  decodeLength(stream);
-                DecodedObject<object> childDecodedTag = decodeTag(stream);
-                DecodedObject<object> result = base.decodeChoice(childDecodedTag, objectClass, elementInfo, stream);
-                result.Size += len.Size + childDecodedTag.Size;
-                return result;
+
+                using (DecodedLength len = decodeLength(stream))
+                {
+                    DecodedObject<object> childDecodedTag = decodeTag(stream);
+                    DecodedObject<object> result = base.decodeChoice(childDecodedTag, objectClass, elementInfo, stream);
+                    result.Size += len.Size + childDecodedTag.Size;
+                    return result;
+                }
             }
             else
                 return base.decodeChoice(decodedTag, objectClass, elementInfo, stream);
@@ -291,31 +297,33 @@ namespace org.bn.coders.ber
         {
             if (!checkTagForObject(decodedTag, TagClasses.Universal, ElementType.Primitive, UniversalTags.Real, elementInfo))
                 return null;
-            DecodedObject<int> len = decodeLength(stream);
-            int realPreamble = stream.ReadByte();
 
-            Double result = 0.0D;
-            int szResult = len.Value;
-            if ((realPreamble & 0x40) == 1)
+            using (DecodedLength len = decodeLength(stream))
             {
-                // 01000000 Value is PLUS-INFINITY
-                result = Double.PositiveInfinity;
-            }
-            if ((realPreamble & 0x41) == 1)
-            {
-                // 01000001 Value is MINUS-INFINITY
-                result = Double.NegativeInfinity;
-                szResult += 1;
-            }
-            else
-                if (len.Value > 0)
+                int realPreamble = stream.ReadByte();
+
+                Double result = 0.0D;
+                int szResult = len.Value;
+                if ((realPreamble & 0x40) == 1)
+                {
+                    // 01000000 Value is PLUS-INFINITY
+                    result = Double.PositiveInfinity;
+                }
+                if ((realPreamble & 0x41) == 1)
+                {
+                    // 01000001 Value is MINUS-INFINITY
+                    result = Double.NegativeInfinity;
+                    szResult += 1;
+                }
+                else
+                    if (len.Value > 0)
                 {
                     int szOfExp = 1 + (realPreamble & 0x3);
                     int sign = realPreamble & 0x40;
                     int ff = (realPreamble & 0x0C) >> 2;
-                    DecodedObject<object> exponentEncFrm = decodeLongValue(stream, new DecodedObject<int>(szOfExp));
+                    DecodedObject<object> exponentEncFrm = decodeLongValue(stream, new DecodedLength(stream, szOfExp));
                     long exponent = (long)exponentEncFrm.Value;
-                    DecodedObject<object> mantissaEncFrm = decodeLongValue(stream, new DecodedObject<int>(szResult - szOfExp - 1));
+                    DecodedObject<object> mantissaEncFrm = decodeLongValue(stream, new DecodedLength(stream, szResult - szOfExp - 1));
                     // Unpack mantissa & decrement exponent for base 2
                     long mantissa = (long)mantissaEncFrm.Value << ff;
                     while ((mantissa & 0x000ff00000000000L) == 0x0)
@@ -342,40 +350,45 @@ namespace org.bn.coders.ber
                     result = System.BitConverter.Int64BitsToDouble(lValue);
 #endif
                 }
-            return new DecodedObject<object>(result, len.Value + len.Size);
+                return new DecodedObject<object>(result, len.Value + len.Size);
+            }
         }
 
         protected DecodedObject<object> decodeLongValue(System.IO.Stream stream)
         {
-            DecodedObject<int> len =  decodeLength(stream);
-            return decodeLongValue(stream,len);    
+            using (DecodedLength len = decodeLength(stream))
+            {
+                return decodeLongValue(stream, len);
+            }
         }
 
         protected DecodedObject<object> decodeIntegerValue(System.IO.Stream stream)
         {
             DecodedObject<object> result = new DecodedObject<object>();
-            DecodedObject<int> len = decodeLength(stream);
-            int val = 0;
-            for (int i = 0; i < len.Value; i++)
+            using (DecodedLength len = decodeLength(stream))
             {
-                int bt = stream.ReadByte();
-                if (bt == -1)
+                int val = 0;
+                for (int i = 0; i < len.Value; i++)
                 {
-                    throw new System.ArgumentException("Unexpected EOF when encoding!");
-                }
-                if (i == 0 && (bt & (byte)0x80) != 0)
-                {
-                    bt = bt - 256;
-                }
+                    int bt = stream.ReadByte();
+                    if (bt == -1)
+                    {
+                        throw new System.ArgumentException("Unexpected EOF when encoding!");
+                    }
+                    if (i == 0 && (bt & (byte)0x80) != 0)
+                    {
+                        bt = bt - 256;
+                    }
 
-                val = (val << 8) | bt;
+                    val = (val << 8) | bt;
+                }
+                result.Value = val;
+                result.Size = len.Value + len.Size;
+                return result;
             }
-            result.Value = val;
-            result.Size = len.Value + len.Size;
-            return result;  
         }
 
-		protected internal virtual DecodedObject<object> decodeLongValue(System.IO.Stream stream, DecodedObject<int> len)
+		protected internal virtual DecodedObject<object> decodeLongValue(System.IO.Stream stream, DecodedLength len)
         {
             DecodedObject<object> result = new DecodedObject<object>();
             long val = 0;
@@ -402,35 +415,42 @@ namespace org.bn.coders.ber
 		{
 			if (!checkTagForObject(decodedTag, TagClasses.Universal, ElementType.Primitive, UniversalTags.OctetString, elementInfo))
 				return null;
-			DecodedObject<int> len = decodeLength(stream);
-            CoderUtils.checkConstraints(len.Value, elementInfo);
-			byte[] byteBuf = new byte[len.Value];
-            stream.Read(byteBuf,0,byteBuf.Length);
-			return new DecodedObject<object>(byteBuf, len.Value + len.Size);
+            using (DecodedLength len = decodeLength(stream))
+            {
+                CoderUtils.checkConstraints(len.Value, elementInfo);
+                byte[] byteBuf = new byte[len.Value];
+                stream.Read(byteBuf, 0, byteBuf.Length);
+                return new DecodedObject<object>(byteBuf, len.Value + len.Size);
+            }
 		}
 
 		public override DecodedObject<object> decodeBitString(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
 		{
 			if (!checkTagForObject(decodedTag, TagClasses.Universal, ElementType.Primitive, UniversalTags.Bitstring, elementInfo))
 				return null;
-			DecodedObject<int> len = decodeLength(stream);            
-            int trailBitCnt = stream.ReadByte();
-            CoderUtils.checkConstraints(len.Value * 8 - trailBitCnt, elementInfo);
-			byte[] byteBuf = new byte[len.Value - 1];
-            stream.Read(byteBuf,0,byteBuf.Length);
-			return new DecodedObject<object>( new BitString(byteBuf,trailBitCnt), len.Value + len.Size);
+
+            using (DecodedLength len = decodeLength(stream))
+            {
+                int trailBitCnt = stream.ReadByte();
+                CoderUtils.checkConstraints(len.Value * 8 - trailBitCnt, elementInfo);
+                byte[] byteBuf = new byte[len.Value - 1];
+                stream.Read(byteBuf, 0, byteBuf.Length);
+                return new DecodedObject<object>(new BitString(byteBuf, trailBitCnt), len.Value + len.Size);
+            }
 		}
 		
 		public override DecodedObject<object> decodeString(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
 		{
 			if (!checkTagForObject(decodedTag, TagClasses.Universal, ElementType.Primitive, CoderUtils.getStringTagForElement(elementInfo), elementInfo))
 				return null;
-			DecodedObject<int> len = decodeLength(stream);
-            CoderUtils.checkConstraints(len.Value, elementInfo);
-			byte[] byteBuf = new byte[len.Value];
-            stream.Read(byteBuf, 0, byteBuf.Length);
-            string result = CoderUtils.bufferToASN1String(byteBuf, elementInfo);
-			return new DecodedObject<object>(result, len.Value + len.Size);
+            using (DecodedLength len = decodeLength(stream))
+            {
+                CoderUtils.checkConstraints(len.Value, elementInfo);
+                byte[] byteBuf = new byte[len.Value];
+                stream.Read(byteBuf, 0, byteBuf.Length);
+                string result = CoderUtils.bufferToASN1String(byteBuf, elementInfo);
+                return new DecodedObject<object>(result, len.Value + len.Size);
+            }
 		}
 		
 		public override DecodedObject<object> decodeSequenceOf(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
@@ -450,49 +470,53 @@ namespace org.bn.coders.ber
             Type collectionType = typeof(List<>);
             Type genCollectionType = collectionType.MakeGenericType(paramType);
             Object param = Activator.CreateInstance(genCollectionType);
-            
-            DecodedObject<int> len = decodeLength(stream);
-			if (len.Value != 0)
-			{
-				int lenOfItems = 0;
-                int itemsCnt = 0;
-				do 
-				{
-                    ElementInfo info = new ElementInfo();
-                    info.ParentAnnotatedClass = elementInfo.AnnotatedClass;
-                    info.AnnotatedClass = paramType;
 
-                    if (elementInfo.hasPreparedInfo())
+            using (DecodedLength len = decodeLength(stream))
+            {
+                if (len.Value != 0)
+                {
+                    int lenOfItems = 0;
+                    int itemsCnt = 0;
+                    do
                     {
-                        ASN1SequenceOfMetadata seqOfMeta = (ASN1SequenceOfMetadata)elementInfo.PreparedInfo.TypeMetadata;
-                        info.PreparedInfo = (seqOfMeta.getItemClassMetadata());
-                    }
+                        ElementInfo info = new ElementInfo();
+                        info.ParentAnnotatedClass = elementInfo.AnnotatedClass;
+                        info.AnnotatedClass = paramType;
 
-					DecodedObject<object> itemTag = decodeTag(stream);
-					DecodedObject<object> item = decodeClassType(itemTag, paramType, info, stream);
-                    MethodInfo method = param.GetType().GetMethod("Add");
-					if (item != null)
-					{
-						lenOfItems += item.Size + itemTag.Size;                        
-                        method.Invoke(param, new object[] { item.Value });
-                        itemsCnt++;
-					}
-				}
-				while (lenOfItems < len.Value);
-                CoderUtils.checkConstraints(itemsCnt, elementInfo);
-			}
-			return new DecodedObject<object>(param, len.Value + len.Size);
+                        if (elementInfo.hasPreparedInfo())
+                        {
+                            ASN1SequenceOfMetadata seqOfMeta = (ASN1SequenceOfMetadata)elementInfo.PreparedInfo.TypeMetadata;
+                            info.PreparedInfo = (seqOfMeta.getItemClassMetadata());
+                        }
+
+                        DecodedObject<object> itemTag = decodeTag(stream);
+                        DecodedObject<object> item = decodeClassType(itemTag, paramType, info, stream);
+                        MethodInfo method = param.GetType().GetMethod("Add");
+                        if (item != null)
+                        {
+                            lenOfItems += item.Size + itemTag.Size;
+                            method.Invoke(param, new object[] { item.Value });
+                            itemsCnt++;
+                        }
+                    }
+                    while (lenOfItems < len.Value);
+                    CoderUtils.checkConstraints(itemsCnt, elementInfo);
+                }
+                return new DecodedObject<object>(param, len.Value + len.Size);
+            }
 		}
 
         public override DecodedObject<object> decodeObjectIdentifier(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
         {
             if (!checkTagForObject(decodedTag, TagClasses.Universal, ElementType.Primitive, UniversalTags.ObjectIdentifier, elementInfo))
                 return null;
-            DecodedObject<int> len = decodeLength(stream);
-            byte[] byteBuf = new byte[len.Value];
-            stream.Read(byteBuf, 0, byteBuf.Length);
-            string dottedDecimal = BERObjectIdentifier.Decode(byteBuf);
-            return new DecodedObject<object>(new ObjectIdentifier(dottedDecimal), len.Value + len.Size);
+            using (DecodedLength len = decodeLength(stream))
+            {
+                byte[] byteBuf = new byte[len.Value];
+                stream.Read(byteBuf, 0, byteBuf.Length);
+                string dottedDecimal = BERObjectIdentifier.Decode(byteBuf);
+                return new DecodedObject<object>(new ObjectIdentifier(dottedDecimal), len.Value + len.Size);
+            }
         }
 	}
 }

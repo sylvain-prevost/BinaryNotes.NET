@@ -96,8 +96,6 @@ namespace Tests
             test.testDecodeTaggedSetInSet();
             test.testDefiniteLengthBasicSequenceDecode();
             test.testSequenceWithOidDecode();
-
-            // expected to fail until support is added
             test.testIndefiniteLengthBasicSequenceDecode();
         }
 

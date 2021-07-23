@@ -155,8 +155,87 @@ namespace org.bn.coders.ber
             }
             return resultSize;
         }
-        public static DecodedObject<int> decodeLength(System.IO.Stream stream)
+
+        private static int GetBERLength(System.IO.Stream stream, ref int numberOfIndefiniteLengthMarkers)
         {
+            long initialPosition = stream.Position;
+
+            try
+            {
+                int objectLength;
+                int lenSize = 0;
+
+                int b = stream.ReadByte();
+                lenSize++;
+
+                if ((b & 0x80) != 0)
+                {
+                    byte count = (byte)(b & 0x7F);
+                    lenSize += count;
+
+                    if (count == 0)
+                    {                        
+                        return lenSize + GetBERIndefiniteLength(stream, ref numberOfIndefiniteLengthMarkers);
+                    }
+
+                    objectLength = 0;
+
+                    while (count-- != 0)
+                    {
+                        objectLength <<= 8;
+                        objectLength += (short)(stream.ReadByte() & 0x00FF);
+                    }
+
+                }
+                else
+                {
+                    objectLength = (short)(b & 0x00FF);
+                }                
+
+                return lenSize + objectLength;
+            }
+            finally
+            {
+                stream.Position = initialPosition;
+            }
+        }
+
+        private static int GetBERIndefiniteLength(System.IO.Stream stream, ref int numberOfIndefiniteLengthMarkers)
+        {
+            long initialPosition = stream.Position;
+
+            numberOfIndefiniteLengthMarkers++;
+
+            try
+            {
+                int totalLength = 0;
+                int objectTag;
+
+                objectTag = stream.ReadByte();
+
+                while (objectTag != 0)
+                {
+                    totalLength++;
+
+                    int len = GetBERLength(stream, ref numberOfIndefiniteLengthMarkers);
+
+                    totalLength += len;
+                    stream.Position += len;
+
+                    objectTag = stream.ReadByte();                    
+                }                
+
+                return totalLength + 2;
+            } 
+            finally
+            {
+                stream.Position = initialPosition;
+            }
+        }
+
+        public static DecodedLength decodeLength(System.IO.Stream stream)
+        {
+            int numberOfIndefiniteLengthMarkers = 0;
             int result = 0;
             int bt = stream.ReadByte();
             if (bt == -1)
@@ -166,6 +245,10 @@ namespace org.bn.coders.ber
             if (bt < 128)
             {
                 result = bt;
+            }
+            else if (bt == 128)
+            {
+                result = GetBERIndefiniteLength(stream, ref numberOfIndefiniteLengthMarkers);
             }
             else
             {
@@ -181,7 +264,8 @@ namespace org.bn.coders.ber
                     len++;
                 }
             }
-            return new DecodedObject<int>(result, len);
+            return new DecodedLength(stream, result, len, numberOfIndefiniteLengthMarkers);
         }
+
 	}
 }
