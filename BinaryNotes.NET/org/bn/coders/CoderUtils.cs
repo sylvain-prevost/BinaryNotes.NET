@@ -15,6 +15,7 @@
  limitations under the License.
  */
 using System;
+using System.Numerics;
 using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
@@ -94,6 +95,11 @@ namespace org.bn.coders
                 }
             }
             return sizeOfInt;
+        }
+
+        public static int getIntegerLength(BigInteger val)
+        {
+            return val.ToByteArray().Length;
         }
 
         public static int getPositiveIntegerLength(int val)

@@ -15,6 +15,7 @@
  limitations under the License.
  */
 using System;
+using System.Numerics;
 using System.Reflection;
 using System.Collections.Generic;
 using org.bn.utils;
@@ -285,10 +286,16 @@ namespace org.bn.coders.ber
                 CoderUtils.checkConstraints((int)result.Value, elementInfo);
                 return result;
             }
-            else
+            else if(objectClass.Equals(typeof(long)))
             {
                 DecodedObject<object> result = decodeLongValue(stream);
                 CoderUtils.checkConstraints((long)result.Value, elementInfo);
+                return result;
+            }
+            else
+            {
+                DecodedObject<object> result = decodeBigIntegerValue(stream);
+                //CoderUtils.checkConstraints(result.Value, elementInfo);
                 return result;
             }
 		}
@@ -362,6 +369,14 @@ namespace org.bn.coders.ber
             }
         }
 
+        protected DecodedObject<object> decodeBigIntegerValue(System.IO.Stream stream)
+        {
+            using (DecodedLength len = decodeLength(stream))
+            {
+                return decodeBigIntegerValue(stream, len);
+            }
+        }
+
         protected DecodedObject<object> decodeIntegerValue(System.IO.Stream stream)
         {
             DecodedObject<object> result = new DecodedObject<object>();
@@ -410,7 +425,25 @@ namespace org.bn.coders.ber
             result.Size = len.Value + len.Size;
             return result;
         }
-		
+
+        protected internal virtual DecodedObject<object> decodeBigIntegerValue(System.IO.Stream stream, DecodedLength len)
+        {
+            DecodedObject<object> result = new DecodedObject<object>();
+            List<byte> bigIntegerByteData = new List<byte>();            
+            for (int i = 0; i < len.Value; i++)
+            {
+                long bt = stream.ReadByte();
+                if (bt == -1)
+                {
+                    throw new System.ArgumentException("Unexpected EOF when encoding!");
+                }
+                bigIntegerByteData.Insert(0, (byte)bt);
+            }            
+            result.Value = new BigInteger(bigIntegerByteData.ToArray());            
+            result.Size = len.Value + len.Size;
+            return result;
+        }
+
 		public override DecodedObject<object> decodeOctetString(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
 		{
 			if (!checkTagForObject(decodedTag, TagClasses.Universal, ElementType.Primitive, UniversalTags.OctetString, elementInfo))

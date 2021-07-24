@@ -24,7 +24,7 @@
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <ProjectGuid>{7BB91554-CA9A-4F6E-91CB-E34410F215A7}</ProjectGuid>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
@@ -43,6 +43,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>..\Dist\lib\.net\debug\</OutputPath>
@@ -114,6 +115,7 @@
     <Reference Include="System.Management">
       <Name>System.Management</Name>
     </Reference>
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Windows.Forms">
       <Name>System.Windows.Forms</Name>
     </Reference>

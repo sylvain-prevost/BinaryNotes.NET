@@ -15,6 +15,7 @@
  limitations under the License.
  */
 using System;
+using System.Numerics;
 using System.Reflection;
 using System.Collections.Generic;
 using org.bn.utils;
@@ -130,10 +131,28 @@ namespace org.bn.coders.ber
 			return resultSize;
 		}
 
+        protected internal int encodeIntegerValue(BigInteger val, System.IO.Stream stream)
+        {
+            byte[] biData = val.ToByteArray();
+            int resultSize = CoderUtils.getIntegerLength(val);            
+            for (int i = 0; i < resultSize; i++)
+            {
+                stream.WriteByte(biData[i]);
+            }
+            return resultSize;
+        }
+
         public override int encodeInteger(object obj, System.IO.Stream stream, ElementInfo elementInfo)
 		{
 			int resultSize = 0;
             int szOfInt = 0;
+            if (obj.GetType().Equals(typeof(byte)))
+            {
+                int val = (int)obj;
+                CoderUtils.checkConstraints(val, elementInfo);
+                szOfInt = encodeIntegerValue(val, stream);
+            }
+            else
             if (obj.GetType().Equals(typeof(int)))
             {
                 int val = (int)obj;
@@ -141,9 +160,16 @@ namespace org.bn.coders.ber
                 szOfInt = encodeIntegerValue(val, stream);
             }
             else
+            if (obj.GetType().Equals(typeof(long)))
             {
                 long val = (long)obj;
                 CoderUtils.checkConstraints(val, elementInfo);
+                szOfInt = encodeIntegerValue(val, stream);
+            }
+            else
+            {
+                BigInteger val = (BigInteger)obj;
+                //CoderUtils.checkConstraints(val, elementInfo);
                 szOfInt = encodeIntegerValue(val, stream);
             }
 			resultSize += szOfInt;

@@ -15,6 +15,7 @@
  limitations under the License.
  */
 using System;
+using System.Numerics;
 using System.Reflection;
 using System.IO;
 using org.bn.attributes;
@@ -204,7 +205,16 @@ namespace org.bn.coders
 
         public void invokeSetterMethodForField(PropertyInfo field, object obj, object param, ElementInfo info)
         {
-            field.SetValue(obj, param, null);
+            Type fieldType = Type.GetType(field.PropertyType.AssemblyQualifiedName);
+
+            if ((field.PropertyType.FullName == "System.Numerics.BigInteger") && (param.GetType().FullName != "System.Numerics.BigInteger"))
+            {
+                field.SetValue(obj, new BigInteger((long)param), null);
+            }
+            else
+            {
+                field.SetValue(obj, param, null);
+            }
         }
 
         public void invokeSelectMethodForField(PropertyInfo field, object obj, object param, ElementInfo info)

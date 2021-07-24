@@ -34,12 +34,13 @@
                      <xsl:variable name="min"><xsl:for-each select="constraint/elemSetSpec/intersectionList/cnsElemList/lEndValue"><xsl:call-template name="doDeterminateEndValue"/></xsl:for-each></xsl:variable>
                      <xsl:variable name="max"><xsl:for-each select="constraint/elemSetSpec/intersectionList/cnsElemList/uEndValue"><xsl:call-template name="doDeterminateEndValue"/></xsl:for-each></xsl:variable>
                      <xsl:choose>
-                        <xsl:when test ="number($min) &gt; number(-2147483649) and number($max) &lt; number(2147483648)">int</xsl:when>
-                        <xsl:otherwise>long</xsl:otherwise>
+                        <xsl:when test ="number($min) &gt;= number('-2147483648') and number($max) &lt;= number('2147483647')">int</xsl:when>
+                        <xsl:when test ="number($min) &gt;= number('-9223372036854775808') and number($max) &lt;= number('9223372036854775807')">long</xsl:when>
+                        <xsl:otherwise>BigInteger</xsl:otherwise>
                      </xsl:choose>
                </xsl:if>
             </xsl:when>
-            <xsl:otherwise>long</xsl:otherwise>
+            <xsl:otherwise>BigInteger</xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>

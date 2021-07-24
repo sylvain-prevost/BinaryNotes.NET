@@ -16,6 +16,7 @@
  */
 
 using System;
+using System.Numerics;
 using System.Collections.Generic;
 using System.Reflection;
 using System.IO;
@@ -90,7 +91,16 @@ namespace org.bn.coders
         private MethodInfo doSelectMethod;
         public object invokeDoSelectMethod(object obj, object param)
         {
-            return doSelectMethod.Invoke(obj, new object[] { param } );
+            ParameterInfo paramInfo = doSelectMethod.GetParameters()[0];
+            
+            if ((paramInfo.ParameterType.FullName == "System.Numerics.BigInteger") && (param.GetType().FullName != "System.Numerics.BigInteger"))
+            {
+                return doSelectMethod.Invoke(obj, new object[] { new BigInteger((long)param) });
+            }
+            else
+            {
+                return doSelectMethod.Invoke(obj, new object[] { param });
+            }
         }
 
         private MethodInfo isSelectedMethod;

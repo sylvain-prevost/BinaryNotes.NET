@@ -15,6 +15,7 @@
  limitations under the License.
  */
 using System;
+using System.Numerics;
 using System.Reflection;
 using System.IO;
 using org.bn.attributes;
@@ -146,13 +147,23 @@ namespace org.bn.coders
 			{
 				return encodeString(obj, stream, info);
 			}
-			else 
+            else
+            if (obj.GetType().Equals(typeof(byte)))
+            {
+                return encodeInteger(obj, stream, info);
+            }
+            else 
             if (obj.GetType().Equals(typeof(int)))
 			{
 				return encodeInteger(obj, stream, info);
 			}
             else
             if (obj.GetType().Equals(typeof(long)))
+            {
+                return encodeInteger(obj, stream, info);
+            }
+            else
+            if (obj.GetType().Equals(typeof(BigInteger)))
             {
                 return encodeInteger(obj, stream, info);
             }

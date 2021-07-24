@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
  Copyright 2006-2011 Abdulla Abdurakhmanov (abdulla@latestbit.com)
@@ -18,26 +18,31 @@
  */
 -->
 
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xsltc="http://xml.apache.org/xalan/xsltc"
-    xmlns:redirect="http://xml.apache.org/xalan/redirect"
-    extension-element-prefixes="xsltc redirect"
->
-    <xsl:import href="doDeterminateEndValue.xsl"/>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsltc="http://xml.apache.org/xalan/xsltc" xmlns:redirect="http://xml.apache.org/xalan/redirect" extension-element-prefixes="xsltc redirect">
+    <xsl:import href="doDeterminateEndValue.xsl" />
 
-    <xsl:output method="text" encoding="UTF-8" indent="no"/>
+    <xsl:output method="text" encoding="UTF-8" indent="no" />
 
     <xsl:template name="valueRangeConstraint">
-        <xsl:if test= "elemSetSpec/intersectionList/cnsElemList/lEndValue">
-            <xsl:if test= "elemSetSpec/intersectionList/cnsElemList/uEndValue">[ASN1ValueRangeConstraint ( 
-		<xsl:for-each select="elemSetSpec/intersectionList/cnsElemList/lEndValue">
-		Min = <xsl:call-template name="doDeterminateEndValue"/>L, 
-		</xsl:for-each>
-		<xsl:for-each select="elemSetSpec/intersectionList/cnsElemList/uEndValue">
-		Max = <xsl:call-template name="doDeterminateEndValue"/>L 
-		</xsl:for-each>
-		) ]
-	    </xsl:if>
+        <xsl:if test="elemSetSpec/intersectionList/cnsElemList/lEndValue">
+            <xsl:if test="elemSetSpec/intersectionList/cnsElemList/uEndValue">
+                [ASN1ValueRangeConstraint (
+                <xsl:for-each select="elemSetSpec/intersectionList/cnsElemList/lEndValue">
+                    <xsl:variable name="val"><xsl:call-template name="doDeterminateEndValue"/></xsl:variable>
+                    <xsl:choose>
+                        <xsl:when test ="number($val) &gt;= number('-2147483648') and number($val) &lt;= number('2147483647')">Min = <xsl:call-template name="doDeterminateEndValue"/></xsl:when>
+                        <xsl:when test ="number($val) &gt;= number('-9223372036854775808') and number($val) &lt;= number('9223372036854775807')">Min = <xsl:call-template name="doDeterminateEndValue"/>L</xsl:when>
+                    </xsl:choose>
+                </xsl:for-each>
+                <xsl:for-each select="elemSetSpec/intersectionList/cnsElemList/uEndValue">
+                    <xsl:variable name="val"><xsl:call-template name="doDeterminateEndValue"/></xsl:variable>
+                    <xsl:choose>
+                        <xsl:when test ="number($val) &gt;= number('-2147483648') and number($val) &lt;= number('2147483647')">,Max = <xsl:call-template name="doDeterminateEndValue" /></xsl:when>
+                        <xsl:when test ="number($val) &gt;= number('-9223372036854775808') and number($val) &lt;= number('9223372036854775807')">,Max = <xsl:call-template name="doDeterminateEndValue" />L</xsl:when>
+                    </xsl:choose>
+                </xsl:for-each>
+                ) ]
+            </xsl:if>
         </xsl:if>
     </xsl:template>
 </xsl:stylesheet>

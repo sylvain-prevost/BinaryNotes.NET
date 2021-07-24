@@ -34,6 +34,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
