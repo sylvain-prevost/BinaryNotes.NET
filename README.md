@@ -2,13 +2,19 @@
 ## Included in 1.5.4
 
 
+
+### New Feature(s)
+- Added encoding/decoding support for large asn.1 integer (size > 8 bytes).  
+- Enabled BER indefinite-length decoding.  
+- Added .NET assembly StrongName.  
 ### Bugfixe(s)
-- Fix OID parsing when not last in sequence
+- Fixed OID parsing when not last in sequence.  
+- Fixed C# class generation when BOOLEAN element is annotated with a DEFAULT value (adjust modules/cs/includes/elementDefaultValue.xsl).  
 
-### Feature(s)
-- Enable BER indefinite-length decoding
-- Add .NET assembly StrongName
 
+
+### Note(s)
+- Reference  .NET Framework 4.0 in order to include BigInteger support.  
 
 
 <br>
