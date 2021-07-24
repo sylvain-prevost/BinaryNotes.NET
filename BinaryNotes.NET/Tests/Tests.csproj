@@ -1,213 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8D701C15-B34F-4F9D-B70A-8188BCF13232}</ProjectGuid>
+    <TargetFrameworks>net40</TargetFrameworks>
+    <ApplicationIcon />
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests</RootNamespace>
-    <AssemblyName>Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
+    <StartupObject />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>
-    </DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="csUnit, Version=2.1.1.6855, Culture=neutral, PublicKeyToken=6871f04765cca910, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dist\depends\.net\csUnit.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Xml" />
+    <Compile Remove="test\org\bn\AllTests.cs" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="test\org\bn\coders\ber\BERCoderTestUtils.cs" />
-    <Compile Include="test\org\bn\coders\ber\BERDecoderTest.cs" />
-    <Compile Include="test\org\bn\coders\ber\BEREncoderTest.cs" />
-    <Compile Include="test\org\bn\coders\CoderTestUtilities.cs" />
-    <Compile Include="test\org\bn\coders\CoderUtilsTest.cs" />
-    <Compile Include="test\org\bn\coders\DecoderTest.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="test\org\bn\coders\der\DERCoderUtils.cs" />
-    <Compile Include="test\org\bn\coders\der\DERDecoderTest.cs" />
-    <Compile Include="test\org\bn\coders\der\DEREncoderTest.cs" />
-    <Compile Include="test\org\bn\coders\EncoderTest.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\BugEnum.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\BugList.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\BugPrimitive.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\BugSequenceType.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\BugValueType.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Config.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Config2.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\ContentPartHeader.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\ContentPartHeaders.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\ContentSchema.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\ContentType.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Data.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\DataArray.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\DataSeq.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\DataSeqArray.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\DataSeqMO.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\FQDN.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\ITUSequence.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\ITUType1.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\ITUType2.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\ITUType3.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\ITUType4.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\ITUType5.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\ITUType6.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\LstVersion.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\main.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Major.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Minor.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\NullSequence.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\OctetStringArray.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\PlainParamsMap.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\SequenceWithDefault.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\SequenceWithEnum.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\SequenceWithNull.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Set1.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Set2.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Set3.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Set4.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Set5.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Set6.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Set7.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\SetOfTest.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\SetWithDefault.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\StringArray.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TaggedNullSequence.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TaggedSeqInSeq.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TaggedSequence.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Test128Tag.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestBitStr.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestBitStrBnd.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestChild2.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestChild3.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestGT.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestI.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestI14.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestI16.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestI32.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestI64.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestI8.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestIR.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestLong.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestLongTag.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestLongTag2.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestLongTag2Choice.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestNI.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestNI16.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestNI2.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestNI4.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestNI8.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestOCT.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestOID.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestParent.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestParent2.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestPRN.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestReal.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestRecursiveDefinetion.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestSeqOID.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestBasicSequence.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestSequenceV12.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestSequenceWithNonames.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestSequenceWithOid.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestSeqV13.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestSimpleSequence.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestTaggedSetInSet.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestTParent.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestTParent2.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestUnicodeStr.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestUnicodeStrBnd.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TestUTC.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\TEST_ASN.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\UTF8StringArray.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\ValueWithParams.cs" />
-    <Compile Include="test\org\bn\coders\test_asn\Version.cs" />
-    <Compile Include="test\org\bn\performance\DummyPerformanceTest.cs" />
-    <Compile Include="test\org\bn\utils\BitArrayInputStreamTest.cs" />
-    <Compile Include="test\org\bn\utils\BitArrayOutputStreamTest.cs" />
-    <Compile Include="test\org\bn\utils\ByteTools.cs" />
+    <Folder Include="Properties\" />
   </ItemGroup>
+
   <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
+    <PackageReference Include="csUnit" Version="1.0.1" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Include="app.config" />
+    <ProjectReference Include="..\BinaryNotes.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BinaryNotes.csproj">
-      <Project>{7bb91554-ca9a-4f6e-91cb-e34410f215a7}</Project>
-      <Name>BinaryNotes</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
