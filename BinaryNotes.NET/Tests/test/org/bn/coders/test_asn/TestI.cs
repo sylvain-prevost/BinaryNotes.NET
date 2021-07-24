@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -19,11 +21,11 @@ namespace test.org.bn.coders.test_asn {
     [ASN1BoxedType ( Name = "TestI" )]
     public class TestI: IASN1PreparedElement {
     
-            private long val;
+            private BigInteger val;
             
             [ASN1Integer( Name = "TestI" )]
             
-            public long Value
+            public BigInteger Value
             {
                 get { return val; }
                 set { val = value; }
@@ -32,7 +34,7 @@ namespace test.org.bn.coders.test_asn {
             public TestI() {
             }
 
-            public TestI(long value) {
+            public TestI(BigInteger value) {
                 this.Value = value;
             }            
 

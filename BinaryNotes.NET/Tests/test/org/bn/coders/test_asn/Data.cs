@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -119,7 +121,7 @@ namespace test.org.bn.coders.test_asn {
                 
           
         
-	private long intType_ ;
+	private BigInteger intType_ ;
         private bool  intType_selected = false ;
         
                 
@@ -127,7 +129,7 @@ namespace test.org.bn.coders.test_asn {
     
         [ASN1Element ( Name = "intType", IsOptional =  false , HasTag =  true, Tag = 6 , HasDefaultValue =  false )  ]
     
-        public long IntType
+        public BigInteger IntType
         {
             get { return intType_; }
             set { selectIntType(value); }
@@ -141,14 +143,11 @@ namespace test.org.bn.coders.test_asn {
         
                 
         [ASN1Integer( Name = "" )]
-    [ASN1ValueRangeConstraint ( 
-		
-		Min = 0L, 
-		
-		Max = 255L 
-		
-		) ]
-	    
+    
+                [ASN1ValueRangeConstraint (
+                Min = 0,Max = 255
+                ) ]
+            
         [ASN1Element ( Name = "intBndType", IsOptional =  false , HasTag =  true, Tag = 7 , HasDefaultValue =  false )  ]
     
         public int IntBndType
@@ -340,7 +339,7 @@ namespace test.org.bn.coders.test_asn {
         
 
 
-        public void selectIntType (long val) {
+        public void selectIntType (BigInteger val) {
             this.intType_ = val;
             this.intType_selected = true;
             

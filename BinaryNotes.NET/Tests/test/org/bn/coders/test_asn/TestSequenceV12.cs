@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -34,14 +36,11 @@ namespace test.org.bn.coders.test_asn {
           
 	private string attrStr_ ;
 	[ASN1String( Name = "", 
-        StringType =  UniversalTags.PrintableString , IsUCS = false )][ASN1ValueRangeConstraint ( 
-		
-		Min = 1L, 
-		
-		Max = 4L 
-		
-		) ]
-	    
+        StringType =  UniversalTags.PrintableString , IsUCS = false )]
+                [ASN1ValueRangeConstraint (
+                Min = 1,Max = 4
+                ) ]
+            
         [ASN1Element ( Name = "attrStr", IsOptional =  false , HasTag =  true, Tag = 1 , HasDefaultValue =  false )  ]
     
         public string AttrStr
@@ -69,14 +68,11 @@ namespace test.org.bn.coders.test_asn {
         StringType =  UniversalTags.PrintableString , IsUCS = false )]
 [ASN1SequenceOf( Name = "attrArr", IsSetOf = false  )]
 
-    [ASN1ValueRangeConstraint ( 
-		
-		Min = 1L, 
-		
-		Max = 5L 
-		
-		) ]
-	    
+    
+                [ASN1ValueRangeConstraint (
+                Min = 1,Max = 5
+                ) ]
+            
         [ASN1Element ( Name = "attrArr", IsOptional =  false , HasTag =  true, Tag = 3 , HasDefaultValue =  false )  ]
     
         public System.Collections.Generic.ICollection<string> AttrArr
@@ -119,14 +115,11 @@ namespace test.org.bn.coders.test_asn {
 	
         private bool  attrBitStrBnd_present = false ;
 	[ASN1BitString( Name = "" )]
-    [ASN1ValueRangeConstraint ( 
-		
-		Min = 1L, 
-		
-		Max = 36L 
-		
-		) ]
-	    
+    
+                [ASN1ValueRangeConstraint (
+                Min = 1,Max = 36
+                ) ]
+            
         [ASN1Element ( Name = "attrBitStrBnd", IsOptional =  true , HasTag =  true, Tag = 5 , HasDefaultValue =  false )  ]
     
         public BitString AttrBitStrBnd

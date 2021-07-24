@@ -88,9 +88,13 @@ namespace test.org.bn.coders.ber
 		{
 			return new byte[]{(byte) (0x30), (byte) (0x10), (byte) (0x81), (byte) (0x05), (byte) (0x61), (byte) (0x61), (byte) (0x61), (byte) (0x61), (byte) (0x61), (byte) (0xA2), (byte) (0x07), (byte) (0x81), (byte) (0x05), (byte) (0x62), (byte) (0x62), (byte) (0x62), (byte) (0x62), (byte) (0x62)};
 		}
-		
-		
-		public override byte[] createTestInteger4Bytes()
+
+        public override byte[] createTestInteger8Bytes()
+        {
+            return new byte[] { (byte)(0x02), (byte)(0x08), (byte)(0x00), (byte)(0xF0), (byte)(0xF0), (byte)(0xF0), (byte)(0xF0), (byte)(0xF0), (byte)(0xF0), (byte)(0xF0) };
+        }
+
+        public override byte[] createTestInteger4Bytes()
 		{
 			return new byte[]{(byte) (0x02), (byte) (0x04), (byte) (0x00), (byte) (0xF0), (byte) (0xF0), (byte) (0xF0)};
 		}
@@ -186,6 +190,21 @@ namespace test.org.bn.coders.ber
         public override byte[] createTestNI2Bytes()
         {
             return new byte[] { 0x02, 0x02, (byte)0xF8, 0x30 };
+        }
+
+        public override byte[] createTestNI4Bytes()
+        {
+            return new byte[] { 0x02, 0x04, (byte)0xF8, (byte)0x30, (byte)0x00, (byte)0x01 };
+        }
+
+        public override byte[] createTestNI8Bytes()
+        {
+            return new byte[] { 0x02, 0x08, (byte)0xF8, (byte)0x30, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x01 };
+        }
+
+        public override byte[] createTestNI16Bytes()
+        {
+            return new byte[] { 0x02, 0x10, (byte)0xF8, (byte)0x30, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x00, (byte)0x01 };
         }
 
         public override byte[] createSetBytes()

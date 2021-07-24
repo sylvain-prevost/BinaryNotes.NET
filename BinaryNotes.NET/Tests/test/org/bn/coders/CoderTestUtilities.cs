@@ -15,6 +15,7 @@
  limitations under the License.
  */
 using System;
+using System.Numerics;
 using System.Collections.Generic;
 using test.org.bn.coders.test_asn;
 using org.bn.types;
@@ -212,9 +213,17 @@ namespace test.org.bn.coders
 			return value_Renamed;
 		}
 		public abstract byte[] createTestInteger4Bytes();
-		
-		
-		public virtual SequenceWithNull createSeqWithNull()
+
+        public virtual TestI64 createTestInteger8()
+        {
+            TestI64 value_Renamed = new TestI64();
+            value_Renamed.Value = 0xF0F0F0F0F0F0F0;
+            return value_Renamed;
+        }
+        public abstract byte[] createTestInteger8Bytes();
+
+
+        public virtual SequenceWithNull createSeqWithNull()
 		{
 			SequenceWithNull seq = new SequenceWithNull();
 			seq.Test = "sss";
@@ -302,6 +311,26 @@ namespace test.org.bn.coders
             return new TestNI2(-2000);
         }
         public abstract byte[] createTestNI2Bytes();
+
+        public TestNI4 createTestNI4()
+        {
+            return new TestNI4(-131071999);
+        }
+        public abstract byte[] createTestNI4Bytes();
+
+        public TestNI8 createTestNI8()
+        {
+            return new TestNI8(-562949953421311999);
+        }
+        public abstract byte[] createTestNI8Bytes();
+
+        public TestNI16 createTestNI16()
+        {
+            BigInteger bigInt = BigInteger.Parse("-10384593717069655257060992658440191999");
+            return new TestNI16(bigInt);
+        }
+        public abstract byte[] createTestNI16Bytes();
+
 
         public SetWithDefault createSet()
         {

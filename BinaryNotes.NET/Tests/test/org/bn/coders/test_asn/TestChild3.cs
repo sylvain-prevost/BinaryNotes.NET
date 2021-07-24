@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -19,12 +21,12 @@ namespace test.org.bn.coders.test_asn {
     [ASN1Sequence ( Name = "TestChild3", IsSet = false  )]
     public class TestChild3 : IASN1PreparedElement {
                     
-	private long field1_ ;
+	private BigInteger field1_ ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "field1", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
     
-        public long Field1
+        public BigInteger Field1
         {
             get { return field1_; }
             set { field1_ = value;  }
@@ -60,12 +62,12 @@ namespace test.org.bn.coders.test_asn {
         
                 
           
-	private long field4_ ;
+	private BigInteger field4_ ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "field4", IsOptional =  false , HasTag =  true, Tag = 3 , HasDefaultValue =  false )  ]
     
-        public long Field4
+        public BigInteger Field4
         {
             get { return field4_; }
             set { field4_ = value;  }
@@ -90,12 +92,12 @@ namespace test.org.bn.coders.test_asn {
         
                 
           
-	private long field6_ ;
+	private BigInteger field6_ ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "field6", IsOptional =  false , HasTag =  true, Tag = 5 , HasDefaultValue =  true )  ]
     
-        public long Field6
+        public BigInteger Field6
         {
             get { return field6_; }
             set { field6_ = value;  }
@@ -108,8 +110,8 @@ namespace test.org.bn.coders.test_asn {
             	string param_Field3 =         
             "Sssdsd";
         Field3 = param_Field3;
-    long param_Field6 =         
-            0;
+    BigInteger param_Field6 =         
+            new BigInteger ( 0);
         Field6 = param_Field6;
     
             }

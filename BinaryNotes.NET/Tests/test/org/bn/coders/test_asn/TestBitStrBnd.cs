@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -22,14 +24,11 @@ namespace test.org.bn.coders.test_asn {
             private BitString val = null;
 
             [ASN1BitString( Name = "TestBitStrBnd") ]            
-            [ASN1ValueRangeConstraint ( 
-		
-		Min = 1L, 
-		
-		Max = 16L 
-		
-		) ]
-	    
+            
+                [ASN1ValueRangeConstraint (
+                Min = 1,Max = 16
+                ) ]
+            
             public BitString Value
             {
                 get { return val; }

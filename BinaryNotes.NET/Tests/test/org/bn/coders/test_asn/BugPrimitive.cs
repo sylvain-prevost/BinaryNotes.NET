@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -37,7 +39,7 @@ namespace test.org.bn.coders.test_asn {
                 
           
         
-	private long bugInteger_ ;
+	private BigInteger bugInteger_ ;
         private bool  bugInteger_selected = false ;
         
                 
@@ -45,7 +47,7 @@ namespace test.org.bn.coders.test_asn {
     
         [ASN1Element ( Name = "bugInteger", IsOptional =  false , HasTag =  true, Tag = 1 , HasDefaultValue =  false )  ]
     
-        public long BugInteger
+        public BigInteger BugInteger
         {
             get { return bugInteger_; }
             set { selectBugInteger(value); }
@@ -77,7 +79,7 @@ namespace test.org.bn.coders.test_asn {
         
 
 
-        public void selectBugInteger (long val) {
+        public void selectBugInteger (BigInteger val) {
             this.bugInteger_ = val;
             this.bugInteger_selected = true;
             

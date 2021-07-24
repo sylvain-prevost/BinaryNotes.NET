@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -19,12 +21,12 @@ namespace test.org.bn.coders.test_asn {
     [ASN1Sequence ( Name = "SequenceWithDefault", IsSet = false  )]
     public class SequenceWithDefault : IASN1PreparedElement {
                     
-	private long nodefault_ ;
+	private BigInteger nodefault_ ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "nodefault", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
     
-        public long Nodefault
+        public BigInteger Nodefault
         {
             get { return nodefault_; }
             set { nodefault_ = value;  }
@@ -45,12 +47,12 @@ namespace test.org.bn.coders.test_asn {
         
                 
           
-	private long withIntDef_ ;
+	private BigInteger withIntDef_ ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "withIntDef", IsOptional =  false , HasTag =  true, Tag = 2 , HasDefaultValue =  true )  ]
     
-        public long WithIntDef
+        public BigInteger WithIntDef
         {
             get { return withIntDef_; }
             set { withIntDef_ = value;  }
@@ -186,8 +188,8 @@ namespace test.org.bn.coders.test_asn {
             	string param_WithDefault =         
             "dd";
         WithDefault = param_WithDefault;
-    long param_WithIntDef =         
-            120;
+    BigInteger param_WithIntDef =         
+            new BigInteger ( 120);
         WithIntDef = param_WithIntDef;
     WithSeqDefSequenceType param_WithSeqDef =         
             

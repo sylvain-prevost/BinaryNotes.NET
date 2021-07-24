@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -23,14 +25,11 @@ namespace test.org.bn.coders.test_asn {
     
             [ASN1String( Name = "FQDN", 
         StringType =  UniversalTags.VisibleString , IsUCS = false) ]
-            [ASN1ValueRangeConstraint ( 
-		
-		Min = 1L, 
-		
-		Max = 255L 
-		
-		) ]
-	    
+            
+                [ASN1ValueRangeConstraint (
+                Min = 1,Max = 255
+                ) ]
+            
             public String Value
             {
                 get { return val; }

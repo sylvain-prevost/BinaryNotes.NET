@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -22,14 +24,11 @@ namespace test.org.bn.coders.test_asn {
             private long val;
             
             [ASN1Integer( Name = "TestI32" )]
-            [ASN1ValueRangeConstraint ( 
-		
-		Min = 0L, 
-		
-		Max = 4294967295L 
-		
-		) ]
-	    
+            
+                [ASN1ValueRangeConstraint (
+                Min = 0,Max = 4294967295L
+                ) ]
+            
             public long Value
             {
                 get { return val; }

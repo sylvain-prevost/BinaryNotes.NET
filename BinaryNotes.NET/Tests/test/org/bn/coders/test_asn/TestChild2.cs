@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -20,7 +22,7 @@ namespace test.org.bn.coders.test_asn {
     public class TestChild2 : IASN1PreparedElement {
                     
         
-	private long field10_ ;
+	private BigInteger field10_ ;
         private bool  field10_selected = false ;
         
                 
@@ -28,7 +30,7 @@ namespace test.org.bn.coders.test_asn {
     
         [ASN1Element ( Name = "field10", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
     
-        public long Field10
+        public BigInteger Field10
         {
             get { return field10_; }
             set { selectField10(value); }
@@ -71,7 +73,7 @@ namespace test.org.bn.coders.test_asn {
                 
           
         
-	private long field40_ ;
+	private BigInteger field40_ ;
         private bool  field40_selected = false ;
         
                 
@@ -79,7 +81,7 @@ namespace test.org.bn.coders.test_asn {
     
         [ASN1Element ( Name = "field40", IsOptional =  false , HasTag =  true, Tag = 3 , HasDefaultValue =  false )  ]
     
-        public long Field40
+        public BigInteger Field40
         {
             get { return field40_; }
             set { selectField40(value); }
@@ -94,7 +96,7 @@ namespace test.org.bn.coders.test_asn {
         
 
 
-        public void selectField10 (long val) {
+        public void selectField10 (BigInteger val) {
             this.field10_ = val;
             this.field10_selected = true;
             
@@ -157,7 +159,7 @@ namespace test.org.bn.coders.test_asn {
         
 
 
-        public void selectField40 (long val) {
+        public void selectField40 (BigInteger val) {
             this.field40_ = val;
             this.field40_selected = true;
             

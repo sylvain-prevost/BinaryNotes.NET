@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -32,12 +34,12 @@ namespace test.org.bn.coders.test_asn {
         
                 
           
-	private long fieldI_ ;
+	private BigInteger fieldI_ ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "fieldI", IsOptional =  false , HasTag =  false  , HasDefaultValue =  false )  ]
     
-        public long FieldI
+        public BigInteger FieldI
         {
             get { return fieldI_; }
             set { fieldI_ = value;  }

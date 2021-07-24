@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -102,14 +104,14 @@ namespace test.org.bn.coders.test_asn {
         
                 
           
-	private long intType_ ;
+	private BigInteger intType_ ;
 	
         private bool  intType_present = false ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "intType", IsOptional =  true , HasTag =  true, Tag = 6 , HasDefaultValue =  false )  ]
     
-        public long IntType
+        public BigInteger IntType
         {
             get { return intType_; }
             set { intType_ = value; intType_present = true;  }
@@ -121,14 +123,11 @@ namespace test.org.bn.coders.test_asn {
 	
         private bool  intBndType_present = false ;
 	[ASN1Integer( Name = "" )]
-    [ASN1ValueRangeConstraint ( 
-		
-		Min = 0L, 
-		
-		Max = 255L 
-		
-		) ]
-	    
+    
+                [ASN1ValueRangeConstraint (
+                Min = 0,Max = 255
+                ) ]
+            
         [ASN1Element ( Name = "intBndType", IsOptional =  true , HasTag =  true, Tag = 7 , HasDefaultValue =  false )  ]
     
         public int IntBndType
@@ -261,14 +260,14 @@ namespace test.org.bn.coders.test_asn {
         
                 
           
-	private long intType2_ ;
+	private BigInteger intType2_ ;
 	
         private bool  intType2_present = false ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "intType2", IsOptional =  true , HasTag =  true, Tag = 19 , HasDefaultValue =  false )  ]
     
-        public long IntType2
+        public BigInteger IntType2
         {
             get { return intType2_; }
             set { intType2_ = value; intType2_present = true;  }
@@ -280,14 +279,11 @@ namespace test.org.bn.coders.test_asn {
 	
         private bool  intBndType2_present = false ;
 	[ASN1Integer( Name = "" )]
-    [ASN1ValueRangeConstraint ( 
-		
-		Min = 0L, 
-		
-		Max = 255L 
-		
-		) ]
-	    
+    
+                [ASN1ValueRangeConstraint (
+                Min = 0,Max = 255
+                ) ]
+            
         [ASN1Element ( Name = "intBndType2", IsOptional =  true , HasTag =  true, Tag = 14 , HasDefaultValue =  false )  ]
     
         public int IntBndType2

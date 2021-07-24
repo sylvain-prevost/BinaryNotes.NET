@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -19,12 +21,12 @@ namespace test.org.bn.coders.test_asn {
     [ASN1Sequence ( Name = "TestLongTag2Choice", IsSet = false  )]
     public class TestLongTag2Choice : IASN1PreparedElement {
                     
-	private long testb_ ;
+	private BigInteger testb_ ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "testb", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
     
-        public long Testb
+        public BigInteger Testb
         {
             get { return testb_; }
             set { testb_ = value;  }

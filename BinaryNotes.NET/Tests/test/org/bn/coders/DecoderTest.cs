@@ -235,11 +235,17 @@ namespace test.org.bn.coders
 		public virtual void  testDecodeInteger()
 		{
 			IDecoder decoder = newDecoder();
-			System.IO.MemoryStream stream = new System.IO.MemoryStream((coderTestUtils.createTestInteger4Bytes()));
+            System.IO.MemoryStream stream;
 
-            TestI32 val = decoder.decode<TestI32>(stream);
-			Assert.NotNull(val);
-			Assert.Equals(val.Value, coderTestUtils.createTestInteger4().Value);
+            stream = new System.IO.MemoryStream((coderTestUtils.createTestInteger8Bytes()));
+            TestI64 val64 = decoder.decode<TestI64>(stream);
+            Assert.NotNull(val64);
+            Assert.Equals(val64.Value, coderTestUtils.createTestInteger8().Value);
+
+            stream = new System.IO.MemoryStream((coderTestUtils.createTestInteger4Bytes()));        
+            TestI32 val32 = decoder.decode<TestI32>(stream);
+			Assert.NotNull(val32);
+			Assert.Equals(val32.Value, coderTestUtils.createTestInteger4().Value);
 			
 			stream = new System.IO.MemoryStream((coderTestUtils.createTestInteger3Bytes()));
             TestI16 val16 = decoder.decode<TestI16>(stream);
@@ -336,6 +342,21 @@ namespace test.org.bn.coders
                 new System.IO.MemoryStream(coderTestUtils.createTestNI2Bytes());
             TestNI2 val2 = decoder.decode<TestNI2>(stream);
             Assert.Equals(val2.Value, coderTestUtils.createTestNI2().Value);
+
+            stream =
+                new System.IO.MemoryStream(coderTestUtils.createTestNI4Bytes());
+            TestNI4 val4 = decoder.decode<TestNI4>(stream);
+            Assert.Equals(val4.Value, coderTestUtils.createTestNI4().Value);
+
+            stream =
+                new System.IO.MemoryStream(coderTestUtils.createTestNI8Bytes());
+            TestNI8 val8 = decoder.decode<TestNI8>(stream);
+            Assert.Equals(val8.Value, coderTestUtils.createTestNI8().Value);
+
+            stream =
+                new System.IO.MemoryStream(coderTestUtils.createTestNI16Bytes());
+            TestNI16 val16 = decoder.decode<TestNI16>(stream);
+            Assert.Equals(val16.Value, coderTestUtils.createTestNI16().Value);
         }
 
         public virtual void testDecodeSet() {

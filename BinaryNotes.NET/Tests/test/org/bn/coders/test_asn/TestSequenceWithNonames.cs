@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -25,14 +27,14 @@ namespace test.org.bn.coders.test_asn {
        [ASN1Sequence ( Name = "seq", IsSet = false  )]
        public class SeqSequenceType : IASN1PreparedElement {
                         
-	private long it1_ ;
+	private BigInteger it1_ ;
 	
         private bool  it1_present = false ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "it1", IsOptional =  true , HasTag =  false  , HasDefaultValue =  false )  ]
     
-        public long It1
+        public BigInteger It1
         {
             get { return it1_; }
             set { it1_ = value; it1_present = true;  }
@@ -75,7 +77,7 @@ namespace test.org.bn.coders.test_asn {
     public class ChChoiceType : IASN1PreparedElement  {
 	            
         
-	private long it1_ ;
+	private BigInteger it1_ ;
         private bool  it1_selected = false ;
         
                 
@@ -83,7 +85,7 @@ namespace test.org.bn.coders.test_asn {
     
         [ASN1Element ( Name = "it1", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
     
-        public long It1
+        public BigInteger It1
         {
             get { return it1_; }
             set { selectIt1(value); }
@@ -115,7 +117,7 @@ namespace test.org.bn.coders.test_asn {
         
 
 
-        public void selectIt1 (long val) {
+        public void selectIt1 (BigInteger val) {
             this.it1_ = val;
             this.it1_selected = true;
             
@@ -170,14 +172,14 @@ namespace test.org.bn.coders.test_asn {
        [ASN1Sequence ( Name = "seqf", IsSet = false  )]
        public class SeqfSequenceType : IASN1PreparedElement {
                         
-	private long it1_ ;
+	private BigInteger it1_ ;
 	
         private bool  it1_present = false ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "it1", IsOptional =  true , HasTag =  false  , HasDefaultValue =  false )  ]
     
-        public long It1
+        public BigInteger It1
         {
             get { return it1_; }
             set { it1_ = value; it1_present = true;  }

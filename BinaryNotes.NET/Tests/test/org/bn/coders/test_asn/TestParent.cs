@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -19,12 +21,12 @@ namespace test.org.bn.coders.test_asn {
     [ASN1Sequence ( Name = "TestParent", IsSet = false  )]
     public class TestParent : IASN1PreparedElement {
                     
-	private long field1_ ;
+	private BigInteger field1_ ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "field1", IsOptional =  false , HasTag =  true, Tag = 0 , HasDefaultValue =  false )  ]
     
-        public long Field1
+        public BigInteger Field1
         {
             get { return field1_; }
             set { field1_ = value;  }
@@ -60,12 +62,12 @@ namespace test.org.bn.coders.test_asn {
         
                 
           
-	private long field4_ ;
+	private BigInteger field4_ ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "field4", IsOptional =  false , HasTag =  true, Tag = 3 , HasDefaultValue =  false )  ]
     
-        public long Field4
+        public BigInteger Field4
         {
             get { return field4_; }
             set { field4_ = value;  }

@@ -218,10 +218,21 @@ namespace test.org.bn.coders
         {
             IEncoder encoder = newEncoder();
             Assert.NotNull(encoder);
+
             printEncoded("Negative integer test",encoder, coderTestUtils.createTestNI());
             checkEncoded(encoder, coderTestUtils.createTestNI(), coderTestUtils.createTestNIBytes());
+
             printEncoded("Negative integer test 2",encoder, coderTestUtils.createTestNI2());
-            checkEncoded(encoder, coderTestUtils.createTestNI2(), coderTestUtils.createTestNI2Bytes());        
+            checkEncoded(encoder, coderTestUtils.createTestNI2(), coderTestUtils.createTestNI2Bytes());
+
+            printEncoded("Negative integer test 4", encoder, coderTestUtils.createTestNI4());
+            checkEncoded(encoder, coderTestUtils.createTestNI4(), coderTestUtils.createTestNI4Bytes());
+
+            printEncoded("Negative integer test 8", encoder, coderTestUtils.createTestNI8());
+            checkEncoded(encoder, coderTestUtils.createTestNI8(), coderTestUtils.createTestNI8Bytes());
+
+            printEncoded("Negative integer test 16", encoder, coderTestUtils.createTestNI16());
+            checkEncoded(encoder, coderTestUtils.createTestNI16(), coderTestUtils.createTestNI16Bytes());
         }
 
         public virtual void testEncodeSet()

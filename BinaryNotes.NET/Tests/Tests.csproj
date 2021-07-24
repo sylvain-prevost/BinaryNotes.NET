@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Tests</RootNamespace>
     <AssemblyName>Tests</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -31,6 +31,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,6 +60,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +135,7 @@
     <Compile Include="test\org\bn\coders\test_asn\TestI14.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestI16.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestI32.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\TestI64.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestI8.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestIR.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestLong.cs" />
@@ -140,7 +143,10 @@
     <Compile Include="test\org\bn\coders\test_asn\TestLongTag2.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestLongTag2Choice.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestNI.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\TestNI16.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestNI2.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\TestNI4.cs" />
+    <Compile Include="test\org\bn\coders\test_asn\TestNI8.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestOCT.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestOID.cs" />
     <Compile Include="test\org\bn\coders\test_asn\TestParent.cs" />
@@ -171,12 +177,6 @@
     <Compile Include="test\org\bn\utils\ByteTools.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BinaryNotes.csproj">
-      <Project>{7BB91554-CA9A-4F6E-91CB-E34410F215A7}</Project>
-      <Name>BinaryNotes</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -192,6 +192,15 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BinaryNotes.csproj">
+      <Project>{7bb91554-ca9a-4f6e-91cb-e34410f215a7}</Project>
+      <Name>BinaryNotes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

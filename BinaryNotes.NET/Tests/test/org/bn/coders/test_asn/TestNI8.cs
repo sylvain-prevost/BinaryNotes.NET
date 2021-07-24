@@ -18,23 +18,27 @@ namespace test.org.bn.coders.test_asn {
 
 
     [ASN1PreparedElement]
-    [ASN1BoxedType ( Name = "BugEnum" )]
-    public class BugEnum: IASN1PreparedElement {
+    [ASN1BoxedType ( Name = "TestNI8" )]
+    public class TestNI8: IASN1PreparedElement {
     
-            private BigInteger val;
+            private long val;
             
-            [ASN1Integer( Name = "BugEnum" )]
+            [ASN1Integer( Name = "TestNI8" )]
             
-            public BigInteger Value
+                [ASN1ValueRangeConstraint (
+                Min = -576460752303423488L,Max = 576460752303423488L
+                ) ]
+            
+            public long Value
             {
                 get { return val; }
                 set { val = value; }
             }
             
-            public BugEnum() {
+            public TestNI8() {
             }
 
-            public BugEnum(BigInteger value) {
+            public TestNI8(long value) {
                 this.Value = value;
             }            
 
@@ -43,7 +47,7 @@ namespace test.org.bn.coders.test_asn {
 	    }
 
 
-            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(BugEnum));
+            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(TestNI8));
             public IASN1PreparedElementData PreparedData {
             	get { return preparedData; }
             }
