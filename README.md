@@ -3,7 +3,7 @@
 
 This is a set of 2 tools:  
 - ASN.1 Compiler (written in Java) that generates C# classes from an asn.1 file.  
-- C# library support enabling marhsalling/unmarshalling asn.1 data buffers into/from objects according to the classes gnerated by the compiler.  
+- C# library support enabling marshalling/unmarshalling asn.1 data buffers into/from objects according to the classes gnerated by the compiler.  
 
 For example, this is extremelly useful to decode & parse asn.1 DER/BER-encoded binary files/buffers in a coding-friendly manner.  
 It can also do the reverse and generate asn.1 compliant buffers from easily constructed C# objects.  
@@ -36,6 +36,7 @@ Currently focusing on fixes & features additions to enable complete Cryptographi
 ### Bugfixe(s)
 - Fixed OID parsing when not last in sequence.  
 - Fixed C# class generation when BOOLEAN element is annotated with a DEFAULT value.  
+- Fixed C# class generation when MAX keyword is used in asn.1 constraint.  
 
 <br>
 <br>

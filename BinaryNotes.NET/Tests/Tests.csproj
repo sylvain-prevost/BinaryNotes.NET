@@ -23,4 +23,8 @@
     <ProjectReference Include="..\BinaryNotes.csproj" />
   </ItemGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="generate_test_classes.cmd" />
+  </Target>
+
 </Project>
