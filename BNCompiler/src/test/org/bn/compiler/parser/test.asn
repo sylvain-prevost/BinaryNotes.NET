@@ -77,6 +77,7 @@ EXPORTS TestOCT,TestPRN,TestI64,TestI32,TestI16,TestI8,ContentType,ValueWithPara
 
 	DataSeqArray ::= SEQUENCE OF DataSeq
 	StringArray ::= SEQUENCE OF PrintableString
+	UTF8StringArray ::= SEQUENCE OF UTF8String
 	OctetStringArray ::= SEQUENCE OF OCTET STRING
 
 	ITUType1 ::= VisibleString
@@ -274,6 +275,7 @@ EXPORTS TestOCT,TestPRN,TestI64,TestI32,TestI16,TestI8,ContentType,ValueWithPara
 	}
 
 	TestLongTag ::= [APPLICATION 15123] INTEGER
+	Test128Tag ::= [APPLICATION 128] INTEGER
 
 	TestSimpleSequence ::= SEQUENCE
 	{
@@ -340,7 +342,51 @@ EXPORTS TestOCT,TestPRN,TestI64,TestI32,TestI16,TestI8,ContentType,ValueWithPara
 	)
 	( SIZE (1..255) )
 
+	Minor ::= [APPLICATION 105] IMPLICIT INTEGER
+	Major ::= [APPLICATION 106] IMPLICIT INTEGER
+
+	Version ::= [APPLICATION 74] IMPLICIT SET {
+		minor Minor OPTIONAL,
+		major Major OPTIONAL
+	}
+
+	LstVersion ::= [APPLICATION 75] IMPLICIT SET OF Version
+
+	Config ::=  [APPLICATION 76] IMPLICIT SEQUENCE {
+		lstVersion LstVersion,
+		major_config Major
+	}
+
+	Config2 ::=  [APPLICATION 79] IMPLICIT SEQUENCE {
+		lstVersion LstVersion,
+		major_config Major
+	}
+
+	TestTaggedSetInSet ::= [APPLICATION 77] IMPLICIT SET { 
+		config1 Config, 
+		config2 Config2
+	} 
+
+	Set1 ::= [APPLICATION 55] IMPLICIT SET { 
+		set1ID INTEGER 
+	}
 	
+	Set2 ::= [APPLICATION 128] IMPLICIT SET OF Set1
+	
+	Set3 ::= [APPLICATION 124] IMPLICIT SET{ 
+		set2 Set2
+	}
+	
+	Set4 ::= [APPLICATION 61] IMPLICIT SET OF Set3
 
+	Set5 ::= [APPLICATION 127] IMPLICIT SET OF Set3
 
+	Set6 ::= [APPLICATION 56] IMPLICIT SET {
+		set4 Set4,
+		set5 Set5
+	}
+
+	Set7 ::= [APPLICATION 90] IMPLICIT SET {
+		set6 Set6
+	}
 END
