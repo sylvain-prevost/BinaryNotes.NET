@@ -39,6 +39,7 @@
                         <xsl:otherwise>BigInteger</xsl:otherwise>
                      </xsl:choose>
                </xsl:if>
+                <xsl:if test= "constraint/elemSetSpec/intersectionList/cnsElemList/isMaxKw = 'true'">long</xsl:if>
             </xsl:when>
             <xsl:otherwise>BigInteger</xsl:otherwise>
         </xsl:choose>

@@ -26,6 +26,9 @@
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
 
     <xsl:template name="sizeConstraint">
+        <xsl:if test="elemSetSpec/intersectionList/cnsElemList/isMaxKw = 'true'">
+            [ASN1SizeConstraint ( Max = long.MaxValue )]
+        </xsl:if>
         <xsl:if test= "elemSetSpec/intersectionList/cnsElemList/value/signedNumber/num">
             [ASN1SizeConstraint ( Max = <xsl:value-of select="elemSetSpec/intersectionList/cnsElemList/value/signedNumber/num"/>L )]
         </xsl:if>
