@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -27,12 +29,12 @@ namespace test.org.bn.coders.test_asn {
        [ASN1Sequence ( Name = "Set1", IsSet = true  )]
        public class Set1SequenceType : IASN1PreparedElement {
                         
-	private long set1ID_ ;
+	private BigInteger set1ID_ ;
 	[ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "set1ID", IsOptional =  false , HasTag =  false  , HasDefaultValue =  false )  ]
     
-        public long Set1ID
+        public BigInteger Set1ID
         {
             get { return set1ID_; }
             set { set1ID_ = value;  }

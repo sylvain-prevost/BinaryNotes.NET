@@ -38,7 +38,7 @@ namespace test.org.bn.coders.test_asn {
 	[ASN1String( Name = "", 
         StringType =  UniversalTags.PrintableString , IsUCS = false )]
                 [ASN1ValueRangeConstraint (
-                Min = 1,Max = 4
+                Min = 1, Max = 4
                 ) ]
             
         [ASN1Element ( Name = "attrStr", IsOptional =  false , HasTag =  true, Tag = 1 , HasDefaultValue =  false )  ]
@@ -70,7 +70,7 @@ namespace test.org.bn.coders.test_asn {
 
     
                 [ASN1ValueRangeConstraint (
-                Min = 1,Max = 5
+                Min = 1, Max = 5
                 ) ]
             
         [ASN1Element ( Name = "attrArr", IsOptional =  false , HasTag =  true, Tag = 3 , HasDefaultValue =  false )  ]
@@ -117,7 +117,7 @@ namespace test.org.bn.coders.test_asn {
 	[ASN1BitString( Name = "" )]
     
                 [ASN1ValueRangeConstraint (
-                Min = 1,Max = 36
+                Min = 1, Max = 36
                 ) ]
             
         [ASN1Element ( Name = "attrBitStrBnd", IsOptional =  true , HasTag =  true, Tag = 5 , HasDefaultValue =  false )  ]

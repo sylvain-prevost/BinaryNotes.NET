@@ -27,7 +27,7 @@ namespace test.org.bn.coders.test_asn {
         StringType =  UniversalTags.VisibleString , IsUCS = false) ]
             
                 [ASN1ValueRangeConstraint (
-                Min = 1,Max = 255
+                Min = 1, Max = 255
                 ) ]
             
             public String Value

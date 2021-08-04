@@ -26,7 +26,7 @@ namespace test.org.bn.coders.test_asn {
             [ASN1Integer( Name = "TestLong" )]
             
                 [ASN1ValueRangeConstraint (
-                Min = 1,Max = 2247483648L
+                Min = 1, Max = 2247483648L
                 ) ]
             
             public long Value

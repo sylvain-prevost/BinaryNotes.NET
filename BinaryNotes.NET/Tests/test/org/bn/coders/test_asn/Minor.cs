@@ -6,6 +6,8 @@
 //
 
 using System;
+using System.Numerics;
+
 using org.bn.attributes;
 using org.bn.attributes.constraints;
 using org.bn.coders;
@@ -20,14 +22,14 @@ namespace test.org.bn.coders.test_asn {
     public class Minor: IASN1PreparedElement {
             
            
-        private long  val;
+        private BigInteger  val;
 
         [ASN1Integer( Name = "" )]
     
         [ASN1Element ( Name = "Minor", IsOptional =  false , HasTag =  true, Tag = 105, 
         TagClass =  TagClasses.Application  , HasDefaultValue =  false )  ]
     
-        public long Value
+        public BigInteger Value
         {
                 get { return val; }        
                     

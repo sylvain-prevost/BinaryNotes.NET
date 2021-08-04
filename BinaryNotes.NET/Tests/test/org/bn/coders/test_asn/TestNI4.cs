@@ -26,7 +26,7 @@ namespace test.org.bn.coders.test_asn {
             [ASN1Integer( Name = "TestNI4" )]
             
                 [ASN1ValueRangeConstraint (
-                Min = -134217728,Max = 134217728
+                Min = -134217728, Max = 134217728
                 ) ]
             
             public int Value

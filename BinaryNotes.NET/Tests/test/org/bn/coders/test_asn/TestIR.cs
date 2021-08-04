@@ -26,7 +26,7 @@ namespace test.org.bn.coders.test_asn {
             [ASN1Integer( Name = "TestIR" )]
             
                 [ASN1ValueRangeConstraint (
-                Min = 1,Max = 5
+                Min = 1, Max = 5
                 ) ]
             
             public int Value
