@@ -391,4 +391,12 @@ Set7 ::= [APPLICATION 90] IMPLICIT SET {
     set6           Set6
 }
 
+
+AttributeType ::= OBJECT IDENTIFIER
+
+Attribute ::= SEQUENCE {
+    type           AttributeType,
+    values         SET OF ANY
+}
+
 END

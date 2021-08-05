@@ -544,5 +544,22 @@ namespace test.org.bn.coders
             Set7 set7 = decoder.decode<Set7>(stream);
         }
 
+        internal void testDecodeAttribute()
+        {
+            IDecoder decoder = newDecoder();
+            Assert.NotNull(decoder);
+
+            System.IO.MemoryStream stream = new System.IO.MemoryStream(coderTestUtils.createAttributeBytes());
+
+            test_asn.Attribute attribute = decoder.decode<test_asn.Attribute>(stream);
+
+            Assert.Equals(attribute.Type.Value.Value, coderTestUtils.createAttribute().Type.Value.Value);
+
+            List<byte[]> decoded = (List<byte[]>)attribute.Values;
+            List<byte[]> expected = (List<byte[]>)coderTestUtils.createAttribute().Values;
+
+            ByteTools.checkBuffers(decoded[0], expected[0]);
+        }
+          
     }
 }

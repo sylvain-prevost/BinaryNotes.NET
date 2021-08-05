@@ -22,79 +22,79 @@ using org.bn.types;
 
 namespace test.org.bn.coders
 {
-	
-	public abstract class CoderTestUtilities
-	{
-		
-		public virtual NullSequence createNullSeq()
-		{
-			NullSequence seq = new NullSequence();
-			return seq;
-		}
-		public abstract byte[] createNullSeqBytes();
-		
-		public virtual TaggedNullSequence createTaggedNullSeq()
-		{
-			TaggedNullSequence seq = new TaggedNullSequence();
-			return seq;
-		}
-		public abstract byte[] createTaggedNullSeqBytes();
-		
-		
-		public virtual ContentSchema createEnum()
-		{
-			ContentSchema schema = new ContentSchema();
-			schema.Value = (ContentSchema.EnumType.multipart_mixed);
-			return schema;
-		}
-		public abstract byte[] createEnumBytes();
-		
-		
-		public virtual ITUSequence createITUSeq()
-		{
-			ITUSequence seq = new ITUSequence();
-			seq.Type1 = "aaaaa";
-			seq.Type2 = new ITUType1("bbbbb");
-			ITUType1 type1 = new ITUType1("ccccc");
-			ITUType2 type2 = new ITUType2();
-			type2.Value = type1;
-			seq.Type3 = type2;
-			ITUType3 type3 = new ITUType3();
-			type3.Value = type2;
-			seq.Type4 = type3;
-			seq.Type5 = type2;
-			seq.Type6 = "ddddd";
-			ITUType6 type6 = new ITUType6();
-			type6.Value = "eeeee";
-			seq.Type7 = type6;
-			return seq;
-		}
-		public abstract byte[] createITUSeqBytes();
-		
-		
-		public virtual DataSeq createDataSeq()
-		{
-			DataSeq seq = new DataSeq();
-			seq.Binary = new TestOCT(new byte[]{});
-			seq.SimpleType = "aaaaaaa";
-			seq.BooleanType = (false);
-			Data dt = new Data();
-			dt.selectPlain(new TestPRN("eeeeeee"));
+
+    public abstract class CoderTestUtilities
+    {
+
+        public virtual NullSequence createNullSeq()
+        {
+            NullSequence seq = new NullSequence();
+            return seq;
+        }
+        public abstract byte[] createNullSeqBytes();
+
+        public virtual TaggedNullSequence createTaggedNullSeq()
+        {
+            TaggedNullSequence seq = new TaggedNullSequence();
+            return seq;
+        }
+        public abstract byte[] createTaggedNullSeqBytes();
+
+
+        public virtual ContentSchema createEnum()
+        {
+            ContentSchema schema = new ContentSchema();
+            schema.Value = (ContentSchema.EnumType.multipart_mixed);
+            return schema;
+        }
+        public abstract byte[] createEnumBytes();
+
+
+        public virtual ITUSequence createITUSeq()
+        {
+            ITUSequence seq = new ITUSequence();
+            seq.Type1 = "aaaaa";
+            seq.Type2 = new ITUType1("bbbbb");
+            ITUType1 type1 = new ITUType1("ccccc");
+            ITUType2 type2 = new ITUType2();
+            type2.Value = type1;
+            seq.Type3 = type2;
+            ITUType3 type3 = new ITUType3();
+            type3.Value = type2;
+            seq.Type4 = type3;
+            seq.Type5 = type2;
+            seq.Type6 = "ddddd";
+            ITUType6 type6 = new ITUType6();
+            type6.Value = "eeeee";
+            seq.Type7 = type6;
+            return seq;
+        }
+        public abstract byte[] createITUSeqBytes();
+
+
+        public virtual DataSeq createDataSeq()
+        {
+            DataSeq seq = new DataSeq();
+            seq.Binary = new TestOCT(new byte[] { });
+            seq.SimpleType = "aaaaaaa";
+            seq.BooleanType = (false);
+            Data dt = new Data();
+            dt.selectPlain(new TestPRN("eeeeeee"));
             List<Data> lstDt = new List<Data>();
-			lstDt.Add(dt);
-			seq.DataArray = (lstDt);
-			seq.IntBndType = (0x44);
-			seq.Plain = new TestPRN("");
-			seq.SimpleOctType = new byte[]{(byte) (0xBA)};
-			seq.IntType = (0);
+            lstDt.Add(dt);
+            seq.DataArray = (lstDt);
+            seq.IntBndType = (0x44);
+            seq.Plain = new TestPRN("");
+            seq.SimpleOctType = new byte[] { (byte)(0xBA) };
+            seq.IntType = (0);
             List<String> list = new List<String>();
-			list.Add("bbbbbb");
-			list.Add("ccccc");
-			seq.StringArray = (list);
-			seq.Extension = new byte[]{(byte) (0xFF)};
-			return seq;
-		}
-		public abstract byte[] createDataSeqBytes();
+            list.Add("bbbbbb");
+            list.Add("ccccc");
+            seq.StringArray = (list);
+            seq.Extension = new byte[] { (byte)(0xFF) };
+            return seq;
+        }
+        public abstract byte[] createDataSeqBytes();
 
         public virtual TestSequenceWithOid createSequenceWithOid()
         {
@@ -118,101 +118,101 @@ namespace test.org.bn.coders
 
         public abstract byte[] createIndefiniteLengthBasicSequenceBytes();
 
-		public virtual DataSeqMO createDataSeqMO()
-		{
-			DataSeqMO seq = new DataSeqMO();
-			seq.Binary = new TestOCT(new byte[]{});
-			seq.SimpleType = "aaaaaaa";
-			seq.BooleanType=  true;
-			
-			Data dt = new Data();
-			dt.selectPlain(new TestPRN("eeeeeee"));
-			Data dt2 = new Data();
-			dt2.selectPlain(new TestPRN("ffff"));
+        public virtual DataSeqMO createDataSeqMO()
+        {
+            DataSeqMO seq = new DataSeqMO();
+            seq.Binary = new TestOCT(new byte[] { });
+            seq.SimpleType = "aaaaaaa";
+            seq.BooleanType = true;
+
+            Data dt = new Data();
+            dt.selectPlain(new TestPRN("eeeeeee"));
+            Data dt2 = new Data();
+            dt2.selectPlain(new TestPRN("ffff"));
             List<Data> lstDt = new List<Data>();
-			lstDt.Add(dt);
-			lstDt.Add(dt2);
-			seq.DataArray = (lstDt);
-			
-			seq.IntBndType = (0);
-			seq.Plain = new TestPRN("");
-			seq.SimpleOctType = new byte[]{(byte) (0xAB)};
-			seq.IntType = (0);
+            lstDt.Add(dt);
+            lstDt.Add(dt2);
+            seq.DataArray = (lstDt);
+
+            seq.IntBndType = (0);
+            seq.Plain = new TestPRN("");
+            seq.SimpleOctType = new byte[] { (byte)(0xAB) };
+            seq.IntType = (0);
 
             List<String> list = new List<String>();
-			list.Add("bbbbbb");
-			list.Add("ccccc");
-			seq.StringArray = (list);
+            list.Add("bbbbbb");
+            list.Add("ccccc");
+            seq.StringArray = (list);
 
             List<Data> listData = new List<Data>();
-			Data choice = new Data();
-			choice.selectSimpleType("dddd");
-			listData.Add(choice);
-			seq.DataArray2 = (listData);
-			
-			seq.IntBndType2 = (0xAA);
-			
-			return seq;
-		}
-		public abstract byte[] createDataSeqMOBytes();
-		
-		public virtual SequenceWithEnum createSequenceWithEnum()
-		{
-			SequenceWithEnum seq = new SequenceWithEnum();
-			seq.Enval = createEnum();
-			seq.Item = "aaaaa";
-			seq.TaggedEnval = createEnum();
-			return seq;
-		}
-		public abstract byte[] createSequenceWithEnumBytes();
-		
-		public virtual TestIR createTestIntegerR()
-		{
-			TestIR value_Renamed = new TestIR();
-			value_Renamed.Value = 3;
-			return value_Renamed;
-		}
-		public abstract byte[] createTestIntegerRBytes();
-		
-		public virtual TestI8 createTestInteger1()
-		{
-			TestI8 value_Renamed = new TestI8();
-			value_Renamed.Value = 0x0F;
-			return value_Renamed;
-		}
-		public abstract byte[] createTestInteger1Bytes();
-		
-		public virtual TestI14 createTestInteger2_12()
-		{
-			TestI14 value_Renamed = new TestI14();
-			value_Renamed.Value = 0x1FF1;
-			return value_Renamed;
-		}
-		public abstract byte[] createTestInteger2_12Bytes();
-		
-		public virtual TestI16 createTestInteger2()
-		{
-			TestI16 value_Renamed = new TestI16();
-			value_Renamed.Value = 0x0FF0;
-			return value_Renamed;
-		}
-		public abstract byte[] createTestInteger2Bytes();
-		
-		public virtual TestI16 createTestInteger3()
-		{
-			TestI16 value_Renamed = new TestI16();
-			value_Renamed.Value = 0xFFF0;
-			return value_Renamed;
-		}
-		public abstract byte[] createTestInteger3Bytes();
-		
-		public virtual TestI32 createTestInteger4()
-		{
-			TestI32 value_Renamed = new TestI32();
-			value_Renamed.Value = 0xF0F0F0;
-			return value_Renamed;
-		}
-		public abstract byte[] createTestInteger4Bytes();
+            Data choice = new Data();
+            choice.selectSimpleType("dddd");
+            listData.Add(choice);
+            seq.DataArray2 = (listData);
+
+            seq.IntBndType2 = (0xAA);
+
+            return seq;
+        }
+        public abstract byte[] createDataSeqMOBytes();
+
+        public virtual SequenceWithEnum createSequenceWithEnum()
+        {
+            SequenceWithEnum seq = new SequenceWithEnum();
+            seq.Enval = createEnum();
+            seq.Item = "aaaaa";
+            seq.TaggedEnval = createEnum();
+            return seq;
+        }
+        public abstract byte[] createSequenceWithEnumBytes();
+
+        public virtual TestIR createTestIntegerR()
+        {
+            TestIR value_Renamed = new TestIR();
+            value_Renamed.Value = 3;
+            return value_Renamed;
+        }
+        public abstract byte[] createTestIntegerRBytes();
+
+        public virtual TestI8 createTestInteger1()
+        {
+            TestI8 value_Renamed = new TestI8();
+            value_Renamed.Value = 0x0F;
+            return value_Renamed;
+        }
+        public abstract byte[] createTestInteger1Bytes();
+
+        public virtual TestI14 createTestInteger2_12()
+        {
+            TestI14 value_Renamed = new TestI14();
+            value_Renamed.Value = 0x1FF1;
+            return value_Renamed;
+        }
+        public abstract byte[] createTestInteger2_12Bytes();
+
+        public virtual TestI16 createTestInteger2()
+        {
+            TestI16 value_Renamed = new TestI16();
+            value_Renamed.Value = 0x0FF0;
+            return value_Renamed;
+        }
+        public abstract byte[] createTestInteger2Bytes();
+
+        public virtual TestI16 createTestInteger3()
+        {
+            TestI16 value_Renamed = new TestI16();
+            value_Renamed.Value = 0xFFF0;
+            return value_Renamed;
+        }
+        public abstract byte[] createTestInteger3Bytes();
+
+        public virtual TestI32 createTestInteger4()
+        {
+            TestI32 value_Renamed = new TestI32();
+            value_Renamed.Value = 0xF0F0F0;
+            return value_Renamed;
+        }
+        public abstract byte[] createTestInteger4Bytes();
 
         public virtual TestI64 createTestInteger8()
         {
@@ -224,70 +224,70 @@ namespace test.org.bn.coders
 
 
         public virtual SequenceWithNull createSeqWithNull()
-		{
-			SequenceWithNull seq = new SequenceWithNull();
-			seq.Test = "sss";
-			seq.Test2 = "ddd";
-			return seq;
-		}
-		public abstract byte[] createSeqWithNullBytes();
-		
-		public virtual TestRecursiveDefinetion createTestRecursiveDefinition()
-		{
-			TestRecursiveDefinetion result = new TestRecursiveDefinetion();
-			TestRecursiveDefinetion subResult = new TestRecursiveDefinetion();
-			result.Name = "aaaaa";
-			subResult.Name = "bbbbb";
-			result.Value = subResult;
-			return result;
-		}
-		public abstract byte[] createTestRecursiveDefinitionBytes();
-		
-		public virtual TestI createUnboundedTestInteger()
-		{
-			TestI value_Renamed = new TestI();
-			value_Renamed.Value = 0xFAFBFC;
-			return value_Renamed;
-		}
-		public abstract byte[] createUnboundedTestIntegerBytes();
-		
-		public virtual TestPRN createTestPRN()
-		{
-			TestPRN value_Renamed = new TestPRN();
-			value_Renamed.Value = "Hello";
-			return value_Renamed;
-		}
-		public abstract byte[] createTestPRNBytes();
-		
-		public virtual TestOCT createTestOCT()
-		{
-			TestOCT value_Renamed = new TestOCT();
-			value_Renamed.Value = new byte[]{(byte) (0x01), (byte) (0x02), (byte) (0xFF), (byte) (0x03), (byte) (0x04)};
-			return value_Renamed;
-		}
-		public abstract byte[] createTestOCTBytes();
-		
-		public abstract byte[] createDataChoiceTestOCTBytes();
-		
-		public abstract byte[] createDataChoiceSimpleTypeBytes();
-		
-		public abstract byte[] createDataChoiceBooleanBytes();
-		
-		public abstract byte[] createDataChoiceIntBndBytes();
-		
-		public abstract byte[] createDataChoicePlainBytes();
-		
-		public virtual StringArray createStringArray()
-		{
-			StringArray sequenceOfString = new StringArray();
+        {
+            SequenceWithNull seq = new SequenceWithNull();
+            seq.Test = "sss";
+            seq.Test2 = "ddd";
+            return seq;
+        }
+        public abstract byte[] createSeqWithNullBytes();
+
+        public virtual TestRecursiveDefinetion createTestRecursiveDefinition()
+        {
+            TestRecursiveDefinetion result = new TestRecursiveDefinetion();
+            TestRecursiveDefinetion subResult = new TestRecursiveDefinetion();
+            result.Name = "aaaaa";
+            subResult.Name = "bbbbb";
+            result.Value = subResult;
+            return result;
+        }
+        public abstract byte[] createTestRecursiveDefinitionBytes();
+
+        public virtual TestI createUnboundedTestInteger()
+        {
+            TestI value_Renamed = new TestI();
+            value_Renamed.Value = 0xFAFBFC;
+            return value_Renamed;
+        }
+        public abstract byte[] createUnboundedTestIntegerBytes();
+
+        public virtual TestPRN createTestPRN()
+        {
+            TestPRN value_Renamed = new TestPRN();
+            value_Renamed.Value = "Hello";
+            return value_Renamed;
+        }
+        public abstract byte[] createTestPRNBytes();
+
+        public virtual TestOCT createTestOCT()
+        {
+            TestOCT value_Renamed = new TestOCT();
+            value_Renamed.Value = new byte[] { (byte)(0x01), (byte)(0x02), (byte)(0xFF), (byte)(0x03), (byte)(0x04) };
+            return value_Renamed;
+        }
+        public abstract byte[] createTestOCTBytes();
+
+        public abstract byte[] createDataChoiceTestOCTBytes();
+
+        public abstract byte[] createDataChoiceSimpleTypeBytes();
+
+        public abstract byte[] createDataChoiceBooleanBytes();
+
+        public abstract byte[] createDataChoiceIntBndBytes();
+
+        public abstract byte[] createDataChoicePlainBytes();
+
+        public virtual StringArray createStringArray()
+        {
+            StringArray sequenceOfString = new StringArray();
             List<String> list = new List<String>();
-			list.Add("bbbbbb");
-			list.Add("ccccc");
-			sequenceOfString.Value = list;
-			return sequenceOfString;
-		}
-		
-		public abstract byte[] createStringArrayBytes();
+            list.Add("bbbbbb");
+            list.Add("ccccc");
+            sequenceOfString.Value = list;
+            return sequenceOfString;
+        }
+
+        public abstract byte[] createStringArrayBytes();
 
         public virtual UTF8StringArray createUTF8StringArray()
         {
@@ -346,7 +346,7 @@ namespace test.org.bn.coders
         public TestBitStr createTestBitStr()
         {
             TestBitStr result = new TestBitStr();
-            result.Value = (new BitString(new byte[] { (byte)0xAA, (byte)0xBB, (byte)0xCC, (byte)0xDD, (byte)0xF0 } , 4));
+            result.Value = (new BitString(new byte[] { (byte)0xAA, (byte)0xBB, (byte)0xCC, (byte)0xDD, (byte)0xF0 }, 4));
             return result;
         }
         public abstract byte[] createTestBitStrBytes();
@@ -354,7 +354,7 @@ namespace test.org.bn.coders
         public TestBitStr createTestBitStrSmall()
         {
             TestBitStr result = new TestBitStr();
-            result.Value = (new BitString(new byte[] { (byte)0xAA, (byte)0xB0 } , 4));
+            result.Value = (new BitString(new byte[] { (byte)0xAA, (byte)0xB0 }, 4));
             return result;
         }
         public abstract byte[] createTestBitStrSmallBytes();
@@ -370,7 +370,7 @@ namespace test.org.bn.coders
         public TestBitStrBnd createTestBitStrBnd()
         {
             TestBitStrBnd result = new TestBitStrBnd();
-            result.Value = (new BitString(new byte[] { (byte)0xF0 } , 4));
+            result.Value = (new BitString(new byte[] { (byte)0xF0 }, 4));
             return result;
         }
         public abstract byte[] createTestBitStrBndBytes();
@@ -470,8 +470,8 @@ namespace test.org.bn.coders
 
         public enum TestCSEnum
         {
-            OK=1,
-            CANCEL=2
+            OK = 1,
+            CANCEL = 2
         }
         public Object createCSEnum()
         {
@@ -570,7 +570,7 @@ namespace test.org.bn.coders
         {
             TestTaggedSetInSet result = new TestTaggedSetInSet();
             result.Value = (new TestTaggedSetInSet.TestTaggedSetInSetSequenceType());
-            result.Value.Config1 = (createTaggedSet());            
+            result.Value.Config1 = (createTaggedSet());
             result.Value.Config2 = (createTaggedSet2());
             return result;
         }
@@ -611,5 +611,21 @@ namespace test.org.bn.coders
 
         public abstract byte[] createTest128TagBytes();
 
-	}
+
+        public test_asn.Attribute createAttribute()
+        {
+            test_asn.Attribute attribute = new test_asn.Attribute();
+            attribute.Type = new AttributeType();
+            attribute.Type.Value = new ObjectIdentifier("1.2.840.113549.1.9.4");
+            attribute.Values = new List<byte[]>();
+            attribute.Values.Add(new byte[] {0x04, 0x14,
+                0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A,
+                0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x11, 0x22, 0x33, 0x44, 0x55 });
+            return attribute;
+        }
+
+        public abstract byte[] createAttributeBytes();
+
+
+    }
 }

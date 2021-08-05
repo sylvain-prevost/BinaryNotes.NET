@@ -394,5 +394,17 @@ namespace test.org.bn.coders
 
         }
 
+
+        internal void testEncodeAttribute()
+        {
+            IEncoder encoder = newEncoder();
+            Assert.NotNull(encoder);
+            //
+            test_asn.Attribute attribute = coderTestUtils.createAttribute();
+            printEncoded("attribute", encoder, attribute);
+
+            checkEncoded(encoder, coderTestUtils.createAttribute(), coderTestUtils.createAttributeBytes());
+        }
+
     }
 }

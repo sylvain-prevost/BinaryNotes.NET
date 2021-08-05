@@ -5,13 +5,14 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>BinaryNotes.snk</AssemblyOriginatorKeyFile>
     <Version>1.5.4</Version>
-    <Authors>Abdulla G. Abdurakhmanov, Sylvain Prevost</Authors>
-    <Company />
+    <Authors>Sylvain Prevost, Abdulla G. Abdurakhmanov</Authors>
+    <Company>none</Company>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/sylvain-prevost/BinaryNotes</PackageProjectUrl>
     <RepositoryUrl>https://github.com/sylvain-prevost/BinaryNotes</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Copyright>Copyright © 2006-2011 Abdulla G. Abdurakhmanov</Copyright>
+    <Copyright></Copyright>
+    <PackageId>BinaryNotesExtension</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

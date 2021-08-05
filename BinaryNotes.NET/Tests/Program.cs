@@ -63,6 +63,7 @@ namespace Tests
             test.testEncodeCSSpecific();
             test.testEncodeTaggedSet();
             test.testEncodeTaggedSetInSet();
+            test.testEncodeAttribute();            
         }
 
         static void runDecoderTest(DecoderTest test)
@@ -97,6 +98,7 @@ namespace Tests
             test.testDefiniteLengthBasicSequenceDecode();
             test.testSequenceWithOidDecode();
             test.testIndefiniteLengthBasicSequenceDecode();
+            test.testDecodeAttribute();
         }
 
         [STAThread]
