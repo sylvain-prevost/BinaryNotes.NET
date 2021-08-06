@@ -626,6 +626,28 @@ namespace test.org.bn.coders
 
         public abstract byte[] createAttributeBytes();
 
+        public test_asn.Extension createExtensionWithDefaultMismatch()
+        {
+            test_asn.Extension extension = new test_asn.Extension();
+            extension.ExtnID = new ObjectIdentifier("2.5.29.15");
+            extension.Critical = true; // this does not matches the DEFAULT of the asn.1 definition (it should be encoded).
+            extension.ExtnValue = new byte[] { 0x03, 0x02, 0x04, 0xF0 };
+            return extension;
+        }
 
+        public abstract byte[] createExtensionWithDefaultMismatchBytes();
+
+        public test_asn.Extension createExtensionWithDefaultMatch()
+        {
+            test_asn.Extension extension = new test_asn.Extension();
+            extension.ExtnID = new ObjectIdentifier("2.5.29.32");
+            extension.Critical = false; // this matches the DEFAULT of the asn.1 definition (it should not be encoded under DER).
+            extension.ExtnValue = new byte[] { 0x30, 0x3B, 0x30, 0x39, 0x06, 0x0A, 0x2A, 0x81, 0x7A, 0x01, 0x81, 0x1F, 0x01, 0x01, 0x01, 0x02, 0x30, 0x2B, 0x30, 0x29, 0x06, 0x08, 0x2B, 0x06, 0x01, 0x05, 0x05, 0x07, 0x02, 0x01, 0x16, 0x1D, 0x68, 0x74, 0x74, 0x70, 0x3A, 0x2F, 0x2F, 0x69, 0x6E, 0x74, 0x65, 0x72, 0x69, 0x65, 0x75, 0x72, 0x2E, 0x67, 0x6F, 0x75, 0x76, 0x2E, 0x66, 0x72, 0x2F, 0x63, 0x73, 0x63, 0x61 };
+            return extension;
+        }
+
+        public abstract byte[] createExtensionWithDefaultMatchBytesBER();
+
+        public abstract byte[] createExtensionWithDefaultMatchBytesDER();
     }
 }

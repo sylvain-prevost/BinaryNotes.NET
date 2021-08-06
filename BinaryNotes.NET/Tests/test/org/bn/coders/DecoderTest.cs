@@ -560,6 +560,36 @@ namespace test.org.bn.coders
 
             ByteTools.checkBuffers(decoded[0], expected[0]);
         }
-          
+
+        internal void testDecodeExtensionWithDefaultMismatch()
+        {
+            IDecoder decoder = newDecoder();
+            Assert.NotNull(decoder);
+
+            System.IO.MemoryStream stream = new System.IO.MemoryStream(coderTestUtils.createExtensionWithDefaultMismatchBytes());
+
+            test_asn.Extension extension = decoder.decode<test_asn.Extension>(stream);
+
+            Assert.Equals(extension.ExtnID.Value, coderTestUtils.createExtensionWithDefaultMismatch().ExtnID.Value);
+            Assert.Equals(extension.Critical, coderTestUtils.createExtensionWithDefaultMismatch().Critical);
+            ByteTools.checkBuffers(extension.ExtnValue, coderTestUtils.createExtensionWithDefaultMismatch().ExtnValue);            
+        }
+
+        internal void testDecodeExtensionWithDefaultMatch()
+        {
+            IDecoder decoder = newDecoder();
+            Assert.NotNull(decoder);
+
+            System.IO.MemoryStream stream = new System.IO.MemoryStream(coderTestUtils.createExtensionWithDefaultMismatchBytes());
+
+            test_asn.Extension extension = decoder.decode<test_asn.Extension>(stream);
+
+            Assert.Equals(extension.ExtnID.Value, coderTestUtils.createExtensionWithDefaultMismatch().ExtnID.Value);
+            Assert.Equals(extension.Critical, coderTestUtils.createExtensionWithDefaultMismatch().Critical);
+            ByteTools.checkBuffers(extension.ExtnValue, coderTestUtils.createExtensionWithDefaultMismatch().ExtnValue);
+        }
+
+
+
     }
 }

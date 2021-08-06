@@ -399,4 +399,11 @@ Attribute ::= SEQUENCE {
     values         SET OF ANY
 }
 
+Extension ::= SEQUENCE {
+    extnID         OBJECT IDENTIFIER,
+    critical       BOOLEAN DEFAULT FALSE,
+    extnValue      OCTET STRING    
+}
+
+
 END

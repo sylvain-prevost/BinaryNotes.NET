@@ -406,5 +406,34 @@ namespace test.org.bn.coders
             checkEncoded(encoder, coderTestUtils.createAttribute(), coderTestUtils.createAttributeBytes());
         }
 
+        internal void testEncodeExtensionWithDefaultMismatch()
+        {
+            IEncoder encoder = newEncoder();
+            Assert.NotNull(encoder);
+            //
+            test_asn.Extension extension = coderTestUtils.createExtensionWithDefaultMismatch();
+            printEncoded("extension", encoder, extension);
+
+            checkEncoded(encoder, coderTestUtils.createExtensionWithDefaultMismatch(), coderTestUtils.createExtensionWithDefaultMismatchBytes());
+        }
+
+        internal void testEncodeExtensionWithDefaultMatch()
+        {
+            IEncoder encoder = newEncoder();
+            Assert.NotNull(encoder);
+            //
+            test_asn.Extension extension = coderTestUtils.createExtensionWithDefaultMatch();
+            printEncoded("extension", encoder, extension);
+
+            if (this is der.DEREncoderTest)
+            {
+                checkEncoded(encoder, coderTestUtils.createExtensionWithDefaultMatch(), coderTestUtils.createExtensionWithDefaultMatchBytesDER());
+            }
+            else
+            {
+                checkEncoded(encoder, coderTestUtils.createExtensionWithDefaultMatch(), coderTestUtils.createExtensionWithDefaultMatchBytesBER());
+            }
+        }
+
     }
 }
