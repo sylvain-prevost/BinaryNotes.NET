@@ -522,15 +522,34 @@ namespace org.bn.coders.ber
                             info.PreparedInfo = (seqOfMeta.getItemClassMetadata());
                         }
 
-                        DecodedObject<object> itemTag = decodeTag(stream);
-                        DecodedObject<object> item = decodeClassType(itemTag, paramType, info, stream);
+
                         MethodInfo method = param.GetType().GetMethod("Add");
-                        if (item != null)
+
+                        PropertyInfo[] fields = info.getProperties(objectClass);
+                        bool isAny = CoderUtils.isAttributePresent<ASN1Any>(elementInfo.AnnotatedClass);
+                        bool isSetOf = ((ASN1SequenceOfMetadata)elementInfo.PreparedInfo.TypeMetadata).IsSetOf;
+
+                        // check if we're dealing with 'SET OF ANY' case
+                        if ((isSetOf == true) && (isAny == true))
                         {
-                            lenOfItems += item.Size + itemTag.Size;
-                            method.Invoke(param, new object[] { item.Value });
+                            elementInfo.MaxAvailableLen -= (decodedTag.Size + len.Size);
+                            DecodedObject<object> obj = decodeAny(decodedTag, objectClass, elementInfo, stream);
+                            method.Invoke(param, new object[] { obj.Value });
+                            lenOfItems += (obj.Size);
                             itemsCnt++;
                         }
+                        else
+                        {
+                            DecodedObject<object> itemTag = decodeTag(stream);
+                            DecodedObject<object> item = decodeClassType(itemTag, paramType, info, stream);
+                            if (item != null)
+                            {
+                                lenOfItems += (item.Size + itemTag.Size);
+                                method.Invoke(param, new object[] { item.Value });
+                                itemsCnt++;
+                            }
+                        }
+
                     }
                     while (lenOfItems < len.Value);
                     CoderUtils.checkConstraints(itemsCnt, elementInfo);

@@ -283,7 +283,20 @@ namespace org.bn.coders.ber
                     info.PreparedInfo = (seqOfMeta.getItemClassMetadata());
                 }
 
-				sizeOfCollection += encodeClassType(item, stream, info);
+
+                bool isAny = CoderUtils.isAttributePresent<ASN1Any>(elementInfo.AnnotatedClass);
+                bool isSetOf = ((ASN1SequenceOfMetadata)elementInfo.PreparedInfo.TypeMetadata).IsSetOf;
+
+                // check if we're dealing with 'SET OF ANY' case
+                if ((isSetOf == true) && (isAny == true))
+                {
+                    sizeOfCollection += encodeAny(item, stream, info);
+                }
+                else
+                {
+                    sizeOfCollection += encodeClassType(item, stream, info);
+                }
+
 			}
 			resultSize += sizeOfCollection;
 			resultSize += encodeLength(sizeOfCollection, stream);
