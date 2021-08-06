@@ -295,14 +295,76 @@ namespace org.bn.coders
 			}
 			else
 			{
-				object invokeObjResult = invokeGetterMethodForField(field, obj, info);
-				if (invokeObjResult != null)
-				{
-					resultSize += encodeClassType(invokeObjResult, stream, info);
-				}
-				else
-					CoderUtils.checkForOptionalField(field, info);
-			}
+                object invokeObjResult = invokeGetterMethodForField(field, obj, info);
+                if (invokeObjResult != null)
+                {
+                    if (CoderUtils.isDefaultField(field, info) == true)
+                    {
+                        bool match;
+
+                        if (this is der.DEREncoder)
+                        {
+                            // skip the field if the current value equals to the default value (this is optional for BER, but mandatory for DER)
+                            object newSequenceInstance = Activator.CreateInstance(obj.GetType());
+                            CoderUtils.initDefaultValues(newSequenceInstance);
+                            object defaultFieldValue = invokeGetterMethodForField(field, newSequenceInstance, info);
+
+                            IEncoder encoder = new org.bn.coders.ber.BEREncoder();
+
+                            System.IO.MemoryStream outputStream1 = new System.IO.MemoryStream();
+                            encoder.encode(invokeObjResult, outputStream1);
+
+                            System.IO.MemoryStream outputStream2 = new System.IO.MemoryStream();
+                            encoder.encode(defaultFieldValue, outputStream2);
+
+                            if (outputStream1.Length == outputStream2.Length)
+                            {
+                                match = true;
+                                byte[] ar1 = outputStream1.ToArray();
+                                byte[] ar2 = outputStream2.ToArray();
+                                for (int i = 0; i < ar1.Length; i++)
+                                {
+                                    if (ar1[i] != ar2[i])
+                                    {
+                                        match = false;
+                                        break;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                // DER mode, but no match, we will encode
+                                match = false;
+                            }
+                        }
+                        else
+                        {
+                            // BER mode, we encode.
+                            match = false;
+                        }
+
+                        if (match == true)
+                        {
+                            // the default value is used, therefore we do not encode it
+                            resultSize += 0;
+                        }
+                        else
+                        {                            
+                            // default value is not used, therefore we encode it                            
+                            resultSize += encodeClassType(invokeObjResult, stream, info);
+                        }
+                        
+                    }
+                    else
+                    {                        
+                        resultSize += encodeClassType(invokeObjResult, stream, info);
+                    }
+                }
+                else
+                {
+                    CoderUtils.checkForOptionalField(field, info);
+                }
+            }
 			return resultSize;
 		}
 

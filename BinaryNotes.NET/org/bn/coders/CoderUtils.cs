@@ -289,8 +289,32 @@ namespace org.bn.coders
             }        
             return isNull;
         }
-            
-        
+
+        public static bool isDefaultField(ICustomAttributeProvider field, ElementInfo elementInfo)
+        {
+            if (elementInfo.hasPreparedInfo())
+            {
+                if (elementInfo.hasPreparedASN1ElementInfo())
+                {
+                    return elementInfo.PreparedASN1ElementInfo.HasDefaultValue;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            if (isAttributePresent<ASN1Element>(field))
+            {
+                ASN1Element info = getAttribute<ASN1Element>(field);
+                if (info.HasDefaultValue)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public static bool isOptionalField(ICustomAttributeProvider field, ElementInfo elementInfo) {
             if(elementInfo.hasPreparedInfo()) {
                 if(elementInfo.hasPreparedASN1ElementInfo())
@@ -405,6 +429,26 @@ namespace org.bn.coders
                     );
                 }
             return result;
+        }
+
+        public static void initDefaultValues(object obj)
+        {
+            try
+            {
+                if (obj is IASN1PreparedElement)
+                {
+                    ((IASN1PreparedElement)obj).initWithDefaults();
+                }
+                else
+                {
+                    string methodName = "initWithDefaults";
+                    MethodInfo method = obj.GetType().GetMethod(methodName);
+                    method.Invoke(obj, null);
+                }
+            }
+            catch (Exception)
+            {
+            }
         }
 
     }

@@ -232,19 +232,7 @@ namespace org.bn.coders
 
         public virtual void initDefaultValues(object obj)
         {
-            try {
-                if (obj is IASN1PreparedElement)
-                {
-                    ((IASN1PreparedElement)obj).initWithDefaults();
-                }
-                else
-                {
-                    string methodName = "initWithDefaults";
-                    MethodInfo method = obj.GetType().GetMethod(methodName);
-                    method.Invoke(obj, null);
-                }
-            }
-            catch(Exception ){};
+            CoderUtils.initDefaultValues(obj);
         }
 
         public object createInstanceForElement(Type objectClass, ElementInfo info)
