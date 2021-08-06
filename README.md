@@ -29,6 +29,7 @@ Currently focusing on fixes & features additions to enable complete Cryptographi
 - Enabled BER indefinite-length decoding.  
 - Added .NET assembly StrongName.  
 - Now targetting both .NET 4.0 & .NET Core 2.1.  
+- Added 'SET OF ANY' support when present within sequence.  
 
 <br>
 <br>
@@ -37,6 +38,7 @@ Currently focusing on fixes & features additions to enable complete Cryptographi
 - Fixed OID parsing when not last in sequence.  
 - Fixed C# class generation when BOOLEAN element is annotated with a DEFAULT value.  
 - Fixed C# class generation when MAX keyword is used in asn.1 constraint.  
+- Fixed encoding of elements whose values are matching asn.1 DEFAULT definition (ie, it should NOT be encoded for DER).  
 
 <br>
 <br>
