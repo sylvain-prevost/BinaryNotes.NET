@@ -38,11 +38,15 @@ namespace org.bn.coders.ber
             if(info.hasPreparedInfo()) 
             {
                 ASN1ElementMetadata meta = info.PreparedASN1ElementInfo;
-                if(meta!=null && meta.HasTag) {
-                    result = getTagValue(tagClass,elemenType,universalTag,
-                        meta.Tag,
-                        meta.TagClass
-                    );
+                if ((meta != null) && (meta.HasTag == true)) {
+                    if (meta.IsImplicitTag == true)
+                    {
+                        result = getTagValue(tagClass, elemenType, universalTag, meta.Tag, meta.TagClass);
+                    }
+                    else
+                    {
+                        // we do not change the tag here, the provided number will be used when we encapsulate the element                        
+                    }
                 }
             }
             else 

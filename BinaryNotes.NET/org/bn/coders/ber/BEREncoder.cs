@@ -95,6 +95,7 @@ namespace org.bn.coders.ber
 			resultSize += szOfInt;
 			resultSize += encodeLength(szOfInt, stream);
 			resultSize += encodeTag(BERCoderUtils.getTagValueForElement(elementInfo, TagClasses.Universal, ElementType.Primitive, UniversalTags.Enumerated), stream);
+            resultSize += encodeExplicitIfPresent(resultSize, elementInfo, stream);
 			return resultSize;
 		}
 
@@ -106,6 +107,7 @@ namespace org.bn.coders.ber
 			
 			resultSize += encodeLength(1, stream);
 			resultSize += encodeTag(BERCoderUtils.getTagValueForElement(elementInfo, TagClasses.Universal, ElementType.Primitive, UniversalTags.Boolean), stream);
+            resultSize += encodeExplicitIfPresent(resultSize, elementInfo, stream);
 			return resultSize;
 		}
 
@@ -142,6 +144,27 @@ namespace org.bn.coders.ber
             return resultSize;
         }
 
+        private int encodeExplicitIfPresent(int currentSize, ElementInfo elementInfo, System.IO.Stream stream)
+        {
+            int resultSize = 0;
+
+            if (elementInfo.hasPreparedInfo())
+            {
+                ASN1ElementMetadata meta = elementInfo.PreparedASN1ElementInfo;
+                if (meta != null)
+                {
+                    if ((meta.HasTag == true) && (meta.IsImplicitTag == false))
+                    {
+                        // we will perform the EXPLICIT encapsulation here
+                        resultSize += encodeLength(currentSize, stream);
+                        resultSize += encodeTag(BERCoderUtils.getTagValueForElement(elementInfo, TagClasses.ContextSpecific, ElementType.Constructed, meta.Tag), stream);
+                    }
+                }
+            }
+
+            return resultSize;
+        }
+
         public override int encodeInteger(object obj, System.IO.Stream stream, ElementInfo elementInfo)
 		{
 			int resultSize = 0;
@@ -175,6 +198,7 @@ namespace org.bn.coders.ber
 			resultSize += szOfInt;
 			resultSize += encodeLength(szOfInt, stream);
 			resultSize += encodeTag(BERCoderUtils.getTagValueForElement(elementInfo, TagClasses.Universal, ElementType.Primitive, UniversalTags.Integer), stream);
+            resultSize += encodeExplicitIfPresent(resultSize, elementInfo, stream);
 			return resultSize;
 		}
 
@@ -230,6 +254,7 @@ namespace org.bn.coders.ber
             resultSize += szOfInt;
             resultSize += encodeLength(szOfInt, stream);
             resultSize += encodeTag(BERCoderUtils.getTagValueForElement(elementInfo, TagClasses.Universal, ElementType.Primitive, UniversalTags.Real), stream);
+            resultSize += encodeExplicitIfPresent(resultSize, elementInfo, stream);
             return resultSize;
         }
 
@@ -245,6 +270,7 @@ namespace org.bn.coders.ber
 			resultSize += sizeOfString;
 			resultSize += encodeLength(sizeOfString, stream);
 			resultSize += encodeTag(BERCoderUtils.getTagValueForElement(elementInfo, TagClasses.Universal, ElementType.Primitive, UniversalTags.OctetString), stream);
+            resultSize += encodeExplicitIfPresent(resultSize, elementInfo, stream);
 			return resultSize;
 		}
 
@@ -260,6 +286,7 @@ namespace org.bn.coders.ber
 			resultSize += sizeOfString;
 			resultSize += encodeLength(sizeOfString, stream);
 			resultSize += encodeTag(BERCoderUtils.getTagValueForElement(elementInfo, TagClasses.Universal, ElementType.Primitive, CoderUtils.getStringTagForElement(elementInfo)), stream);
+            resultSize += encodeExplicitIfPresent(resultSize, elementInfo, stream);
 			return resultSize;
 		}
 
@@ -309,6 +336,7 @@ namespace org.bn.coders.ber
             {
                 resultSize += encodeTag(BERCoderUtils.getTagValueForElement(elementInfo, TagClasses.Universal, ElementType.Constructed, UniversalTags.Set), stream);
             }
+            resultSize += encodeExplicitIfPresent(resultSize, elementInfo, stream);
 			return resultSize;
 		}
 		
@@ -328,17 +356,7 @@ namespace org.bn.coders.ber
                 stream.WriteByte((byte)value);
                 value = value >> 8;
             }
-            return resultSize;
-
-            /*int resultSize = 0;
-            if (tagValue.Size == 1)
-            {
-                stream.WriteByte((byte)tagValue.Value);
-                resultSize++;
-            }
-            else
-                resultSize += encodeIntegerValue(tagValue.Value, stream);
-            return resultSize;*/
+            return resultSize;            
 		}
 		
 		protected internal int encodeLength(int length, System.IO.Stream stream)
@@ -351,6 +369,7 @@ namespace org.bn.coders.ber
 			stream.WriteByte((byte) 0);
 			int resultSize = 1;
 			resultSize += encodeTag(BERCoderUtils.getTagValueForElement(elementInfo, TagClasses.Universal, ElementType.Primitive, UniversalTags.Null), stream);
+            resultSize += encodeExplicitIfPresent(resultSize, elementInfo, stream);
 			return resultSize;
 		}
 
@@ -370,6 +389,7 @@ namespace org.bn.coders.ber
                 BERCoderUtils.getTagValueForElement(elementInfo,TagClasses.Universal, ElementType.Primitive, UniversalTags.Bitstring),
                 stream
             );
+            resultSize += encodeExplicitIfPresent(resultSize, elementInfo, stream);
             return resultSize;
         }
 
@@ -385,6 +405,7 @@ namespace org.bn.coders.ber
                 BERCoderUtils.getTagValueForElement(elementInfo, TagClasses.Universal, ElementType.Primitive, UniversalTags.ObjectIdentifier),
                 stream
             );
+            resultSize += encodeExplicitIfPresent(resultSize, elementInfo, stream);
             return resultSize;
         }
 	}

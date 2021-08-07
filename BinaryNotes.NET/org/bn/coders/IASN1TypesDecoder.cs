@@ -23,7 +23,7 @@ namespace org.bn.coders
 {
     public interface IASN1TypesDecoder {
         DecodedObject<object> decodeTag(Stream stream)  ;
-        DecodedObject<object> decodeClassType(DecodedObject<object> decodedTag, Type objectClass, ElementInfo elementInfo, Stream stream) ;
+        DecodedObject<object> decodeClassType(DecodedObject<object> decodedTag, Type objectClass, ElementInfo elementInfo, Stream stream, bool recurse = false) ;
         DecodedObject<object> decodeSequence(DecodedObject<object> decodedTag, Type objectClass, ElementInfo elementInfo, Stream stream) ;
         DecodedObject<object> decodeChoice(DecodedObject<object> decodedTag,Type objectClass, ElementInfo elementInfo, Stream stream)  ;    
         DecodedObject<object> decodeBoolean(DecodedObject<object> decodedTag, Type objectClass, ElementInfo elementInfo, Stream stream) ;

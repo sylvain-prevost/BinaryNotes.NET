@@ -49,8 +49,29 @@ namespace org.bn.coders
             }            
         }
 		
-		public virtual DecodedObject<object> decodeClassType(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream)
+		public virtual DecodedObject<object> decodeClassType(DecodedObject<object> decodedTag, System.Type objectClass, ElementInfo elementInfo, System.IO.Stream stream, bool recurse = false)
 		{
+            if ((recurse == false) && (elementInfo.PreparedInfo != null) && (elementInfo.PreparedInfo.ASN1ElementInfo != null) && (elementInfo.PreparedInfo.ASN1ElementInfo.IsImplicitTag == false))
+            {
+                using (DecodedLength len = ber.BERCoderUtils.decodeLength(stream))
+                {
+                    int decodedTagSize = 0;
+
+                    if (!elementInfo.isAttributePresent<ASN1Any>())
+                    {
+                        // read out tag only if the element is not ANY
+                        decodedTag = decodeTag(stream);
+                        decodedTagSize = decodedTag.size;
+                    }
+
+                    // recurse
+                    DecodedObject<object> decodedObject = decodeClassType(decodedTag, objectClass, elementInfo, stream, true);
+
+                    decodedObject.size += (len.size + decodedTagSize);
+                    return decodedObject;
+                }
+            }
+
             if(CoderUtils.isImplements(objectClass,typeof(IASN1PreparedElement))) 
             {
                 return decodePreparedElement(decodedTag, objectClass,elementInfo, stream);
@@ -273,8 +294,11 @@ namespace org.bn.coders
 					sizeOfSequence += obj.Size;
 					
                     bool isAny = false;
-                    if (i + 1 == fields.Length - 1)
+
+                    // will the next iteration be the last field in the sequence ?
+                    if ((i + 1) == (fields.Length - 1))
                     {
+                        // yes, let's get the ANY information for the next field
                         ElementInfo info = new ElementInfo();
                         info.AnnotatedClass = (fields[i + 1]);
                         info.MaxAvailableLen = (elementInfo.MaxAvailableLen);
@@ -284,7 +308,17 @@ namespace org.bn.coders
                         }
                         else
                             info.ASN1ElementInfo = CoderUtils.getAttribute<ASN1Element>(fields[i+1]);
+
                         isAny = CoderUtils.isAnyField(fields[i + 1], info);
+
+                        if (isAny == true)
+                        {
+                            // if we're dealing with an explicitly marked field, it somewhat the ANY handling
+                            if ((info.PreparedInfo != null) && (info.PreparedInfo.ASN1ElementInfo != null) && (info.PreparedInfo.ASN1ElementInfo.IsImplicitTag == false))
+                            {
+                                isAny = false;                                
+                            }
+                        }
                     }
 
                     if (maxSeqLen != -1)
@@ -311,7 +345,6 @@ namespace org.bn.coders
                         }
                     }
 				}
-				;
 			}
 			return new DecodedObject<object>(sequence, sizeOfSequence);
 		}
