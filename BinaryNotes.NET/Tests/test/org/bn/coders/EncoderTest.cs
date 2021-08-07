@@ -435,5 +435,17 @@ namespace test.org.bn.coders
             }
         }
 
+        internal void testEncodeSequenceWithExplicitFields()
+        {
+            IEncoder encoder = newEncoder();
+            Assert.NotNull(encoder);
+
+            test_asn.SequenceWithExplicitFields sequenceWithExplicitFields = coderTestUtils.createSequenceWithExplicitFields();
+            printEncoded("sequenceWithExplicitFields", encoder, sequenceWithExplicitFields);
+            checkEncoded(encoder, coderTestUtils.createSequenceWithExplicitFields(), coderTestUtils.createSequenceWithExplicitFieldsBytes());
+        }
+
+        
+
     }
 }

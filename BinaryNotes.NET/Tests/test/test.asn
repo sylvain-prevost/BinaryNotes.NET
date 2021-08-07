@@ -406,4 +406,21 @@ Extension ::= SEQUENCE {
 }
 
 
+v1 INTEGER ::= 0
+v2 INTEGER ::= 1
+v3 INTEGER ::= 2
+
+CertVersion ::= INTEGER {
+                   v1 (0),
+                   v2 (1),
+                   v3 (2)
+               }
+
+CertificateSerialNumber ::= INTEGER
+
+SequenceWithExplicitFields ::= SEQUENCE {
+    version        [0] EXPLICIT CertVersion DEFAULT v1,
+    serialNumber   CertificateSerialNumber
+}
+
 END

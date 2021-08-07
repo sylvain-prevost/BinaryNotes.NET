@@ -33,7 +33,7 @@ namespace test.org.bn.coders.test_asn {
             [ASN1EnumItem ( Name = "multipart_alternative", HasTag = true , Tag = 114 )]
             multipart_alternative , 
             [ASN1EnumItem ( Name = "multipart_related", HasTag = true , Tag = 175 )]
-            multipart_related
+            multipart_related , 
         }
         
         private EnumType val;

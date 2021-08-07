@@ -66,6 +66,7 @@ namespace Tests
             test.testEncodeAttribute();
             test.testEncodeExtensionWithDefaultMismatch();
             test.testEncodeExtensionWithDefaultMatch();
+            test.testEncodeSequenceWithExplicitFields();
         }
 
         static void runDecoderTest(DecoderTest test)
@@ -103,6 +104,7 @@ namespace Tests
             test.testDecodeAttribute();
             test.testDecodeExtensionWithDefaultMismatch();
             test.testDecodeExtensionWithDefaultMatch();
+            test.testDecodeSequenceWithExplicitFields();
         }
 
         [STAThread]

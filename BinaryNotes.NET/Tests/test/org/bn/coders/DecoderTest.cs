@@ -589,6 +589,19 @@ namespace test.org.bn.coders
             ByteTools.checkBuffers(extension.ExtnValue, coderTestUtils.createExtensionWithDefaultMismatch().ExtnValue);
         }
 
+        internal void testDecodeSequenceWithExplicitFields()
+        {
+            IDecoder decoder = newDecoder();
+            Assert.NotNull(decoder);
+
+            System.IO.MemoryStream stream = new System.IO.MemoryStream(coderTestUtils.createSequenceWithExplicitFieldsBytes());
+
+            test_asn.SequenceWithExplicitFields sequenceWithExplicitFields = decoder.decode<test_asn.SequenceWithExplicitFields>(stream);
+
+            Assert.Equals(sequenceWithExplicitFields.Version.Value, coderTestUtils.createSequenceWithExplicitFields().Version.Value);
+            Assert.Equals(sequenceWithExplicitFields.SerialNumber.Value, coderTestUtils.createSequenceWithExplicitFields().SerialNumber.Value);
+        }
+
 
 
     }

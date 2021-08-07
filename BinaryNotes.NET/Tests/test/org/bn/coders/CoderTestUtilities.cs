@@ -649,5 +649,16 @@ namespace test.org.bn.coders
         public abstract byte[] createExtensionWithDefaultMatchBytesBER();
 
         public abstract byte[] createExtensionWithDefaultMatchBytesDER();
+
+        public test_asn.SequenceWithExplicitFields createSequenceWithExplicitFields()
+        {
+            test_asn.SequenceWithExplicitFields sequenceWithExplicitFields = new test_asn.SequenceWithExplicitFields();
+            sequenceWithExplicitFields.Version = new CertVersion(1);
+            sequenceWithExplicitFields.SerialNumber = new CertificateSerialNumber(1);
+            return sequenceWithExplicitFields;
+        }
+
+        public abstract byte[] createSequenceWithExplicitFieldsBytes();
+
     }
 }
