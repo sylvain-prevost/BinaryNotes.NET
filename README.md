@@ -19,7 +19,7 @@ Currently focusing on fixes & features additions to enable complete Cryptographi
 <br>
 <br>
 
-## Included in 1.5.4
+## Included in 1.5.4.2
 
 <br>
 <br>
@@ -30,6 +30,7 @@ Currently focusing on fixes & features additions to enable complete Cryptographi
 - Added .NET assembly StrongName.  
 - Now targetting both .NET 4.0 & .NET Core 2.1.  
 - Added 'SET OF ANY' support when present within sequence.  
+- Added missing EXPLICIT keyword support.  
 
 <br>
 <br>

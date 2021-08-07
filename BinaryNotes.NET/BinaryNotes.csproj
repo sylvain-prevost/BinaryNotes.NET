@@ -13,9 +13,25 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright></Copyright>
     <PackageId>BinaryNotesExtension</PackageId>
-    <AssemblyVersion>1.5.4.1</AssemblyVersion>
-    <FileVersion>1.5.4.1</FileVersion>
+    <AssemblyVersion>1.5.4.2</AssemblyVersion>
+    <FileVersion>1.5.4.2</FileVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Product>BinaryNotes</Product>
+    <PackageReleaseNotes>### New Feature(s)
+- Added encoding/decoding support for large asn.1 integer (size &gt; 8 bytes).  
+- Enabled BER indefinite-length decoding.  
+- Added .NET assembly StrongName.  
+- Now targetting both .NET 4.0 &amp; .NET Core 2.1.  
+- Added 'SET OF ANY' support when present within sequence.  
+- Added missing EXPLICIT keyword support.  
+
+### Bugfixe(s)
+- Fixed OID parsing when not last in sequence.  
+- Fixed C# class generation when BOOLEAN element is annotated with a DEFAULT value.  
+- Fixed C# class generation when MAX keyword is used in asn.1 constraint.  
+- Fixed encoding of elements whose values are matching asn.1 DEFAULT definition (ie, it should NOT be encoded for DER).</PackageReleaseNotes>
+    <Description>Library enabling easy parsing/manipulation/encoding of ASN.1 buffers via C# classes auto-generated from ASN.1 definition (using BinaryNotes compiler).</Description>
+    <PackageTags>ASN1, CMS, C#</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
