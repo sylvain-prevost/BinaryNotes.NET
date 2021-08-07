@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
  Copyright 2006-2011 Abdulla Abdurakhmanov (abdulla@latestbit.com)
@@ -17,15 +17,75 @@
  limitations under the License.
  */
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xsltc="http://xml.apache.org/xalan/xsltc"
-    xmlns:redirect="http://xml.apache.org/xalan/redirect"
-    extension-element-prefixes="xsltc redirect"
->
-    <xsl:import href="tagClass.xsl"/>
-    <xsl:output method="text" encoding="UTF-8" indent="no"/>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsltc="http://xml.apache.org/xalan/xsltc" xmlns:redirect="http://xml.apache.org/xalan/redirect" extension-element-prefixes="xsltc redirect">
+
+    <xsl:import href="tagClass.xsl" />
+    <xsl:output method="text" encoding="UTF-8" indent="no" />
 
     <xsl:template name="elementDecl">
-        [ASN1Element ( Name = "<xsl:value-of select='name'/>", IsOptional = <xsl:choose> <xsl:when test="isOptional = 'true'"> true </xsl:when> <xsl:otherwise> false </xsl:otherwise> </xsl:choose>, HasTag = <xsl:choose> <xsl:when test="tag/classNumber/num"> true, Tag = <xsl:value-of select="tag/classNumber/num"/> </xsl:when> <xsl:otherwise> false </xsl:otherwise> </xsl:choose> <xsl:if test=" typeTagDefault = 'EXPLICIT'">, IsImplicitTag = false </xsl:if> <xsl:if test=" string-length(tag/clazz) > 0">, <xsl:call-template name="tagClass"/> </xsl:if> , HasDefaultValue = <xsl:choose> <xsl:when test="isDefault = 'true'"> true </xsl:when> <xsl:otherwise> false </xsl:otherwise> </xsl:choose>)  ]
+        <xsl:variable name="tagDefault">
+            <xsl:value-of select="//tagDefault" />
+        </xsl:variable>
+
+        <xsl:text>&#xA;&#x9;&#x9;[ASN1Element(Name = "</xsl:text>
+        <xsl:value-of select='name' />
+        <xsl:text>", IsOptional = </xsl:text>
+
+        <xsl:choose>
+            <xsl:when test="isOptional = 'true'">
+                <xsl:text>true</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>false</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+
+        <xsl:text>, HasTag = </xsl:text>
+
+        <xsl:choose>
+            <xsl:when test="tag/classNumber/num">
+                <xsl:text>true, Tag = </xsl:text>
+                <xsl:value-of select="tag/classNumber/num" />
+                <xsl:choose>
+                    <xsl:when test="$tagDefault = 'IMPLICIT'">
+                        <xsl:choose>
+                            <xsl:when test="typeTagDefault = 'EXPLICIT'">
+                                <xsl:text>, IsImplicitTag = false</xsl:text>
+                            </xsl:when>
+                        </xsl:choose>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:choose>
+                            <xsl:when test="typeTagDefault = 'IMPLICIT'"></xsl:when>
+                            <xsl:otherwise>
+                                <xsl:text>, IsImplicitTag = false</xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>false</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+
+        <xsl:if test=" string-length(tag/clazz) > 0">
+            <xsl:text>, </xsl:text>
+            <xsl:call-template name="tagClass" />
+        </xsl:if>
+
+        <xsl:text>, HasDefaultValue = </xsl:text>
+
+        <xsl:choose>
+            <xsl:when test="isDefault = 'true'">
+                <xsl:text>true</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>false</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+
+        <xsl:text>)]</xsl:text>
     </xsl:template>
+
 </xsl:stylesheet>
