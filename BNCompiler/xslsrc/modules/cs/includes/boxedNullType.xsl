@@ -35,18 +35,18 @@
 
     [ASN1PreparedElement]
     <xsl:call-template name="nullDecl"/>
-    public class <xsl:value-of select="$boxedName"/>: IASN1PreparedElement {                    
+    public class <xsl:value-of select="$boxedName"/>: IASN1PreparedElement 
+    {
 
-            public void initWithDefaults()
-	    {
-	    }
+        public void initWithDefaults()
+        {
+        }
 
-            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(<xsl:value-of select='$boxedName'/>));
-            public IASN1PreparedElementData PreparedData {
-            	get { return preparedData; }
-            }
-
-
+        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(<xsl:value-of select='$boxedName'/>));
+        public IASN1PreparedElementData PreparedData
+        {
+            get { return preparedData; }
+        }
 
     }
             <xsl:call-template name="footer"/>

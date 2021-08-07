@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
  Copyright 2006-2011 Abdulla Abdurakhmanov (abdulla@latestbit.com)
@@ -18,18 +18,21 @@
  */
 -->
 
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xsltc="http://xml.apache.org/xalan/xsltc"
-    xmlns:redirect="http://xml.apache.org/xalan/redirect"
-    extension-element-prefixes="xsltc redirect"
->
-    <xsl:output method="text" encoding="UTF-8" indent="no"/>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsltc="http://xml.apache.org/xalan/xsltc" xmlns:redirect="http://xml.apache.org/xalan/redirect" extension-element-prefixes="xsltc redirect">
+    <xsl:output method="text" encoding="UTF-8" indent="no" />
     <!-- tagClass = "<xsl:value-of select ='tag/clazz'/>" -->
     <xsl:template name="tagClass">
-        TagClass = <xsl:choose>
-            <xsl:when test="tag/clazz = 'APPLICATION'"> TagClasses.Application </xsl:when>
-            <xsl:when test="tag/clazz = 'PRIVATE'"> TagClasses.Private </xsl:when>
-            <xsl:otherwise>TagClasses.ContextSpecific</xsl:otherwise>
+        <xsl:text>TagClass = </xsl:text>
+        <xsl:choose>
+            <xsl:when test="tag/clazz = 'APPLICATION'">
+                <xsl:text>TagClasses.Application</xsl:text>
+            </xsl:when>
+            <xsl:when test="tag/clazz = 'PRIVATE'">
+                <xsl:text>TagClasses.Private</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>TagClasses.ContextSpecific</xsl:text>
+            </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>

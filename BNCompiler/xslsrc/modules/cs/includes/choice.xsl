@@ -38,19 +38,21 @@
             <xsl:call-template name="header"/>
 
     [ASN1PreparedElement]
-    [ASN1Choice ( Name = "<xsl:value-of select='$choiceName'/>") ]
-    public class <xsl:value-of select="$choiceName"/> : IASN1PreparedElement {
-            <xsl:call-template name="elements"><xsl:with-param name="isChoice">true</xsl:with-param></xsl:call-template>
-            <xsl:call-template name="choiceFunctions"/>
+    [ASN1Choice(Name = "<xsl:value-of select='$choiceName'/>")]
+    public class <xsl:value-of select="$choiceName"/> : IASN1PreparedElement 
+    {
+        <xsl:call-template name="elements"><xsl:with-param name="isChoice">true</xsl:with-param></xsl:call-template>
+        <xsl:call-template name="choiceFunctions"/>
 
-            public void initWithDefaults()
-	    {
-	    }
+        public void initWithDefaults()
+        {
+        }
 
-            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(<xsl:value-of select='$choiceName'/>));
-            public IASN1PreparedElementData PreparedData {
-            	get { return preparedData; }
-            }
+        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(<xsl:value-of select='$choiceName'/>));
+        public IASN1PreparedElementData PreparedData 
+        {
+            get { return preparedData; }
+        }
 
     }
             <xsl:call-template name="footer"/>

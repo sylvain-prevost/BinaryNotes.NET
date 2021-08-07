@@ -21,30 +21,24 @@
     xmlns:xsltc="http://xml.apache.org/xalan/xsltc"
     xmlns:redirect="http://xml.apache.org/xalan/redirect"
     extension-element-prefixes="xsltc redirect"
->    
-    <xsl:import href="elementType.xsl"/>
-    <xsl:import href="typeDecl.xsl"/>
-    <xsl:import href="commons.xsl"/>
-    <xsl:import href="elementDecl.xsl"/>
+>
+        <xsl:import href="elementType.xsl"/>
+        <xsl:import href="typeDecl.xsl"/>
+        <xsl:import href="commons.xsl"/>
+        <xsl:import href="elementDecl.xsl"/>
+        <xsl:output method="text" encoding="UTF-8" indent="no"/>
+        <xsl:template name="choiceElement">
+        <xsl:variable name="elementName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>
+        private <xsl:call-template name="elementType"/> <xsl:value-of select="' '"/> <xsl:value-of select="$elementName"/>_;
+        private bool <xsl:value-of select="' '"/> <xsl:value-of select="$elementName"/>_selected = false;
 
-    <xsl:output method="text" encoding="UTF-8" indent="no"/>
-
-  <xsl:template name="choiceElement">
-        <xsl:variable name="elementName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>        
-        
-	private <xsl:call-template name="elementType"/> <xsl:value-of select="' '"/> <xsl:value-of select="$elementName"/>_ ;
-        private bool <xsl:value-of select="' '"/> <xsl:value-of select="$elementName"/>_selected = false ;
-        
-                
         <xsl:call-template name="typeDecl"/>
-	<xsl:call-template name="elementDecl"/>
+        <xsl:call-template name="elementDecl"/>
         public <xsl:call-template name="elementType"/> <xsl:value-of select="' '"/> <xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>
         {
             get { return <xsl:value-of select="$elementName"/>_; }
             set { select<xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>(value); }
         }
-        
-                
   </xsl:template>
   
 </xsl:stylesheet>

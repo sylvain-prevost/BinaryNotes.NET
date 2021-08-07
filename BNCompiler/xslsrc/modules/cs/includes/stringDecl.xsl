@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
  Copyright 2006-2011 Abdulla Abdurakhmanov (abdulla@latestbit.com)
@@ -18,14 +18,19 @@
  */
 -->
 
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xsltc="http://xml.apache.org/xalan/xsltc"
-    xmlns:redirect="http://xml.apache.org/xalan/redirect"
-    extension-element-prefixes="xsltc redirect"
->
-    <xsl:import href="stringTypeDecl.xsl"/>
-    <xsl:output method="text" encoding="UTF-8" indent="no"/>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsltc="http://xml.apache.org/xalan/xsltc" xmlns:redirect="http://xml.apache.org/xalan/redirect" extension-element-prefixes="xsltc redirect">
+    <xsl:import href="stringTypeDecl.xsl" />
+    <xsl:output method="text" encoding="UTF-8" indent="no" />
 
-    <xsl:template name="stringDecl"><xsl:for-each select="typeReference">[ASN1String( Name = "<xsl:value-of select='name'/>", <xsl:call-template name="stringTypeDecl"/>, IsUCS = <xsl:value-of select='isUCSType'/> )]</xsl:for-each>
+    <xsl:template name="stringDecl">
+        <xsl:for-each select="typeReference">
+            <xsl:text>&#xA;&#x9;&#x9;[ASN1String(Name = "</xsl:text>
+            <xsl:value-of select='name' />
+            <xsl:text>", </xsl:text>
+            <xsl:call-template name="stringTypeDecl" />
+            <xsl:text>, IsUCS = </xsl:text>
+            <xsl:value-of select='isUCSType' />
+            <xsl:text>)]</xsl:text>
+        </xsl:for-each>
     </xsl:template>
 </xsl:stylesheet>

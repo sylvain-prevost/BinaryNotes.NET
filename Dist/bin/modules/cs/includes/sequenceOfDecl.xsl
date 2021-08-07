@@ -26,17 +26,17 @@
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
 
     <xsl:template name="sequenceOfDecl">
-	<xsl:param name="elementName"/>
-	<xsl:variable name="sequenceOfName">
-		<xsl:choose>
-            		<xsl:when test="string-length(typeReference/name) > 0"><xsl:value-of select="typeReference/name"/></xsl:when>
-			<xsl:otherwise><xsl:value-of select="$elementName"/></xsl:otherwise>			
-		</xsl:choose>
-	</xsl:variable>
+<xsl:param name="elementName"/>
+<xsl:variable name="sequenceOfName">
+<xsl:choose>
+            <xsl:when test="string-length(typeReference/name) > 0"><xsl:value-of select="typeReference/name"/></xsl:when>
+<xsl:otherwise><xsl:value-of select="$elementName"/></xsl:otherwise>
+</xsl:choose>
+</xsl:variable>
 <xsl:for-each select="typeReference">
-	<xsl:call-template name="typeDecl"><xsl:with-param name="parentElementName" select="$sequenceOfName"/></xsl:call-template>
+    <xsl:call-template name="typeDecl"><xsl:with-param name="parentElementName" select="$sequenceOfName"/></xsl:call-template>
 </xsl:for-each>
-[ASN1SequenceOf( Name = "<xsl:value-of select='$sequenceOfName'/>", IsSetOf = <xsl:choose><xsl:when test="typeReference/isSequenceOf = 'false'">true</xsl:when><xsl:otherwise>false</xsl:otherwise></xsl:choose>  )]
-
+    <xsl:text>&#xA;&#x9;&#x9;[ASN1SequenceOf(Name = "</xsl:text>
+    <xsl:value-of select='$sequenceOfName'/>", IsSetOf = <xsl:choose><xsl:when test="typeReference/isSequenceOf = 'false'">true</xsl:when><xsl:otherwise>false</xsl:otherwise></xsl:choose>)]
     </xsl:template>
 </xsl:stylesheet>

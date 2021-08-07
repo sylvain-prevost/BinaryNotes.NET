@@ -39,9 +39,10 @@
         <!--<xsltc:output file="{$outputDirectory}/package-info.java"> -->
         <xsltc:output file="{$outputDirectory}/{$ident}.cs">
         <xsl:call-template name="header"/>
-        [ASN1Module ( Name = "<xsl:value-of select='$ident'/>", IsImplicitTags = <xsl:choose> <xsl:when test="$tagDefault = 'IMPLICIT'"> true </xsl:when> <xsl:otherwise> false </xsl:otherwise></xsl:choose> ) ]
-        public class <xsl:value-of select='$ident'/> {
-        }
+    [ASN1Module ( Name = "<xsl:value-of select='$ident'/>", IsImplicitTags = <xsl:choose> <xsl:when test="$tagDefault = 'IMPLICIT'"> true </xsl:when> <xsl:otherwise> false </xsl:otherwise></xsl:choose> ) ]
+    public class <xsl:value-of select='$ident'/> 
+    {
+    }
         <xsl:call-template name="footer"/>
         </xsltc:output>        
     </xsl:template>

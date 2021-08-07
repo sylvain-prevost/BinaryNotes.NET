@@ -34,37 +34,40 @@
             <xsl:call-template name="header"/>
 
     [ASN1PreparedElement]
-    [ASN1BoxedType ( Name = "<xsl:value-of select='$boxedName'/>") ]
-    public class <xsl:value-of select="$boxedName"/>: IASN1PreparedElement {
+    [ASN1BoxedType(Name = "<xsl:value-of select='$boxedName'/>")]
+    public class <xsl:value-of select="$boxedName"/>: IASN1PreparedElement 
+    {
 
-            private String val;
-    
-            [ASN1String( Name = "<xsl:value-of select='name'/>", <xsl:call-template name="stringTypeDecl"/>, IsUCS = <xsl:value-of select='isUCSType'/>) ]
-            <xsl:for-each select="constraint">
-                <xsl:call-template name="constraint"/>
-            </xsl:for-each>
-            public String Value
-            {
-                get { return val; }
-                set { val = value; }
-            }
-            
-            public <xsl:value-of select="$boxedName"/>() {
-            }
+        private String val;
 
-            public <xsl:value-of select="$boxedName"/>(String val) {
-                this.val = val;
-            }            
+        [ASN1String(Name = "<xsl:value-of select='name'/>", <xsl:call-template name="stringTypeDecl"/>, IsUCS = <xsl:value-of select='isUCSType'/>)]
+        <xsl:for-each select="constraint">
+            <xsl:call-template name="constraint"/>
+        </xsl:for-each>
+        public String Value
+        {
+            get { return val; }
+            set { val = value; }
+        }
+        
+        public <xsl:value-of select="$boxedName"/>() 
+        {
+        }
 
-            public void initWithDefaults()
-	    {
-	    }
+        public <xsl:value-of select="$boxedName"/>(String val) 
+        {
+            this.val = val;
+        }
 
+        public void initWithDefaults() 
+        {
+        }
 
-            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(<xsl:value-of select='$boxedName'/>));
-            public IASN1PreparedElementData PreparedData {
-            	get { return preparedData; }
-            }
+        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(<xsl:value-of select='$boxedName'/>));
+        public IASN1PreparedElementData PreparedData 
+        {
+            get { return preparedData; }
+        }
 
     }
             <xsl:call-template name="footer"/>

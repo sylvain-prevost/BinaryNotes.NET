@@ -26,21 +26,22 @@
     <xsl:output method="text" encoding="UTF-8" indent="no"/>
 
     <xsl:template name="stringTypeDecl">
-        StringType = <xsl:choose>
-            <xsl:when test="stringtype = 'PrintableString'"> UniversalTags.PrintableString </xsl:when>
-            <xsl:when test="stringtype = 'NumericString'"> UniversalTags.NumericString </xsl:when>
-            <xsl:when test="stringtype = 'TeletexString'"> UniversalTags.TeletexString </xsl:when>
-            <xsl:when test="stringtype = 'VideotexString'"> UniversalTags.VideotexString </xsl:when>
-            <xsl:when test="stringtype = 'IA5String'"> UniversalTags.IA5String </xsl:when>
-            <xsl:when test="stringtype = 'GraphicString'"> UniversalTags.GraphicString </xsl:when>
-            <xsl:when test="stringtype = 'VisibleString'"> UniversalTags.VisibleString </xsl:when>
-            <xsl:when test="stringtype = 'GeneralString'"> UniversalTags.GeneralString </xsl:when>
-            <xsl:when test="stringtype = 'UniversalString'"> UniversalTags.UniversalString </xsl:when>
-            <xsl:when test="stringtype = 'BMPString'"> UniversalTags.BMPString </xsl:when>
-            <xsl:when test="stringtype = 'UTF8String'"> UniversalTags.UTF8String </xsl:when>
-            <xsl:when test="stringtype = 'GeneralizedTime'">UniversalTags.GeneralizedTime </xsl:when>
-            <xsl:when test="stringtype = 'UTCTime'">UniversalTags.UTCTime </xsl:when>            
-            <xsl:otherwise> UniversalTags.UnspecifiedString </xsl:otherwise>
+        <xsl:text>StringType = </xsl:text>
+        <xsl:choose>
+            <xsl:when test="stringtype = 'PrintableString'">UniversalTags.PrintableString</xsl:when>
+            <xsl:when test="stringtype = 'NumericString'">UniversalTags.NumericString</xsl:when>
+            <xsl:when test="stringtype = 'TeletexString'">UniversalTags.TeletexString</xsl:when>
+            <xsl:when test="stringtype = 'VideotexString'">UniversalTags.VideotexString</xsl:when>
+            <xsl:when test="stringtype = 'IA5String'">UniversalTags.IA5String</xsl:when>
+            <xsl:when test="stringtype = 'GraphicString'">UniversalTags.GraphicString</xsl:when>
+            <xsl:when test="stringtype = 'VisibleString'">UniversalTags.VisibleString</xsl:when>
+            <xsl:when test="stringtype = 'GeneralString'">UniversalTags.GeneralString</xsl:when>
+            <xsl:when test="stringtype = 'UniversalString'">UniversalTags.UniversalString</xsl:when>
+            <xsl:when test="stringtype = 'BMPString'">UniversalTags.BMPString</xsl:when>
+            <xsl:when test="stringtype = 'UTF8String'">UniversalTags.UTF8String</xsl:when>
+            <xsl:when test="stringtype = 'GeneralizedTime'">UniversalTags.GeneralizedTime</xsl:when>
+            <xsl:when test="stringtype = 'UTCTime'">UniversalTags.UTCTime</xsl:when>
+            <xsl:otherwise>UniversalTags.UnspecifiedString</xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>

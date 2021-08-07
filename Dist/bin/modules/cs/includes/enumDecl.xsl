@@ -39,9 +39,11 @@
 
 
     [ASN1PreparedElement]
-    [ASN1Enum ( Name = "<xsl:value-of select='$enumName'/>")]
-    public class <xsl:value-of select='$enumName'/> : IASN1PreparedElement {        
-        public enum EnumType {
+    [ASN1Enum(Name = "<xsl:value-of select='$enumName'/>")]
+    public class <xsl:value-of select='$enumName'/> : IASN1PreparedElement 
+    {
+        public enum EnumType 
+        {
             <xsl:call-template name="enumItems"/>
         }
         
@@ -51,19 +53,18 @@
         {
             get { return val; }
             set { val = value; }
-        }        
+        }
 
-            public void initWithDefaults()
-	    {
-	    }
+        public void initWithDefaults()
+        {
+        }
 
+        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(<xsl:value-of select='$enumName'/>));
+        public IASN1PreparedElementData PreparedData 
+        {
+            get { return preparedData; }
+        }
 
-            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(<xsl:value-of select='$enumName'/>));
-            public IASN1PreparedElementData PreparedData {
-            	get { return preparedData; }
-            }
-
-                
     }
 
                 </xsl:for-each>

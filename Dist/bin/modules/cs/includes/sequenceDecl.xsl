@@ -30,25 +30,26 @@
 
             <xsl:if test="typeReference/isSequence = 'true' or typeReference/isSequence = 'false'">
                 <xsl:for-each select="typeReference">
-       [ASN1PreparedElement]
-       [ASN1Sequence ( Name = "<xsl:value-of select='$elementName'/>", IsSet = <xsl:choose><xsl:when test="isSequence = 'false'">true</xsl:when><xsl:otherwise>false</xsl:otherwise></xsl:choose>  )]
-       public class <xsl:value-of select='$sequenceName'/> : IASN1PreparedElement {
-                <xsl:call-template name="elements"/>
-                <xsl:call-template name="sequenceFunctions"/>
-                
-                public void initWithDefaults() {
-            		<xsl:call-template name="elementDefaults">
-				<xsl:with-param name="typeName" select="$sequenceName"/>
-            		</xsl:call-template>
-                }
+    [ASN1PreparedElement]
+    [ASN1Sequence(Name = "<xsl:value-of select='$elementName'/>", IsSet = <xsl:choose><xsl:when test="isSequence = 'false'">true</xsl:when><xsl:otherwise>false</xsl:otherwise></xsl:choose>)]
+    public class <xsl:value-of select='$sequenceName'/> : IASN1PreparedElement
+    {
+        <xsl:call-template name="elements"/>
+        <xsl:call-template name="sequenceFunctions"/>
+        
+        public void initWithDefaults() 
+        {
+            <xsl:call-template name="elementDefaults">
+            <xsl:with-param name="typeName" select="$sequenceName"/>
+            </xsl:call-template>
+        }
 
-            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(<xsl:value-of select='$sequenceName'/>));
-            public IASN1PreparedElementData PreparedData {
-            	get { return preparedData; }
-            }
-
-                
-       }
+        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(<xsl:value-of select='$sequenceName'/>));
+        public IASN1PreparedElementData PreparedData 
+        {
+            get { return preparedData; }
+        }
+    }
                 </xsl:for-each>
             </xsl:if>
     </xsl:template>

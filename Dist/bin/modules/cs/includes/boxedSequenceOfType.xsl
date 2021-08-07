@@ -33,40 +33,43 @@
             <xsl:call-template name="header"/>
 
     [ASN1PreparedElement]
-    [ASN1BoxedType ( Name = "<xsl:value-of select='$boxedName'/>" ) ]
-    public class <xsl:value-of select="$boxedName"/> : IASN1PreparedElement {
+    [ASN1BoxedType(Name = "<xsl:value-of select='$boxedName'/>")]
+    public class <xsl:value-of select="$boxedName"/> : IASN1PreparedElement 
+    {
 
-	    private System.Collections.Generic.ICollection&lt;<xsl:call-template name="elementType"/>&gt; val = null; 
-            
-            <xsl:call-template name="typeDecl"/>
-            <xsl:for-each select="constraint">
-                <xsl:call-template name="constraint"/>
-            </xsl:for-each>
-            [ASN1SequenceOf( Name = "<xsl:value-of select='name'/>", IsSetOf = <xsl:choose><xsl:when test="isSequenceOf = 'false'">true</xsl:when><xsl:otherwise>false</xsl:otherwise></xsl:choose>) ]
+        private System.Collections.Generic.ICollection&lt;<xsl:call-template name="elementType"/>&gt; val = null; 
+        
+        <xsl:call-template name="typeDecl"/>
+        <xsl:for-each select="constraint">
+            <xsl:call-template name="constraint"/>
+        </xsl:for-each>
+        [ASN1SequenceOf(Name = "<xsl:value-of select='name'/>", IsSetOf = <xsl:choose><xsl:when test="isSequenceOf = 'false'">true</xsl:when><xsl:otherwise>false</xsl:otherwise></xsl:choose>)]
 
-            public System.Collections.Generic.ICollection&lt;<xsl:call-template name="elementType"/>&gt; Value
-            {
-                get { return val; }
-                set { val = value; }
-            }
-            
-            public void initValue() {
-                this.Value = new System.Collections.Generic.List&lt;<xsl:call-template name="elementType"/>&gt;();
-            }
-            
-            public void Add(<xsl:call-template name="elementType"/> item) {
-                this.Value.Add(item);
-            }
+        public System.Collections.Generic.ICollection&lt;<xsl:call-template name="elementType"/>&gt; Value
+        {
+            get { return val; }
+            set { val = value; }
+        }
+        
+        public void initValue() 
+        {
+            this.Value = new System.Collections.Generic.List&lt;<xsl:call-template name="elementType"/>&gt;();
+        }
+        
+        public void Add(<xsl:call-template name="elementType"/> item) 
+        {
+            this.Value.Add(item);
+        }
 
-            public void initWithDefaults()
-	    {
-	    }
+        public void initWithDefaults()
+        {
+        }
 
-
-            private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(<xsl:value-of select='$boxedName'/>));
-            public IASN1PreparedElementData PreparedData {
-            	get { return preparedData; }
-            }
+        private static IASN1PreparedElementData preparedData = CoderFactory.getInstance().newPreparedElementData(typeof(<xsl:value-of select='$boxedName'/>));
+        public IASN1PreparedElementData PreparedData 
+        {
+            get { return preparedData; }
+        }
 
     }
             <xsl:call-template name="footer"/>

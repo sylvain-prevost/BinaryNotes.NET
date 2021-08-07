@@ -26,35 +26,35 @@
     <xsl:import href="typeDecl.xsl"/>
     <xsl:import href="commons.xsl"/>
 
-    <xsl:output method="text" encoding="UTF-8" indent="no"/>
+        <xsl:output method="text" encoding="UTF-8" indent="no"/>
 
-  <xsl:template name="choiceElementFunctions">
-        <xsl:variable name="elementName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>        
-        public bool is<xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>Selected () {
-            return this.<xsl:value-of select="$elementName"/>_selected ;
+        <xsl:template name="choiceElementFunctions">
+        <xsl:variable name="elementName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>
+        public bool is<xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>Selected()
+        {
+            return this.<xsl:value-of select="$elementName"/>_selected;
         }
 
         <xsl:choose>
        	<xsl:when test="typeReference/isNull = 'true'">
-        public void select<xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template> () {
+        public void select<xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template>() 
+        {
             select<xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template> (new NullObject());
-	}
-	</xsl:when>
-	</xsl:choose>
+        }
+        </xsl:when>
+        </xsl:choose>
 
-
-        public void select<xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template> (<xsl:call-template name="elementType"/> val) {
+        public void select<xsl:call-template name="toUpperFirstLetter"><xsl:with-param name="input" select="$elementName"/></xsl:call-template> (<xsl:call-template name="elementType"/> val) 
+        {
             this.<xsl:value-of select="$elementName"/>_ = val;
             this.<xsl:value-of select="$elementName"/>_selected = true;
-            
             <xsl:for-each select="parent::elementTypeList/elements">
-                <xsl:if test="name != $elementName">
-		    <xsl:variable name="itemName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>
-                    this.<xsl:value-of select="$itemName"/>_selected = false;
-                </xsl:if>
-            </xsl:for-each>            
+            <xsl:if test="name != $elementName">
+            <xsl:variable name="itemName"><xsl:call-template name="doMangleIdent"><xsl:with-param name='input' select="name"/></xsl:call-template></xsl:variable>
+            this.<xsl:value-of select="$itemName"/>_selected = false;
+            </xsl:if>
+            </xsl:for-each>
         }
-        
   </xsl:template>
   
 </xsl:stylesheet>

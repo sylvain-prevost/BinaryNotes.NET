@@ -26,25 +26,41 @@
     <xsl:template name="valueRangeConstraint">
         <xsl:if test="elemSetSpec/intersectionList/cnsElemList/lEndValue">
             <xsl:if test="elemSetSpec/intersectionList/cnsElemList/uEndValue or elemSetSpec/intersectionList/cnsElemList/isMaxKw = 'true'">
-                [ASN1ValueRangeConstraint (
+            <xsl:text>&#xA;&#x9;&#x9;[ASN1ValueRangeConstraint(</xsl:text>
+                
                 <xsl:for-each select="elemSetSpec/intersectionList/cnsElemList/lEndValue">
                     <xsl:variable name="val"><xsl:call-template name="doDeterminateEndValue"/></xsl:variable>
                     <xsl:choose>
-                        <xsl:when test ="number($val) &gt;= number('-2147483648') and number($val) &lt;= number('2147483647')">Min = <xsl:call-template name="doDeterminateEndValue"/></xsl:when>
-                        <xsl:when test ="number($val) &gt;= number('-9223372036854775808') and number($val) &lt;= number('9223372036854775807')">Min = <xsl:call-template name="doDeterminateEndValue"/>L</xsl:when>
+                        <xsl:when test ="number($val) &gt;= number('-2147483648') and number($val) &lt;= number('2147483647')">
+                            <xsl:text>Min = </xsl:text>
+                            <xsl:call-template name="doDeterminateEndValue"/></xsl:when>
+                        <xsl:when test ="number($val) &gt;= number('-9223372036854775808') and number($val) &lt;= number('9223372036854775807')">
+                            <xsl:text>Min = </xsl:text>
+                            <xsl:call-template name="doDeterminateEndValue"/>
+                            <xsl:text>L</xsl:text>
+                        </xsl:when>
                     </xsl:choose>
                 </xsl:for-each>
                 <xsl:if test="elemSetSpec/intersectionList/cnsElemList/uEndValue">
                     <xsl:for-each select="elemSetSpec/intersectionList/cnsElemList/uEndValue">
                         <xsl:variable name="val"><xsl:call-template name="doDeterminateEndValue"/></xsl:variable>
                         <xsl:choose>
-                            <xsl:when test ="number($val) &gt;= number('-2147483648') and number($val) &lt;= number('2147483647')">, Max = <xsl:call-template name="doDeterminateEndValue" /></xsl:when>
-                            <xsl:when test ="number($val) &gt;= number('-9223372036854775808') and number($val) &lt;= number('9223372036854775807')">, Max = <xsl:call-template name="doDeterminateEndValue" />L</xsl:when>
+                            <xsl:when test ="number($val) &gt;= number('-2147483648') and number($val) &lt;= number('2147483647')">
+                                <xsl:text>, Max = </xsl:text>
+                                
+                                <xsl:call-template name="doDeterminateEndValue" /></xsl:when>
+                            <xsl:when test ="number($val) &gt;= number('-9223372036854775808') and number($val) &lt;= number('9223372036854775807')">
+                                <xsl:text>, Max = </xsl:text>
+                                <xsl:call-template name="doDeterminateEndValue" />
+                                <xsl:text>L</xsl:text>
+                            </xsl:when>
                         </xsl:choose>
                     </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="elemSetSpec/intersectionList/cnsElemList/isMaxKw = 'true'">, Max = long.MaxValue</xsl:if>
-                ) ]
+                <xsl:if test="elemSetSpec/intersectionList/cnsElemList/isMaxKw = 'true'">
+                <xsl:text>, Max = long.MaxValue</xsl:text>
+            </xsl:if>
+                <xsl:text>)]</xsl:text>
             </xsl:if>
         </xsl:if>
     </xsl:template>
