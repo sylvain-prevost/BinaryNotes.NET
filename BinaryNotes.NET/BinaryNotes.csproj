@@ -4,7 +4,7 @@
     <TargetFrameworks>netcoreapp2.1;net40</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>BinaryNotes.snk</AssemblyOriginatorKeyFile>
-    <Version>1.5.4.1</Version>
+    <Version>1.5.4.2</Version>
     <Authors>Sylvain Prevost, Abdulla G. Abdurakhmanov</Authors>
     <Company>none</Company>
     <PackageLicenseExpression></PackageLicenseExpression>
