@@ -1,0 +1,8 @@
+FooProtocol DEFINITIONS ::= BEGIN
+
+    FooQuestion ::= SEQUENCE {
+        trackingNumber INTEGER,
+        question       IA5String
+    }    
+
+END
