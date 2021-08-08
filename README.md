@@ -90,7 +90,8 @@ This project was developed and maintained by Abdulla G. Abdurakhmanov (http://bn
 
 <br>
 <br>
-Currently focusing on fixes & features additions to enable complete CryptographicMessageSyntax asn.1 decoding/encoding (RFC 5652: https://datatracker.ietf.org/doc/html/rfc5652).  
+Currently focusing on fixes & features additions to enable complete CryptographicMessageSyntax asn.1 decoding/encoding.
+See [ePassportLibrary](https://github.com/sylvain-prevost/ePassportLibrary) for more concrete examples
 
 
 <br>
