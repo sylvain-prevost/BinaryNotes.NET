@@ -7,7 +7,7 @@
     <Version>1.5.4.3</Version>
     <Authors>Sylvain Prevost, Abdulla G. Abdurakhmanov</Authors>
     <Company>none</Company>
-    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/sylvain-prevost/BinaryNotes.NET</PackageProjectUrl>
     <RepositoryUrl>https://github.com/sylvain-prevost/BinaryNotes.NET</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -17,6 +17,7 @@
     <FileVersion>1.5.4.3</FileVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Product>BinaryNotes.NET</Product>
+    <Title>BinaryNotes.NET</Title>
     <PackageReleaseNotes>### New Feature(s)
 - Added encoding/decoding support for large asn.1 integer (size &gt; 8 bytes).  
 - Enabled BER indefinite-length decoding.  

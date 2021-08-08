@@ -96,7 +96,7 @@ Currently focusing on fixes & features additions to enable complete Cryptographi
 <br>
 <br>
 
-## Included in 1.5.4.2
+## Included in 1.5.4.3
 
 <br>
 <br>
@@ -128,7 +128,13 @@ Currently focusing on fixes & features additions to enable complete Cryptographi
 <br>
 <br>
 <br>
-This project is a fork of the original:
+This project is a fork of the original: http://bnotes.sourceforge.net  
 
-http://bnotes.sourceforge.net/
+BinaryNotes v1.5.3 or greater is licensed under Apache Licence v2  http://www.apache.org/licenses/LICENSE-2.0.html  
+(c) 2006-2011 Abdulla G. Abdurakhmanov (abdulla.abdurakhmanov@gmail.com)
+
+
+
+
+
 
