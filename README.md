@@ -86,12 +86,11 @@ Result:
 
 
 <br>
-This project was developed and maintained by Abdulla G. Abdurakhmanov (http://bnotes.sf.net) until 2007. IMHO, he created a little jewel.  
+<br>
+Currently focusing on fixes & features additions to enable complete CryptographicMessageSyntax asn.1 decoding/encoding.  
 
-<br>
-<br>
-Currently focusing on fixes & features additions to enable complete CryptographicMessageSyntax asn.1 decoding/encoding.
-See [ePassportLibrary](https://github.com/sylvain-prevost/ePassportLibrary) for more concrete examples
+See [ePassportLibrary](https://github.com/sylvain-prevost/ePassportLibrary) for a more concrete example.  
+
 
 
 <br>
@@ -132,7 +131,12 @@ See [ePassportLibrary](https://github.com/sylvain-prevost/ePassportLibrary) for 
 This project is a fork of the original: http://bnotes.sourceforge.net  
 
 BinaryNotes v1.5.3 or greater is licensed under Apache Licence v2  http://www.apache.org/licenses/LICENSE-2.0.html  
-(c) 2006-2011 Abdulla G. Abdurakhmanov (abdulla.abdurakhmanov@gmail.com)
+(c) 2006-2011 Abdulla G. Abdurakhmanov (abdulla.abdurakhmanov@gmail.com)  
+
+<br>
+It was developed and maintained by Abdulla G. Abdurakhmanov (http://bnotes.sf.net) until 2007. 
+IMHO, he created a little jewel.  
+
 
 
 
