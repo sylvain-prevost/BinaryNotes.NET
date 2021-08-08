@@ -3,20 +3,20 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.1;net40</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>BinaryNotes.snk</AssemblyOriginatorKeyFile>
-    <Version>1.5.4.2</Version>
+    <AssemblyOriginatorKeyFile>BinaryNotes.NET.snk</AssemblyOriginatorKeyFile>
+    <Version>1.5.4.3</Version>
     <Authors>Sylvain Prevost, Abdulla G. Abdurakhmanov</Authors>
     <Company>none</Company>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/sylvain-prevost/BinaryNotes</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/sylvain-prevost/BinaryNotes</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/sylvain-prevost/BinaryNotes.NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/sylvain-prevost/BinaryNotes.NET</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright></Copyright>
-    <PackageId>BinaryNotesExtension</PackageId>
-    <AssemblyVersion>1.5.4.2</AssemblyVersion>
-    <FileVersion>1.5.4.2</FileVersion>
+    <PackageId>BinaryNotes.NET</PackageId>
+    <AssemblyVersion>1.5.4.3</AssemblyVersion>
+    <FileVersion>1.5.4.3</FileVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Product>BinaryNotes</Product>
+    <Product>BinaryNotes.NET</Product>
     <PackageReleaseNotes>### New Feature(s)
 - Added encoding/decoding support for large asn.1 integer (size &gt; 8 bytes).  
 - Enabled BER indefinite-length decoding.  
@@ -30,14 +30,9 @@
 - Fixed C# class generation when BOOLEAN element is annotated with a DEFAULT value.  
 - Fixed C# class generation when MAX keyword is used in asn.1 constraint.  
 - Fixed encoding of elements whose values are matching asn.1 DEFAULT definition (ie, it should NOT be encoded for DER).</PackageReleaseNotes>
-    <Description>Library enabling easy parsing/manipulation/encoding of ASN.1 buffers via C# classes auto-generated from ASN.1 definition (using BinaryNotes compiler).</Description>
+    <Description>Library enabling easy parsing/manipulation/encoding of ASN.1 buffers via C# classes auto-generated from ASN.1 definition (using BinaryNotes compiler v1.5.3).</Description>
     <PackageTags>ASN1, CMS, C#</PackageTags>
+    <RootNamespace>org.bn</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Tests\**" />
-    <EmbeddedResource Remove="Tests\**" />
-    <None Remove="Tests\**" />
-  </ItemGroup>
 
 </Project>
