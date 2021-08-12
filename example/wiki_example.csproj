@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BinaryNotes.NET\BinaryNotes.csproj" />
+    <ProjectReference Include="..\BinaryNotes.NET\BinaryNotes.NET.csproj" />
   </ItemGroup>
 
 </Project>

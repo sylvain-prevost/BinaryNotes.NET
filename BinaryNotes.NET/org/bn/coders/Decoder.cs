@@ -53,6 +53,11 @@ namespace org.bn.coders
 		{
             if ((recurse == false) && (elementInfo.PreparedInfo != null) && (elementInfo.PreparedInfo.ASN1ElementInfo != null) && (elementInfo.PreparedInfo.ASN1ElementInfo.IsImplicitTag == false))
             {
+                if (decodedTag == null)
+                {
+                    return null;
+                }
+
                 using (DecodedLength len = ber.BERCoderUtils.decodeLength(stream))
                 {
                     int decodedTagSize = 0;

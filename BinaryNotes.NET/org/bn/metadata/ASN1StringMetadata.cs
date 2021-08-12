@@ -27,10 +27,8 @@ namespace org.bn.metadata
     {
         private bool isUCS = false;
         private int     stringType = UniversalTags.PrintableString ;
-        private bool hasDefaults = false;
         
-        public ASN1StringMetadata() {
-            hasDefaults = true;
+        public ASN1StringMetadata() {            
         }
 
         public ASN1StringMetadata(ASN1String annotation)
