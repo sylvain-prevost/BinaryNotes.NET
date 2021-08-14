@@ -108,6 +108,9 @@ See [ePassportLibrary](https://github.com/sylvain-prevost/ePassportLibrary) for 
 - Now targetting both .NET 4.0 & .NET Core 2.1.  
 - Added 'SET OF ANY' support when present within sequence.  
 - Added missing EXPLICIT keyword support.  
+- Added support of ANY field type regardless of position in sequence.  
+- Enable controlled relaxation of minimal tag encoding size for application-class tags.  
+
 
 <br>
 <br>
