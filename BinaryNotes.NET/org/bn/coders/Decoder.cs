@@ -300,6 +300,55 @@ namespace org.bn.coders
 					
                     bool isAny = false;
 
+                    if (maxSeqLen != -1)
+                    {
+                        elementInfo.MaxAvailableLen = (maxSeqLen - sizeOfSequence);
+                    }
+
+                    // handle ANY when not last in sequence
+                    if ((i + 1) < (fields.Length - 1))
+                    {
+                        ElementInfo info = new ElementInfo();
+                        info.AnnotatedClass = (fields[i + 1]);
+                        info.MaxAvailableLen = (elementInfo.MaxAvailableLen);
+
+                        if (elementInfo.hasPreparedInfo())
+                        {
+                            info.PreparedInfo = (elementInfo.PreparedInfo.getPropertyMetadata(i + 1));
+                        }
+                        else
+                        {
+                            info.ASN1ElementInfo = CoderUtils.getAttribute<ASN1Element>(fields[i + 1]);
+                        }
+
+                        isAny = CoderUtils.isAnyField(fields[i + 1], info);
+
+                        // if we're dealing with an explicitly marked field, it somewhat negates ANY handling
+                        if ((info.PreparedInfo != null) && (info.PreparedInfo.ASN1ElementInfo != null) && (info.PreparedInfo.ASN1ElementInfo.IsImplicitTag == false))
+                        {
+                            isAny = false;
+                        }
+
+                        if (isAny == true)
+                        {
+                            // peek the tag
+                            long originalPosition = stream.Position;
+                            try
+                            {
+                                fieldTag = decodeTag(stream);
+
+                                DecodedLength fieldLength = ber.BERCoderUtils.decodeLength(stream);
+                                int length = fieldLength.Value;
+                                elementInfo.MaxAvailableLen = fieldTag.Size + fieldLength.Size + fieldLength.Value;
+
+                            }
+                            finally
+                            {
+                                stream.Position = originalPosition;
+                            }
+                        }
+                    }
+
                     // will the next iteration be the last field in the sequence ?
                     if ((i + 1) == (fields.Length - 1))
                     {
@@ -318,7 +367,7 @@ namespace org.bn.coders
 
                         if (isAny == true)
                         {
-                            // if we're dealing with an explicitly marked field, it somewhat the ANY handling
+                            // if we're dealing with an explicitly marked field, it somewhat negates ANY handling
                             if ((info.PreparedInfo != null) && (info.PreparedInfo.ASN1ElementInfo != null) && (info.PreparedInfo.ASN1ElementInfo.IsImplicitTag == false))
                             {
                                 isAny = false;                                
@@ -326,12 +375,7 @@ namespace org.bn.coders
                         }
                     }
 
-                    if (maxSeqLen != -1)
-                    {
-                        elementInfo.MaxAvailableLen = (maxSeqLen - sizeOfSequence);
-                    }                
-
-                    if(!isAny)
+                    if (isAny == false)
 					{
                         if (i < fields.Length - 1)
                         {
