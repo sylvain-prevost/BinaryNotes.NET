@@ -18,6 +18,9 @@ using System;
 namespace org.bn
 {	
     public interface IDecoder {
+
+        bool ApplicationTagSmallestEncodingSizeRuleRelaxed { set; get; }
+
         T decode<T>(System.IO.Stream stream);
     }
 }

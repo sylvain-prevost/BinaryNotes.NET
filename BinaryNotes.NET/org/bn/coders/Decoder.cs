@@ -26,6 +26,8 @@ namespace org.bn.coders
 {	
 	public abstract class Decoder : IASN1TypesDecoder, IDecoder
 	{		
+        public bool ApplicationTagSmallestEncodingSizeRuleRelaxed { set; get; }
+
         public virtual T decode<T>(Stream stream) {
             Type objectClass = typeof(T);
 

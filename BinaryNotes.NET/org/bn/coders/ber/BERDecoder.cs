@@ -63,6 +63,15 @@ namespace org.bn.coders.ber
                 }
             }
 
+            if (this.ApplicationTagSmallestEncodingSizeRuleRelaxed == true)
+            {
+                if ((len == 2) && (result >= 0x5F01) && (result <= 0x5F1E))
+                {
+                    // This is an invalid encoding of application tag, however since it appears in some MRTD objects, we enable rule 'bending'.
+                    result = TagClasses.Application + (byte)(result);
+                }
+            }
+
             return new DecodedObject<object>(result, len);
         }
 
