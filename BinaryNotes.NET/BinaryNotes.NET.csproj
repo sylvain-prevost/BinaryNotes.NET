@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.1;net40</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>BinaryNotes.NET.snk</AssemblyOriginatorKeyFile>
-    <Version>1.5.4.5</Version>
+    <Version>1.5.4.6</Version>
     <Authors>Sylvain Prevost, Abdulla G. Abdurakhmanov</Authors>
     <Company>none</Company>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
@@ -13,8 +13,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright></Copyright>
     <PackageId>BinaryNotes.NET</PackageId>
-    <AssemblyVersion>1.5.4.5</AssemblyVersion>
-    <FileVersion>1.5.4.5</FileVersion>
+    <AssemblyVersion>1.5.4.6</AssemblyVersion>
+    <FileVersion>1.5.4.6</FileVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Product>BinaryNotes.NET</Product>
     <Title>BinaryNotes.NET</Title>

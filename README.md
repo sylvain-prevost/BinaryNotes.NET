@@ -96,7 +96,7 @@ See [ePassportLibrary](https://github.com/sylvain-prevost/ePassportLibrary) for 
 <br>
 <br>
 
-## Included in 1.5.4.4
+## Included in 1.5.4.6
 
 <br>
 <br>
@@ -105,7 +105,7 @@ See [ePassportLibrary](https://github.com/sylvain-prevost/ePassportLibrary) for 
 - Added encoding/decoding support for large asn.1 integer (size > 8 bytes).  
 - Enabled BER indefinite-length decoding.  
 - Added .NET assembly StrongName.  
-- Now targetting both .NET 4.0 & .NET Core 2.1.  
+- Now targetting both .NET 4.0 & .NET Standard 2.0 (i.e. it includes .NetCore >= 2.x).  
 - Added 'SET OF ANY' support when present within sequence.  
 - Added missing EXPLICIT keyword support.  
 - Added support of ANY field type regardless of position in sequence.  
@@ -125,7 +125,7 @@ See [ePassportLibrary](https://github.com/sylvain-prevost/ePassportLibrary) for 
 <br>
 
 ### Note(s)
-- .NET Framework 4.0 or .NET Core 2.1 are the minimum version required (for BigInteger support).  
+- .NET Framework 4.0 or .NET Standard 2.0 are the minimum version required.  
 
 
 <br>
