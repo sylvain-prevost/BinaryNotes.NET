@@ -98,7 +98,7 @@ See [ePassportLibrary](https://github.com/sylvain-prevost/ePassportLibrary) for 
 <br>
 <br>
 
-## Included in 1.5.4.6
+## Included in 1.5.4.7
 
 <br>
 <br>

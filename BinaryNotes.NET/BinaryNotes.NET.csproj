@@ -4,24 +4,39 @@
     <TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>BinaryNotes.NET.snk</AssemblyOriginatorKeyFile>
-    <Version>1.5.4.6</Version>
+    <Version>1.5.4.7</Version>
     <Authors>Sylvain Prevost, Abdulla G. Abdurakhmanov</Authors>
     <Company>none</Company>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/sylvain-prevost/BinaryNotes.NET</PackageProjectUrl>
+    <RepositoryType>Github</RepositoryType>
     <RepositoryUrl>https://github.com/sylvain-prevost/BinaryNotes.NET</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright></Copyright>
     <PackageId>BinaryNotes.NET</PackageId>
-    <AssemblyVersion>1.5.4.6</AssemblyVersion>
-    <FileVersion>1.5.4.6</FileVersion>
+    <AssemblyVersion>1.5.4.7</AssemblyVersion>
+    <FileVersion>1.5.4.7</FileVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Product>BinaryNotes.NET</Product>
     <Title>BinaryNotes.NET</Title>
     <PackageReleaseNotes>cf project on github (https://github.com/sylvain-prevost/BinaryNotes.NET)</PackageReleaseNotes>
     <Description>Library enabling easy parsing/manipulation/encoding of ASN.1 buffers via C# classes auto-generated from ASN.1 definition (using BinaryNotes compiler v1.5.3).</Description>
-    <PackageTags>ASN1, CMS, C#</PackageTags>
+    <PackageTags>asn asn.1 C# ber der encoder decoder compiler</PackageTags>
     <RootNamespace>org.bn</RootNamespace>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
 
 </Project>
